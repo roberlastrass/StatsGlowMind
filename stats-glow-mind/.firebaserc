@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "statsglowmindtfg": {
+      "hosting": {
+        "stats-glow-mind": [
+          "statsglowmindtfg"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "statsglowmindtfg"
+  }
+}
