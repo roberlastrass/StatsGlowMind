@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
@@ -32,7 +34,21 @@ export class LoginComponent implements OnInit {
         console.log(response);
         this.router.navigate(['/main']);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error),
+        this.toastr.error('Alguno de los datos es incorrecto.', 'Usuario incorrecto:', {
+          toastClass: 'notification-container',
+        });
+      });
+  }
+
+  onClick() {
+    this.userService.loginGoogle()
+      .then(response => {
+        console.log(response);
+        this.router.navigate(['/main']);
+      })
+      .catch(error => console.log(error))
   }
 
 }
