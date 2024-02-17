@@ -1,16 +1,27 @@
-<h2>Registro de usuario</h2>
-<form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label class="form-label">Nombre de Usuario: </label>
-        <input type="text" class="form-control" formControlName="username">
+<div class="wrapper">
+    <div class="body">
+        <img class="register_icon" src="../assets/images/icons/register.png" alt="Login">
+        <h1>Registro de usuario</h1>
+        <form class="form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Nombre de Usuario: </label>
+                <input type="text" class="form-control" formControlName="username">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email: </label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña: </label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Repitir Contraseña: </label>
+                <input type="password" class="form-control" formControlName="repeatPassword">
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+        <p></p>
+        <button class="btn btn-info" (click)="onClick()"><img class="google_icon" src="../assets/images/icons/google.png" alt="Login Google">Register With Google</button>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Email: </label>
-        <input type="text" class="form-control" formControlName="email">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Password: </label>
-        <input type="password" class="form-control" formControlName="password">
-    </div>
-    <input type="submit" value="Enviar">
-</form>
+</div>

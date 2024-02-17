@@ -1,6 +1,8 @@
-<div>
-    <button (click)="redirectToRegister()">Registrarte</button>
-    <button (click)="redirectToLogin()">Inicia sesión</button>
-    <button (click)="onClick()">Cerrar sesión</button>
+<div class="header">
+  <img class="title" src="../assets/images/logo/statsGlowMind_azul.png" alt="Logo" (click)="redirectToMain()">
+  <div class="buttons">
+    <img class="login_icon" src="../assets/images/icons/login.png" alt="Login" (click)="redirectToLogin()">
+    <img class="logout_icon" src="../assets/images/icons/logout.png" alt="Logout" (click)="onClick()">
+  </div>
 </div>
 <router-outlet></router-outlet>
