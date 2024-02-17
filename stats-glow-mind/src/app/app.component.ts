@@ -16,8 +16,8 @@ export class AppComponent {
   ) {}
 
   // Método para redirigir a '/register' y ocultar el botón
-  redirectToRegister() {
-    this.router.navigate(['/register']);
+  redirectToMain() {
+    this.router.navigate(['/main']);
   }
 
   // Método para redirigir a '/login' y ocultar el botón
@@ -29,7 +29,7 @@ export class AppComponent {
   onClick() {
     this.userService.logout()
       .then(() => {
-        this.router.navigate(['']);
+        this.router.navigate(['/main']);
       })
       .catch(error => console.log(error));
   }
