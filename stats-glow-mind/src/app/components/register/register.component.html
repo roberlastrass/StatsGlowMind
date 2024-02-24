@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="body">
+    <div class="box-form">
         <img class="register_icon" src="../assets/images/icons/register.png" alt="Login">
         <h1>Registro de usuario</h1>
         <form class="form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
@@ -16,12 +16,12 @@
                 <input type="password" class="form-control" formControlName="password">
             </div>
             <div class="mb-3">
-                <label class="form-label">Repitir Contraseña: </label>
+                <label class="form-label">Repetir Contraseña: </label>
                 <input type="password" class="form-control" formControlName="repeatPassword">
             </div>
-            <input type="submit" value="Enviar">
+            <input class="enviar" type="submit" value="Enviar">
         </form>
         <p></p>
-        <button class="btn btn-info" (click)="onClick()"><img class="google_icon" src="../assets/images/icons/google.png" alt="Login Google">Register With Google</button>
+        <button class="google-btn" (click)="onClick()"><img class="google_icon" src="../assets/images/icons/google.png" alt="Login Google">Register With Google</button>
     </div>
 </div>

@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos generales */
 html, body {
     height: 100%;
 }
@@ -7,7 +7,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 105%;
+    height: auto;
     background-color: #f5f5f5;
 }
 
@@ -15,15 +15,16 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0.8%;
     background-color: #002649;
+    color: white;
 }
 
-.body {
-    width: 100%;
-    max-width: 400px;
-    margin: 10px;
-    padding: 15px;
+.box-form {
+    max-width: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 1.5%;
     text-align: center;
     border: 1px solid #ccc; /* Añade un borde para resaltar el formulario */
     border-radius: 10px; /* Bordes redondeados */
@@ -35,65 +36,29 @@ html, body {
     margin-bottom: 15%;
 }
 
-.logo {
-    cursor: pointer;
-    height: 100px;
-    margin: 5px;
-}
-
+/* Estilos logo app */
 .title {
     cursor: pointer;
-    height: 60px;
-    margin-left: 10px;
-}
-
-.buttons {
-    display: flex;
-    gap: 10px; /* Espaciado entre los botones */
-    align-items: center;
-    justify-content: center;
-}
-
-.login_icon {
-    width: 40px; /* Ajusta este valor según tus necesidades */
+    max-width: 20%;
     height: auto;
-    margin-right: 20px;
-    transition: transform 0.3s ease;
+    margin-left: 0.2%;
 }
 
-.register_icon {
-    width: 100px; /* Ajusta este valor según tus necesidades */
-    height: auto;
-    margin-right: 20px;
-    transition: transform 0.3s ease;
-}
-
-.logout_icon {
-    width: 35px; /* Ajusta este valor según tus necesidades */
-    height: 30px;
-    margin-right: 20px;
-    transition: transform 0.3s ease;
-}
-
+/* Estilos botón de Google */
 .google_icon {
-    width: 30px; /* Ajusta este valor según tus necesidades */
-    height: auto;
-    margin-right: 20px;
+    width: 15%;
+    height: 10%;
+    margin-right: 8%;
     transition: transform 0.3s ease;
 }
-
-.login_icon:hover,
-.logout_icon:hover {
-    transform: scale(1.1); /* Escala la imagen al 110% en hover */
-    cursor: pointer; /* Cambia el cursor al estilo de un enlace */
+.google-btn {
+    font-size: 18px;
+    width: 65%;
+    background-color: white;
+    border: 1px solid #002649;
+    padding: 2%;
 }
-
-.btn.btn-info {
-    background-color: white; /* Cambia el color de fondo a gris */
-    border-color: #002649;
-}
-
-.btn.btn-info:hover {
+.google-btn:hover {
     background-color: #ebebeb;
     border-color: #002649;
 }
@@ -104,11 +69,121 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px; /* Ajusta el ancho según tus necesidades */
-    padding: 20px;
-    background-color: #002649; /* Color de fondo del contenedor */
-    color: white; /* Color del texto */
+    width: 25%;
+    padding: 1%;
+    background-color: #002649;
+    color: white;
     border-radius: 10px; /* Borde redondeado */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
     z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Estilos imagen register */
+.register_icon {
+    width: 25%;
+    height: auto;
+}
+
+/* Estilos para los botones del header de login y logout */
+.buttons {
+    max-width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.login_icon {
+    max-width: 50%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.logout_icon {
+    max-width: 50%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.login_icon:hover,
+.logout_icon:hover {
+    transform: scale(1.1); /* Escala la imagen al 110% en hover */
+    cursor: pointer; /* Cambia el cursor al estilo de un enlace */
+}
+.button_login,
+.button_logout {
+    position: relative;
+}
+.tooltip {
+    position: absolute;
+    left: 25%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5%;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.button_login:hover .tooltip,
+.button_logout:hover .tooltip {
+    opacity: 1;
+}
+
+/* Estilos para los botones del menu del header */
+.button_menu {
+    margin-right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Zen Dots', sans-serif;
+    transition: transform 0.3s ease;
+}
+.button_menu:hover {
+    border: 1px solid white;
+    border-radius: 5px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 1000px) {
+    .google-btn {
+        font-size: 14px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    }
+    .button_menu {
+        font-size: 10px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    }
+}
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    .google-btn {
+        font-size: 10px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    }
+    .button_menu {
+        font-size: 6px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    }
+}
+
+/* Estilos Main */
+.main {
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    padding: 5%;
+}
+.basket_icon {
+    padding: 5%;
+    width: 60%;
+    height: auto;
+    margin-right: 1%;
+    transition: transform 0.3s ease;
+}
+.basket_icon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.image-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* Ajusta según tus necesidades */
 }
