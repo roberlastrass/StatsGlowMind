@@ -1,6 +1,25 @@
-
+<div class="user">
+    <button class="user-btn">{{ userName }}</button>
+</div>
 <div class="wrapper">
-    <div>
-        <h2>Bienvenido, {{ userName }}</h2>
+    <div class="main">
+        <div class="image-container">
+            <button routerLink="/stats">
+                <img class="basket_icon" src="../assets/images/icons/basketball.png" alt="Basketball">
+                <br>DATOS NBA
+            </button>
+            <button>
+                <img class="basket_icon" src="../assets/images/icons/data_basket.png" alt="Data Basketball">
+                <br>DATOS EQUIPOS
+            </button>
+            <button>
+                <img class="basket_icon" src="../assets/images/icons/stats.png" alt="Stats">
+                <br>ESTADÍSTICAS
+            </button>
+            <button>
+                <img class="basket_icon" src="../assets/images/icons/predicts.png" alt="Predicts">
+                <br>PREDICCIONES
+            </button>
+        </div>
     </div>
 </div>

@@ -10,6 +10,9 @@ import { UserService } from './services/user.service';
 
 export class AppComponent {
 
+  showingDescription = false;
+  text: string = '';
+
   constructor(
     private router: Router,
     private userService: UserService
@@ -21,7 +24,9 @@ export class AppComponent {
   }
 
   // Método para redirigir a '/login' y ocultar el botón
-  redirectToLogin() {
+  redirectToLogin(text: string) {
+    this.showingDescription = true;
+    this.text = text;
     this.router.navigate(['/login']);
   }
 
@@ -29,9 +34,15 @@ export class AppComponent {
   onClick() {
     this.userService.logout()
       .then(() => {
-        this.router.navigate(['/main']);
+        this.router.navigate(['']);
       })
       .catch(error => console.log(error));
+  }
+
+  // Muestra un texto al seleccionar un botón
+  showDescription(description: string): void {
+    this.showingDescription = true;
+    this.text = description;
   }
 
 }

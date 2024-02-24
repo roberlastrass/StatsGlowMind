@@ -48,7 +48,7 @@ export class UserService {
   // Método obtener nombre del usuario
   getUserName(): string | null {
     const user = this.auth.currentUser;
-    return user ? (user.displayName || 'Usuario invitado') : 'Usuario invitado';
+    return user ? (user.displayName || "Usuario Invitado") : "Usuario Invitado";
   }
 
 }

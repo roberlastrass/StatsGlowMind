@@ -1,0 +1,68 @@
+<div class="standings">
+    <div class="conference-table">
+        <h2>Conferencia Este</h2>
+        <table>
+            <thead>
+              <tr>
+                <th>Nº</th>
+                <th>Logo</th>
+                <th>Equipo</th>
+                <th>Win</th>
+                <th>Loss</th>
+                <th>Win %</th>
+                <th>Home</th>
+                <th>Away</th>
+                <th>Last 10</th>
+                <th>Streak</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let team of eastStandings">
+                <td>{{ team.conference.rank }}</td>
+                <td><img [src]="team.team.logo"></td>
+                <td class="team">{{ team.team.name }}</td>
+                <td>{{ team.conference.win }}</td>
+                <td>{{ team.conference.loss }}</td>
+                <td>{{ team.win.percentage }}</td>
+                <td>{{ team.win.home }}-{{ team.loss.home }}</td>
+                <td>{{ team.win.away }}-{{ team.loss.away }}</td>
+                <td>{{ team.win.lastTen }}-{{ team.loss.lastTen }}</td>
+                <td>{{ team.streak }}</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="conference-table">
+      <h2>Conferencia Oeste</h2>
+        <table>
+            <thead>
+              <tr>
+                <th>Nº</th>
+                <th>Logo</th>
+                <th>Equipo</th>
+                <th>Win</th>
+                <th>Loss</th>
+                <th>Win %</th>
+                <th>Home</th>
+                <th>Away</th>
+                <th>Last 10</th>
+                <th>Streak</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let team of westStandings">
+                <td>{{ team.conference.rank }}</td>
+                <td><img [src]="team.team.logo"></td>
+                <td class="team">{{ team.team.name }}</td>
+                <td>{{ team.conference.win }}</td>
+                <td>{{ team.conference.loss }}</td>
+                <td>{{ team.win.percentage }}</td>
+                <td>{{ team.win.home }}-{{ team.loss.home }}</td>
+                <td>{{ team.win.away }}-{{ team.loss.away }}</td>
+                <td>{{ team.win.lastTen }}-{{ team.loss.lastTen }}</td>
+                <td>{{ team.streak }}</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

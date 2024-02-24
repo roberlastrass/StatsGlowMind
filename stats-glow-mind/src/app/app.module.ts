@@ -12,13 +12,18 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { StatsComponent } from './components/stats/stats.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StandingsComponent } from './components/stats/standings/standings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    StatsComponent,
+    StandingsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    HttpClientModule
   ],
   providers: [
     UserService
