@@ -1,8 +1,21 @@
 <div class="header">
   <img class="title" src="../assets/images/logo/statsGlowMind_azul.png" alt="Logo" (click)="redirectToMain()">
+  <div class="menu">
+    <button class="button_menu" routerLink="/stats">Estadísticas</button>
+    <button class="button_menu" routerLink="/stats/standings">Clasificación</button>
+    <button class="button_menu" routerLink="/stats">Jugadores</button>
+    <button class="button_menu" routerLink="/stats">Equipos</button>
+    <button class="button_menu" routerLink="/stats">Líderes</button>
+  </div>
   <div class="buttons">
-    <img class="login_icon" src="../assets/images/icons/login.png" alt="Login" (click)="redirectToLogin()">
-    <img class="logout_icon" src="../assets/images/icons/logout.png" alt="Logout" (click)="onClick()">
+    <div class="button_login">
+      <img class="login_icon" src="../assets/images/icons/login.png" alt="Login" (click)="redirectToLogin('Iniciar sesión')">
+      <div class="tooltip">Iniciar Sesión</div>
+    </div>
+    <div class="button_logout">
+      <img class="logout_icon" src="../assets/images/icons/logout.png" alt="Logout" (click)="onClick()">
+      <div class="tooltip">Cerrar Sesión</div>
+    </div>
   </div>
 </div>
 <router-outlet></router-outlet>
