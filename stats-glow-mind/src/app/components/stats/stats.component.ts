@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StatsService } from '../../services/stats.service';
 
 @Component({
@@ -8,10 +9,19 @@ import { StatsService } from '../../services/stats.service';
 })
 export class StatsComponent implements OnInit {
 
-  constructor(private statsService: StatsService) { 
+  activeComponent: string = 'standings';
+
+  constructor(
+    private router: Router,
+    private statsService: StatsService
+    ) { 
   }
 
   ngOnInit(): void {
+  }
+
+  showComponent(component: string) {
+    this.activeComponent = component;
   }
 
 }

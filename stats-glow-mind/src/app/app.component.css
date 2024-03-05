@@ -1,7 +1,66 @@
-p {
+/* Estilos logo app */
+.title {
+    cursor: pointer;
     max-width: 20%;
+    height: auto;
+    margin-left: 0.2%;
+}
+
+/* Estilos para los botones del header de login y logout */
+.buttons {
+    max-width: 20%;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+}
+.login_icon {
+    max-width: 50%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.logout_icon {
+    max-width: 50%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.login_icon:hover,
+.logout_icon:hover {
+    transform: scale(1.1); /* Escala la imagen al 110% en hover */
+    cursor: pointer;
+}
+.button_login,
+.button_logout {
+    position: relative;
+}
+
+/* Estilos para los botones del menu del header */
+.button_menu {
+    margin-right: 15px;
+    background: none;
+    border: none;
     color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Zen Dots', sans-serif;
+    transition: transform 0.3s ease;
+}
+.button_menu:hover {
+    border: 1px solid white;
+    border-radius: 5px;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Media query para pantallas 1000px */
+@media only screen and (max-width: 1000px) {
+    .button_menu {
+        font-size: 10px;
+    }
+}
+/* Media query para pantallas 600px */
+@media only screen and (max-width: 600px) {
+    .button_menu {
+        font-size: 6px;
+    }
 }
