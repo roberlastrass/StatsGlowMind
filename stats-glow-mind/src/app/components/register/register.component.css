@@ -1,27 +1,25 @@
+/* Estilos Register */
 h1 {
     color: #002649;
     font-size: 35px;
 }
-
 label {
     font-size: 18px;
 }
-
 input {
     font-size: 18px;
 }
-
 .enviar {
     font-size: 18px;
 }
 
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas 1000px */
 @media only screen and (max-width: 1000px) {
     h1 {
         font-size: 25px;
     }
     label {
-        font-size: 14px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 14px;
     }
     input {
         font-size: 14px;
@@ -30,13 +28,13 @@ input {
         font-size: 14px;
     }
 }
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
     h1 {
         font-size: 15px;
     }
     label {
-        font-size: 10px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 10px;
     }
     input {
         font-size: 10px;

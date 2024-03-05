@@ -27,7 +27,7 @@
                 <td>{{ team.win.home }}-{{ team.loss.home }}</td>
                 <td>{{ team.win.away }}-{{ team.loss.away }}</td>
                 <td>{{ team.win.lastTen }}-{{ team.loss.lastTen }}</td>
-                <td>{{ team.streak }}</td>
+                <td>{{ team.winStreak ? 'W' : 'L' }} {{ team.streak }}</td>
               </tr>
             </tbody>
         </table>
@@ -60,7 +60,7 @@
                 <td>{{ team.win.home }}-{{ team.loss.home }}</td>
                 <td>{{ team.win.away }}-{{ team.loss.away }}</td>
                 <td>{{ team.win.lastTen }}-{{ team.loss.lastTen }}</td>
-                <td>{{ team.streak }}</td>
+                <td>{{ team.winStreak ? 'W' : 'L' }} {{ team.streak }}</td>
               </tr>
             </tbody>
         </table>

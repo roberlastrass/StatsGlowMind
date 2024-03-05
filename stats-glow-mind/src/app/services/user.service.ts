@@ -7,7 +7,9 @@ import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendE
 
 export class UserService {
 
-  constructor(private auth: Auth) { }
+  constructor(
+    private auth: Auth
+    ) { }
 
   // Método registrar un usuario
   register({ username, email, password }: any) {
@@ -23,7 +25,7 @@ export class UserService {
   login({email, password}: any) {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
-
+  // Método iniciar sesión de un usuario con Google
   loginGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider());
   }
