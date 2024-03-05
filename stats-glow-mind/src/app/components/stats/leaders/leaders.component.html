@@ -1,0 +1,33 @@
+<div class="leaders">
+  <div class="conference-table">
+    <h2>Líderes de la NBA en Puntos por Partido</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th class="player">Jugador</th>
+          <th>Equipo</th>
+          <th>GP</th>
+          <th>MIN</th>
+          <th>PTS</th>
+          <th>FG%</th>
+          <th>3P%</th>
+          <th>FT%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of players">
+          <td>{{ player[1] }}</td>
+          <td class="player">{{ player[2] }}</td>
+          <td>{{ player[4] }}</td>
+          <td>{{ player[5] }}</td>
+          <td>{{ player[6] }}</td>
+          <td>{{ player[23] }}</td>
+          <td>{{ player[9] * 100 | number:'1.2-2' }}</td>
+          <td>{{ player[12] * 100 | number:'1.2-2' }}</td>
+          <td>{{ player[15] * 100 | number:'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

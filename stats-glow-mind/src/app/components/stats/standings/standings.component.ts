@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Team } from '../team.model';
+import { Team } from '../../../models/team.model';
 import { StatsService } from '../../../services/stats.service';
 
 @Component({
-  selector: 'app-standings',
+  selector: 'stats-standings',
   templateUrl: './standings.component.html',
   styleUrl: './standings.component.css'
 })

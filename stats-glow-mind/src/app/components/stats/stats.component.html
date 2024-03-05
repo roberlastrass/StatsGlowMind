@@ -1,1 +1,23 @@
-<p>Stats</p>
+<div class="wrapper">
+    <div class="stats-container">
+        <button (click)="showComponent('standings')" routerLink="/stats/standings" routerLinkActive="active">
+            <img class="stats_icon" src="../assets/images/icons/podium.png" alt="Clasificación">
+            CLASIFICACIÓN
+        </button>
+        <button routerLink="/stats/playoffs" routerLinkActive="active">
+            <img class="stats_icon" src="../assets/images/icons/play.png" alt="Playoffs">
+            PLAYOFFS
+        </button>
+        <button routerLink="/stats/games" routerLinkActive="active">
+            <img class="stats_icon" src="../assets/images/icons/game.png" alt="Partidos">
+            PARTIDOS
+        </button>
+        <button (click)="showComponent('leaders')" routerLink="/stats/leaders" routerLinkActive="active">
+            <img class="stats_icon" src="../assets/images/icons/star.png" alt="Lideres">
+            LÍDERES
+        </button>
+    </div>
+</div>
+
+<stats-standings *ngIf="activeComponent === 'standings'"></stats-standings>
+<stats-leaders *ngIf="activeComponent === 'leaders'"></stats-leaders>

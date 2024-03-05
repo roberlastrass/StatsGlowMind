@@ -1,0 +1,30 @@
+.stats-container {
+    padding: 2.5%;
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.stats_icon {
+    margin-right: 5%;
+}
+
+button {
+    width: 20%;
+    font-size: 14px;
+    color: #002649;
+    background-color: white;
+    font-family: 'Zen Dots', sans-serif;
+}
+
+button:hover {
+    color: white;
+    background-color: #002649;
+}
+
+.stats-container button.active {
+    background-color: #002649;
+    color: white;
+}

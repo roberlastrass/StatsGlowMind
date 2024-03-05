@@ -2,7 +2,6 @@
 html, body {
     height: 100%;
 }
-
 .wrapper {
     display: flex;
     align-items: center;
@@ -10,7 +9,6 @@ html, body {
     height: auto;
     background-color: #f5f5f5;
 }
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -20,28 +18,20 @@ html, body {
     color: white;
 }
 
+/* Estilos Formulario */
 .box-form {
     max-width: 30%;
     margin-top: 5%;
     margin-bottom: 5%;
     padding: 1.5%;
     text-align: center;
-    border: 1px solid #ccc; /* Añade un borde para resaltar el formulario */
+    border: 1px solid #ccc;
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
-
 .form {
     margin-top: 15%;
     margin-bottom: 15%;
-}
-
-/* Estilos logo app */
-.title {
-    cursor: pointer;
-    max-width: 20%;
-    height: auto;
-    margin-left: 0.2%;
 }
 
 /* Estilos botón de Google */
@@ -75,7 +65,7 @@ html, body {
     color: white;
     border-radius: 10px; /* Borde redondeado */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    z-index: 1000;
 }
 
 /* Estilos imagen register */
@@ -84,33 +74,7 @@ html, body {
     height: auto;
 }
 
-/* Estilos para los botones del header de login y logout */
-.buttons {
-    max-width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-.login_icon {
-    max-width: 50%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-.logout_icon {
-    max-width: 50%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-.login_icon:hover,
-.logout_icon:hover {
-    transform: scale(1.1); /* Escala la imagen al 110% en hover */
-    cursor: pointer; /* Cambia el cursor al estilo de un enlace */
-}
-.button_login,
-.button_logout {
-    position: relative;
-}
+/* Estilos Tooltip */
 .tooltip {
     position: absolute;
     left: 25%;
@@ -127,63 +91,17 @@ html, body {
     opacity: 1;
 }
 
-/* Estilos para los botones del menu del header */
-.button_menu {
-    margin-right: 15px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    font-family: 'Zen Dots', sans-serif;
-    transition: transform 0.3s ease;
-}
-.button_menu:hover {
-    border: 1px solid white;
-    border-radius: 5px;
-    transform: scale(1.1);
-    cursor: pointer;
-}
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas 1000px */
 @media only screen and (max-width: 1000px) {
     .google-btn {
-        font-size: 14px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
-    }
-    .button_menu {
-        font-size: 10px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 14px;
     }
 }
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas @media only screen and (max-width: 600px) {
+ */
 @media only screen and (max-width: 600px) {
     .google-btn {
-        font-size: 10px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
-    }
-    .button_menu {
-        font-size: 6px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 10px;
     }
 }
 
-/* Estilos Main */
-.main {
-    width: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    text-align: center;
-    padding: 5%;
-}
-.basket_icon {
-    padding: 5%;
-    width: 60%;
-    height: auto;
-    margin-right: 1%;
-    transition: transform 0.3s ease;
-}
-.basket_icon:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-.image-container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between; /* Ajusta según tus necesidades */
-}
