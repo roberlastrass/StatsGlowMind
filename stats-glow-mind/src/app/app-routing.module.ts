@@ -6,6 +6,7 @@ import { MainComponent } from './components/main/main.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { StatsComponent } from './components/stats/stats.component';
 import { StandingsComponent } from './components/stats/standings/standings.component';
+import { LeadersComponent } from './components/stats/leaders/leaders.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -18,10 +19,15 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'stats', component: StatsComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
-  { path: 'stats/standings', component: StandingsComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
-  { path: '**', redirectTo: 'main', pathMatch: 'full' }
+    children: [
+      { path: 'standings', component: StandingsComponent },
+      //{ path: 'playoffs', component: PlayoffsComponent },
+      //{ path: 'games', component: GamesComponent },
+      { path: 'leaders', component: LeadersComponent },
+      { path: '', redirectTo: 'standings', pathMatch: 'full' },
+    ] 
+  },
+  { path: '**', redirectTo: 'main', pathMatch: 'full' },
 ];
 
 @NgModule({

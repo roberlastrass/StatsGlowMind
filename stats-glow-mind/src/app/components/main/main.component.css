@@ -1,18 +1,26 @@
-.user {
-    text-align: right;
-    justify-content: center;
+/* Estilos Main */
+.main {
+    width: 100%;
+    margin-bottom: 5%;
+    text-align: center;
+    padding: 5%;
+}
+.basket_icon {
+    padding: 5%;
+    width: 60%;
     height: auto;
-    background-color: #f5f5f5;
-}
-
-.user-btn {
-    width: 10%;
     margin-right: 1%;
-    font-size: 12px;
-    color: #002649;
-    font-family: 'Zen Dots', sans-serif;
+    transition: transform 0.3s ease;
 }
-
+.basket_icon:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.main-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 button {
     width: 20%;
     font-size: 22px;
@@ -21,26 +29,62 @@ button {
     font-family: 'Zen Dots', sans-serif;
 }
 
-/* Media query para pantallas pequeñas */
+/* Estilos Nombre Usuario */
+.user {
+    text-align: right;
+    justify-content: center;
+    height: auto;
+    background-color: #f5f5f5;
+}
+.user-btn {
+    width: 10%;
+    margin-right: 1%;
+    font-size: 12px;
+    color: #002649;
+    font-family: 'Zen Dots', sans-serif;
+}
+
+/* Estilos Descripción */
+.description {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+}
+.logo {
+    width: 8%;
+    height: auto;
+}
+.name {
+    font-family: 'Zen Dots', sans-serif;
+}
+
+/* Media query para pantallas 1200px */
 @media only screen and (max-width: 1200px) {
     button {
-        font-size: 20px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 20px;
     }
 }
+/* Media query para pantallas 1000px */
 @media only screen and (max-width: 1000px) {
+    p{
+        font-size: 12px;
+    }
     button {
-        font-size: 16px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 16px;
     }
 }
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas 800px */
 @media only screen and (max-width: 800px) {
     button {
-        font-size: 12px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 12px;
     }
 }
-/* Media query para pantallas pequeñas */
+/* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
+    p{
+        font-size: 8px;
+    }
     button {
-        font-size: 10px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
+        font-size: 10px;
     }
 }
