@@ -1,0 +1,11 @@
+<div class="users">
+    <div class="user" *ngFor="let user of users">
+        <div class="info">
+            <h4>{{user.displayName}}</h4>
+            <p>{{user.uid}}</p>
+            <p>{{user.email}}</p>
+            <p>{{user.rol}}</p>
+            <button class="btn btn-outline-danger" (click)="onClickDelete(user.uid)">Borrar</button>
+        </div>
+    </div>
+</div>

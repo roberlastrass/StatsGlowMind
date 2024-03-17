@@ -7,6 +7,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { StatsComponent } from './components/stats/stats.component';
 import { StandingsComponent } from './components/stats/standings/standings.component';
 import { LeadersComponent } from './components/stats/leaders/leaders.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'stats', component: StatsComponent,
     children: [
       { path: 'standings', component: StandingsComponent },

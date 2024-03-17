@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrService,
-    private firestore: AngularFirestore
+    private toastr: ToastrService
   ) {
     this.formRegister = new FormGroup({
       username: new FormControl(),
@@ -48,14 +47,7 @@ export class RegisterComponent implements OnInit {
     this.userService.register(this.formRegister.value)
       .then(response => {
 
-        const registeredUser = response;
-
-        // Add the user data to Firestore
-        this.firestore.collection('users').doc(registeredUser.uid).set({
-          email: registeredUser.email,
-          usename: registeredUser.displayName,
-          rol: this.formRegister.value.rol
-        })
+        this.addDataUser(response);
 
         console.log(response);
         this.toastr.success('Usuario registrado exitosamente.', 'Éxito:', {
@@ -74,10 +66,24 @@ export class RegisterComponent implements OnInit {
   onClick() {
     this.userService.loginGoogle()
       .then(response => {
+        const responsiveUser = response.user;
+        this.addDataUser(responsiveUser);
         console.log(response);
         this.router.navigate(['/main']);
       })
       .catch(error => console.log(error))
+  }
+
+  // Metodo insertar datos de usuario
+  addDataUser(response: { uid: any; email: any; displayName: any; }){
+    const usuario: User = {
+      uid: response.uid,
+      email: response.email,
+      displayName: response.displayName,
+      rol: this.formRegister.value.rol
+    };
+    // Llama al nuevo método del servicio para agregar datos a la base de datos
+    this.userService.addUserDatabase(usuario);
   }
 
 }
