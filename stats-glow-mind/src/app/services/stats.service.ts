@@ -36,7 +36,7 @@ export class StatsService {
       .set('LeagueID', '00')
       .set('PerMode', 'PerGame')
       .set('Scope', 'S')
-      .set('Season', season) // Utiliza el parámetro proporcionado
+      .set('Season', season)
       .set('SeasonType', 'Regular Season')
       .set('StatCategory', 'PTS');
 

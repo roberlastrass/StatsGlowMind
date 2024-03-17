@@ -30,16 +30,40 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.userService.login(this.formLogin.value)
-      .then(response => {
-        console.log(response);
+    .then(response => {
+      console.log(response);
+      this.loginUser(); // Comprueba si el usuario existe en Firestore
+    })
+    .catch(error => {
+      console.log(error),
+      this.toastr.error('Alguno de los datos es incorrecto.', 'Usuario incorrecto:', {
+        toastClass: 'notification-container',
+      });
+    });
+  }
+
+  // Método que comprueba si el usuario existe en la base de datos e inicia sesión
+  loginUser(){
+    this.userService.loginWithUid()
+    .then(userExists => {
+      if (userExists) {
+        console.log('Usuario existe en la base de datos. Redirigiendo a /main.');
         this.router.navigate(['/main']);
-      })
-      .catch(error => {
-        console.log(error),
-        this.toastr.error('Alguno de los datos es incorrecto.', 'Usuario incorrecto:', {
+      } else {
+        console.log('Usuario no existe en la base de datos. Cerrando sesión.');
+        this.toastr.error('Usuario no existe en la base de datos.', 'Usuario incorrecto:', {
           toastClass: 'notification-container',
         });
+        this.userService.logout();
+        this.router.navigate(['/login']);
+      }
+    })
+    .catch(error => {
+      console.log(error),
+      this.toastr.error('Alguno de los datos es incorrecto.', 'Usuario incorrecto:', {
+        toastClass: 'notification-container',
       });
+    });
   }
 
   onClick() {

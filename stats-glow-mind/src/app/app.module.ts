@@ -15,7 +15,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { StatsComponent } from './components/stats/stats.component';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     RegisterComponent,
     LoginComponent,
     MainComponent,
-    StatsComponent
+    StatsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     provideAuth(() => getAuth()),
     HttpClientModule,
     StatsModule,
-    AngularFirestoreModule
+    provideFirestore(() => getFirestore())
   ],
   providers: [
     UserService
