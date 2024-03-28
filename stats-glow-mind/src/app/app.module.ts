@@ -17,6 +17,7 @@ import { MainComponent } from './components/main/main.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AdminComponent } from './components/admin/admin.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AdminComponent } from './components/admin/admin.component';
     provideFirestore(() => getFirestore())
   ],
   providers: [
-    UserService
+    UserService,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent],
 })
