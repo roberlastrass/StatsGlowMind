@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { MatDialog, MatDialogRef, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MAT_DIALOG_DATA, } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +14,8 @@ export class AdminComponent implements OnInit {
   users: User[];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    public dialog: MatDialog
   ) {
     this.users = [{
       uid: 'UIDdeUsuario',
@@ -28,8 +31,37 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  // Método que elimina un usuario de la Firestore
   async onClickDelete(userUID: string) {
     await this.userService.deleteUserFirestore(userUID);
   }
 
+  // Método que abre un dialogo qpara confirmar la eliminación de un usuario
+  openDialog(userName: string, userUID: string): void {
+    const dialogRef = this.dialog.open(DialogDeleteUser, {
+      data: { userName } // Pasa al dialogo el nombre del usuario
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El diálogo se cerró');
+      if (result === 'confirm') {
+        this.onClickDelete(userUID);
+      }
+    });
+  }
 }
+
+
+// Dialog Delete User
+@Component({
+  selector: 'dialog-delete-user',
+  templateUrl: 'dialog-delete-user.html',
+  standalone: true,
+  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+})
+export class DialogDeleteUser {
+  constructor(public dialogRef: MatDialogRef<DialogDeleteUser>,
+    @Inject(MAT_DIALOG_DATA) public data: { userName: string }
+  ) {}
+
+}
+

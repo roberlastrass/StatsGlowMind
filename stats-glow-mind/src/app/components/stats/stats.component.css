@@ -28,3 +28,20 @@ button:hover {
     background-color: #002649;
     color: white;
 }
+
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 1000px) {
+    button {
+        font-size: 10px;
+    }
+}
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    button {
+        font-size: 6px;
+    }
+    .stats_icon {
+        width: 30%;
+    }
+    
+}

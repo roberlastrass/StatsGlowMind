@@ -3,14 +3,11 @@ h1 {
     color: #002649;
     font-size: 35px;
 }
-label {
+mat-label, mat-form-field, .enviar, p {
     font-size: 18px;
 }
-p {
-    font-size: 18px;
-}
-.enviar {
-    font-size: 18px;
+mat-form-field {
+    width: 100%;
 }
 
 /* Media query para pantallas 1000px */
@@ -18,28 +15,16 @@ p {
     h1 {
         font-size: 25px;
     }
-    label {
-        font-size: 14px;
-    }
-    p {
-        font-size: 14px;
-    }
-    .enviar {
-        font-size: 14px;
+    mat-label, mat-form-field, .enviar, p {
+        font-size: 16px;
     }
 }
 /* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
     h1 {
-        font-size: 15px;
+        font-size: 18px;
     }
-    label {
-        font-size: 10px;
-    }
-    p {
-        font-size: 10px;
-    }
-    .enviar {
-        font-size: 10px;
+    mat-label, mat-form-field, .enviar, p {
+        font-size: 12px;
     }
 }

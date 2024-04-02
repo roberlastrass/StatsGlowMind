@@ -6,6 +6,7 @@ import { StatsService } from '../../services/stats.service';
 import { StatsComponent } from './stats.component';
 import { StandingsComponent } from './standings/standings.component';
 import { LeadersComponent } from './leaders/leaders.component';
+import { MaterialModule } from '../../material/material.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LeadersComponent } from './leaders/leaders.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MaterialModule
   ],
   exports: [
     StandingsComponent,

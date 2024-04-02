@@ -13,22 +13,50 @@
             </p>
         </div>
         <div class="main-container">
-            <button routerLink="/stats">
-                <img class="basket_icon" src="../assets/images/icons/basketball.png" alt="Basketball">
-                <br>DATOS NBA
-            </button>
-            <button>
-                <img class="basket_icon" src="../assets/images/icons/data_basket.png" alt="Data Basketball">
-                <br>ESTADÍSTICAS
-            </button>
-            <button>
-                <img class="basket_icon" src="../assets/images/icons/stats.png" alt="Stats">
-                <br>ANÁLISIS
-            </button>
-            <button>
-                <img class="basket_icon" src="../assets/images/icons/predicts.png" alt="Predicts">
-                <br>PREDICCIONES
-            </button>
+            <mat-card class="card" routerLink="/stats">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/basketball.png" alt="Basketball">
+                <mat-card-header>
+                    <mat-card-title>NBA</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p>
+                        Clasificación en cada conferencia, Playoffs, Partidos y Resultados y Líderes de la liga.
+                    </p>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="card">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/data_basket.png" alt="Data Basketball">
+                <mat-card-header>
+                    <mat-card-title>EQUIPOS</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p>
+                        Estadísticas de los equipos de la NBA y los jugadores de cada uno de los equipos.
+                    </p>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="card">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/stats.png" alt="Stats">
+                <mat-card-header>
+                    <mat-card-title>ANÁLISIS</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p>
+                        Análisis de las estadísticas de cada jugadore para calcular su rendimiento en distintos campos.
+                    </p>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="card">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/predicts.png" alt="Predicts">
+                <mat-card-header>
+                    <mat-card-title>PREDICCIONES</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p>
+                        Predicciones de los próximos partidos en base a las estadísticas de cada equipo en la temporada.
+                    </p>
+                </mat-card-content>
+            </mat-card>
         </div>
     </div>
 </div>
