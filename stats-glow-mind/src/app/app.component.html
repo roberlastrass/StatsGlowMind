@@ -1,21 +1,94 @@
-<div class="header">
+<div class="container-fluid">
   <img class="title" src="../assets/images/logo/statsGlowMind_azul.png" alt="Logo" (click)="redirectToMain()">
-  <div class="menu">
-    <button class="button_menu" routerLink="/stats">Estadísticas</button>
-    <button class="button_menu" routerLink="/stats">Clasificación</button>
-    <button class="button_menu" routerLink="/stats">Jugadores</button>
-    <button class="button_menu" routerLink="/stats">Equipos</button>
-    <button class="button_menu" routerLink="/stats">Líderes</button>
+  <div class="col-md-6 d-none d-md-block">
+    <div class="menu">
+      <button class="button_menu" [matMenuTriggerFor]="nba">NBA</button>
+      <button class="button_menu" [matMenuTriggerFor]="equipos">EQUIPOS</button>
+      <button class="button_menu" routerLink="/stats">ANÁLISIS</button>
+      <button class="button_menu" routerLink="/stats">PREDICCIONES</button>
+    </div>
   </div>
   <div class="buttons">
-    <div class="button_login">
+    <div class="button_login"#tooltip="matTooltip"
+          matTooltip="Iniciar Sesión"
+          [matTooltipPosition]="'below'"
+          matTooltipHideDelay="100"
+          aria-label="Button that displays a tooltip that hides when scrolled out of the container">
       <img class="login_icon" src="../assets/images/icons/login.png" alt="Login" (click)="redirectToLogin('Iniciar sesión')">
-      <div class="tooltip">Iniciar Sesión</div>
     </div>
-    <div class="button_logout">
+    <div class="button_logout" #tooltip="matTooltip"
+          matTooltip="Cerrar Sesión"
+          [matTooltipPosition]="'below'"
+          matTooltipHideDelay="100"
+          aria-label="Button that displays a tooltip that hides when scrolled out of the container">
       <img class="logout_icon" src="../assets/images/icons/logout.png" alt="Logout" (click)="onClick()">
-      <div class="tooltip">Cerrar Sesión</div>
     </div>
   </div>
 </div>
 <router-outlet></router-outlet>
+
+<!-- Menú NBA -->
+<mat-menu #nba="matMenu" color="accent">
+  <button mat-menu-item routerLink="/stats/standings">Clasificación</button>
+  <button mat-menu-item routerLink="/stats">Playoffs</button>
+  <button mat-menu-item routerLink="/stats">Partidos</button>
+  <button mat-menu-item routerLink="/stats/leaders">Líderes</button>
+</mat-menu>
+
+<!-- Menú Equipos -->
+<mat-menu #equipos="matMenu" color="accent">
+  <button mat-menu-item [matMenuTriggerFor]="east">Conferencia Este</button>
+  <button mat-menu-item [matMenuTriggerFor]="west">Conferencia Oeste</button>
+</mat-menu>
+<mat-menu #east="matMenu" color="accent">
+  <button mat-menu-item [matMenuTriggerFor]="atlantic">Atlántico</button>
+  <button mat-menu-item [matMenuTriggerFor]="central">Central</button>
+  <button mat-menu-item [matMenuTriggerFor]="southeast">Sureste</button>
+</mat-menu>
+<mat-menu #west="matMenu" color="accent">
+  <button mat-menu-item [matMenuTriggerFor]="northwest">Noroeste</button>
+  <button mat-menu-item [matMenuTriggerFor]="pacific">Pacífico</button>
+  <button mat-menu-item [matMenuTriggerFor]="southwest">Suroeste</button>
+</mat-menu>
+<mat-menu #atlantic="matMenu" color="accent">
+  <button mat-menu-item>Boston Celtics</button>
+  <button mat-menu-item>Brooklyn Nets</button>
+  <button mat-menu-item>New York Knicks</button>
+  <button mat-menu-item>Philadelphia 76ers</button>
+  <button mat-menu-item>Toronto Raptors</button>
+</mat-menu>
+<mat-menu #central="matMenu" color="accent">
+  <button mat-menu-item>Chicago Bulls</button>
+  <button mat-menu-item>Cleveland Cavaliers</button>
+  <button mat-menu-item>Detroit Pistons</button>
+  <button mat-menu-item>Indiana Pacers</button>
+  <button mat-menu-item>Milwaukee Bucks</button>
+</mat-menu>
+<mat-menu #southeast="matMenu" color="accent">
+  <button mat-menu-item>Atlanta Hawks</button>
+  <button mat-menu-item>Charlotte Hornets</button>
+  <button mat-menu-item>Miami Heat</button>
+  <button mat-menu-item>Orlando Magic</button>
+  <button mat-menu-item>Washington Wizards</button>
+</mat-menu>
+<mat-menu #northwest="matMenu" color="accent">
+  <button mat-menu-item>Denver Nuggets</button>
+  <button mat-menu-item>Minnesota Timberwolves</button>
+  <button mat-menu-item>Oklahoma City Thunder</button>
+  <button mat-menu-item>Portland Trail Blazers</button>
+  <button mat-menu-item>Utah Jazz</button>
+</mat-menu>
+<mat-menu #pacific="matMenu" color="accent">
+  <button mat-menu-item>Golden State Warriors</button>
+  <button mat-menu-item>LA Clippers</button>
+  <button mat-menu-item>Los Angeles Lakers</button>
+  <button mat-menu-item>Phoenix Suns</button>
+  <button mat-menu-item>Sacramento Kings</button>
+</mat-menu>
+<mat-menu #southwest="matMenu" color="accent">
+  <button mat-menu-item>Dallas Mavericks</button>
+  <button mat-menu-item>Houston Rockets</button>
+  <button mat-menu-item>Memphis Grizzlies</button>
+  <button mat-menu-item>New Orleans Pelicans</button>
+  <button mat-menu-item>San Antonio Spurs</button>
+</mat-menu>

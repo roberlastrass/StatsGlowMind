@@ -14,6 +14,7 @@ import { User } from '../../models/user.model';
 export class RegisterComponent implements OnInit {
 
   formRegister: FormGroup;
+  hide = true;
 
   constructor(
     private userService: UserService,
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Método para registrar un usuario y redirigir hacia /login
+  // Método para registrar un usuario
   onSubmit() {
     const password = this.formRegister.value.password;
     const repeatPassword = this.formRegister.value.repeatPassword;
@@ -53,7 +54,7 @@ export class RegisterComponent implements OnInit {
         this.toastr.success('Usuario registrado exitosamente.', 'Éxito:', {
           toastClass: 'notification-container',
         });
-        this.router.navigate(['/login']);
+        this.router.navigate(['/main']);
       })
       .catch(error => {
         this.toastr.success('Alguno de los datos no cumple las condiciones de registro.', 'Error:', {
@@ -63,6 +64,7 @@ export class RegisterComponent implements OnInit {
       });
   }
 
+  // Método para registrarse con la cuenta de Google 
   onClick() {
     this.userService.loginGoogle()
       .then(response => {
@@ -84,6 +86,12 @@ export class RegisterComponent implements OnInit {
     };
     // Llama al nuevo método del servicio para agregar datos a la base de datos
     this.userService.addUserDatabase(usuario);
+  }
+
+  // Muestra y oculta la contraseña
+  showPassword(event: Event): void {
+    event.preventDefault();
+    this.hide = !this.hide;
   }
 
 }

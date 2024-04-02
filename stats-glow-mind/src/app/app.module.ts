@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { StatsModule } from './components/stats/stats.module';
+import { MaterialModule } from './material/material.module';
+
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -38,7 +40,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     provideAuth(() => getAuth()),
     HttpClientModule,
     StatsModule,
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    MaterialModule
   ],
   providers: [
     UserService,

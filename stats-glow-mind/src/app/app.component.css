@@ -1,3 +1,13 @@
+/* Estilos header */
+.container-fluid{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8%;
+    background-color: #002649;
+    color: white;
+}
+
 /* Estilos logo app */
 .title {
     cursor: pointer;
@@ -35,6 +45,9 @@
 }
 
 /* Estilos para los botones del menu del header */
+.menu{
+    justify-content: left;
+}
 .button_menu {
     margin-right: 15px;
     background: none;
@@ -50,6 +63,10 @@
     border-radius: 5px;
     transform: scale(1.1);
     cursor: pointer;
+}
+
+mat-menu {
+    background-color: #002649;
 }
 
 /* Media query para pantallas 1000px */

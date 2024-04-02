@@ -4,31 +4,47 @@
         <h1>Registro de usuario</h1>
         <form class="form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label class="form-label">Nombre de Usuario: </label>
-                <input type="text" class="form-control" formControlName="username">
+                <mat-label class="form-label">Nombre de Usuario: </mat-label><br>
+                <mat-form-field>
+                    <input matInput class="form-control text-center" formControlName="username">
+                </mat-form-field>
             </div>
             <div class="mb-3">
-                <label class="form-label">Email: </label>
-                <input type="text" class="form-control" formControlName="email">
+                <mat-label class="form-label">Email: </mat-label><br>
+                <mat-form-field>
+                    <input type="email" matInput class="form-control text-center" formControlName="email" placeholder="Ex. StatsGlowMind@example.com">
+                </mat-form-field>
             </div>
             <div class="mb-3">
-                <label class="form-label">Contraseña: </label>
-                <input type="password" class="form-control" formControlName="password">
+                <mat-label class="form-label">Contraseña: </mat-label><br>
+                <mat-form-field>
+                    <input matInput [type]="hide ? 'password' : 'text'" class="form-control text-center" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="showPassword($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
             </div>
             <div class="mb-3">
-                <label class="form-label">Repetir Contraseña: </label>
-                <input type="password" class="form-control" formControlName="repeatPassword">
+                <mat-label class="form-label">Repetir Contraseña: </mat-label><br>
+                <mat-form-field>
+                    <input matInput [type]="hide ? 'password' : 'text'" class="form-control text-center" formControlName="repeatPassword">
+                    <button mat-icon-button matSuffix (click)="showPassword($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
             </div>
             <div class="mb-3">
-                <label for="rol">Rol de Usuario:</label>
-                <select formControlName="rol" id="rol">
-                    <option value="user">Usuario</option>
-                    <option value="admin">Administrador</option>
-                </select>
+                <mat-label for="rol">Rol de Usuario:</mat-label>
+                <mat-form-field class="select">
+                    <mat-select class="text-center" formControlName="rol" id="rol">
+                        <mat-option value="user">Usuario</mat-option>
+                        <mat-option value="admin">Administrador</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
-            <input class="enviar" type="submit" value="Enviar">
+            <button mat-raised-button color="primary" class="enviar" type="submit" value="Enviar">Enviar</button>
         </form>
-        <p></p>
+        <mat-divider></mat-divider><br><br>
         <button class="google-btn" (click)="onClick()"><img class="google_icon" src="../assets/images/icons/google.png" alt="Login Google">Register With Google</button>
     </div>
 </div>
