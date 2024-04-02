@@ -1,11 +1,21 @@
-<div class="users">
-    <div class="user" *ngFor="let user of users">
-        <div class="info">
-            <h4>{{user.displayName}}</h4>
-            <p>{{user.uid}}</p>
-            <p>{{user.email}}</p>
-            <p>{{user.rol}}</p>
-            <button class="btn btn-outline-danger" (click)="onClickDelete(user.uid)">Borrar</button>
+<div class="wrapper">
+    <div class="admin">
+        <div class="users-container" *ngFor="let user of users">
+            <mat-card class="card">
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar"></div>
+                    <mat-card-title>{{user.displayName}}</mat-card-title>
+                    <mat-card-subtitle>{{user.uid}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p><strong>Email: </strong> {{user.email}}</p>
+                    <p><strong>Rol: </strong> {{user.rol}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-flat-button color="primary">MODIFICAR</button>
+                    <button mat-flat-button color="accent" class="btn btn-outline-danger" (click)="user.displayName && openDialog(user.displayName, user.uid)">ELIMINAR</button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
 </div>
