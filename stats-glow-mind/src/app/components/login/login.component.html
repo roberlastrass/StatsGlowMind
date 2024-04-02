@@ -4,15 +4,23 @@
         <h1>Inicia sesión</h1>
         <form class="form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label class="form-label">Email:</label>
-                <input type="text" class="form-control" formControlName="email">
+                <mat-label class="form-label">Email:</mat-label><br>
+                <mat-form-field>
+                    <input type="email" matInput class="form-control text-center" formControlName="email" placeholder="Ex. StatsGlowMind@example.com">
+                </mat-form-field>
             </div>
             <div class="mb-3">
-                <label class="form-label">Contraseña:</label>
-                <input type="password" class="form-control" formControlName="password">
+                <mat-label class="form-label">Contraseña:</mat-label><br>
+                <mat-form-field>
+                    <input matInput [type]="hide ? 'password' : 'text'" class="form-control text-center" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="showPassword($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
             </div>
-            <input class="enviar" type="submit" value="Enviar">
+            <button mat-raised-button color="primary" class="enviar" type="submit" value="Enviar">Enviar</button>
         </form>
+        <mat-divider></mat-divider>
         <p class="mt-3">¿No tienes cuenta? <a routerLink="/register">Registrate</a></p>
         <button class="google-btn" (click)="onClick()"><img class="google_icon" src="../assets/images/icons/google.png" alt="Login Google">Login With Google</button>
     </div>

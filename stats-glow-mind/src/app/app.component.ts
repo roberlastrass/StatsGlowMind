@@ -12,6 +12,7 @@ export class AppComponent {
 
   showingDescription = false;
   text: string = '';
+  activeComponent: string = 'standings';
 
   constructor(
     private router: Router,

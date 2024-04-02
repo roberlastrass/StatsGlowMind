@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
+  hide = true;
 
   constructor(
     private userService: UserService,
@@ -27,7 +28,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
+  // Método que comprueba si el usuario existe e inicia sesión
   onSubmit() {
     this.userService.login(this.formLogin.value)
     .then(response => {
@@ -66,6 +69,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // Método que inicia sesión con la cuenta de Google
   onClick() {
     this.userService.loginGoogle()
       .then(response => {
@@ -73,6 +77,12 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/main']);
       })
       .catch(error => console.log(error))
+  }
+
+  // Muestra y oculta la contraseña
+  showPassword(event: Event): void {
+    event.preventDefault();
+    this.hide = !this.hide;
   }
 
 }
