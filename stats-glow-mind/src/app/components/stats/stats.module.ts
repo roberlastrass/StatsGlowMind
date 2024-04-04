@@ -6,22 +6,31 @@ import { StatsService } from '../../services/stats.service';
 import { StatsComponent } from './stats.component';
 import { StandingsComponent } from './standings/standings.component';
 import { LeadersComponent } from './leaders/leaders.component';
+import { GamesComponent } from './games/games.component';
+import { PlayoffsComponent } from './playoffs/playoffs.component';
 import { MaterialModule } from '../../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     StandingsComponent,
-    LeadersComponent
+    LeadersComponent,
+    GamesComponent,
+    PlayoffsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     StandingsComponent,
-    LeadersComponent
+    LeadersComponent,
+    GamesComponent,
+    PlayoffsComponent
   ],
   providers: [
     StatsService

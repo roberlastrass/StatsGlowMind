@@ -1,8 +1,6 @@
 /* Estilos Líderes */
 .leaders {
     display: flex;
-    align-items: center;
-    justify-content: center;
     padding-left: 2.5%;
     padding-right: 2.5%;
     padding-bottom: 2.5%;
@@ -16,6 +14,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 1%;
 }
 h2 {
     font-size: 26px;
@@ -38,6 +37,6 @@ th{
         font-size: 14px;
     }
     th, td, mat-paginator{
-        font-size: 12px;
+        font-size: 10px;
     }
 }

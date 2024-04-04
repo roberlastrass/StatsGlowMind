@@ -1,0 +1,102 @@
+/* Estilos Games */
+.games {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5%;
+    background-color: #f5f5f5;
+}
+.date-time-info {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2.5%;
+    align-items: center;
+    justify-content:center;
+}
+.games-container {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilos Datepicker */
+mat-form-field {
+    margin-right: 5%;
+}
+
+/* Estilos Cards Material */
+.card {
+    width: 40%;
+    margin: 2.5%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    background-color: #002649;
+}
+.card-header {
+    font-size: 20px;
+    font-family: 'Zen Dots', sans-serif;
+    background-color: white;
+    color: #002649;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.card-content {
+    margin-top: 2.5%;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+.logo {
+    width: 15%;
+}
+img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.score {
+    font-size: 20px;
+    font-family: 'Zen Dots', sans-serif;
+    margin-left: auto;
+    color: #FE5B3B;
+}
+strong {
+    color: #FE5B3B;
+}
+
+/* Media query para pantallas 850px */
+@media only screen and (max-width: 850px) {
+    .card-header, .score{
+        font-size: 16px;
+    }
+    .card-content, .date-time-info {
+        font-size: 13px;
+    }
+    .logo {
+        width: 25%;
+    }
+    .card {
+        width: 60%;
+    }
+}
+
+/* Media query para pantallas 600px */
+@media only screen and (max-width: 600px) {
+    .card-header, .score{
+        font-size: 12px;
+    }
+    .card-content, .date-time-info {
+        font-size: 10px;
+    }
+    .logo {
+        width: 30%;
+    }
+    mat-form-field {
+        width: 50%;
+    }
+    .card {
+        width: 80%;
+    }
+}
