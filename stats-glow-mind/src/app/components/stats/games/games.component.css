@@ -1,0 +1,68 @@
+/* Estilos Games */
+.games {
+    width: 100%;
+    margin-bottom: 5%;
+    padding: 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.date-time-info {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2.5%;
+    align-items: center;
+    justify-content:center;
+}
+.games-container {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilos Datepicker */
+mat-form-field {
+    margin-right: 5%;
+}
+
+/* Estilos Cards Material */
+.card {
+    width: 40%;
+    margin: 2.5%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    background-color: #002649;
+}
+.card-header {
+    font-size: 20px;
+    font-family: 'Zen Dots', sans-serif;
+    background-color: white;
+    color: #002649;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.card-content {
+    margin-top: 2.5%;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+.logo {
+    width: 15%;
+}
+img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.score {
+    font-size: 20px;
+    font-family: 'Zen Dots', sans-serif;
+    margin-left: auto;
+    color: #FE5B3B;
+}
+strong {
+    color: #FE5B3B;
+}

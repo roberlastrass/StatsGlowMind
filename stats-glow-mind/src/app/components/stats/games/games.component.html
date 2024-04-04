@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="games">
+        <div class="date-time-info">
+            <mat-form-field>
+                <mat-label>Selecciona Fecha</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="date" (dateChange)="changeDate($event)">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <p>Zona Horaria (UTC)</p>
+        </div>
+        <div class="games-container">
+            <mat-card class="card" *ngFor="let game of games">
+                <mat-card-header class="card-header">
+                    <div mat-card-avatar class="logo"> <img [src]="game.teams.visitors.logo"> </div>
+                    <mat-card-title> <strong>{{ game.teams.visitors.code }}</strong> {{ game.teams.visitors.name }}</mat-card-title>
+                    <div class="score">{{ game.scores.visitors.points }}</div> 
+                </mat-card-header>
+                <mat-card-header class="card-header">
+                    <div mat-card-avatar class="logo"> <img [src]="game.teams.home.logo"> </div>
+                    <mat-card-title> <strong>{{ game.teams.home.code }}</strong> {{ game.teams.home.name }}</mat-card-title>
+                    <div class="score">{{ game.scores.home.points }}</div> 
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p> <strong> Localización: </strong> {{ game.arena.name }}, {{ game.arena.city }}, {{ game.arena.state }}</p>
+                    <p> <strong> Estado: </strong> {{ game.status.long }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    
+</div>

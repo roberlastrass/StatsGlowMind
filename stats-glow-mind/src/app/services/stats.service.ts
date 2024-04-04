@@ -10,7 +10,8 @@ export class StatsService {
   // Rutas de la API
   private apiUrls = {
     standings: 'https://api-nba-v1.p.rapidapi.com/standings',
-    leagueLeaders: 'https://stats.nba.com/stats/leagueLeaders'
+    leagueLeaders: 'https://stats.nba.com/stats/leagueLeaders',
+    games: 'https://api-nba-v1.p.rapidapi.com/games'
   };
 
   // Claves de la API
@@ -41,6 +42,14 @@ export class StatsService {
       .set('StatCategory', 'PTS');
 
       return this.http.get(this.apiUrls.leagueLeaders, {params });
+  }
+
+  // Método que recoge los datos de los partidos
+  getGames(date: string): Observable<any> {
+    const params = new HttpParams()
+      .set('date', date);
+
+    return this.http.get(this.apiUrls.games, { headers: this.headers, params });
   }
 
 }
