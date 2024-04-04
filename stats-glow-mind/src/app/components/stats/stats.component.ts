@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { StatsService } from '../../services/stats.service';
 
 @Component({
   selector: 'app-stats',
@@ -11,11 +9,7 @@ export class StatsComponent implements OnInit {
 
   activeComponent: string = 'standings';
 
-  constructor(
-    private router: Router,
-    private statsService: StatsService
-    ) { 
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }

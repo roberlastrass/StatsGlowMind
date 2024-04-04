@@ -13,6 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
  
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     MatTooltipModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
   ],
   exports: [
     MatCardModule,
@@ -44,7 +46,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     MatTooltipModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule { }
