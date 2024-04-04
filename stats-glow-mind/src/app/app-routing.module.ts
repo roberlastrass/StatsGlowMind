@@ -8,6 +8,7 @@ import { StatsComponent } from './components/stats/stats.component';
 import { StandingsComponent } from './components/stats/standings/standings.component';
 import { LeadersComponent } from './components/stats/leaders/leaders.component';
 import { GamesComponent } from './components/stats/games/games.component';
+import { PlayoffsComponent } from './components/stats/playoffs/playoffs.component';
 import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
     // Esto lo tengo que hacer para cuando un usuario NO registrado no pueda acceder a ciertas partes de la app
-    //...canActivate(() => redirectUnauthorizedTo(['/register']))
+    //...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'stats', component: StatsComponent,
     children: [
       { path: 'standings', component: StandingsComponent },
-      //{ path: 'playoffs', component: PlayoffsComponent },
+      { path: 'playoffs', component: PlayoffsComponent },
       { path: 'games', component: GamesComponent },
       { path: 'leaders', component: LeadersComponent },
       { path: '', redirectTo: 'standings', pathMatch: 'full' },

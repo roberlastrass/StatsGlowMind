@@ -41,10 +41,10 @@ export class LeadersComponent implements OnInit {
     this.getLeadersNBA();
   }
 
+  // Método que realiza una llamada a la API para mostrar los datos de los líderes de la NBA
   getLeadersNBA(): void {
     this.statsService.getLeaders('2023-24').subscribe(
       data => {
-        // Aquí puedes manipular los datos antes de mostrarlos en el componente
         console.log('Datos de jugadores recibidos:', data);
         this.players = data.resultSet.rowSet;
 
@@ -59,13 +59,12 @@ export class LeadersComponent implements OnInit {
 
   // Función para comprobar el tamaño de la pantalla
   checkScreenSize() {
-    this.smallScreen = window.innerWidth <= 800; // Menor o igual de 600px
+    this.smallScreen = window.innerWidth <= 800;
   }
 
   // Escuchar el evento de cambio de tamaño de la ventana
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    // Llamar a la función para comprobar el tamaño de la pantalla
     this.checkScreenSize();
   }
 

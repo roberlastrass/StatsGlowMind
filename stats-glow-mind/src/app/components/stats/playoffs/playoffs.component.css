@@ -1,0 +1,92 @@
+/* Estilos Playoffs */
+.playoffs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5%;
+    background-color: #f5f5f5;
+}
+.playoffs-container {
+    width: auto;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.rounds-container {
+    flex: 1;
+    width: auto;
+}
+.coference {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.column {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+h2 {
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/* Estilos Cards Material */
+.card {
+    width: 100%;
+    margin: 2.5%;
+    padding: 1%;
+    display: flex;
+    background-color: #002649;
+}
+.card-header {
+    background-color: white;
+    color: #002649;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.card-content {
+    margin-top: 2.5%;
+    color: white;
+    text-align: center;
+}
+.rank {
+    font-size: 20px;
+    margin-left: auto;
+    color: #FE5B3B;
+}
+.number-round {
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+}
+
+/* Media query para pantallas medianas */
+@media only screen and (max-width: 1000px) {
+    h2{
+        font-size: 16px;
+    }
+    .card, .number-round {
+        font-size: 12px;
+    }
+    .rank {
+        font-size: 14px;
+    }
+}
+
+/* Media query para pantallas 800px */
+@media only screen and (max-width: 700px) {
+    h2{
+        font-size: 14px;
+    }
+    .card, .number-round {
+        font-size: 10px;
+    }
+    .rank {
+        font-size: 12px;
+    }
+}
+
