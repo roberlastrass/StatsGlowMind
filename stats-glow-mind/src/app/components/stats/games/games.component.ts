@@ -30,13 +30,13 @@ export class GamesComponent implements OnInit {
       const selectedDate = new Date(event.value);
       selectedDate.setDate(selectedDate.getDate() + 1); // Sumar un día
       const formattedDate = selectedDate.toISOString().split('T')[0];
-      this.getGames(formattedDate);
+      this.getGamesOfDate(formattedDate);
       console.log(formattedDate);
     }
   }
 
   // Método que realiza una llamada a la API para recoger los datos del partido de la fecha deseada
-  getGames(date: string): void {
+  getGamesOfDate(date: string): void {
     this.statsService.getGames(date)
       .subscribe(
         response => {

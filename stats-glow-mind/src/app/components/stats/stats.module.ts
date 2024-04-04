@@ -7,6 +7,7 @@ import { StatsComponent } from './stats.component';
 import { StandingsComponent } from './standings/standings.component';
 import { LeadersComponent } from './leaders/leaders.component';
 import { GamesComponent } from './games/games.component';
+import { PlayoffsComponent } from './playoffs/playoffs.component';
 import { MaterialModule } from '../../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     StandingsComponent,
     LeadersComponent,
-    GamesComponent
+    GamesComponent,
+    PlayoffsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     StandingsComponent,
     LeadersComponent,
-    GamesComponent
+    GamesComponent,
+    PlayoffsComponent
   ],
   providers: [
     StatsService

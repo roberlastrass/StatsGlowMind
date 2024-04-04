@@ -4,7 +4,7 @@
             <img class="stats_icon" src="../assets/images/icons/podium.png" alt="Clasificación">
             CLASIFICACIÓN
         </button>
-        <button routerLink="/stats/playoffs" routerLinkActive="active">
+        <button (click)="showComponent('playoffs')" routerLink="/stats/playoffs" routerLinkActive="active">
             <img class="stats_icon" src="../assets/images/icons/play.png" alt="Playoffs">
             PLAYOFFS
         </button>
@@ -20,5 +20,6 @@
 </div>
 
 <stats-standings *ngIf="activeComponent === 'standings'"></stats-standings>
+<stats-playoffs *ngIf="activeComponent === 'playoffs'"></stats-playoffs>
 <stats-games *ngIf="activeComponent === 'games'"></stats-games>
 <stats-leaders *ngIf="activeComponent === 'leaders'"></stats-leaders>
