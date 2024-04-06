@@ -1,6 +1,19 @@
 <div class="leaders">
   <div class="leaders-table">
-    <h2>Líderes en Puntos por Partido</h2>
+    <div class="mb-3">
+      <mat-label><strong>Selecciona la Categoria:</strong></mat-label>
+      <mat-form-field class="select">
+        <mat-select class="text-center" (selectionChange)="filteredCategory($event.value)">
+            <mat-option value="PTS">Puntos</mat-option>
+            <mat-option value="REB">Rebotes</mat-option>
+            <mat-option value="AST">Asistencias</mat-option>
+            <mat-option value="STL">Robos</mat-option>
+            <mat-option value="BLK">Tapones</mat-option>
+            <mat-option value="EFF">Eficiencia</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <h2>{{ getTitle(category) }}</h2>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="RANK">
         <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Rank </th>
@@ -26,6 +39,22 @@
         <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> PTS </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[23]}} </td>
       </ng-container>
+      <ng-container matColumnDef="REB">
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> REB </th>
+        <td mat-cell *matCellDef="let player of players"> {{ player[18]}} </td>
+      </ng-container>
+      <ng-container matColumnDef="AST">
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> AST </th>
+        <td mat-cell *matCellDef="let player of players"> {{ player[19]}} </td>
+      </ng-container>
+      <ng-container matColumnDef="STL">
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> STL </th>
+        <td mat-cell *matCellDef="let player of players"> {{ player[20]}} </td>
+      </ng-container>
+      <ng-container matColumnDef="BLK">
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> BLK </th>
+        <td mat-cell *matCellDef="let player of players"> {{ player[21]}} </td>
+      </ng-container>
       <ng-container matColumnDef="FG_PCT">
         <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> FG% </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[9]}} </td>
@@ -42,8 +71,8 @@
         <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> EFF </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[24]}} </td>
       </ng-container>
-      <tr mat-header-row *matHeaderRowDef="smallScreen ? displayedColumns : displayedColumnsLarge"></tr>
-      <tr mat-row *matRowDef="let row; columns: smallScreen ? displayedColumns : displayedColumnsLarge"></tr>
+      <tr mat-header-row *matHeaderRowDef="smallScreen ? displayedColumnsSort : mediumScreen? displayedColumnsMedium : displayedColumnsLarge"></tr>
+      <tr mat-row *matRowDef="let row; columns: smallScreen ? displayedColumnsSort : mediumScreen? displayedColumnsMedium : displayedColumnsLarge"></tr>
     </table>
     <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50, 100]" aria-label="Select page of players"></mat-paginator>
   </div>

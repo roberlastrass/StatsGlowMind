@@ -72,12 +72,26 @@ mat-menu {
 /* Media query para pantallas 1000px */
 @media only screen and (max-width: 1000px) {
     .button_menu {
+        font-size: 12px;
+    }
+    .menu {
+        justify-content: space-between;
+        display: flex;
+    }
+    .title {
+        max-width: 30%;
+    }
+}
+/* Media query para pantallas 800px */
+@media only screen and (max-width: 800px) {
+    .button_menu {
         font-size: 10px;
     }
 }
 /* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
-    .button_menu {
-        font-size: 6px;
+    
+    .title {
+        max-width: 40%;
     }
 }
