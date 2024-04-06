@@ -9,22 +9,29 @@
         </mat-form-field>
         <p>Zona Horaria (UTC)</p>
     </div>
-    <div class="games-container">
-        <mat-card class="card" *ngFor="let game of games">
-            <mat-card-header class="card-header">
-                <div mat-card-avatar class="logo"> <img [src]="game.teams.visitors.logo"> </div>
-                <mat-card-title> <strong>{{ game.teams.visitors.code }}</strong> {{ game.teams.visitors.name }}</mat-card-title>
-                <div class="score">{{ game.scores.visitors.points }}</div> 
-            </mat-card-header>
-            <mat-card-header class="card-header">
-                <div mat-card-avatar class="logo"> <img [src]="game.teams.home.logo"> </div>
-                <mat-card-title> <strong>{{ game.teams.home.code }}</strong> {{ game.teams.home.name }}</mat-card-title>
-                <div class="score">{{ game.scores.home.points }}</div> 
-            </mat-card-header>
-            <mat-card-content class="card-content">
-                <p> <strong> Localización: </strong> {{ game.arena.name }}, {{ game.arena.city }}, {{ game.arena.state }}</p>
-                <p> <strong> Estado: </strong> {{ game.status.long }}</p>
-            </mat-card-content>
-        </mat-card>
-    </div>
+    <ng-container *ngIf="games && games.length > 0; else noGames">
+        <div class="games-container">
+            <mat-card class="card" *ngFor="let game of games">
+                <mat-card-header class="card-header">
+                    <div mat-card-avatar class="logo"> <img [src]="game.teams.visitors.logo"> </div>
+                    <mat-card-title> <strong>{{ game.teams.visitors.code }}</strong> {{ game.teams.visitors.name }}</mat-card-title>
+                    <div class="score">{{ game.scores.visitors.points }}</div> 
+                </mat-card-header>
+                <mat-card-header class="card-header">
+                    <div mat-card-avatar class="logo"> <img [src]="game.teams.home.logo"> </div>
+                    <mat-card-title> <strong>{{ game.teams.home.code }}</strong> {{ game.teams.home.name }}</mat-card-title>
+                    <div class="score">{{ game.scores.home.points }}</div> 
+                </mat-card-header>
+                <mat-card-content class="card-content">
+                    <p> <strong> Localización: </strong> {{ game.arena.name }}, {{ game.arena.city }}, {{ game.arena.state }}</p>
+                    <p> <strong> Estado: </strong> {{ game.status.long }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </ng-container>
+    <ng-template #noGames >
+        <div class="no-games">
+            <h2>NO SE ENCONTRARON PARTIDOS</h2>
+        </div>
+    </ng-template>
 </div>

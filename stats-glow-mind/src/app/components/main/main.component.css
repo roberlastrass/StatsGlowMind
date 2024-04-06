@@ -85,42 +85,25 @@ button {
 }
 /* Media query para pantallas 1000px */
 @media only screen and (max-width: 1000px) {
-    p{
-        font-size: 12px;
-    }
-    .user-btn {
-        font-size: 10px;
-    }
-    mat-card-title {
-        font-size: 14px;
+    .main-container {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content:center;
     }
     .card {
-        width: 30%;
+        width: 40%;
+        margin: 5%;
     }
-    
 }
 /* Media query para pantallas 800px */
 @media only screen and (max-width: 800px) {
     .card {
         width: 40%;
     }
-    .main-container {
-        flex-wrap: wrap;
-    }
 }
 /* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
-    p{
-        font-size: 8px;
-    }
-    .user-btn {
-        font-size: 8px;
-    }
-
-    mat-card-title {
-        font-size: 12px;
-    }
     .card {
-        width: 45%;
+        width: 65%;
     }
 }

@@ -65,10 +65,26 @@ img {
 strong {
     color: #FE5B3B;
 }
+.no-games {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+    margin: 10%;
+    width: 100%;
+}
+
+/* Media query para pantallas 11000px */
+@media only screen and (max-width: 11000px) {
+    .logo {
+        width: 20%;
+    }
+}
 
 /* Media query para pantallas 850px */
 @media only screen and (max-width: 850px) {
-    .card-header, .score{
+    .card-header, .score, h2{
         font-size: 16px;
     }
     .card-content, .date-time-info {
@@ -84,7 +100,7 @@ strong {
 
 /* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
-    .card-header, .score{
+    .card-header, .score, h2 {
         font-size: 12px;
     }
     .card-content, .date-time-info {
