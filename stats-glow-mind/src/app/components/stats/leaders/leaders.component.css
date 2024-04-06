@@ -36,7 +36,10 @@ th{
     h2{
         font-size: 14px;
     }
-    th, td, mat-paginator{
+    th, td, mat-paginator, .select, mat-label{
         font-size: 10px;
+    }
+    .select {
+        width: 50%;
     }
 }
