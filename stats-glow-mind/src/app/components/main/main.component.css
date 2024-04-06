@@ -45,7 +45,7 @@
     margin-bottom: 5%;
 }
 .logo {
-    width: 8%;
+    width: 10%;
     height: auto;
 }
 .name {
@@ -82,6 +82,9 @@ button {
     mat-card-title {
         font-size: 18px;
     }
+    .logo {
+        width: 15%;
+    }
 }
 /* Media query para pantallas 1000px */
 @media only screen and (max-width: 1000px) {
@@ -94,16 +97,25 @@ button {
         width: 40%;
         margin: 5%;
     }
+    .logo {
+        width: 20%;
+    }
 }
 /* Media query para pantallas 800px */
 @media only screen and (max-width: 800px) {
     .card {
         width: 40%;
     }
+    .logo {
+        width: 25%;
+    }
 }
 /* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
     .card {
         width: 65%;
+    }
+    .logo {
+        width: 30%;
     }
 }
