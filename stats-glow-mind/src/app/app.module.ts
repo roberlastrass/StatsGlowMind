@@ -20,6 +20,7 @@ import { StatsComponent } from './components/stats/stats.component';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AdminComponent } from './components/admin/admin.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { TeamsComponent } from './components/teams/teams.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     LoginComponent,
     MainComponent,
     StatsComponent,
-    AdminComponent
+    AdminComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,

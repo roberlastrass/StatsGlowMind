@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,8 @@ export class MainComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private firestore: FirestoreService
   ) { 
     this.userName = null;
     this.userUID = '';
@@ -27,11 +29,11 @@ export class MainComponent implements OnInit {
 
   async checkUserRole(): Promise<void> {
     // Llamar al método que obtiene el ID del documento
-    const documentId = await this.userService.getDocumentId(this.userUID);
+    const documentId = await this.firestore.getDocumentId(this.userUID);
 
     if (documentId) {
       // Llamar al método que devuelve el campo 'rol' a partir del ID del documento
-      const userRole = await this.userService.getUserRoleById(documentId);
+      const userRole = await this.firestore.getUserRoleById(documentId);
 
       if (userRole === 'admin') {
         // El usuario tiene el rol de admin, puedes permitir el acceso a /admin

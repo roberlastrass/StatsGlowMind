@@ -10,6 +10,7 @@ import { LeadersComponent } from './components/stats/leaders/leaders.component';
 import { GamesComponent } from './components/stats/games/games.component';
 import { PlayoffsComponent } from './components/stats/playoffs/playoffs.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { TeamsComponent } from './components/teams/teams.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -30,6 +31,15 @@ const routes: Routes = [
       { path: 'leaders', component: LeadersComponent },
       { path: '', redirectTo: 'standings', pathMatch: 'full' },
     ] 
+  },
+  { path: 'teams', component: TeamsComponent,
+    children: [
+      { path: ':teamName', component: TeamsComponent,
+        children: [
+          { path: 'players', component: TeamsComponent }
+        ]
+      }
+    ]
   },
   { path: '**', redirectTo: 'main', pathMatch: 'full' },
 ];

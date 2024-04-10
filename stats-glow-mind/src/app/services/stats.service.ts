@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { API_KEY, API_HOST } from '../keys/keys';
+import { API_KEY } from '../keys/keys';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +13,14 @@ export class StatsService {
     standings: 'https://api-nba-v1.p.rapidapi.com/standings',
     leagueLeaders: 'https://stats.nba.com/stats/leagueLeaders',
     games: 'https://api-nba-v1.p.rapidapi.com/games',
-    playoffs: 'https://stats.nba.com/stats/playoffbracket'
+    playoffs: 'https://stats.nba.com/stats/playoffbracket',
+    teams: 'https://api-nba-v1.p.rapidapi.com/teams'
   };
 
   // Claves de la API
   private headers = new HttpHeaders({
     'X-RapidAPI-Key': API_KEY,
-    'X-RapidAPI-Host': API_HOST,
+    'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
   });
 
   constructor(private http: HttpClient) {}
@@ -62,6 +63,14 @@ export class StatsService {
       .set('State', '2');
 
       return this.http.get(this.apiUrls.playoffs, { params });
+  }
+
+  // Método que recoge los datos de los equipos
+  getTeams(division: string): Observable<any> {
+    const params = new HttpParams()
+      .set('division', division);
+
+    return this.http.get(this.apiUrls.teams, { headers: this.headers, params });
   }
 
 }
