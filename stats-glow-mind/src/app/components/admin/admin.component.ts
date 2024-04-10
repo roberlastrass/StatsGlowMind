@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
-import { UserService } from '../../services/user.service';
 import { MatDialog, MatDialogRef, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MAT_DIALOG_DATA, } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
   selector: 'app-admin',
@@ -14,8 +14,8 @@ export class AdminComponent implements OnInit {
   users: User[];
 
   constructor(
-    private userService: UserService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private firestore: FirestoreService
   ) {
     this.users = [{
       uid: 'UIDdeUsuario',
@@ -26,14 +26,14 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(users => {
+    this.firestore.getUsers().subscribe(users => {
       this.users = users;
     })
   }
 
   // Método que elimina un usuario de la Firestore
   async onClickDelete(userUID: string) {
-    await this.userService.deleteUserFirestore(userUID);
+    await this.firestore.deleteUserFirestore(userUID);
   }
 
   // Método que abre un dialogo qpara confirmar la eliminación de un usuario
