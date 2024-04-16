@@ -30,13 +30,14 @@
 <!-- Menú NBA -->
 <mat-menu #nba="matMenu" color="accent">
   <button mat-menu-item routerLink="/stats/standings">Clasificación</button>
-  <button mat-menu-item routerLink="/stats">Playoffs</button>
-  <button mat-menu-item routerLink="/stats">Partidos</button>
+  <button mat-menu-item routerLink="/stats/playoffs">Playoffs</button>
+  <button mat-menu-item routerLink="/stats/games">Partidos</button>
   <button mat-menu-item routerLink="/stats/leaders">Líderes</button>
 </mat-menu>
 
 <!-- Menú Equipos -->
 <mat-menu #equipos="matMenu" color="accent">
+  <button mat-menu-item routerLink="/teams">Todos los Equipos</button>
   <button mat-menu-item [matMenuTriggerFor]="east">Conferencia Este</button>
   <button mat-menu-item [matMenuTriggerFor]="west">Conferencia Oeste</button>
 </mat-menu>
@@ -51,44 +52,44 @@
   <button mat-menu-item [matMenuTriggerFor]="southwest">Suroeste</button>
 </mat-menu>
 <mat-menu #atlantic="matMenu" color="accent">
-  <button mat-menu-item>Boston Celtics</button>
-  <button mat-menu-item>Brooklyn Nets</button>
-  <button mat-menu-item>New York Knicks</button>
-  <button mat-menu-item>Philadelphia 76ers</button>
-  <button mat-menu-item>Toronto Raptors</button>
+  <button mat-menu-item routerLink="/teams/Celtics">Boston Celtics</button>
+  <button mat-menu-item routerLink="/teams/Nets">Brooklyn Nets</button>
+  <button mat-menu-item routerLink="/teams/Knicks">New York Knicks</button>
+  <button mat-menu-item routerLink="/teams/76ers">Philadelphia 76ers</button>
+  <button mat-menu-item routerLink="/teams/Raptors">Toronto Raptors</button>
 </mat-menu>
 <mat-menu #central="matMenu" color="accent">
-  <button mat-menu-item>Chicago Bulls</button>
-  <button mat-menu-item>Cleveland Cavaliers</button>
-  <button mat-menu-item>Detroit Pistons</button>
-  <button mat-menu-item>Indiana Pacers</button>
-  <button mat-menu-item>Milwaukee Bucks</button>
+  <button mat-menu-item routerLink="/teams/Bulls">Chicago Bulls</button>
+  <button mat-menu-item routerLink="/teams/Cavaliers">Cleveland Cavaliers</button>
+  <button mat-menu-item routerLink="/teams/Pistons">Detroit Pistons</button>
+  <button mat-menu-item routerLink="/teams/Pacers">Indiana Pacers</button>
+  <button mat-menu-item routerLink="/teams/Bucks">Milwaukee Bucks</button>
 </mat-menu>
 <mat-menu #southeast="matMenu" color="accent">
-  <button mat-menu-item>Atlanta Hawks</button>
-  <button mat-menu-item>Charlotte Hornets</button>
-  <button mat-menu-item>Miami Heat</button>
-  <button mat-menu-item>Orlando Magic</button>
-  <button mat-menu-item>Washington Wizards</button>
+  <button mat-menu-item routerLink="/teams/Hawks">Atlanta Hawks</button>
+  <button mat-menu-item routerLink="/teams/Hornets">Charlotte Hornets</button>
+  <button mat-menu-item routerLink="/teams/Heat">Miami Heat</button>
+  <button mat-menu-item routerLink="/teams/Magic">Orlando Magic</button>
+  <button mat-menu-item routerLink="/teams/Wizards">Washington Wizards</button>
 </mat-menu>
 <mat-menu #northwest="matMenu" color="accent">
-  <button mat-menu-item>Denver Nuggets</button>
-  <button mat-menu-item>Minnesota Timberwolves</button>
-  <button mat-menu-item>Oklahoma City Thunder</button>
-  <button mat-menu-item>Portland Trail Blazers</button>
-  <button mat-menu-item>Utah Jazz</button>
+  <button mat-menu-item routerLink="/teams/Nuggets">Denver Nuggets</button>
+  <button mat-menu-item routerLink="/teams/Timberwolves">Minnesota Timberwolves</button>
+  <button mat-menu-item routerLink="/teams/Thunder">Oklahoma City Thunder</button>
+  <button mat-menu-item routerLink="/teams/Blazers">Portland Trail Blazers</button>
+  <button mat-menu-item routerLink="/teams/Jazz">Utah Jazz</button>
 </mat-menu>
 <mat-menu #pacific="matMenu" color="accent">
-  <button mat-menu-item>Golden State Warriors</button>
-  <button mat-menu-item>LA Clippers</button>
-  <button mat-menu-item>Los Angeles Lakers</button>
-  <button mat-menu-item>Phoenix Suns</button>
-  <button mat-menu-item>Sacramento Kings</button>
+  <button mat-menu-item routerLink="/teams/Warriors">Golden State Warriors</button>
+  <button mat-menu-item routerLink="/teams/Clippers">LA Clippers</button>
+  <button mat-menu-item routerLink="/teams/Lakers">Los Angeles Lakers</button>
+  <button mat-menu-item routerLink="/teams/Suns">Phoenix Suns</button>
+  <button mat-menu-item routerLink="/teams/Kings">Sacramento Kings</button>
 </mat-menu>
 <mat-menu #southwest="matMenu" color="accent">
-  <button mat-menu-item>Dallas Mavericks</button>
-  <button mat-menu-item>Houston Rockets</button>
-  <button mat-menu-item>Memphis Grizzlies</button>
-  <button mat-menu-item>New Orleans Pelicans</button>
-  <button mat-menu-item>San Antonio Spurs</button>
+  <button mat-menu-item routerLink="/teams/Mavericks">Dallas Mavericks</button>
+  <button mat-menu-item routerLink="/teams/Rockets">Houston Rockets</button>
+  <button mat-menu-item routerLink="/teams/Grizzlies">Memphis Grizzlies</button>
+  <button mat-menu-item routerLink="/teams/Pelicans">New Orleans Pelicans</button>
+  <button mat-menu-item routerLink="/teams/Spurs">San Antonio Spurs</button>
 </mat-menu>

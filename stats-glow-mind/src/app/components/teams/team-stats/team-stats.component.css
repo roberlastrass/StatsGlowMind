@@ -1,0 +1,86 @@
+/* Estilos Team Stats */
+.teams-stats {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5%;
+    background-color: #f5f5f5;
+    align-items: center;
+    text-align: center;
+}
+
+.title-team {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+.logo {
+    width: 10%;
+}
+h1 {
+    font-size: 36px;
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+    margin: 0;
+}
+
+
+.all-stats, .home-visitors-stats, .win-loss-stats {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5%;
+}
+.name-stats{
+    margin: 2%;
+}
+.name-second-stats {
+    margin-top: 5%;
+}
+
+
+/* Estilos tabla */
+table {
+    margin-top: 5%;
+    background-color: white;
+}
+th {
+    background-color: #002649;
+    color: white;
+}
+th, td {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Media query para pantallas medianas */
+@media only screen and (max-width: 1000px) {
+    .logo {
+        width: 15%;
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    table {
+        font-size: 10px;
+    }
+    h1{
+        font-size: 18px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    .logo {
+        width: 20%;
+    }
+}
