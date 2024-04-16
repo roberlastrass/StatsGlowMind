@@ -14,7 +14,9 @@ export class StatsService {
     leagueLeaders: 'https://stats.nba.com/stats/leagueLeaders',
     games: 'https://api-nba-v1.p.rapidapi.com/games',
     playoffs: 'https://stats.nba.com/stats/playoffbracket',
-    teams: 'https://api-nba-v1.p.rapidapi.com/teams'
+    teams: 'https://api-nba-v1.p.rapidapi.com/teams',
+    seasonGames: 'https://api-nba-v1.p.rapidapi.com/games',
+    gameStats: 'https://api-nba-v1.p.rapidapi.com/games/statistics'
   };
 
   // Claves de la API
@@ -71,6 +73,22 @@ export class StatsService {
       .set('division', division);
 
     return this.http.get(this.apiUrls.teams, { headers: this.headers, params });
+  }
+
+  // Método que recoge los datos de los partidos de la sesion
+  getSeasonGames(season: string): Observable<any> {
+    const params = new HttpParams()
+      .set('season', season);
+
+    return this.http.get(this.apiUrls.seasonGames, { headers: this.headers, params });
+  }
+
+  // Método que recoge los datos de los partidos de la sesion
+  getGameStats(idGame: number): Observable<any> {
+    const params = new HttpParams()
+      .set('id', idGame);
+
+    return this.http.get(this.apiUrls.gameStats, { headers: this.headers, params });
   }
 
 }

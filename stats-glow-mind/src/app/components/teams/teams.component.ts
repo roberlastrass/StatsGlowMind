@@ -11,6 +11,7 @@ import { FirestoreService } from '../../services/firestore.service';
 })
 export class TeamsComponent implements OnInit {
   
+  teamId: number = 1;
   allTeams: any[] = [];
   divisions = ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest'];
   eastDivisions: any[] = [
@@ -25,7 +26,6 @@ export class TeamsComponent implements OnInit {
   ];
 
   constructor( 
-    private router: Router,
     private statsService: StatsService,
     private firestore: FirestoreService
   ) { }
@@ -33,13 +33,6 @@ export class TeamsComponent implements OnInit {
   ngOnInit(): void {
     //this.getAllDivisionTeams();
     this.getTeamsFromFirestore();
-  }
-
-  statsTeam(teamName: string) {
-    this.router.navigate(['/teams/' + teamName]);
-  }
-  playersTeam(teamName: string) {
-    this.router.navigate(['/teams/' + teamName + '/players']);
   }
 
   // Método que recoge los datos de los equipos de cada division de la API y lo almacena en la Firestore
@@ -93,6 +86,10 @@ export class TeamsComponent implements OnInit {
     return this.allTeams.filter((team: any) => 
       team.division === division
     ).sort((a, b) => a.id - b.id);
+  }
+
+  sendIdTeam(id: number) {
+    this.teamId = id;
   }
 
 }

@@ -1,4 +1,3 @@
-
 <div class="wrapper">
     <div class="teams">
         <div class="conference-container">
@@ -11,11 +10,11 @@
                     <mat-card class="card">
                         <mat-card-header class="card-header">
                             <div mat-card-avatar class="logo"> <img [src]="team.logo"> </div>
-                            <mat-card-title>{{ team.code }} {{team.name}}</mat-card-title>
+                            <mat-card-title><strong>{{ team.code }}</strong> {{team.name}}</mat-card-title>
                         </mat-card-header>
                         <mat-card-actions>
-                            <button mat-flat-button color="primary" (click)="statsTeam(team.code)">ESTADÍSTICAS</button>
-                            <button mat-flat-button color="accent" class="btn btn-outline-danger" (click)="playersTeam(team.code)">JUGADORES</button>
+                            <button mat-flat-button color="primary" [routerLink]="['/teams', team.nickname]" (click)="sendIdTeam(team.id)">ESTADÍSTICAS</button>
+                            <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', team.nickname, 'players']">JUGADORES</button>
                         </mat-card-actions>
                     </mat-card>
                 </div>
@@ -31,11 +30,11 @@
                     <mat-card class="card">
                         <mat-card-header class="card-header">
                             <div mat-card-avatar class="logo"> <img [src]="team.logo"> </div>
-                            <mat-card-title>{{ team.code }} {{team.name}}</mat-card-title>
+                            <mat-card-title><strong>{{ team.code }}</strong> {{team.name}}</mat-card-title>
                         </mat-card-header>
                         <mat-card-actions>
-                            <button mat-flat-button color="primary" (click)="statsTeam(team.code)">ESTADÍSTICAS</button>
-                            <button mat-flat-button color="accent" class="btn btn-outline-danger" (click)="playersTeam(team.code)">JUGADORES</button>
+                            <button mat-flat-button color="primary" [routerLink]="['/teams', team.nickname]">ESTADÍSTICAS</button>
+                            <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', team.nickname, 'players']">JUGADORES</button>
                         </mat-card-actions>
                     </mat-card>
                 </div>

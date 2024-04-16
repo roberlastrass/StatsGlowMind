@@ -1,4 +1,4 @@
-// team.model.ts
+// teams.model.ts
 export interface Teams {
     city: string;
     code: string;

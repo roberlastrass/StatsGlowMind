@@ -1,0 +1,423 @@
+<div class="wrapper">
+  <div class="team-stats">
+    <div class="title-team">
+      <div>
+        <img class="logo" [src]="teamLogo">
+      </div>
+      <div>
+        <h1>{{teamName}}</h1>
+      </div>
+    </div>
+    <div class="all-stats">
+      <div class="name-stats">
+        <h2>Estadísticas Totales</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <ng-container *ngIf="smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsSort">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsMedium">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsLarge">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </thead>
+        <tbody>
+          <tr>
+            <ng-container *ngIf="smallScreen">
+              <td>{{ averageStats?.gp }}</td>
+              <td>{{ averageStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ averageStats?.points?.toFixed(2) }}</td>
+              <td>{{ averageStats?.fgp.toFixed(2) }}</td>
+              <td>{{ averageStats?.tpp.toFixed(2) }}</td>
+              <td>{{ averageStats?.ftp.toFixed(2) }}</td>
+              <td>{{ averageStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="mediumScreen && !smallScreen">
+              <td>{{ averageStats?.gp }}</td>
+              <td>{{ averageStats?.win }}</td>
+              <td>{{ averageStats?.loss }}</td>
+              <td>{{ averageStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ averageStats?.points?.toFixed(2) }}</td>
+              <td>{{ averageStats?.fgp.toFixed(2) }}</td>
+              <td>{{ averageStats?.tpp.toFixed(2) }}</td>
+              <td>{{ averageStats?.ftp.toFixed(2) }}</td>
+              <td>{{ averageStats?.totReb.toFixed(2) }}</td>
+              <td>{{ averageStats?.assists.toFixed(2) }}</td>
+              <td>{{ averageStats?.steals.toFixed(2) }}</td>
+              <td>{{ averageStats?.blocks.toFixed(2) }}</td>
+              <td>{{ averageStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="!mediumScreen && !smallScreen">
+              <td>{{ averageStats?.gp }}</td>
+              <td>{{ averageStats?.win }}</td>
+              <td>{{ averageStats?.loss }}</td>
+              <td>{{ averageStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ averageStats?.points?.toFixed(2) }}</td>
+              <td>{{ averageStats?.fgm?.toFixed(2) }}</td>
+              <td>{{ averageStats?.fga?.toFixed(2) }}</td>
+              <td>{{ averageStats?.fgp?.toFixed(2) }}</td>
+              <td>{{ averageStats?.tpm?.toFixed(2) }}</td>
+              <td>{{ averageStats?.tpa?.toFixed(2) }}</td>
+              <td>{{ averageStats?.tpp?.toFixed(2) }}</td>
+              <td>{{ averageStats?.ftm?.toFixed(2) }}</td>
+              <td>{{ averageStats?.fta?.toFixed(2) }}</td>
+              <td>{{ averageStats?.ftp?.toFixed(2) }}</td>
+              <td>{{ averageStats?.offReb?.toFixed(2) }}</td>
+              <td>{{ averageStats?.defReb?.toFixed(2) }}</td>
+              <td>{{ averageStats?.totReb?.toFixed(2) }}</td>
+              <td>{{ averageStats?.assists?.toFixed(2) }}</td>
+              <td>{{ averageStats?.turnovers?.toFixed(2) }}</td>
+              <td>{{ averageStats?.steals?.toFixed(2) }}</td>
+              <td>{{ averageStats?.blocks?.toFixed(2) }}</td>
+              <td>{{ averageStats?.pFouls?.toFixed(2) }}</td>
+              <td>{{ averageStats?.plusMinus?.toFixed(2) }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="home-visitors-stats">
+      <div class="name-stats">
+        <h2>Estadísticas en Casa</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <ng-container *ngIf="smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsSort">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsMedium">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsLarge">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </thead>
+        <tbody>
+          <tr>
+            <ng-container *ngIf="smallScreen">
+              <td>{{ homeStats?.gp }}</td>
+              <td>{{ homeStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ homeStats?.points?.toFixed(2) }}</td>
+              <td>{{ homeStats?.fgp.toFixed(2) }}</td>
+              <td>{{ homeStats?.tpp.toFixed(2) }}</td>
+              <td>{{ homeStats?.ftp.toFixed(2) }}</td>
+              <td>{{ homeStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="mediumScreen && !smallScreen">
+              <td>{{ homeStats?.gp }}</td>
+              <td>{{ homeStats?.win }}</td>
+              <td>{{ homeStats?.loss }}</td>
+              <td>{{ homeStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ homeStats?.points?.toFixed(2) }}</td>
+              <td>{{ homeStats?.fgp.toFixed(2) }}</td>
+              <td>{{ homeStats?.tpp.toFixed(2) }}</td>
+              <td>{{ homeStats?.ftp.toFixed(2) }}</td>
+              <td>{{ homeStats?.totReb.toFixed(2) }}</td>
+              <td>{{ homeStats?.assists.toFixed(2) }}</td>
+              <td>{{ homeStats?.steals.toFixed(2) }}</td>
+              <td>{{ homeStats?.blocks.toFixed(2) }}</td>
+              <td>{{ homeStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="!mediumScreen && !smallScreen">
+              <td>{{ homeStats?.gp }}</td>
+              <td>{{ homeStats?.win }}</td>
+              <td>{{ homeStats?.loss }}</td>
+              <td>{{ homeStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ homeStats?.points?.toFixed(2) }}</td>
+              <td>{{ homeStats?.fgm?.toFixed(2) }}</td>
+              <td>{{ homeStats?.fga?.toFixed(2) }}</td>
+              <td>{{ homeStats?.fgp?.toFixed(2) }}</td>
+              <td>{{ homeStats?.tpm?.toFixed(2) }}</td>
+              <td>{{ homeStats?.tpa?.toFixed(2) }}</td>
+              <td>{{ homeStats?.tpp?.toFixed(2) }}</td>
+              <td>{{ homeStats?.ftm?.toFixed(2) }}</td>
+              <td>{{ homeStats?.fta?.toFixed(2) }}</td>
+              <td>{{ homeStats?.ftp?.toFixed(2) }}</td>
+              <td>{{ homeStats?.offReb?.toFixed(2) }}</td>
+              <td>{{ homeStats?.defReb?.toFixed(2) }}</td>
+              <td>{{ homeStats?.totReb?.toFixed(2) }}</td>
+              <td>{{ homeStats?.assists?.toFixed(2) }}</td>
+              <td>{{ homeStats?.turnovers?.toFixed(2) }}</td>
+              <td>{{ homeStats?.steals?.toFixed(2) }}</td>
+              <td>{{ homeStats?.blocks?.toFixed(2) }}</td>
+              <td>{{ homeStats?.pFouls?.toFixed(2) }}</td>
+              <td>{{ homeStats?.plusMinus?.toFixed(2) }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+      <div class="name-second-stats">
+        <h2>Estadísticas en Visitante</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <ng-container *ngIf="smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsSort">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsMedium">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsLarge">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </thead>
+        <tbody>
+          <tr>
+            <ng-container *ngIf="smallScreen">
+              <td>{{ visitorStats?.gp }}</td>
+              <td>{{ visitorStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.points?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.fgp.toFixed(2) }}</td>
+              <td>{{ visitorStats?.tpp.toFixed(2) }}</td>
+              <td>{{ visitorStats?.ftp.toFixed(2) }}</td>
+              <td>{{ visitorStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="mediumScreen && !smallScreen">
+              <td>{{ visitorStats?.gp }}</td>
+              <td>{{ visitorStats?.win }}</td>
+              <td>{{ visitorStats?.loss }}</td>
+              <td>{{ visitorStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.points?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.fgp.toFixed(2) }}</td>
+              <td>{{ visitorStats?.tpp.toFixed(2) }}</td>
+              <td>{{ visitorStats?.ftp.toFixed(2) }}</td>
+              <td>{{ visitorStats?.totReb.toFixed(2) }}</td>
+              <td>{{ visitorStats?.assists.toFixed(2) }}</td>
+              <td>{{ visitorStats?.steals.toFixed(2) }}</td>
+              <td>{{ visitorStats?.blocks.toFixed(2) }}</td>
+              <td>{{ visitorStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="!mediumScreen && !smallScreen">
+              <td>{{ visitorStats?.gp }}</td>
+              <td>{{ visitorStats?.win }}</td>
+              <td>{{ visitorStats?.loss }}</td>
+              <td>{{ visitorStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.points?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.fgm?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.fga?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.fgp?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.tpm?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.tpa?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.tpp?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.ftm?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.fta?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.ftp?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.offReb?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.defReb?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.totReb?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.assists?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.turnovers?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.steals?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.blocks?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.pFouls?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.plusMinus?.toFixed(2) }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="win-loss-stats">
+      <div class="name-stats">
+        <h2>Estadísticas en Partidos Ganados</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <ng-container *ngIf="smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsSort">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsMedium">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsLarge">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </thead>
+        <tbody>
+          <tr>
+            <ng-container *ngIf="smallScreen">
+              <td>{{ winStats?.gp }}</td>
+              <td>{{ winStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ winStats?.points?.toFixed(2) }}</td>
+              <td>{{ winStats?.fgp.toFixed(2) }}</td>
+              <td>{{ winStats?.tpp.toFixed(2) }}</td>
+              <td>{{ winStats?.ftp.toFixed(2) }}</td>
+              <td>{{ winStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="mediumScreen && !smallScreen">
+              <td>{{ winStats?.gp }}</td>
+              <td>{{ winStats?.win }}</td>
+              <td>{{ winStats?.loss }}</td>
+              <td>{{ winStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ winStats?.points?.toFixed(2) }}</td>
+              <td>{{ winStats?.fgp.toFixed(2) }}</td>
+              <td>{{ winStats?.tpp.toFixed(2) }}</td>
+              <td>{{ winStats?.ftp.toFixed(2) }}</td>
+              <td>{{ winStats?.totReb.toFixed(2) }}</td>
+              <td>{{ winStats?.assists.toFixed(2) }}</td>
+              <td>{{ winStats?.steals.toFixed(2) }}</td>
+              <td>{{ winStats?.blocks.toFixed(2) }}</td>
+              <td>{{ winStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="!mediumScreen && !smallScreen">
+              <td>{{ winStats?.gp }}</td>
+              <td>{{ winStats?.win }}</td>
+              <td>{{ winStats?.loss }}</td>
+              <td>{{ winStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ winStats?.points?.toFixed(2) }}</td>
+              <td>{{ winStats?.fgm?.toFixed(2) }}</td>
+              <td>{{ winStats?.fga?.toFixed(2) }}</td>
+              <td>{{ winStats?.fgp?.toFixed(2) }}</td>
+              <td>{{ winStats?.tpm?.toFixed(2) }}</td>
+              <td>{{ winStats?.tpa?.toFixed(2) }}</td>
+              <td>{{ winStats?.tpp?.toFixed(2) }}</td>
+              <td>{{ winStats?.ftm?.toFixed(2) }}</td>
+              <td>{{ winStats?.fta?.toFixed(2) }}</td>
+              <td>{{ winStats?.ftp?.toFixed(2) }}</td>
+              <td>{{ winStats?.offReb?.toFixed(2) }}</td>
+              <td>{{ winStats?.defReb?.toFixed(2) }}</td>
+              <td>{{ winStats?.totReb?.toFixed(2) }}</td>
+              <td>{{ winStats?.assists?.toFixed(2) }}</td>
+              <td>{{ winStats?.turnovers?.toFixed(2) }}</td>
+              <td>{{ winStats?.steals?.toFixed(2) }}</td>
+              <td>{{ winStats?.blocks?.toFixed(2) }}</td>
+              <td>{{ winStats?.pFouls?.toFixed(2) }}</td>
+              <td>{{ winStats?.plusMinus?.toFixed(2) }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+      <div class="name-second-stats">
+        <h3>Estadísticas en Partidos Perdidos</h3>
+      </div>
+      <table class="table">
+        <thead>
+          <ng-container *ngIf="smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsSort">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsMedium">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsLarge">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </thead>
+        <tbody>
+          <tr>
+            <ng-container *ngIf="smallScreen">
+              <td>{{ lossStats?.gp }}</td>
+              <td>{{ lossStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ lossStats?.points?.toFixed(2) }}</td>
+              <td>{{ lossStats?.fgp.toFixed(2) }}</td>
+              <td>{{ lossStats?.tpp.toFixed(2) }}</td>
+              <td>{{ lossStats?.ftp.toFixed(2) }}</td>
+              <td>{{ lossStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="mediumScreen && !smallScreen">
+              <td>{{ lossStats?.gp }}</td>
+              <td>{{ lossStats?.win }}</td>
+              <td>{{ lossStats?.loss }}</td>
+              <td>{{ lossStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ lossStats?.points?.toFixed(2) }}</td>
+              <td>{{ lossStats?.fgp.toFixed(2) }}</td>
+              <td>{{ lossStats?.tpp.toFixed(2) }}</td>
+              <td>{{ lossStats?.ftp.toFixed(2) }}</td>
+              <td>{{ lossStats?.totReb.toFixed(2) }}</td>
+              <td>{{ lossStats?.assists.toFixed(2) }}</td>
+              <td>{{ lossStats?.steals.toFixed(2) }}</td>
+              <td>{{ lossStats?.blocks.toFixed(2) }}</td>
+              <td>{{ lossStats?.plusMinus.toFixed(2) }}</td>
+            </ng-container>
+            <ng-container *ngIf="!mediumScreen && !smallScreen">
+              <td>{{ lossStats?.gp }}</td>
+              <td>{{ lossStats?.win }}</td>
+              <td>{{ lossStats?.loss }}</td>
+              <td>{{ lossStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ lossStats?.points?.toFixed(2) }}</td>
+              <td>{{ lossStats?.fgm?.toFixed(2) }}</td>
+              <td>{{ lossStats?.fga?.toFixed(2) }}</td>
+              <td>{{ lossStats?.fgp?.toFixed(2) }}</td>
+              <td>{{ lossStats?.tpm?.toFixed(2) }}</td>
+              <td>{{ lossStats?.tpa?.toFixed(2) }}</td>
+              <td>{{ lossStats?.tpp?.toFixed(2) }}</td>
+              <td>{{ lossStats?.ftm?.toFixed(2) }}</td>
+              <td>{{ lossStats?.fta?.toFixed(2) }}</td>
+              <td>{{ lossStats?.ftp?.toFixed(2) }}</td>
+              <td>{{ lossStats?.offReb?.toFixed(2) }}</td>
+              <td>{{ lossStats?.defReb?.toFixed(2) }}</td>
+              <td>{{ lossStats?.totReb?.toFixed(2) }}</td>
+              <td>{{ lossStats?.assists?.toFixed(2) }}</td>
+              <td>{{ lossStats?.turnovers?.toFixed(2) }}</td>
+              <td>{{ lossStats?.steals?.toFixed(2) }}</td>
+              <td>{{ lossStats?.blocks?.toFixed(2) }}</td>
+              <td>{{ lossStats?.pFouls?.toFixed(2) }}</td>
+              <td>{{ lossStats?.plusMinus?.toFixed(2) }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
