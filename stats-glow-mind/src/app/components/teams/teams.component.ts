@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { StatsService } from '../../services/stats.service';
 import { Teams } from '../../models/teams.model';
 import { FirestoreService } from '../../services/firestore.service';

@@ -28,7 +28,7 @@ export interface PlayerData {
 export class LeadersComponent implements OnInit {
 
   players: any[] = [];
-  displayedColumnsSort: string[] = ['RANK', 'PLAYER', 'MIN', 'PTS'];
+  displayedColumnsSort: string[] = ['RANK', 'PLAYER', 'MIN', 'PTS', 'EFF'];
   displayedColumnsMedium: string[] = ['RANK', 'PLAYER', 'TEAM', 'GP', 'MIN', 'PTS', 'AST', 'REB', 'EFF'];
   displayedColumnsLarge: string[] = ['RANK', 'PLAYER', 'TEAM', 'GP', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'FG_PCT', 'FG3_PCT', 'FTA', 'EFF'];
   dataSource!: MatTableDataSource<PlayerData>;

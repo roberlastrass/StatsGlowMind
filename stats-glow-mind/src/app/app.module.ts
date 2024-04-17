@@ -22,6 +22,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamStatsComponent } from './components/teams/team-stats/team-stats.component';
+import { TeamPlayersComponent } from './components/teams/team-players/team-players.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TeamStatsComponent } from './components/teams/team-stats/team-stats.com
     StatsComponent,
     AdminComponent,
     TeamsComponent,
-    TeamStatsComponent
+    TeamStatsComponent,
+    TeamPlayersComponent
   ],
   imports: [
     BrowserModule,

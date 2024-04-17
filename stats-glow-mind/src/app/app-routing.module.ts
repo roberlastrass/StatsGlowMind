@@ -12,6 +12,7 @@ import { PlayoffsComponent } from './components/stats/playoffs/playoffs.componen
 import { AdminComponent } from './components/admin/admin.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamStatsComponent } from './components/teams/team-stats/team-stats.component';
+import { TeamPlayersComponent } from './components/teams/team-players/team-players.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -35,7 +36,7 @@ const routes: Routes = [
   },
   { path: 'teams', component: TeamsComponent },
   { path: 'teams/:teamName', component: TeamStatsComponent },
-  { path: 'teams/:teamName/players', component: TeamsComponent },
+  { path: 'teams/:teamName/players', component: TeamPlayersComponent },
   { path: '**', redirectTo: 'main', pathMatch: 'full' },
 ];
 

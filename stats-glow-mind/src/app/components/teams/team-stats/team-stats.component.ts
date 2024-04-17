@@ -71,7 +71,7 @@ export class TeamStatsComponent implements OnInit {
           this.teamId = teamInfo.id;
           this.teamName = teamInfo.name;
           this.teamLogo = teamInfo.logo;
-          console.log("ID: " + this.teamId + " NAME: " + this.teamName + " LOGO: " + this.teamLogo);
+          
           this.getTeamStatistics();
         }else {
           this.teamId = 0;
@@ -104,7 +104,7 @@ export class TeamStatsComponent implements OnInit {
 
   // Método que recoge los datos de las estadisticas de cada partido de la API y lo almacena en la Firestore
   getGameStatsForId(): void {
-    const games100Ids = this.gamesIds.slice(450, 540); // Seleccionar las primeras 100 IDs
+    const games100Ids = this.gamesIds.slice(540, 630); // Seleccionar las primeras 100 IDs
     games100Ids.forEach((gameId, index) => {
     //this.gamesIds.forEach((gameId, index) => {
       setTimeout(() => {
@@ -244,7 +244,6 @@ export class TeamStatsComponent implements OnInit {
       stats.gp = numGames;
       stats.winPercentage = stats.win * 100 / numGames;
     }
-    console.log(stats)
   }
 
   // Método que se encarga de inicializar los arrays de todas las estadisticas
