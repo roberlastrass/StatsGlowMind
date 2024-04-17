@@ -4,6 +4,7 @@ import { Teams } from '../models/teams.model';
 import { Observable, map } from 'rxjs';
 import { User } from '../models/user.model';
 import { GameStats } from '../models/game-stats.model';
+import { PlayerData } from '../models/player-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -141,7 +142,6 @@ export class FirestoreService {
   getTeamStatsAllGames(teamId: number): Observable<any[]> {
     const gamesRef = collection(this.firestore, 'Games');
     const teamStats: any[] = [];
-    // Consulta para obtener todos los documentos de la colección
     const q = query(gamesRef);
 
     return new Observable<any[]>(observer => {
@@ -151,7 +151,6 @@ export class FirestoreService {
           let result: string;
           // Verificar si el equipo está en casa
           if (gameData.home.id === teamId) {
-            // Comprobar si el equipo local ha ganado
             if (gameData.home.statistics.points > gameData.visitors.statistics.points) {
               result = 'win';
             } else {
@@ -159,10 +158,8 @@ export class FirestoreService {
             }
             teamStats.push({ ...gameData.home.statistics, result });
           }
-
           // Verificar si el equipo es visitante
           if (gameData.visitors.id === teamId) {
-            // Comprobar si el equipo visitante ha ganado
             if (gameData.visitors.statistics.points > gameData.home.statistics.points) {
               result = 'win';
             } else {
@@ -234,6 +231,33 @@ export class FirestoreService {
           }
         });
         observer.next({ teamStatsWin: statsWin, teamStatsLoss: statsLoss });
+      }).catch(error => {
+        observer.error(error);
+      });
+    });
+  }
+
+
+  /* GESTIÓN DE JUGADORES DE LA BASE DE DATOS */
+
+  // Método para agregar o actualizar los datos de los jugadores en la base de datos
+  addOrUpdatePlayers(playerData: PlayerData) {
+    const playerRef = doc(this.firestore, 'Players', playerData.id.toString());
+    setDoc(playerRef, playerData, { merge: true });
+  }
+
+  // Método para obtener todos los jugadores de un equipo según su ID
+  getTeamPlayers(idTeam: number): Observable<any[]> {
+    const playersRef = collection(this.firestore, 'Players');
+    const q = query(playersRef, where('idTeam', '==', idTeam));
+
+    return new Observable<any[]>(observer => {
+      getDocs(q).then(querySnapshot => {
+        const players: any[] = [];
+        querySnapshot.forEach(doc => {
+          players.push(doc.data());
+        });
+        observer.next(players);
       }).catch(error => {
         observer.error(error);
       });

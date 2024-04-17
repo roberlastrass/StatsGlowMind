@@ -16,7 +16,8 @@ export class StatsService {
     playoffs: 'https://stats.nba.com/stats/playoffbracket',
     teams: 'https://api-nba-v1.p.rapidapi.com/teams',
     seasonGames: 'https://api-nba-v1.p.rapidapi.com/games',
-    gameStats: 'https://api-nba-v1.p.rapidapi.com/games/statistics'
+    gameStats: 'https://api-nba-v1.p.rapidapi.com/games/statistics',
+    teamPlayers: 'https://api-nba-v1.p.rapidapi.com/players'
   };
 
   // Claves de la API
@@ -89,6 +90,15 @@ export class StatsService {
       .set('id', idGame);
 
     return this.http.get(this.apiUrls.gameStats, { headers: this.headers, params });
+  }
+
+  // Método que recoge los datos de los jugadores del equipo y de la sesion
+  getTeamPlayers(idTeam: number, season: string): Observable<any> {
+    const params = new HttpParams()
+      .set('team', idTeam)
+      .set('season', season);
+
+    return this.http.get(this.apiUrls.teamPlayers, { headers: this.headers, params });
   }
 
 }

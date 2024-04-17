@@ -1,5 +1,5 @@
 /* Estilos Team Stats */
-.teams-stats {
+.teams-players {
     display: flex;
     flex-wrap: wrap;
     padding: 1.5%;
@@ -24,8 +24,8 @@ h1 {
     color: #002649;
     margin: 0;
 }
-.all-stats, .home-visitors-stats, .win-loss-stats {
-    display: flex;
+.table-players {
+    flex: 1;
     flex-wrap: wrap;
     width: 90%;
     justify-content: center;
@@ -40,13 +40,12 @@ h1 {
 .name-stats{
     margin: 2%;
 }
-.name-second-stats {
-    margin-top: 5%;
-}
-
 
 /* Estilos tabla */
 table {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin-top: 5%;
     background-color: white;
 }
@@ -55,7 +54,6 @@ th {
     color: white;
 }
 th, td {
-    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
@@ -67,17 +65,24 @@ th, td {
 }
 
 /* Media query para pantallas pequeñas */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
+    table {
+        font-size: 12px;
+    }
+    h1{
+        font-size: 20px;
+    }
+    .logo {
+        width: 20%;
+    }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media only screen and (max-width: 380px) {
     table {
         font-size: 10px;
     }
     h1{
         font-size: 18px;
-    }
-    h2 {
-        font-size: 16px;
-    }
-    .logo {
-        width: 20%;
     }
 }

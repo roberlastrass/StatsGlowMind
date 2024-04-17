@@ -1,0 +1,85 @@
+<div class="wrapper">
+    <div class="team-players">
+        <div class="title-team">
+            <div>
+                <img class="logo" [src]="teamLogo">
+            </div>
+            <div>
+                <h1>{{teamName}}</h1>
+            </div>
+        </div>
+        <div class="table-players">
+            <div class="name-stats">
+                <h2>Jugadores</h2>
+            </div>
+            <table class="table">
+                <thead>
+                    <ng-container *ngIf="smallScreen">
+                        <tr>
+                            <ng-container *ngFor="let column of displayedColumnsSort">
+                            <th>{{ column }}</th>
+                            </ng-container>
+                        </tr>
+                        </ng-container>
+                    <ng-container *ngIf="mediumScreen && !smallScreen">
+                    <tr>
+                        <ng-container *ngFor="let column of displayedColumnsMedium">
+                        <th>{{ column }}</th>
+                        </ng-container>
+                    </tr>
+                    </ng-container>
+                    <ng-container *ngIf="!mediumScreen && !smallScreen">
+                    <tr>
+                        <ng-container *ngFor="let column of displayedColumnsLarge">
+                        <th>{{ column }}</th>
+                        </ng-container>
+                    </tr>
+                    </ng-container>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="smallScreen">
+                        <ng-container *ngFor="let player of teamPlayers">
+                            <tr>
+                                <td><strong>{{ player.firstname }} {{ player.lastname }}</strong></td>
+                                <td>{{ player.leagues.standard.pos }}</td>
+                                <td>{{ playerAge(player.birth.date) }}</td>
+                                <td>{{ player.height.meters }}m ({{ player.height.feets }}')</td>
+                                <td>{{ player.weight.kilograms }}kg ({{ player.weight.pounds }}lb)</td>
+                            </tr>
+                        </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="mediumScreen && !smallScreen">
+                        <ng-container *ngFor="let player of teamPlayers">
+                            <tr>
+                                <td><strong>{{ player.firstname }} {{ player.lastname }}</strong></td>
+                                <td>{{ player.leagues.standard.jersey }}</td>
+                                <td>{{ player.leagues.standard.pos }}</td>
+                                <td>{{ playerAge(player.birth.date) }}</td>
+                                <td>{{ player.height.meters }}m ({{ player.height.feets }}')</td>
+                                <td>{{ player.weight.kilograms }}kg ({{ player.weight.pounds }}lb)</td>
+                                <td>{{ player.birth.country }}</td>
+                            </tr>
+                        </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="!mediumScreen && !smallScreen">
+                        <ng-container *ngFor="let player of teamPlayers">
+                            <tr>
+                                <td><strong>{{ player.firstname }} {{ player.lastname }}</strong></td>
+                                <td>{{ player.leagues.standard.jersey }}</td>
+                                <td>{{ player.leagues.standard.pos }}</td>
+                                <td>{{ player.birth.date }}</td>
+                                <td>{{ playerAge(player.birth.date) }}</td>
+                                <td>{{ player.height.meters }}m ({{ player.height.feets }}')</td>
+                                <td>{{ player.weight.kilograms }}kg ({{ player.weight.pounds }}lb)</td>
+                                <td>{{ player.nba.start }}</td>
+                                <td>{{ player.nba.pro }}</td>
+                                <td>{{ player.college }}</td>
+                                <td>{{ player.birth.country }}</td>
+                            </tr>
+                        </ng-container>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
