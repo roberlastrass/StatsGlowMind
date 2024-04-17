@@ -14,6 +14,18 @@ export class AppComponent {
   text: string = '';
   activeComponent: string = 'standings';
 
+  /*allLinks: string[] = [
+    "Celtics", "Nets", "Knicks", "76ers", "Raptors",
+    "Bulls", "Cavaliers", "Pistons", "Pacers", "Bucks",
+    "Hawks", "Hornets", "Heat", "Magic", "Wizards",
+    "Nuggets", "Timberwolves", "Thunder", "Blazers", "Jazz",
+    "Warriors", "Clippers", "Lakers", "Suns", "Kings",
+    "Mavericks", "Rockets", "Grizzlies", "Pelicans", "Spurs"
+  ];
+  getTeamLink(teamName: string): string {
+    return "/teams/" + teamName;
+  }*/
+
   constructor(
     private router: Router,
     private userService: UserService

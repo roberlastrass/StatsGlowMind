@@ -10,6 +10,9 @@ import { LeadersComponent } from './components/stats/leaders/leaders.component';
 import { GamesComponent } from './components/stats/games/games.component';
 import { PlayoffsComponent } from './components/stats/playoffs/playoffs.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { TeamsComponent } from './components/teams/teams.component';
+import { TeamStatsComponent } from './components/teams/team-stats/team-stats.component';
+import { TeamPlayersComponent } from './components/teams/team-players/team-players.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -31,6 +34,9 @@ const routes: Routes = [
       { path: '', redirectTo: 'standings', pathMatch: 'full' },
     ] 
   },
+  { path: 'teams', component: TeamsComponent },
+  { path: 'teams/:teamName', component: TeamStatsComponent },
+  { path: 'teams/:teamName/players', component: TeamPlayersComponent },
   { path: '**', redirectTo: 'main', pathMatch: 'full' },
 ];
 

@@ -1,0 +1,93 @@
+/* Estilos Games */
+.teams {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5%;
+    background-color: #f5f5f5;
+    align-items: center;
+    text-align: center;
+}
+.conference-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.conference {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+.division-container {
+    flex: 1;
+    width: auto;
+}
+.teams-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+h1 {
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+h2 {
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+strong {
+    color: #FE5B3B;
+}
+
+/* Estilos Cards Material */
+.card {
+    width: 100%;
+    margin: 2.5%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    background-color: #002649;
+}
+.card-header {
+    font-size: 20px;
+    font-family: 'Zen Dots', sans-serif;
+    background-color: white;
+    color: #002649;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.logo {
+    width: 25%;
+}
+img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+mat-card-actions {
+    margin-top: 5%;
+}
+mat-card-actions button {
+    margin: 5%;
+}
+
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    .card {
+        font-size: 12px;
+    }
+    h1{
+        font-size: 18px;
+    }
+    h2, .card-header {
+        font-size: 16px;
+    }
+    .conference, h2 {
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+}
