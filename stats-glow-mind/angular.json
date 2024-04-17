@@ -22,7 +22,8 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/medusa.ico",
-              "src/assets"
+              "src/assets",
+              "src/medusa2.ico"
             ],
             "styles": [
               "src/assets/theme/my-theme.scss",
@@ -90,7 +91,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/medusa.ico",
-              "src/assets"
+              "src/assets",
+              "src/medusa2.ico"
             ],
             "styles": [
               "src/styles.css"

@@ -47,8 +47,5 @@ Thumbs.db
 .runtimeconfig.json
 
 
-# Configuración Firebase
-/src/environments/
-
-# API Key
+# API Keys
 /src/app/keys/

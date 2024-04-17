@@ -4,13 +4,14 @@
 <div class="wrapper">
     <div class="main">
         <div class="description">
-            <img class="logo" src="../assets/images/logo/medusa.png" alt="Logo Medusa">
-            <p>    
-                <span class="name">StatsGlowMind</span> es una aplicación web dedicada a la liga NBA, la cual muestra información en tiempo real 
-                de los partidos, clasificación de cada conferencia, playoffs y las estadísticas de los equipos y jugadores.
-                También realiza un análisis del rendimiento de los jugadores, implementando algoritmos y técnicas de análisis de datos.
-                Por último, es capaz de predecir que equipo tiene más probabilidad de ganar contra otro, utilizando Machine Learning.
-            </p>
+            <div class="logo-container">
+                <img class="logo" src="../assets/images/logo/medusa.png" alt="Logo Medusa">
+            </div>
+            <div class="slogan">
+                <p>    
+                    <span class="name">StatsGlowMind</span>
+                </p>
+            </div>
         </div>
         <div class="main-container">
             <mat-card class="card" routerLink="/stats">
@@ -24,7 +25,7 @@
                     </p>
                 </mat-card-content>
             </mat-card>
-            <mat-card class="card">
+            <mat-card class="card" routerLink="/teams">
                 <img mat-card-image class="basket_icon" src="../assets/images/icons/data_basket.png" alt="Data Basketball">
                 <mat-card-header>
                     <mat-card-title>EQUIPOS</mat-card-title>

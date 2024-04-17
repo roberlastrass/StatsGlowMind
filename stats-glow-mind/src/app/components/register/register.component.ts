@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../models/user.model';
+import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private firestore: FirestoreService
   ) {
     this.formRegister = new FormGroup({
       username: new FormControl(),
@@ -85,7 +87,7 @@ export class RegisterComponent implements OnInit {
       rol: this.formRegister.value.rol
     };
     // Llama al nuevo método del servicio para agregar datos a la base de datos
-    this.userService.addUserDatabase(usuario);
+    this.firestore.addUserDatabase(usuario);
   }
 
   // Muestra y oculta la contraseña

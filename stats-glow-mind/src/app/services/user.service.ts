@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, signInWithPopup, GoogleAuthProvider, UserCredential } from '@angular/fire/auth';
-import { User } from '../models/user.model';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getDoc, query, where, getDocs } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { FirestoreService } from './firestore.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +10,7 @@ export class UserService {
 
   constructor(
     private auth: Auth,
-    private firestore: Firestore
+    private firestore: FirestoreService
     ) { }
 
   // Método registrar un usuario
@@ -35,7 +33,7 @@ export class UserService {
     const uid = this.auth.currentUser?.uid;
     try {
       if (uid) {
-        const documentId = await this.getDocumentId(uid);
+        const documentId = await this.firestore.getDocumentId(uid);
         console.log(documentId);
         if (documentId) {
           // Existe la id del documento del usuario en Firestore, devuelve true
@@ -89,83 +87,6 @@ export class UserService {
   getUserUID() {
     const userUID = this.auth.currentUser?.uid;
     return userUID;
-  }
-
-  
-  /* GESTIÓN DE USUARIOS DE LA BASE DE DATOS */
-
-  // Metodo para añadir a usuarios en la base de datos
-  addUserDatabase(user: User) {
-    const usuario = collection(this.firestore, 'Users');
-    return addDoc(usuario, user);
-  }
-
-  // Método para regoger los datos de los usuarios de la base de datos
-  getUsers(): Observable<User[]> {
-    const userRef = collection(this.firestore, 'Users');
-    return collectionData(userRef, { idField: 'id' }) as Observable<User[]>;
-  }
-
-  // Método para eliminar el documento de un usuario de la base de datos
-  async deleteUserFirestore(userUID: string) {
-    // Obtener la referencia del documento usando la UID
-    const documentId = await this.getDocumentId(userUID);
-    if (documentId) {
-      // Construir la referencia del documento
-      const userDocRef = doc(this.firestore, 'Users', documentId);
-      try {
-        // Eliminar el documento
-        await deleteDoc(userDocRef);
-        console.log('Usuario eliminado con éxito.');
-      } catch (error) {
-        console.error('Error al eliminar el usuario:', error);
-      }
-    } else {
-      console.log('No se pudo obtener la ID del documento.');
-    }
-  }
-
-  // Consulta la Id del documento del usuario con UID: uid
-  async getDocumentId(uid: string): Promise<string | null> {
-    
-    const userUID = collection(this.firestore, 'Users');
-    const userQuery = query(userUID, where('uid', '==', uid));
-
-    try {
-      const querySnapshot = await getDocs(userQuery);
-
-      if (querySnapshot.size > 0) {
-        const firstDocument = querySnapshot.docs[0];
-        // Devuelve el ID del documento
-        return firstDocument.id;
-      } else {
-        // No se encontraron documentos que coincidan con la consulta
-        return null;
-      }
-    } catch (error) {
-      console.error('Error al realizar la consulta:', error);
-      return null;
-    }
-  }
-
-  // Método que a partir de la Id de un documento de User, devuelve el rol
-  async getUserRoleById(documentId: string): Promise<string | null> {
-    const userDocRef = doc(this.firestore, 'Users', documentId);
-
-    try {
-      const userDocSnapshot = await getDoc(userDocRef);
-
-      if (userDocSnapshot.exists()) {
-        const userData = userDocSnapshot.data();
-        return userData ? userData['rol'] : null;
-      } else {
-        console.log('El documento no existe');
-        return null;
-      }
-    } catch (error) {
-      console.error('Error al obtener el documento:', error);
-      return null;
-    }
   }
 
 }
