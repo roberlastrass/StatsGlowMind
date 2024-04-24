@@ -104,8 +104,9 @@ export class TeamStatsComponent implements OnInit {
 
   // Método que recoge los datos de las estadisticas de cada partido de la API y lo almacena en la Firestore
   getGameStatsForId(): void {
-    const games100Ids = this.gamesIds.slice(540, 630); // Seleccionar las primeras 100 IDs
+    const games100Ids = this.gamesIds.slice(720, 810); // Seleccionar las primeras 100 IDs
     games100Ids.forEach((gameId, index) => {
+      console.log(gameId)
     //this.gamesIds.forEach((gameId, index) => {
       setTimeout(() => {
         this.statsService.getGameStats(gameId)
