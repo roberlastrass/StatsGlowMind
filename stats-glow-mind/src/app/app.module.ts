@@ -23,6 +23,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamStatsComponent } from './components/teams/team-stats/team-stats.component';
 import { TeamPlayersComponent } from './components/teams/team-players/team-players.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TeamPlayersComponent } from './components/teams/team-players/team-playe
     AdminComponent,
     TeamsComponent,
     TeamStatsComponent,
-    TeamPlayersComponent
+    TeamPlayersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

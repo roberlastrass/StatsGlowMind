@@ -1,0 +1,73 @@
+/* Estilos Footer */
+.footer {
+    background-color: #002649;
+    color: white;
+    padding: 2.5% 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.container-logo {
+    margin-bottom: 2.5%;
+}
+.container-info {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3.5%;
+}
+.container-licence {
+    margin-top: 2.5%;
+}
+.container {
+    flex: 1;
+}
+
+/* Estilos listas */
+ul {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    margin-bottom: 5px;
+}
+ul li a {
+    color: white;
+    text-decoration: none;
+}
+ul li a:hover {
+    text-decoration: underline;
+}
+hr {
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+}
+
+/* Estilos logo app */
+.title {
+    max-width: 20%;
+    height: auto;
+}
+
+/* Media query para pantallas 1000px */
+@media only screen and (max-width: 1000px) {
+    .footer {
+        font-size: 14px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+    .title {
+        max-width: 30%;
+    }
+}
+/* Media query para pantallas 600px */
+@media only screen and (max-width: 600px) {
+    .container-licence {
+        font-size: 12px;
+    }
+    .title {
+        max-width: 40%;
+    }
+}
