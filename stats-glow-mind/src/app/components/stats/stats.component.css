@@ -1,3 +1,7 @@
+/* Estilos Stats */
+.wrapper {
+    padding-bottom: 0%;
+}
 .stats-container {
     padding: 2.5%;
     display: flex;
@@ -6,7 +10,6 @@
     margin-left: 5%;
     margin-right: 5%;
 }
-
 .stats_icon {
     margin-right: 5%;
 }

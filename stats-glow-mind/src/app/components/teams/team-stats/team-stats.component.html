@@ -8,6 +8,9 @@
         <h1>{{teamName}}</h1>
       </div>
     </div>
+    <div class="btn-players">
+      <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', teamNickname, 'players']">JUGADORES</button>
+    </div>
     <div class="all-stats">
       <div class="name-stats">
         <h2>Estadísticas Totales</h2>
@@ -287,7 +290,7 @@
           <tr>
             <ng-container *ngIf="smallScreen">
               <td>{{ winStats?.gp }}</td>
-              <td>{{ winStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ winStats?.winPercentage}}</td>
               <td>{{ winStats?.points?.toFixed(2) }}</td>
               <td>{{ winStats?.fgp.toFixed(2) }}</td>
               <td>{{ winStats?.tpp.toFixed(2) }}</td>
@@ -298,7 +301,7 @@
               <td>{{ winStats?.gp }}</td>
               <td>{{ winStats?.win }}</td>
               <td>{{ winStats?.loss }}</td>
-              <td>{{ winStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ winStats?.winPercentage }}</td>
               <td>{{ winStats?.points?.toFixed(2) }}</td>
               <td>{{ winStats?.fgp.toFixed(2) }}</td>
               <td>{{ winStats?.tpp.toFixed(2) }}</td>
@@ -313,7 +316,7 @@
               <td>{{ winStats?.gp }}</td>
               <td>{{ winStats?.win }}</td>
               <td>{{ winStats?.loss }}</td>
-              <td>{{ winStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ winStats?.winPercentage }}</td>
               <td>{{ winStats?.points?.toFixed(2) }}</td>
               <td>{{ winStats?.fgm?.toFixed(2) }}</td>
               <td>{{ winStats?.fga?.toFixed(2) }}</td>
@@ -368,7 +371,7 @@
           <tr>
             <ng-container *ngIf="smallScreen">
               <td>{{ lossStats?.gp }}</td>
-              <td>{{ lossStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ lossStats?.winPercentage }}</td>
               <td>{{ lossStats?.points?.toFixed(2) }}</td>
               <td>{{ lossStats?.fgp.toFixed(2) }}</td>
               <td>{{ lossStats?.tpp.toFixed(2) }}</td>
@@ -379,7 +382,7 @@
               <td>{{ lossStats?.gp }}</td>
               <td>{{ lossStats?.win }}</td>
               <td>{{ lossStats?.loss }}</td>
-              <td>{{ lossStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ lossStats?.winPercentage }}</td>
               <td>{{ lossStats?.points?.toFixed(2) }}</td>
               <td>{{ lossStats?.fgp.toFixed(2) }}</td>
               <td>{{ lossStats?.tpp.toFixed(2) }}</td>
@@ -394,7 +397,7 @@
               <td>{{ lossStats?.gp }}</td>
               <td>{{ lossStats?.win }}</td>
               <td>{{ lossStats?.loss }}</td>
-              <td>{{ lossStats?.winPercentage?.toFixed(2) }}</td>
+              <td>{{ lossStats?.winPercentage }}</td>
               <td>{{ lossStats?.points?.toFixed(2) }}</td>
               <td>{{ lossStats?.fgm?.toFixed(2) }}</td>
               <td>{{ lossStats?.fga?.toFixed(2) }}</td>
