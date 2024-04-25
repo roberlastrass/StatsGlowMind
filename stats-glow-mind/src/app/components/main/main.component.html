@@ -3,19 +3,114 @@
 </div>
 <div class="wrapper">
     <div class="main">
-        <div class="description">
-            <div class="logo-container">
-                <img class="logo" src="../assets/images/logo/medusa.png" alt="Logo Medusa">
+        <div class="intro">
+            <div class="main-card">
+                <mat-card class="card-main">
+                    <br>
+                    <img mat-card-image class="logo" src="../assets/images/logo/medusa.png" alt="Logo Medusa">
+                    <mat-card-header>
+                        <mat-card-title class="card-title">StatsGlowMind</mat-card-title>
+                    </mat-card-header>
+                    <br>
+                </mat-card>
             </div>
-            <div class="slogan">
-                <p>    
-                    <span class="name">StatsGlowMind</span>
-                </p>
+            <div class="options-cards">
+                <mat-tab-group>
+                    <mat-tab label="NBA"> 
+                        <mat-card class="card-option card-nba" routerLink="/stats">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/hoop.png" alt="Basketball">
+                            <mat-card-header>
+                                <mat-card-title>NBA</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="EQUIPOS"> 
+                        <mat-card class="card-option card-teams" routerLink="/teams">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/basketball-court.png" alt="Data Basketball">
+                            <mat-card-header>
+                                <mat-card-title>EQUIPOS</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="ANÁLISIS"> 
+                        <mat-card class="card-option card-analysis">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/charts.png" alt="Stats">
+                            <mat-card-header>
+                                <mat-card-title>ANÁLISIS</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="PREDICCIONES"> 
+                        <mat-card class="card-option card-predict">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/market-analysis.png" alt="Predicts">
+                            <mat-card-header>
+                                <mat-card-title>PREDICCIONES</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                </mat-tab-group>
             </div>
         </div>
+
+        <div class="intro">
+            <div class="main-card">
+                <mat-card class="card-main" routerLink="/stats">
+                    <img mat-card-image class="logo" src="../assets/images/icons/hoop.png" alt="Basketball">
+                    <mat-card-header>
+                        <mat-card-title>NBA</mat-card-title>
+                    </mat-card-header>
+                    <br>
+                </mat-card>
+            </div>
+            <div class="options-cards">
+                <mat-tab-group>
+                    <mat-tab label="CLASIFICACIÓN"> 
+                        <mat-card class="card-option nba-cards" routerLink="/stats/standings">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/podium2.png" alt="Basketball">
+                            <mat-card-header>
+                                <mat-card-title>CLASIFICACIÓN</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="PLAYOFFS"> 
+                        <mat-card class="card-option nba-cards" routerLink="/stats/playoffs">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/play2.png" alt="Basketball">
+                            <mat-card-header>
+                                <mat-card-title>PLAYOFFS</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="PARTIDOS"> 
+                        <mat-card class="card-option nba-cards" routerLink="/stats/games">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/game2.png" alt="Basketball">
+                            <mat-card-header>
+                                <mat-card-title>PARTIDOS</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="LÍDERES"> 
+                        <mat-card class="card-option nba-cards" routerLink="/stats/leaders">
+                            <img mat-card-image class="option-icon" src="../assets/images/icons/star2.png" alt="Basketball">
+                            <mat-card-header>
+                                <mat-card-title>LÍDERES</mat-card-title>
+                            </mat-card-header>
+                            <br>
+                        </mat-card>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+
         <div class="main-container">
             <mat-card class="card" routerLink="/stats">
-                <img mat-card-image class="basket_icon" src="../assets/images/icons/basketball.png" alt="Basketball">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/hoop.png" alt="Basketball">
                 <mat-card-header>
                     <mat-card-title>NBA</mat-card-title>
                 </mat-card-header>
@@ -26,7 +121,7 @@
                 </mat-card-content>
             </mat-card>
             <mat-card class="card" routerLink="/teams">
-                <img mat-card-image class="basket_icon" src="../assets/images/icons/data_basket.png" alt="Data Basketball">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/basketball-court.png" alt="Data Basketball">
                 <mat-card-header>
                     <mat-card-title>EQUIPOS</mat-card-title>
                 </mat-card-header>
@@ -37,7 +132,7 @@
                 </mat-card-content>
             </mat-card>
             <mat-card class="card">
-                <img mat-card-image class="basket_icon" src="../assets/images/icons/stats.png" alt="Stats">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/charts.png" alt="Stats">
                 <mat-card-header>
                     <mat-card-title>ANÁLISIS</mat-card-title>
                 </mat-card-header>
@@ -48,7 +143,7 @@
                 </mat-card-content>
             </mat-card>
             <mat-card class="card">
-                <img mat-card-image class="basket_icon" src="../assets/images/icons/predicts.png" alt="Predicts">
+                <img mat-card-image class="basket_icon" src="../assets/images/icons/market-analysis.png" alt="Predicts">
                 <mat-card-header>
                     <mat-card-title>PREDICCIONES</mat-card-title>
                 </mat-card-header>

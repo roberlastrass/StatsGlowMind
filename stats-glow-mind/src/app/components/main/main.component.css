@@ -12,7 +12,7 @@
     margin-right: 1%;
     transition: transform 0.3s ease;
 }
-.basket_icon:hover, .card {
+.basket_icon:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -39,20 +39,65 @@
     background-color: white;
 }
 
-/* Estilos Descripción */
-.description {
+/* Estilos Intro */
+.intro {
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-bottom: 5%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.slogan {
-    margin-right: 10%;
-    margin-left: 10%;
+.main-card{
+    width: 30%;
+}
+.options-cards{
+    width: 70%;
+}
+.card-main {
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 2%;
+    box-shadow: 0 0 0px;
+    background-color: #f5f5f5;
+}
+.card-option {
+    display: flex;
+    align-items: center;
+    margin: 2%;
+    background-size: cover;
+    background-position: center;
+}
+.card-nba {
+    background-image: url('../../../assets/images/wallpaper/fondo-nba.jpg');
+}
+.card-teams {
+    background-image: url('../../../assets/images/wallpaper/fondo-teams.jpg');
+}
+.card-analysis {
+    background-image: url('../../../assets/images/wallpaper/fondo-analysis.jpg');
+}
+.card-predict {
+    background-image: url('../../../assets/images/wallpaper/fondo-predicts.jpg');
+}
+.nba-cards {
+    background-image: url('../../../assets/images/wallpaper/nba-fondos.jpg');
+}
+.option-icon {
+    padding: 5%;
+    width: 25%;
+    transition: transform 0.3s ease;
+}
+.option-icon:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 .logo {
-    width: 15%;
+    width: 60%;
     height: auto;
     margin-bottom: 2%;
 }
@@ -87,12 +132,6 @@ button {
     .card {
         width: 25%;
     }
-    mat-card-title {
-        font-size: 18px;
-    }
-    .logo {
-        width: 20%;
-    }
 }
 /* Media query para pantallas 1000px */
 @media only screen and (max-width: 1000px) {
@@ -105,9 +144,6 @@ button {
         width: 40%;
         margin: 5%;
     }
-    .logo {
-        width: 25%;
-    }
     .user-btn {
         font-size: 10px;
     }
@@ -117,8 +153,15 @@ button {
     .card {
         width: 40%;
     }
-    .logo {
-        width: 30%;
+    .intro {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .main-card{
+        width: 100%;
+    }
+    .options-cards{
+        width: 100%;
     }
 }
 /* Media query para pantallas 600px */
@@ -126,8 +169,9 @@ button {
     .card {
         width: 65%;
     }
-    .logo {
-        width: 35%;
+    .intro {
+        margin-left: 10%;
+        margin-right: 10%;
     }
     .user-btn {
         font-size: 8px;

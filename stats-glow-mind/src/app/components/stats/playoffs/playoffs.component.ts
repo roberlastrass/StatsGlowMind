@@ -24,7 +24,7 @@ export class PlayoffsComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getPlayoffsData('2022');
+    this.getPlayoffsData('2023');
   }
 
   // Método que realiza una llamada a la API para mostrar los datos de los playoffs de la NBA
