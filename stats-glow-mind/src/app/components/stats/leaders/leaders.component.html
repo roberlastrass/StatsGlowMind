@@ -13,7 +13,9 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <h2>{{ getTitle(category) }}</h2>
+    <div class="title">
+      <h2>{{ getTitle(category) }}</h2>
+    </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="RANK">
         <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Rank </th>
@@ -74,6 +76,8 @@
       <tr mat-header-row *matHeaderRowDef="smallScreen ? displayedColumnsSort : mediumScreen? displayedColumnsMedium : displayedColumnsLarge"></tr>
       <tr mat-row *matRowDef="let row; columns: smallScreen ? displayedColumnsSort : mediumScreen? displayedColumnsMedium : displayedColumnsLarge"></tr>
     </table>
-    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50, 100]" aria-label="Select page of players"></mat-paginator>
+    <div class="paginator">
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50, 100]" aria-label="Select page of players"></mat-paginator>
+    </div>
   </div>
 </div>
