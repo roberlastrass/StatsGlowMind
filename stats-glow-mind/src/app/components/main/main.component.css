@@ -50,6 +50,7 @@
     border: 1px solid #ccc;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 .main-card{
     width: 30%;
@@ -63,7 +64,7 @@
     border-radius: 30px;
     margin: 2%;
     box-shadow: 0 0 0px;
-    background-color: #f5f5f5;
+    background-color: white;
 }
 .card-option {
     display: flex;
@@ -72,6 +73,9 @@
     background-size: cover;
     background-position: center;
 }
+/*.card-option mat-card-title {
+    color: white;
+}*/
 .card-nba {
     background-image: url('../../../assets/images/wallpaper/fondo-nba.jpg');
 }

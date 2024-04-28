@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StatsService } from '../../../services/stats.service';
+import { FirestoreService } from '../../../services/firestore.service';
 
 @Component({
   selector: 'stats-playoffs',
@@ -18,13 +19,20 @@ export class PlayoffsComponent {
     { name: 'Round 2', roundNumber: 2, conference: 'East' },
     { name: 'Round 1', roundNumber: 1, conference: 'East' }
   ];
+  teamsNicknames: any [] = [];
+  nicknamesWest: any [] = this.filteredSeries(1, "West");
+  nicknamesEast: any [] = this.filteredSeries(1, "East");
+  teamsNickLogo: any [] = [];
+  teamLogo: string = "";
 
   constructor(
-    private statsService: StatsService
+    private statsService: StatsService,
+    private firestore: FirestoreService
   ) { }
 
   ngOnInit(): void {
     this.getPlayoffsData('2023');
+    //this.getTeamLogoForNickname();
   }
 
   // Método que realiza una llamada a la API para mostrar los datos de los playoffs de la NBA
@@ -50,5 +58,25 @@ export class PlayoffsComponent {
       series.roundNumber === roundNumber && series.seriesConference === conference
     );
   }
+
+  // Método que a partir del nickname recoge el logo del equipo
+  /*
+  getTeamLogoForNickname() {
+    this.nicknamesWest = this.filteredSeries(1, "West");
+    this.nicknamesEast = this.filteredSeries(1, "East");
+    this.teamsNicknames.push(this.nicknamesWest, this.nicknamesEast);
+    console.log(this.teamsNicknames)
+    this.teamsNicknames.forEach((nickname) => {
+      this.firestore.getTeamId(nickname)
+      .then(teamInfo => {
+        if (teamInfo !== null) {
+          this.teamLogo = teamInfo.logo;
+        }
+      })
+      .catch(error => {
+        console.error("Error al obtener el logo del equipo:", error);
+      });
+    });
+  }*/
 
 }

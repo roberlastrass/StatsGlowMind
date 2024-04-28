@@ -1,0 +1,40 @@
+/* Estilos Analysis */
+.analysis {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5%;
+    background-color: #f5f5f5;
+    align-items: center;
+    text-align: center;
+}
+.title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+/* Estilos Tabla */
+.analysis-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 1.5%;
+    flex: 1; 
+    margin: 2.5%;
+}
+th{
+    color: white;
+}
+.paginator {
+    width: 100%;
+}
+
+/* Estilos Buscador */
+.mat-mdc-form-field {
+    width: 100%;
+}

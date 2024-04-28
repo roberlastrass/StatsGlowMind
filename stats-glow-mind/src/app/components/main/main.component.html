@@ -15,7 +15,7 @@
                 </mat-card>
             </div>
             <div class="options-cards">
-                <mat-tab-group>
+                <mat-tab-group color="accent">
                     <mat-tab label="NBA"> 
                         <mat-card class="card-option card-nba" routerLink="/stats">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/hoop.png" alt="Basketball">
@@ -35,7 +35,7 @@
                         </mat-card>
                     </mat-tab>
                     <mat-tab label="ANÁLISIS"> 
-                        <mat-card class="card-option card-analysis">
+                        <mat-card class="card-option card-analysis" routerLink="/analysis">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/charts.png" alt="Stats">
                             <mat-card-header>
                                 <mat-card-title>ANÁLISIS</mat-card-title>
@@ -131,7 +131,7 @@
                     </p>
                 </mat-card-content>
             </mat-card>
-            <mat-card class="card">
+            <mat-card class="card" routerLink="/analysis">
                 <img mat-card-image class="basket_icon" src="../assets/images/icons/charts.png" alt="Stats">
                 <mat-card-header>
                     <mat-card-title>ANÁLISIS</mat-card-title>
