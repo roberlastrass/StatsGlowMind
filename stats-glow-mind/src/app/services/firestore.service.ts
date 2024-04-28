@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getDoc, query, where, getDocs, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getDoc, query, where, getDocs, setDoc, updateDoc, orderBy } from '@angular/fire/firestore';
 import { Teams } from '../models/teams.model';
-import { Observable, map } from 'rxjs';
+import { Observable, from, map } from 'rxjs';
 import { User } from '../models/user.model';
 import { GameStats } from '../models/game-stats.model';
 import { PlayerData } from '../models/player-data.model';
@@ -99,6 +99,15 @@ export class FirestoreService {
     return collectionData(teamsCollection) as Observable<Teams[]>;
   }
 
+  // Método que recoge solo las IDs de todos los equipos
+  getTeamIds(): Observable<string[]> {
+    const teamsCollection = collection(this.firestore, 'Teams');
+    const queryRef = query(teamsCollection);
+    return from(
+      getDocs(queryRef).then(snapshot => snapshot.docs.map(doc => doc.id))
+    );
+  }
+
   // Método que realiza una consulta en la coleccion Teams que a partir del nickname de un equipo, devuelve su id, name y logo
   async getTeamId(teamNickname: string): Promise<any> {
     const teamsRef = collection(this.firestore, 'Teams');
@@ -128,7 +137,7 @@ export class FirestoreService {
     const teamRef = doc(this.firestore, 'Teams', teamId.toString());
     return setDoc(teamRef, { averageStats }, { merge: true });
   }
-
+  
 
   /* GESTIÓN DE PARTIDOS DE LA BASE DE DATOS */
 
@@ -237,6 +246,13 @@ export class FirestoreService {
     });
   }
 
+  // Método que comprueba si la id del partido esta almacenada en la base de datos
+  async checkGameExists(idGame: string): Promise<boolean> {
+    const gameRef = doc(this.firestore, 'Games', idGame);
+    const gameDoc = await getDoc(gameRef);
+    return gameDoc.exists();
+  }
+
 
   /* GESTIÓN DE JUGADORES DE LA BASE DE DATOS */
 
@@ -260,6 +276,53 @@ export class FirestoreService {
         observer.next(players);
       }).catch(error => {
         observer.error(error);
+      });
+    });
+  }
+
+  // Método que recoge los datos básicos de todos los jugadores
+  getAllPlayers(): Observable<any[]>  {
+    const playersRef = collection(this.firestore, 'Players');
+    const playerQuery = query(playersRef, orderBy('firstname'));
+  
+    return new Observable<any[]>(observer => {
+      getDocs(playerQuery).then(querySnapshot => {
+        const playersData: any[] = [];
+        querySnapshot.forEach(doc => {
+          const data = doc.data();
+          const playerData = {
+            id: doc.id,
+            firstname: data['firstname'] || '',
+            lastname: data['lastname'] || '',
+            jersey: data['leagues']?.['standard']?.['jersey'] || '',
+            pos: data['leagues']?.['standard']?.['pos'] || '',
+            birthdate: data['birth']?.['date'] || '',
+            idTeam: data['idTeam'] || ''
+          };
+          playersData.push(playerData);
+        });
+        observer.next(playersData);
+      }).catch(error => {
+        observer.error(error);
+      });
+    });
+  }
+
+  // Método para agregar las estadísticas de un partido a un jugador en la colección Players
+  async addStatsGamesPlayer(idPlayer: string, idGame: string, stats: any): Promise<void> {
+    const jugadorRef = doc(this.firestore, 'Players', idPlayer);
+    const games = { [idGame]: stats };
+    return setDoc(jugadorRef, { games }, { merge: true } );
+  }
+
+  // Método para eliminar el contenido del campo 'games' de cada jugador
+  async removeGamesFromPlayers(): Promise<void> {
+    const playersRef = collection(this.firestore, 'Players');
+    const playersSnapshot = await getDocs(playersRef);
+    playersSnapshot.forEach(async (playerDoc) => {
+      const playerRef = doc(this.firestore, 'Players', playerDoc.id);
+      await updateDoc(playerRef, {
+        games: null
       });
     });
   }

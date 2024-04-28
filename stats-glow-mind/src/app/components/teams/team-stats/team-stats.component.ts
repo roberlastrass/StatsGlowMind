@@ -85,12 +85,14 @@ export class TeamStatsComponent implements OnInit {
 
   // Método que recoge los partidos que devuelve la API y recoge las Ids de los partidos válidos
   filteredValidGames(): void {
+    
     this.statsService.getSeasonGames("2023").subscribe(
       response => {
         this.games = response.response.filter((partido: any) => {
           const fechaPartido = new Date(partido.date.start);
-          const fechaLimite = new Date('2023-10-24');
-          return fechaPartido >= fechaLimite && partido.status.long === 'Finished';
+          const startDate = new Date('2023-10-24');
+          const endDate = new Date('2024-04-14');
+          return fechaPartido >= startDate && fechaPartido <= endDate && partido.status.long === 'Finished';
         });
         this.gamesIds = this.games.map((partido: any) => partido.id);
         console.log(this.gamesIds);
@@ -104,7 +106,7 @@ export class TeamStatsComponent implements OnInit {
 
   // Método que recoge los datos de las estadisticas de cada partido de la API y lo almacena en la Firestore
   getGameStatsForId(): void {
-    const games100Ids = this.gamesIds.slice(810, 900); // Seleccionar las primeras 100 IDs
+    const games100Ids = this.gamesIds.slice(940, 1030); // Seleccionar las primeras 100 IDs
     games100Ids.forEach((gameId, index) => {
       console.log(gameId)
     //this.gamesIds.forEach((gameId, index) => {
