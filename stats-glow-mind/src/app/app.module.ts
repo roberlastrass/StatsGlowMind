@@ -25,6 +25,7 @@ import { TeamStatsComponent } from './components/teams/team-stats/team-stats.com
 import { TeamPlayersComponent } from './components/teams/team-players/team-players.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AnalysisComponent } from './components/analysis/analysis.component';
+import { ChartsPlayerComponent } from './components/analysis/charts-player/charts-player.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AnalysisComponent } from './components/analysis/analysis.component';
     TeamStatsComponent,
     TeamPlayersComponent,
     FooterComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    ChartsPlayerComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,31 @@
     margin-top: 5%;
 }
 
+/* Estilos Cards */
+.featured-players{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.card {
+    width: 100%;
+    margin: 2.5%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+}
+.avatar {
+    width: 30%;
+}
+.headshot {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 /* Estilos Tabla */
 .analysis-container {
     display: flex;

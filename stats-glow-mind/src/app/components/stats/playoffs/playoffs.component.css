@@ -56,7 +56,13 @@ h2 {
     text-align: center;
 }
 .logo {
-    width: 10%;
+    width: 30%;
+}
+img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 .rank {
     font-size: 20px;
