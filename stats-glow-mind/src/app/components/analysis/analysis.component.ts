@@ -4,6 +4,7 @@ import { FirestoreService } from '../../services/firestore.service';
 import { PlayerStatsGame } from '../../models/player-stats-game.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-analysis',
@@ -17,10 +18,16 @@ export class AnalysisComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   color = '#002649';
   teamIds: string[] = [];
+  lukaDoncic: any[] = ["963", "Luka Doncic", "DAl", "https://cdn.nba.com/headshots/nba/latest/1040x760/1629029.png"];
+  nikolaJocic: any[] = ["279", "Nikola Jokic", "DEN", "https://cdn.nba.com/headshots/nba/latest/1040x760/203999.png"];
+  shai: any[] = ["972", "Shai Gilgeous-Alexander", "OKC", "https://cdn.nba.com/headshots/nba/latest/1040x760/1628983.png"];
+  giannis: any[] = ["20", "Giannis Antetokounmpo", "MIL", "https://cdn.nba.com/headshots/nba/latest/1040x760/203507.png"];
+  name = "player:279";
 
   constructor( 
     private statsService: StatsService,
-    private firestore: FirestoreService
+    private firestore: FirestoreService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -44,7 +51,7 @@ export class AnalysisComponent implements OnInit {
     const firstThird = teamIds.slice(0, Math.ceil(teamIds.length / 3)); // Obtener el primer tercio del array
     const secondThird = teamIds.slice(Math.ceil(teamIds.length / 3), Math.ceil((teamIds.length / 3) * 2)); // Obtener segundo tercio
     const thirdThird = teamIds.slice(Math.ceil((teamIds.length / 3) * 2)); // Obtener tercer tercio
-    secondThird.forEach((teamId, index) => {
+    thirdThird.forEach((teamId, index) => {
       setTimeout(() => {
         this.statsService.getStatsPlayersForTeam(parseInt(teamId), "2023")
           .subscribe(
@@ -97,7 +104,6 @@ export class AnalysisComponent implements OnInit {
   getPlayers() {
     this.firestore.getAllPlayers().subscribe(
       (players: any[]) => {
-        console.log('Datos de los jugadores:', players);
         this.dataSource = new MatTableDataSource(players);
         this.dataSource.paginator = this.paginator;
       },

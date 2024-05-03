@@ -327,4 +327,49 @@ export class FirestoreService {
     });
   }
 
+  // Método que a partir de la Id de un jugador, devuelva info del jugador
+  async getPlayerInfo(playerId: number): Promise<any> {
+    const playersRef = collection(this.firestore, 'Players');
+    const playerQuery = query(playersRef, where('id', '==', playerId));
+    try {
+      const querySnapshot = await getDocs(playerQuery);
+      if (!querySnapshot.empty) {
+        const playerData = querySnapshot.docs[0].data();
+        const playerInfo = {
+          id: playerId,
+          firstName: playerData['firstname'],
+          lastName: playerData['lastname'],
+          idTeam: playerData['idTeam']
+        };
+        return playerInfo;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error('Error al obtener la información del jugador:', error);
+      return null;
+    }
+  }
+
+  // Método que devuelve los partidos jugador de un jugador
+  async getPlayerGames(playerId: string): Promise<any[]> {
+    const playersRef = collection(this.firestore, 'Players');
+    const playerDocRef = doc(playersRef, playerId);
+
+    try {
+      const playerDocSnapshot = await getDoc(playerDocRef);
+      if (!playerDocSnapshot.exists()) {
+        console.log('No se encontró ningún jugador con el ID proporcionado:', playerId);
+        return [];
+      }
+      const playerData = playerDocSnapshot.data();
+      const games = Object.values(playerData['games']);
+      console.log('Juegos del jugador', playerId, ':', games);
+      return games;
+    } catch (error) {
+      console.error('Error al obtener los juegos del jugador:', error);
+      return [];
+    }
+  }
+
 }
