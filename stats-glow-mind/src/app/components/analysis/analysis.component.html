@@ -6,20 +6,11 @@
         <div class="featured-players">
             <mat-card class="card">
                 <mat-card-header>
-                    <div mat-card-avatar class="avatar"><img class="headshot" [src]="lukaDoncic[3]" alt="Luka Doncic"></div>
-                    <mat-card-title>{{lukaDoncic[1]}}</mat-card-title>
-                    <mat-card-subtitle>{{lukaDoncic[2]}}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-actions>
-                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + lukaDoncic[0]]">ANÁLISIS</button>
-                </mat-card-actions>
-            </mat-card>
-            <mat-card class="card">
-                <mat-card-header>
                     <div mat-card-avatar class="avatar"><img class="headshot" [src]="nikolaJocic[3]" alt="Luka Doncic"></div>
                     <mat-card-title>{{nikolaJocic[1]}}</mat-card-title>
                     <mat-card-subtitle>{{nikolaJocic[2]}}</mat-card-subtitle>
                 </mat-card-header>
+                <mat-card-content><br></mat-card-content>
                 <mat-card-actions>
                     <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + nikolaJocic[0]]">ANÁLISIS</button>
                 </mat-card-actions>
@@ -30,8 +21,20 @@
                     <mat-card-title>{{shai[1]}}</mat-card-title>
                     <mat-card-subtitle>{{shai[2]}}</mat-card-subtitle>
                 </mat-card-header>
+                <mat-card-content><br></mat-card-content>
                 <mat-card-actions>
                     <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + shai[0]]">ANÁLISIS</button>
+                </mat-card-actions>
+            </mat-card>
+            <mat-card class="card">
+                <mat-card-header>
+                    <div mat-card-avatar class="avatar"><img class="headshot" [src]="lukaDoncic[3]" alt="Luka Doncic"></div>
+                    <mat-card-title>{{lukaDoncic[1]}}</mat-card-title>
+                    <mat-card-subtitle>{{lukaDoncic[2]}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content><br></mat-card-content>
+                <mat-card-actions>
+                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + lukaDoncic[0]]">ANÁLISIS</button>
                 </mat-card-actions>
             </mat-card>
             <mat-card class="card">
@@ -40,13 +43,14 @@
                     <mat-card-title>{{giannis[1]}}</mat-card-title>
                     <mat-card-subtitle>{{giannis[2]}}</mat-card-subtitle>
                 </mat-card-header>
+                <mat-card-content><br></mat-card-content>
                 <mat-card-actions>
                     <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + giannis[0]]">ANÁLISIS</button>
                 </mat-card-actions>
             </mat-card>
         </div>
         <div class="analysis-container">
-            <mat-form-field>
+            <mat-form-field class="filter">
                 <mat-label>Buscador: </mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Doncic" #input>
             </mat-form-field>

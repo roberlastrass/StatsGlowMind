@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../services/firestore.service';
 import { ActivatedRoute } from '@angular/router';
 import { StatsService } from '../../../services/stats.service';
+import { Chart, ChartOptions, ChartType, ChartDataset  } from 'chart.js/auto';
 
 @Component({
   selector: 'app-charts-player',
@@ -40,6 +41,14 @@ export class ChartsPlayerComponent implements OnInit {
   mediumScreen: boolean = false;
 
   averageStatsPlayer: any = {}
+
+  public allStatsChart: Chart | undefined;
+  public rebChart: Chart | undefined;
+  public fieldGoalsChart: Chart | undefined;
+  public freeShotsChart: Chart | undefined;
+  public tripleShotsChart: Chart | undefined;
+  public p2ShotsChart: Chart | undefined;
+  public plusMinusChart: Chart | undefined;
 
   constructor( 
     private statsService: StatsService,
@@ -141,9 +150,6 @@ export class ChartsPlayerComponent implements OnInit {
         turnovers: 0,
         gp: 0
       };
-      let gpfg = 0;
-      let gptp = 0;
-      let gpft = 0;
       // Sumar estadísticas
       playerGames.forEach(game => {
         averageStats.assists += game.assists;
@@ -164,20 +170,6 @@ export class ChartsPlayerComponent implements OnInit {
         averageStats.tpm += game.tpm;
         averageStats.turnovers += game.turnovers;
         averageStats.gp++;
-        if (game.fga !== 0) {
-          averageStats.fgp += (game.fgm * 100) / game.fga;
-          gpfg++;
-        }
-        
-        if (game.fta !== 0) {
-          averageStats.ftp += (game.ftm * 100) / game.fta;
-          gpft++;
-        }
-        
-        if (game.tpa !== 0) {
-          averageStats.tpp += (game.tpm * 100) / game.tpa;
-          gptp++;
-        }
       });
       // Calcular promedios
       averageStats.assists /= averageStats.gp;
@@ -185,10 +177,10 @@ export class ChartsPlayerComponent implements OnInit {
       averageStats.defReb /= averageStats.gp;
       averageStats.fga /= averageStats.gp;
       averageStats.fgm /= averageStats.gp;
-      averageStats.fgp /= gpfg;
+      averageStats.fgp = (averageStats.fgm * 100) / averageStats.fga;
       averageStats.fta /= averageStats.gp;
       averageStats.ftm /= averageStats.gp;
-      averageStats.ftp /= gpft;
+      averageStats.ftp = (averageStats.ftm * 100) / averageStats.fta;
       averageStats.min /= averageStats.gp;
       averageStats.offReb /= averageStats.gp;
       averageStats.pFouls /= averageStats.gp;
@@ -198,10 +190,14 @@ export class ChartsPlayerComponent implements OnInit {
       averageStats.totReb /= averageStats.gp;
       averageStats.tpa /= averageStats.gp;
       averageStats.tpm /= averageStats.gp;
-      averageStats.tpp /= gptp;
+      averageStats.tpp = (averageStats.tpm * 100) / averageStats.tpa;
       averageStats.turnovers /= averageStats.gp;
   
       console.log(averageStats)
+
+      // Llamo a las gráficas
+      this.createCharts(playerGames, averageStats);
+
       return averageStats;
     } catch (error) {
       console.error('Error al calcular la media de las estadísticas de los partidos del jugador:', error);
@@ -209,10 +205,346 @@ export class ChartsPlayerComponent implements OnInit {
     }
   }
 
+
+
+  /* GRÁFICAS */
+  createCharts(games: any, averageStats: any){
+    let idGames: any[] = [];
+    let points: any[] = [];
+    let assists: any[] = [];
+    let totReb: any[] = [];
+    let steals: any[] = [];
+    let blocks: any[] = [];
+    let offReb: any[] = [];
+    let defReb: any[] = [];
+    let fg: any[] = [];
+    let tp: any[] = [];
+    let ft: any[] = [];
+    let plusMinus: any[] = [];
+
+    let puntosMedia = averageStats.points;
+    let t2p = averageStats.fgm;
+    let tTriple = averageStats.tpm * 3;
+    let tLibres = averageStats.ftm;
+    t2p = puntosMedia - (tTriple + tLibres);
+    let fta = averageStats.fta;
+    let tpm = averageStats.tpm;
+    let tpa = averageStats.tpa;
+    let fga = averageStats.fga - averageStats.tpa;
+    let fgm = averageStats.fgm - averageStats.tpm;
+
+
+    games.forEach((game: {
+      blocks: any; steals: any; assists: any; plusMinus: any; ftp: any; tpp: any; fgp: any; defReb: any; offReb: any; totReb: any; idGame: any; points: any; 
+    }) => {
+      idGames.push(game.idGame),
+      points.push(game.points),
+      assists.push(game.assists),
+      steals.push(game.steals),
+      blocks.push(game.blocks),
+      totReb.push(game.totReb),
+      offReb.push(game.offReb),
+      defReb.push(game.defReb),
+      fg.push(game.fgp),
+      tp.push(game.tpp),
+      ft.push(game.ftp),
+      plusMinus.push(game.plusMinus)
+    });
+
+    // All Stats
+    const dataPoints = {
+      labels: idGames,
+      datasets: [
+        {
+          label: 'Puntos',
+          data: points,
+          fill: false,
+          borderColor: 'rgb(54, 162, 235)',
+          tension: 0.1
+        },
+        {
+          label: 'Asistencias',
+          data: assists,
+          fill: false,
+          borderColor: 'rgba(255, 99, 132)',
+          tension: 0.1
+        },
+        {
+          label: 'Rebotes',
+          data: totReb,
+          fill: false,
+          borderColor: 'rgba(255, 205, 86)',
+          tension: 0.1
+        },
+        {
+          label: 'Robos',
+          data: steals,
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        },
+        {
+          label: 'Tapones',
+          data: blocks,
+          fill: false,
+          borderColor: 'rgb(153, 102, 255)',
+          tension: 0.1
+        }
+      ]
+    };
+    const optionsPoints: ChartOptions<'line'> = {
+      responsive: true,
+      maintainAspectRatio: false,
+      aspectRatio: 1,
+      scales: {
+        x: {
+          display: false
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Partidos',
+          position: 'bottom'
+        }
+      }
+    };
+    this.allStatsChart = new Chart("chartAllStats", {
+      type: 'line',
+      data: dataPoints,
+      options: optionsPoints
+    })
+
+    // Rebounds
+    const dataReb = {
+      labels: idGames,
+      datasets: [
+        {
+          label: 'Rebotes Totales',
+          data: totReb,
+          fill: false,
+          borderColor: 'rgba(75, 192, 192)',
+          tension: 0.1
+        },
+        {
+          label: 'Rebotes Ofensivos',
+          data: offReb,
+          fill: false,
+          borderColor: 'rgba(255, 99, 132)',
+          tension: 0.1
+        },
+        {
+          label: 'Rebotes Defensivos',
+          data: defReb,
+          fill: false,
+          borderColor: 'rgba(255, 205, 86)',
+          tension: 0.1
+        }
+      ],
+    };
+    const optionsReb: ChartOptions<'line'> = {
+      responsive: true,
+      maintainAspectRatio: false,
+      aspectRatio: 1,
+      scales: {
+        x: {
+          display: false
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Partidos',
+          position: 'bottom'
+        }
+      }
+    };
+    this.rebChart = new Chart("chartReb", {
+      type: 'line',
+      data: dataReb,
+      options: optionsReb
+    })
+
+    // Field Goals
+    const dataFieldGoals = {
+      labels: [
+        'Tiros de 2 Puntos',
+        'Triples',
+        'Tiros Libres'
+      ],
+      datasets: [{
+          label: 'Puntos',
+          data: [t2p, tTriple, tLibres],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          hoverOffset: 4
+        }],
+    };
+    this.fieldGoalsChart = new Chart("chartFieldGoals", {
+      type: 'doughnut' as ChartType,
+      data: dataFieldGoals,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Puntos de Media',
+            position: 'bottom'
+          }
+        }
+      }
+    })
+
+    // 2p Shots
+    const data2pShots = {
+      labels: [
+        'Tiros de 2 Puntos Fallados',
+        'Tiros de 2 Puntos Anotados'
+      ],
+      datasets: [{
+          label: 'Tiros de 2 Puntos',
+          data: [fga-fgm, fgm],
+          backgroundColor: [
+            'rgb(255, 153, 173)',
+            'rgb(255, 99, 132)'
+          ],
+          hoverOffset: 4
+        }],
+    };
+    this.p2ShotsChart = new Chart("chart2pShots", {
+      type: 'doughnut' as ChartType,
+      data: data2pShots,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Tiros de 2 Puntos',
+            position: 'bottom'
+          }
+        }
+      }
+    })
+
+    // Triples Shots
+    const dataTripleShots = {
+      labels: [
+        'Triples Fallados',
+        'Triples Anotados'
+      ],
+      datasets: [{
+          label: 'Triples',
+          data: [tpa-tpm, tpm],
+          backgroundColor: [
+            'rgb(122, 194, 255)',
+            'rgb(54, 162, 235)'
+          ],
+          hoverOffset: 4
+        }],
+    };
+    this.tripleShotsChart = new Chart("chartTripleShots", {
+      type: 'doughnut' as ChartType,
+      data: dataTripleShots,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Triples',
+            position: 'bottom'
+          }
+        }
+      }
+    })
+
+    // Free Shots
+    const dataFreeShots = {
+      labels: [
+        'Tiros Libres Fallados',
+        'Tiros Libres Anotados'
+      ],
+      datasets: [{
+          label: 'Tiros Libres',
+          data: [fta-tLibres, tLibres],
+          backgroundColor: [
+            'rgb(255, 220, 133)',
+            'rgb(255, 205, 86)'
+          ],
+          hoverOffset: 4
+        }],
+    };
+    this.freeShotsChart = new Chart("chartFreeShots", {
+      type: 'doughnut' as ChartType,
+      data: dataFreeShots,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 1,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Tiros Libres',
+            position: 'bottom'
+          }
+        }
+      }
+    })
+
+    // Más / Menos
+    const dataPlusMinus = {
+      labels: idGames,
+      datasets: [
+        {
+          label: '+/-',
+          data: plusMinus,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgb(75, 192, 192)',
+          borderWidth: 1
+        }
+      ],
+    };
+    const optionsPlusMinus: ChartOptions<'bar'> = {
+      responsive: true,
+      maintainAspectRatio: false,
+      aspectRatio: 1,
+      scales: {
+        y: {
+          beginAtZero: true
+        },
+        x: {
+            display: false
+        },
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Partidos',
+          position: 'bottom'
+        }
+      }
+    };
+    this.plusMinusChart = new Chart("chartPlusMinus", {
+      type: 'bar',
+      data: dataPlusMinus,
+      options: optionsPlusMinus
+    })
+  
+  }
+
+
   // Función para comprobar el tamaño de la pantalla
   checkScreenSize() {
-    this.smallScreen = window.innerWidth <= 600;
-    this.mediumScreen = window.innerWidth <= 1100;
+    this.smallScreen = window.innerWidth <= 700;
+    this.mediumScreen = window.innerWidth <= 1150;
   }
 
   // Escuchar el evento de cambio de tamaño de la ventana

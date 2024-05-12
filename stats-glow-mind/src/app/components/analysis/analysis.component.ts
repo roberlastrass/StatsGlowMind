@@ -47,11 +47,7 @@ export class AnalysisComponent implements OnInit {
   // Método que recoge las estadisticas de cada partido de cada jugador y lo almacena en la base de datos
   getTeamPlayersStats(teamIds: any[]) {
     console.log(teamIds)
-    //teamIds.forEach((teamId, index) => {
-    const firstThird = teamIds.slice(0, Math.ceil(teamIds.length / 3)); // Obtener el primer tercio del array
-    const secondThird = teamIds.slice(Math.ceil(teamIds.length / 3), Math.ceil((teamIds.length / 3) * 2)); // Obtener segundo tercio
-    const thirdThird = teamIds.slice(Math.ceil((teamIds.length / 3) * 2)); // Obtener tercer tercio
-    thirdThird.forEach((teamId, index) => {
+    teamIds.forEach((teamId, index) => {
       setTimeout(() => {
         this.statsService.getStatsPlayersForTeam(parseInt(teamId), "2023")
           .subscribe(
