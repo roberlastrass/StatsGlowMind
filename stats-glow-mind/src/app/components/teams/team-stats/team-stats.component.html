@@ -43,52 +43,52 @@
           <tr>
             <ng-container *ngIf="smallScreen">
               <td>{{ averageStats?.gp }}</td>
-              <td>{{ averageStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ averageStats?.points?.toFixed(2) }}</td>
-              <td>{{ averageStats?.fgp.toFixed(2) }}</td>
-              <td>{{ averageStats?.tpp.toFixed(2) }}</td>
-              <td>{{ averageStats?.ftp.toFixed(2) }}</td>
-              <td>{{ averageStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ averageStats?.winPercentage ? averageStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.points ? averageStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.fgp ? averageStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.tpp ? averageStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.ftp ? averageStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.plusMinus ? averageStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="mediumScreen && !smallScreen">
               <td>{{ averageStats?.gp }}</td>
               <td>{{ averageStats?.win }}</td>
               <td>{{ averageStats?.loss }}</td>
-              <td>{{ averageStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ averageStats?.points?.toFixed(2) }}</td>
-              <td>{{ averageStats?.fgp.toFixed(2) }}</td>
-              <td>{{ averageStats?.tpp.toFixed(2) }}</td>
-              <td>{{ averageStats?.ftp.toFixed(2) }}</td>
-              <td>{{ averageStats?.totReb.toFixed(2) }}</td>
-              <td>{{ averageStats?.assists.toFixed(2) }}</td>
-              <td>{{ averageStats?.steals.toFixed(2) }}</td>
-              <td>{{ averageStats?.blocks.toFixed(2) }}</td>
-              <td>{{ averageStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ averageStats?.winPercentage ? averageStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.points ? averageStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.fgp ? averageStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.tpp ? averageStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.ftp ? averageStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.totReb ? averageStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.assists ? averageStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.steals ? averageStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.blocks ? averageStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.plusMinus ? averageStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="!mediumScreen && !smallScreen">
               <td>{{ averageStats?.gp }}</td>
               <td>{{ averageStats?.win }}</td>
               <td>{{ averageStats?.loss }}</td>
-              <td>{{ averageStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ averageStats?.points?.toFixed(2) }}</td>
-              <td>{{ averageStats?.fgm?.toFixed(2) }}</td>
-              <td>{{ averageStats?.fga?.toFixed(2) }}</td>
-              <td>{{ averageStats?.fgp?.toFixed(2) }}</td>
-              <td>{{ averageStats?.tpm?.toFixed(2) }}</td>
-              <td>{{ averageStats?.tpa?.toFixed(2) }}</td>
-              <td>{{ averageStats?.tpp?.toFixed(2) }}</td>
-              <td>{{ averageStats?.ftm?.toFixed(2) }}</td>
-              <td>{{ averageStats?.fta?.toFixed(2) }}</td>
-              <td>{{ averageStats?.ftp?.toFixed(2) }}</td>
-              <td>{{ averageStats?.offReb?.toFixed(2) }}</td>
-              <td>{{ averageStats?.defReb?.toFixed(2) }}</td>
-              <td>{{ averageStats?.totReb?.toFixed(2) }}</td>
-              <td>{{ averageStats?.assists?.toFixed(2) }}</td>
-              <td>{{ averageStats?.turnovers?.toFixed(2) }}</td>
-              <td>{{ averageStats?.steals?.toFixed(2) }}</td>
-              <td>{{ averageStats?.blocks?.toFixed(2) }}</td>
-              <td>{{ averageStats?.pFouls?.toFixed(2) }}</td>
-              <td>{{ averageStats?.plusMinus?.toFixed(2) }}</td>
+              <td>{{ averageStats?.winPercentage ? averageStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.points ? averageStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.fgm ? averageStats.fgm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.fga ? averageStats.fga.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.fgp ? averageStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.tpm ? averageStats.tpm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.tpa ? averageStats.tpa.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.tpp ? averageStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.ftm ? averageStats.ftm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.fta ? averageStats.fta.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.ftp ? averageStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.offReb ? averageStats.offReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.defReb ? averageStats.defReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.totReb ? averageStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.assists ? averageStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.turnovers ? averageStats.turnovers.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.steals ? averageStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.blocks ? averageStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.pFouls ? averageStats.pFouls.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStats?.plusMinus ? averageStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
           </tr>
         </tbody>
@@ -126,52 +126,52 @@
           <tr>
             <ng-container *ngIf="smallScreen">
               <td>{{ homeStats?.gp }}</td>
-              <td>{{ homeStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ homeStats?.points?.toFixed(2) }}</td>
-              <td>{{ homeStats?.fgp.toFixed(2) }}</td>
-              <td>{{ homeStats?.tpp.toFixed(2) }}</td>
-              <td>{{ homeStats?.ftp.toFixed(2) }}</td>
-              <td>{{ homeStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ homeStats?.winPercentage ? homeStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.points ? homeStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.fgp ? homeStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.tpp ? homeStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.ftp ? homeStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.plusMinus ? homeStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="mediumScreen && !smallScreen">
               <td>{{ homeStats?.gp }}</td>
               <td>{{ homeStats?.win }}</td>
               <td>{{ homeStats?.loss }}</td>
-              <td>{{ homeStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ homeStats?.points?.toFixed(2) }}</td>
-              <td>{{ homeStats?.fgp.toFixed(2) }}</td>
-              <td>{{ homeStats?.tpp.toFixed(2) }}</td>
-              <td>{{ homeStats?.ftp.toFixed(2) }}</td>
-              <td>{{ homeStats?.totReb.toFixed(2) }}</td>
-              <td>{{ homeStats?.assists.toFixed(2) }}</td>
-              <td>{{ homeStats?.steals.toFixed(2) }}</td>
-              <td>{{ homeStats?.blocks.toFixed(2) }}</td>
-              <td>{{ homeStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ homeStats?.winPercentage ? homeStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.points ? homeStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.fgp ? homeStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.tpp ? homeStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.ftp ? homeStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.totReb ? homeStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.assists ? homeStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.steals ? homeStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.blocks ? homeStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.plusMinus ? homeStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="!mediumScreen && !smallScreen">
               <td>{{ homeStats?.gp }}</td>
               <td>{{ homeStats?.win }}</td>
               <td>{{ homeStats?.loss }}</td>
-              <td>{{ homeStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ homeStats?.points?.toFixed(2) }}</td>
-              <td>{{ homeStats?.fgm?.toFixed(2) }}</td>
-              <td>{{ homeStats?.fga?.toFixed(2) }}</td>
-              <td>{{ homeStats?.fgp?.toFixed(2) }}</td>
-              <td>{{ homeStats?.tpm?.toFixed(2) }}</td>
-              <td>{{ homeStats?.tpa?.toFixed(2) }}</td>
-              <td>{{ homeStats?.tpp?.toFixed(2) }}</td>
-              <td>{{ homeStats?.ftm?.toFixed(2) }}</td>
-              <td>{{ homeStats?.fta?.toFixed(2) }}</td>
-              <td>{{ homeStats?.ftp?.toFixed(2) }}</td>
-              <td>{{ homeStats?.offReb?.toFixed(2) }}</td>
-              <td>{{ homeStats?.defReb?.toFixed(2) }}</td>
-              <td>{{ homeStats?.totReb?.toFixed(2) }}</td>
-              <td>{{ homeStats?.assists?.toFixed(2) }}</td>
-              <td>{{ homeStats?.turnovers?.toFixed(2) }}</td>
-              <td>{{ homeStats?.steals?.toFixed(2) }}</td>
-              <td>{{ homeStats?.blocks?.toFixed(2) }}</td>
-              <td>{{ homeStats?.pFouls?.toFixed(2) }}</td>
-              <td>{{ homeStats?.plusMinus?.toFixed(2) }}</td>
+              <td>{{ homeStats?.winPercentage ? homeStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.points ? homeStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.fgm ? homeStats.fgm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.fga ? homeStats.fga.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.fgp ? homeStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.tpm ? homeStats.tpm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.tpa ? homeStats.tpa.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.tpp ? homeStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.ftm ? homeStats.ftm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.fta ? homeStats.fta.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.ftp ? homeStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.offReb ? homeStats.offReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.defReb ? homeStats.defReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.totReb ? homeStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.assists ? homeStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.turnovers ? homeStats.turnovers.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.steals ? homeStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.blocks ? homeStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.pFouls ? homeStats.pFouls.toFixed(2) : 'N/A' }}</td>
+              <td>{{ homeStats?.plusMinus ? homeStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
           </tr>
         </tbody>
@@ -207,52 +207,52 @@
           <tr>
             <ng-container *ngIf="smallScreen">
               <td>{{ visitorStats?.gp }}</td>
-              <td>{{ visitorStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.points?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.fgp.toFixed(2) }}</td>
-              <td>{{ visitorStats?.tpp.toFixed(2) }}</td>
-              <td>{{ visitorStats?.ftp.toFixed(2) }}</td>
-              <td>{{ visitorStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ visitorStats?.winPercentage ? visitorStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.points ? visitorStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.fgp ? visitorStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.tpp ? visitorStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.ftp ? visitorStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.plusMinus ? visitorStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="mediumScreen && !smallScreen">
               <td>{{ visitorStats?.gp }}</td>
               <td>{{ visitorStats?.win }}</td>
               <td>{{ visitorStats?.loss }}</td>
-              <td>{{ visitorStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.points?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.fgp.toFixed(2) }}</td>
-              <td>{{ visitorStats?.tpp.toFixed(2) }}</td>
-              <td>{{ visitorStats?.ftp.toFixed(2) }}</td>
-              <td>{{ visitorStats?.totReb.toFixed(2) }}</td>
-              <td>{{ visitorStats?.assists.toFixed(2) }}</td>
-              <td>{{ visitorStats?.steals.toFixed(2) }}</td>
-              <td>{{ visitorStats?.blocks.toFixed(2) }}</td>
-              <td>{{ visitorStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ visitorStats?.winPercentage ? visitorStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.points ? visitorStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.fgp ? visitorStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.tpp ? visitorStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.ftp ? visitorStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.totReb ? visitorStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.assists ? visitorStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.steals ? visitorStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.blocks ? visitorStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.plusMinus ? visitorStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="!mediumScreen && !smallScreen">
               <td>{{ visitorStats?.gp }}</td>
               <td>{{ visitorStats?.win }}</td>
               <td>{{ visitorStats?.loss }}</td>
-              <td>{{ visitorStats?.winPercentage?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.points?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.fgm?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.fga?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.fgp?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.tpm?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.tpa?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.tpp?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.ftm?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.fta?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.ftp?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.offReb?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.defReb?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.totReb?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.assists?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.turnovers?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.steals?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.blocks?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.pFouls?.toFixed(2) }}</td>
-              <td>{{ visitorStats?.plusMinus?.toFixed(2) }}</td>
+              <td>{{ visitorStats?.winPercentage ? visitorStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.points ? visitorStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.fgm ? visitorStats.fgm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.fga ? visitorStats.fga.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.fgp ? visitorStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.tpm ? visitorStats.tpm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.tpa ? visitorStats.tpa.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.tpp ? visitorStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.ftm ? visitorStats.ftm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.fta ? visitorStats.fta.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.ftp ? visitorStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.offReb ? visitorStats.offReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.defReb ? visitorStats.defReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.totReb ? visitorStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.assists ? visitorStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.turnovers ? visitorStats.turnovers.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.steals ? visitorStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.blocks ? visitorStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.pFouls ? visitorStats.pFouls.toFixed(2) : 'N/A' }}</td>
+              <td>{{ visitorStats?.plusMinus ? visitorStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
           </tr>
         </tbody>
@@ -290,52 +290,52 @@
           <tr>
             <ng-container *ngIf="smallScreen">
               <td>{{ winStats?.gp }}</td>
-              <td>{{ winStats?.winPercentage}}</td>
-              <td>{{ winStats?.points?.toFixed(2) }}</td>
-              <td>{{ winStats?.fgp.toFixed(2) }}</td>
-              <td>{{ winStats?.tpp.toFixed(2) }}</td>
-              <td>{{ winStats?.ftp.toFixed(2) }}</td>
-              <td>{{ winStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ winStats?.winPercentage ? winStats.winPercentage.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.points ? winStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.fgp ? winStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.tpp ? winStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.ftp ? winStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.plusMinus ? winStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="mediumScreen && !smallScreen">
               <td>{{ winStats?.gp }}</td>
               <td>{{ winStats?.win }}</td>
               <td>{{ winStats?.loss }}</td>
               <td>{{ winStats?.winPercentage }}</td>
-              <td>{{ winStats?.points?.toFixed(2) }}</td>
-              <td>{{ winStats?.fgp.toFixed(2) }}</td>
-              <td>{{ winStats?.tpp.toFixed(2) }}</td>
-              <td>{{ winStats?.ftp.toFixed(2) }}</td>
-              <td>{{ winStats?.totReb.toFixed(2) }}</td>
-              <td>{{ winStats?.assists.toFixed(2) }}</td>
-              <td>{{ winStats?.steals.toFixed(2) }}</td>
-              <td>{{ winStats?.blocks.toFixed(2) }}</td>
-              <td>{{ winStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ winStats?.points ? winStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.fgp ? winStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.tpp ? winStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.ftp ? winStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.totReb ? winStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.assists ? winStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.steals ? winStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.blocks ? winStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.plusMinus ? winStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="!mediumScreen && !smallScreen">
               <td>{{ winStats?.gp }}</td>
               <td>{{ winStats?.win }}</td>
               <td>{{ winStats?.loss }}</td>
               <td>{{ winStats?.winPercentage }}</td>
-              <td>{{ winStats?.points?.toFixed(2) }}</td>
-              <td>{{ winStats?.fgm?.toFixed(2) }}</td>
-              <td>{{ winStats?.fga?.toFixed(2) }}</td>
-              <td>{{ winStats?.fgp?.toFixed(2) }}</td>
-              <td>{{ winStats?.tpm?.toFixed(2) }}</td>
-              <td>{{ winStats?.tpa?.toFixed(2) }}</td>
-              <td>{{ winStats?.tpp?.toFixed(2) }}</td>
-              <td>{{ winStats?.ftm?.toFixed(2) }}</td>
-              <td>{{ winStats?.fta?.toFixed(2) }}</td>
-              <td>{{ winStats?.ftp?.toFixed(2) }}</td>
-              <td>{{ winStats?.offReb?.toFixed(2) }}</td>
-              <td>{{ winStats?.defReb?.toFixed(2) }}</td>
-              <td>{{ winStats?.totReb?.toFixed(2) }}</td>
-              <td>{{ winStats?.assists?.toFixed(2) }}</td>
-              <td>{{ winStats?.turnovers?.toFixed(2) }}</td>
-              <td>{{ winStats?.steals?.toFixed(2) }}</td>
-              <td>{{ winStats?.blocks?.toFixed(2) }}</td>
-              <td>{{ winStats?.pFouls?.toFixed(2) }}</td>
-              <td>{{ winStats?.plusMinus?.toFixed(2) }}</td>
+              <td>{{ winStats?.points ? winStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.fgm ? winStats.fgm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.fga ? winStats.fga.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.fgp ? winStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.tpm ? winStats.tpm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.tpa ? winStats.tpa.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.tpp ? winStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.ftm ? winStats.ftm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.fta ? winStats.fta.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.ftp ? winStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.offReb ? winStats.offReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.defReb ? winStats.defReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.totReb ? winStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.assists ? winStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.turnovers ? winStats.turnovers.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.steals ? winStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.blocks ? winStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.pFouls ? winStats.pFouls.toFixed(2) : 'N/A' }}</td>
+              <td>{{ winStats?.plusMinus ? winStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
           </tr>
         </tbody>
@@ -372,51 +372,51 @@
             <ng-container *ngIf="smallScreen">
               <td>{{ lossStats?.gp }}</td>
               <td>{{ lossStats?.winPercentage }}</td>
-              <td>{{ lossStats?.points?.toFixed(2) }}</td>
-              <td>{{ lossStats?.fgp.toFixed(2) }}</td>
-              <td>{{ lossStats?.tpp.toFixed(2) }}</td>
-              <td>{{ lossStats?.ftp.toFixed(2) }}</td>
-              <td>{{ lossStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ lossStats?.points ? lossStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.fgp ? lossStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.tpp ? lossStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.ftp ? lossStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.plusMinus ? lossStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="mediumScreen && !smallScreen">
               <td>{{ lossStats?.gp }}</td>
               <td>{{ lossStats?.win }}</td>
               <td>{{ lossStats?.loss }}</td>
               <td>{{ lossStats?.winPercentage }}</td>
-              <td>{{ lossStats?.points?.toFixed(2) }}</td>
-              <td>{{ lossStats?.fgp.toFixed(2) }}</td>
-              <td>{{ lossStats?.tpp.toFixed(2) }}</td>
-              <td>{{ lossStats?.ftp.toFixed(2) }}</td>
-              <td>{{ lossStats?.totReb.toFixed(2) }}</td>
-              <td>{{ lossStats?.assists.toFixed(2) }}</td>
-              <td>{{ lossStats?.steals.toFixed(2) }}</td>
-              <td>{{ lossStats?.blocks.toFixed(2) }}</td>
-              <td>{{ lossStats?.plusMinus.toFixed(2) }}</td>
+              <td>{{ lossStats?.points ? lossStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.fgp ? lossStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.tpp ? lossStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.ftp ? lossStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.totReb ? lossStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.assists ? lossStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.steals ? lossStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.blocks ? lossStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.plusMinus ? lossStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
             <ng-container *ngIf="!mediumScreen && !smallScreen">
               <td>{{ lossStats?.gp }}</td>
               <td>{{ lossStats?.win }}</td>
               <td>{{ lossStats?.loss }}</td>
               <td>{{ lossStats?.winPercentage }}</td>
-              <td>{{ lossStats?.points?.toFixed(2) }}</td>
-              <td>{{ lossStats?.fgm?.toFixed(2) }}</td>
-              <td>{{ lossStats?.fga?.toFixed(2) }}</td>
-              <td>{{ lossStats?.fgp?.toFixed(2) }}</td>
-              <td>{{ lossStats?.tpm?.toFixed(2) }}</td>
-              <td>{{ lossStats?.tpa?.toFixed(2) }}</td>
-              <td>{{ lossStats?.tpp?.toFixed(2) }}</td>
-              <td>{{ lossStats?.ftm?.toFixed(2) }}</td>
-              <td>{{ lossStats?.fta?.toFixed(2) }}</td>
-              <td>{{ lossStats?.ftp?.toFixed(2) }}</td>
-              <td>{{ lossStats?.offReb?.toFixed(2) }}</td>
-              <td>{{ lossStats?.defReb?.toFixed(2) }}</td>
-              <td>{{ lossStats?.totReb?.toFixed(2) }}</td>
-              <td>{{ lossStats?.assists?.toFixed(2) }}</td>
-              <td>{{ lossStats?.turnovers?.toFixed(2) }}</td>
-              <td>{{ lossStats?.steals?.toFixed(2) }}</td>
-              <td>{{ lossStats?.blocks?.toFixed(2) }}</td>
-              <td>{{ lossStats?.pFouls?.toFixed(2) }}</td>
-              <td>{{ lossStats?.plusMinus?.toFixed(2) }}</td>
+              <td>{{ lossStats?.points ? lossStats.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.fgm ? lossStats.fgm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.fga ? lossStats.fga.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.fgp ? lossStats.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.tpm ? lossStats.tpm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.tpa ? lossStats.tpa.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.tpp ? lossStats.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.ftm ? lossStats.ftm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.fta ? lossStats.fta.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.ftp ? lossStats.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.offReb ? lossStats.offReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.defReb ? lossStats.defReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.totReb ? lossStats.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.assists ? lossStats.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.turnovers ? lossStats.turnovers.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.steals ? lossStats.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.blocks ? lossStats.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.pFouls ? lossStats.pFouls.toFixed(2) : 'N/A' }}</td>
+              <td>{{ lossStats?.plusMinus ? lossStats.plusMinus.toFixed(2) : 'N/A' }}</td>
             </ng-container>
           </tr>
         </tbody>

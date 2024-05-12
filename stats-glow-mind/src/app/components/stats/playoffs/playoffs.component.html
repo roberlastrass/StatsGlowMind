@@ -9,10 +9,12 @@
             <div class="column" *ngFor="let series of filteredSeries(round.roundNumber, round.conference)">
                 <mat-card class="card">
                     <mat-card-header class="card-header">
+                        <div mat-card-avatar class="logo"> <img [src]="teamsLogos.get(series.highSeedName) || logoDefault"> </div>
                         <mat-card-title>{{ series.highSeedCity }} <strong>{{ series.highSeedName }}</strong></mat-card-title>
                         <div class="rank">{{ series.highSeedRank }}</div> 
                     </mat-card-header>
                     <mat-card-header class="card-header">
+                        <div mat-card-avatar class="logo"> <img [src]="teamsLogos.get(series.lowSeedName) || logoDefault"></div>
                         <mat-card-title>{{ series.lowSeedCity }} <strong>{{ series.lowSeedName }}</strong></mat-card-title>
                         <div class="rank">{{ series.lowSeedRank }}</div> 
                     </mat-card-header>

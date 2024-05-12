@@ -13,15 +13,12 @@ import { AdminComponent } from './components/admin/admin.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamStatsComponent } from './components/teams/team-stats/team-stats.component';
 import { TeamPlayersComponent } from './components/teams/team-players/team-players.component';
+import { AnalysisComponent } from './components/analysis/analysis.component';
+import { ChartsPlayerComponent } from './components/analysis/charts-player/charts-player.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
-  {
-    path: 'main',
-    component: MainComponent,
-    // Esto lo tengo que hacer para cuando un usuario NO registrado no pueda acceder a ciertas partes de la app
-    //...canActivate(() => redirectUnauthorizedTo(['/login']))
-  },
+  { path: 'main', component: MainComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
@@ -37,6 +34,14 @@ const routes: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'teams/:teamName', component: TeamStatsComponent },
   { path: 'teams/:teamName/players', component: TeamPlayersComponent },
+  { path: 'analysis', component: AnalysisComponent,
+    // Esto lo tengo que hacer para cuando un usuario NO registrado no pueda acceder a ciertas partes de la app
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
+  },
+  { path: 'analysis/:player', component: ChartsPlayerComponent,
+    // Esto lo tengo que hacer para cuando un usuario NO registrado no pueda acceder a ciertas partes de la app
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
+  },
   { path: '**', redirectTo: 'main', pathMatch: 'full' },
 ];
 
