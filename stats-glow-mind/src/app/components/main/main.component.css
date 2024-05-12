@@ -103,6 +103,7 @@
 .logo {
     width: 60%;
     height: auto;
+    padding: 5%;
     margin-bottom: 2%;
 }
 .name {
@@ -162,7 +163,10 @@ button {
         margin-right: 5%;
     }
     .main-card{
-        width: 100%;
+        width: 70%;
+    }
+    .logo {
+        width: 80%;
     }
     .options-cards{
         width: 100%;
@@ -173,9 +177,12 @@ button {
     .card {
         width: 65%;
     }
+    mat-card-title {
+        font-size: 16px;
+    }
     .intro {
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 12.5%;
+        margin-right: 12.5%;
     }
     .user-btn {
         font-size: 8px;
