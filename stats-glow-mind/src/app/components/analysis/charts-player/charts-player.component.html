@@ -1,0 +1,129 @@
+<div class="wrapper">
+  <div class="charts-player">
+    <div class="title">
+      <img class="headshot" [src]="urlPhoto">
+      <h1>{{ playerInfo.firstName }} {{ playerInfo.lastName }}</h1>
+    </div>
+    <div class="table-stats">
+      <div>
+        <h2>Estadísticas Totales</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <ng-container *ngIf="smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsSort">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsMedium">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!mediumScreen && !smallScreen">
+            <tr>
+              <ng-container *ngFor="let column of displayedColumnsLarge">
+                <th>{{ column }}</th>
+              </ng-container>
+            </tr>
+          </ng-container>
+        </thead>
+        <tbody>
+          <tr>
+            <ng-container *ngIf="smallScreen">
+              <td>{{ averageStatsPlayer?.gp }}</td>
+              <td>{{ averageStatsPlayer?.min ? averageStatsPlayer.min.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.points ? averageStatsPlayer.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.fgp ? averageStatsPlayer.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.totReb ? averageStatsPlayer.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.assists ? averageStatsPlayer.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.plusMinus ? averageStatsPlayer.plusMinus.toFixed(2) : 'N/A' }}</td>
+            </ng-container>
+            <ng-container *ngIf="mediumScreen && !smallScreen">
+              <td>{{ averageStatsPlayer?.gp }}</td>
+              <td>{{ averageStatsPlayer?.min ? averageStatsPlayer.min.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.points ? averageStatsPlayer.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.fgp ? averageStatsPlayer.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.tpp ? averageStatsPlayer.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.ftp ? averageStatsPlayer.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.totReb ? averageStatsPlayer.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.assists ? averageStatsPlayer.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.steals ? averageStatsPlayer.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.blocks ? averageStatsPlayer.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.turnovers ? averageStatsPlayer.turnovers.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.pFouls ? averageStatsPlayer.pFouls.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.plusMinus ? averageStatsPlayer.plusMinus.toFixed(2) : 'N/A' }}</td>
+            </ng-container>
+            <ng-container *ngIf="!mediumScreen && !smallScreen">
+              <td>{{ averageStatsPlayer?.gp }}</td>
+              <td>{{ averageStatsPlayer?.min ? averageStatsPlayer.min.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.points ? averageStatsPlayer.points.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.fgm ? averageStatsPlayer.fgm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.fga ? averageStatsPlayer.fga.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.fgp ? averageStatsPlayer.fgp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.tpm ? averageStatsPlayer.tpm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.tpa ? averageStatsPlayer.tpa.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.tpp ? averageStatsPlayer.tpp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.ftm ? averageStatsPlayer.ftm.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.fta ? averageStatsPlayer.fta.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.ftp ? averageStatsPlayer.ftp.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.offReb ? averageStatsPlayer.offReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.defReb ? averageStatsPlayer.defReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.totReb ? averageStatsPlayer.totReb.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.assists ? averageStatsPlayer.assists.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.steals ? averageStatsPlayer.steals.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.blocks ? averageStatsPlayer.blocks.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.turnovers ? averageStatsPlayer.turnovers.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.pFouls ? averageStatsPlayer.pFouls.toFixed(2) : 'N/A' }}</td>
+              <td>{{ averageStatsPlayer?.plusMinus ? averageStatsPlayer.plusMinus.toFixed(2) : 'N/A' }}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="charts-stats">
+      <div>
+        <h2>Gráficas Temporada 23/24</h2>
+      </div>
+      <div class="chart-container">
+        <h3>Gráfica de estadísticas por partido</h3>
+        <div class="chart-content">
+          <canvas id="chartAllStats">{{ allStatsChart }}</canvas>
+        </div>
+      </div>
+      <div class="chart-container">
+        <h3>Gráfica de rebotes por partido</h3>
+        <div class="chart-content">
+          <canvas id="chartReb">{{ rebChart }}</canvas>
+        </div>
+      </div>
+      <div class="chart-container" id="fieldGoals">
+        <h3>Gráfica de tiros de campo</h3>
+        <div class="chart-content">
+          <canvas id="chartFieldGoals">{{ fieldGoalsChart }}</canvas>
+        </div>
+        <div class="chart-content-2">
+          <div>
+            <canvas id="chart2pShots">{{ p2ShotsChart }}</canvas>
+          </div>
+          <div>
+            <canvas id="chartTripleShots">{{ tripleShotsChart }}</canvas>
+          </div>
+          <div>
+            <canvas id="chartFreeShots">{{ freeShotsChart }}</canvas>
+          </div>
+        </div>
+      </div>
+      <div class="chart-container">
+        <h3>Gráfica de +/- por partido</h3>
+        <div class="chart-content">
+          <canvas id="chartPlusMinus">{{ plusMinusChart }}</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

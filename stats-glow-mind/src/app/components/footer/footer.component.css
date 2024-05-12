@@ -11,7 +11,6 @@
     margin-bottom: 2.5%;
 }
 .container-info {
-    flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,6 +63,12 @@ hr {
 }
 /* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
+    .container-info {
+        flex-wrap: wrap;
+    }
+    .container {
+        margin: 1% 7% 1% 7%;
+    }
     .container-licence {
         font-size: 12px;
     }
