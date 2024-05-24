@@ -2,6 +2,7 @@
 /credentials
 
 # Python
+*.pyc
 __pycache__/
 
 # Dependencias Python
