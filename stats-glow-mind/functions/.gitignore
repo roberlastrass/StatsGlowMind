@@ -1,8 +1,8 @@
 # Credenciales Firebase
 /credentials
 
-# Dependencias Python
-/venv/.
-
 # Python
-/__pycache__
+__pycache__/
+
+# Dependencias Python
+venv/
