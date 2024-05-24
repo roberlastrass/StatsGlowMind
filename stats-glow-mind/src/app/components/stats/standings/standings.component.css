@@ -48,9 +48,16 @@ img {
   margin: 0 auto;
 }
 
+/* Media query para pantallas mediana/grande */
+@media only screen and (max-width: 1200px) {
+  .conference-table {
+    margin: 5%;
+  }
+}
+
 /* Media query para pantallas pequeñas */
 @media only screen and (max-width: 600px) {
-  table {
+  table, th {
       font-size: 12px;
   }
   h2{
@@ -58,5 +65,15 @@ img {
   }
   .conference-table {
     width: 100%;
+  }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media only screen and (max-width: 400px) {
+  table, th {
+    font-size: 8px;
+  }
+  h2{
+    font-size: 12px;
   }
 }

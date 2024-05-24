@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -26,6 +26,7 @@ import { TeamPlayersComponent } from './components/teams/team-players/team-playe
 import { FooterComponent } from './components/footer/footer.component';
 import { AnalysisComponent } from './components/analysis/analysis.component';
 import { ChartsPlayerComponent } from './components/analysis/charts-player/charts-player.component';
+import { PredictComponent } from './components/predict/predict.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ChartsPlayerComponent } from './components/analysis/charts-player/chart
     TeamPlayersComponent,
     FooterComponent,
     AnalysisComponent,
-    ChartsPlayerComponent
+    ChartsPlayerComponent,
+    PredictComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { ChartsPlayerComponent } from './components/analysis/charts-player/chart
     HttpClientModule,
     StatsModule,
     provideFirestore(() => getFirestore()),
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [
     UserService,
