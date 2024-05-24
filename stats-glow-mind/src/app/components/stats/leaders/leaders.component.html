@@ -18,15 +18,15 @@
     </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="RANK">
-        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Rank </th>
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Nº </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[1]}} </td>
       </ng-container>
       <ng-container matColumnDef="PLAYER">
-        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Jugador </th>
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> JUGADOR </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[2]}} </td>
       </ng-container>
       <ng-container matColumnDef="TEAM">
-        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Equipo </th>
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> EQUIPO </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[4]}} </td>
       </ng-container>
       <ng-container matColumnDef="GP">

@@ -12,7 +12,7 @@ export class TeamsComponent implements OnInit {
   
   teamId: number = 1;
   allTeams: any[] = [];
-  divisions = ['Atlantic', 'Central', 'Southeast', 'Northwest', 'Pacific', 'Southwest'];
+  divisions = ['Atlántico', 'Central', 'Sudeste', 'Noroeste', 'Pacífico', 'Sudoeste'];
   eastDivisions: any[] = [
     { name: 'Atlántico', conferencia: "Este", division: "Atlantic", conference: 'East' },
     { name: 'Central', conferencia: "Este", division: "Central", conference: 'East' },

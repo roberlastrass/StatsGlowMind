@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Team } from '../../../models/team.model';
 import { StatsService } from '../../../services/stats.service';
 
@@ -11,6 +11,10 @@ export class StandingsComponent implements OnInit {
 
   eastStandings: Team[] = [];
   westStandings: Team[] = [];
+
+  displayedColumnsSort: string[] = ['Nº', 'LOGO', 'EQUIPO', 'W', 'L', 'W%', 'LOCAL', 'VISITANTE'];
+  displayedColumns: string[] = ['Nº', 'LOGO', 'EQUIPO', 'W', 'L', 'W%', 'LOCAL', 'VISITANTE', '10 ÚLTIMOS', 'RACHA'];
+  smallScreen: boolean = false;
 
   constructor(private statsService: StatsService) { 
   }
@@ -34,6 +38,17 @@ export class StandingsComponent implements OnInit {
           console.error(error);
         }
       );
+  }
+
+  // Función para comprobar el tamaño de la pantalla
+  checkScreenSize() {
+    this.smallScreen = window.innerWidth <= 800;
+  }
+
+  // Escuchar el evento de cambio de tamaño de la ventana
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
   }
 
 }

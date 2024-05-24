@@ -5,6 +5,7 @@ import { Observable, from, map } from 'rxjs';
 import { User } from '../models/user.model';
 import { GameStats } from '../models/game-stats.model';
 import { PlayerData } from '../models/player-data.model';
+import { TeamStats } from '../models/team-stats.model';
 
 @Injectable({
   providedIn: 'root'
@@ -132,10 +133,50 @@ export class FirestoreService {
     }
   }
 
+  async getTeamNameAndLogo(teamId: string): Promise<{ name: string; logo: string } | null> {
+    const teamsRef = collection(this.firestore, 'Teams');
+    const queryRef = query(teamsRef, where('id', '==', teamId));
+    try {
+      const querySnapshot = await getDocs(queryRef);
+      if (!querySnapshot.empty) {
+        const teamData  = querySnapshot.docs[0].data();
+        const teamInfo = {
+          logo: teamData['logo'],
+          name: teamData['name']
+        };
+        return teamInfo;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error('Error al realizar la consulta:', error);
+      return null;
+    }
+  }
+
   // Método para actualizar las medias de estadísticas del equipo en la base de datos
   updateTeamStats(teamId: number, averageStats: any) {
     const teamRef = doc(this.firestore, 'Teams', teamId.toString());
     return setDoc(teamRef, { averageStats }, { merge: true });
+  }
+
+  // Método para obtener las estadísticas media de la colección "Teams" y procesarlos para el formato CSV
+  exportTeamStats(): Observable<any[]> {
+    const teamsRef = collection(this.firestore, 'Teams');
+    const q = query(teamsRef);
+    const teamsStats: any[] = [];
+
+    return new Observable<any[]>(observer => {
+      getDocs(q).then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          const teamData = doc.data() as TeamStats;
+          teamsStats.push(teamData);
+        });
+        observer.next(teamsStats);
+      }).catch(error => {
+        observer.error(error);
+      });
+    });
   }
   
 
@@ -251,6 +292,25 @@ export class FirestoreService {
     const gameRef = doc(this.firestore, 'Games', idGame);
     const gameDoc = await getDoc(gameRef);
     return gameDoc.exists();
+  }
+
+  // Método para obtener todos los datos de la colección "Games" y procesarlos para el formato CSV
+  exportGamesData(): Observable<any[]> {
+    const gamesRef = collection(this.firestore, 'Games');
+    const q = query(gamesRef);
+    const gamesData: any[] = [];
+
+    return new Observable<any[]>(observer => {
+      getDocs(q).then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          const gameData = doc.data() as GameStats;
+          gamesData.push(gameData);
+        });
+        observer.next(gamesData);
+      }).catch(error => {
+        observer.error(error);
+      });
+    });
   }
 
 

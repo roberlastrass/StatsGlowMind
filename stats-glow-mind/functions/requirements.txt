@@ -1,0 +1,5 @@
+firebase-admin
+firebase-functions
+pandas
+scikit-learn
+google-cloud-storage
