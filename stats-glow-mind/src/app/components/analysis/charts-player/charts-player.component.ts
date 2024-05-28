@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../services/firestore.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StatsService } from '../../../services/stats.service';
 import { Chart, ChartOptions, ChartType, ChartDataset  } from 'chart.js/auto';
 
@@ -53,7 +53,8 @@ export class ChartsPlayerComponent implements OnInit {
   constructor( 
     private statsService: StatsService,
     private firestore: FirestoreService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -551,6 +552,11 @@ export class ChartsPlayerComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenSize();
+  }
+
+  // Método que te mueve a la página Glossary
+  routeGlossary() {
+    this.router.navigate(['/about/glossary']);
   }
 
 }

@@ -15,6 +15,9 @@
     </div>
     <div class="title">
       <h2>{{ getTitle(category) }}</h2>
+      <button mat-icon-button color="accent" (click)="routeGlossary()" matTooltip="Glosario">
+        <mat-icon>info</mat-icon>
+      </button>
     </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="RANK">

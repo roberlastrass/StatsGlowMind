@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { StatsService } from '../../../services/stats.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 export interface PlayerData {
   RANK: number;
@@ -48,7 +49,8 @@ export class LeadersComponent implements OnInit {
   ];
 
   constructor(
-    private statsService: StatsService
+    private statsService: StatsService,
+    private router: Router
   ) {
     this.checkScreenSize();
   }
@@ -101,6 +103,11 @@ export class LeadersComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenSize();
+  }
+
+  // Método que te mueve a la página Glossary
+  routeGlossary() {
+    this.router.navigate(['/about/glossary']);
   }
 
 }

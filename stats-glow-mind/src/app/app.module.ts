@@ -27,6 +27,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AnalysisComponent } from './components/analysis/analysis.component';
 import { ChartsPlayerComponent } from './components/analysis/charts-player/charts-player.component';
 import { PredictComponent } from './components/predict/predict.component';
+import { AboutComponent } from './components/about/about.component';
+import { GlossaryComponent } from './components/glossary/glossary.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { PredictComponent } from './components/predict/predict.component';
     FooterComponent,
     AnalysisComponent,
     ChartsPlayerComponent,
-    PredictComponent
+    PredictComponent,
+    AboutComponent,
+    GlossaryComponent
   ],
   imports: [
     BrowserModule,

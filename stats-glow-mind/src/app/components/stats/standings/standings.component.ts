@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Team } from '../../../models/team.model';
 import { StatsService } from '../../../services/stats.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'stats-standings',
@@ -16,7 +17,10 @@ export class StandingsComponent implements OnInit {
   displayedColumns: string[] = ['Nº', 'LOGO', 'EQUIPO', 'W', 'L', 'W%', 'LOCAL', 'VISITANTE', '10 ÚLTIMOS', 'RACHA'];
   smallScreen: boolean = false;
 
-  constructor(private statsService: StatsService) { 
+  constructor(
+    private statsService: StatsService,
+    private router: Router
+  ) { 
   }
 
   ngOnInit(): void {
@@ -49,6 +53,11 @@ export class StandingsComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenSize();
+  }
+
+  // Método que te mueve a la página Glossary
+  routeGlossary() {
+    this.router.navigate(['/about/glossary']);
   }
 
 }

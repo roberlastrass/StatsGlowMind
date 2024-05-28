@@ -23,22 +23,33 @@
     <div class="container">
       <h4>ACERCA DE</h4>
       <ul>
-        <li><a href="#">StatsGlowMind</a></li>
-        <li><a href="https://www.ubu.es/">Universidad de Burgos</a></li>
+        <li><a href="#about" routerLink="/about">StatsGlowMind</a></li>
+        <li><a href="#glossary" routerLink="/about/glossary">Glosario</a></li>
         <li><a href="mailto:rls1004@alu.ubu.es">Contacto</a></li>
       </ul>
     </div>
     <div class="container">
       <h4>REDES</h4>
       <ul>
-        <li><a href="https://github.com/roberlastrass/StatsGlowMind">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/roberto-lastras-santos-082563216/">LinkedIn</a></li>
-        <li><a href="#">X</a></li>
+        <li><a href="https://github.com/roberlastrass/StatsGlowMind"><img class="icon" src="../assets/images/icons/github.png" alt="GitHub"></a></li>
+        <li><a href="https://www.linkedin.com/in/roberto-lastras-santos-082563216/"><img class="icon" src="../assets/images/icons/linkedin.png" alt="GitHub"></a></li>
+        <li><a href="mailto:rls1004@alu.ubu.es"><img class="icon" src="../assets/images/icons/outlook.png" alt="GitHub"></a></li>
       </ul>
     </div>
   </div>
   <hr>
   <div class="container-licence">
-    <span>© 2024 StatsGlowMind. Todos los derechos reservados.</span>
+    <div class="licence">
+      <span>© 2024 StatsGlowMind. Todos los derechos reservados.</span>
+    </div>
+    <div class="select-language">
+      <mat-form-field class="select" color="accent">
+        <mat-label><strong>Idioma:</strong></mat-label>
+        <mat-select class="text-center" value="ES">
+            <mat-option value="ES" >Español (<strong>ES</strong>)</mat-option>
+            <mat-option value="EN">Inglés (<strong>EN</strong> )</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 </footer>

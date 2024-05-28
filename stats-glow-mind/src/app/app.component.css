@@ -36,7 +36,7 @@
 }
 .login_icon:hover,
 .logout_icon:hover {
-    transform: scale(1.1); /* Escala la imagen al 110% en hover */
+    transform: scale(1.1);
     cursor: pointer;
 }
 .button_login,
@@ -64,7 +64,6 @@
     transform: scale(1.1);
     cursor: pointer;
 }
-
 mat-menu {
     background-color: #002649;
 }
@@ -90,7 +89,6 @@ mat-menu {
 }
 /* Media query para pantallas 600px */
 @media only screen and (max-width: 600px) {
-    
     .title {
         max-width: 40%;
     }

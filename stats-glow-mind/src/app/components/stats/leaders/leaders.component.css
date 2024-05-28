@@ -23,6 +23,18 @@ h2 {
 }
 .title {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.title h2 {
+    flex: 1;
+    text-align: center;
+}
+.title button {
+    position: absolute;
+    right: 0;
 }
 .paginator {
     width: 100%;

@@ -5,8 +5,11 @@
       <h1>{{ playerInfo.firstName }} {{ playerInfo.lastName }}</h1>
     </div>
     <div class="table-stats">
-      <div>
+      <div class="title-stats">
         <h2>Estadísticas Totales</h2>
+        <button mat-icon-button color="accent" aria-label="Glosario" (click)="routeGlossary()" matTooltip="Glosario">
+          <mat-icon>info</mat-icon>
+        </button>
       </div>
       <table class="table">
         <thead>

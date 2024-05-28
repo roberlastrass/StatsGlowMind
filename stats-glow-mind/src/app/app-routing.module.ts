@@ -16,6 +16,8 @@ import { TeamPlayersComponent } from './components/teams/team-players/team-playe
 import { AnalysisComponent } from './components/analysis/analysis.component';
 import { ChartsPlayerComponent } from './components/analysis/charts-player/charts-player.component';
 import { PredictComponent } from './components/predict/predict.component';
+import { AboutComponent } from './components/about/about.component';
+import { GlossaryComponent } from './components/glossary/glossary.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -45,6 +47,8 @@ const routes: Routes = [
   { path: 'predict', component: PredictComponent,
     ...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
+  { path: 'about', component: AboutComponent },
+  { path: 'about/glossary', component: GlossaryComponent },
   { path: '**', redirectTo: 'main', pathMatch: 'full' },
 ];
 
