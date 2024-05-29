@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Modificar a {{ data.displayName }}</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Nombre" [(ngModel)]="data.displayName">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" [(ngModel)]="data.email">
+  </mat-form-field>
+  <p>¿Seguro que quieres modificar al usuario?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" mat-dialog-close cdkFocusInitial>Cancelar</button>
+  <button mat-button color="accent" (click)="onSave()">Confirmar</button>
+</mat-dialog-actions>

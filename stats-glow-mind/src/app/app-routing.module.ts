@@ -34,11 +34,17 @@ const routes: Routes = [
       { path: '', redirectTo: 'standings', pathMatch: 'full' },
     ] 
   },
-  { path: 'teams', component: TeamsComponent },
-  { path: 'teams/:teamName', component: TeamStatsComponent },
-  { path: 'teams/:teamName/players', component: TeamPlayersComponent },
-  { path: 'analysis', component: AnalysisComponent,
+  { path: 'teams', component: TeamsComponent,
     // Esto lo tengo que hacer para cuando un usuario NO registrado no pueda acceder a ciertas partes de la app
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
+  },
+  { path: 'teams/:teamName', component: TeamStatsComponent, 
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
+  },
+  { path: 'teams/:teamName/players', component: TeamPlayersComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['/login']))
+  },
+  { path: 'analysis', component: AnalysisComponent,
     ...canActivate(() => redirectUnauthorizedTo(['/login']))
   },
   { path: 'analysis/:player', component: ChartsPlayerComponent,

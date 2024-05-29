@@ -12,8 +12,8 @@
                     <p><strong>Rol: </strong> {{user.rol}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-flat-button color="primary">MODIFICAR</button>
-                    <button mat-flat-button color="accent" class="btn btn-outline-danger" (click)="user.displayName && openDialog(user.displayName, user.uid)">ELIMINAR</button>
+                    <button mat-flat-button color="primary" (click)="openDialogUpdate(user)">MODIFICAR</button>
+                    <button mat-flat-button color="accent" (click)="user.displayName && openDialogDelete(user.displayName, user.uid)">ELIMINAR</button>
                 </mat-card-actions>
             </mat-card>
         </div>

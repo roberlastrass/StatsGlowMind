@@ -85,6 +85,25 @@ export class FirestoreService {
     }
   }
 
+  // Método para actualizar los datos de un usuario en la base de datos
+  async updateUserFirestore(userUID: string, email: string, displayName: string): Promise<void> {
+    const documentId = await this.getDocumentId(userUID);
+    if (documentId) {
+      const userDocRef = doc(this.firestore, 'Users', documentId);
+      try {
+        await updateDoc(userDocRef, {
+          email: email,
+          displayName: displayName
+        });
+        console.log('Usuario actualizado con éxito.');
+      } catch (error) {
+        console.error('Error al eliminar el usuario:', error);
+      }
+    } else {
+      console.log('No se pudo obtener la ID del documento.');
+    }
+  }
+
 
   /* GESTIÓN DE EQUIPOS DE LA BASE DE DATOS */
 

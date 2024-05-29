@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private route: ActivatedRoute
   ) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
@@ -27,6 +28,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.route.queryParams.subscribe(params => {
+      const message = params['message'];
+      if (!message) {
+        this.toastr.error('Es necesario iniciar sesión para acceder a esta página.', 'Error:', {
+          toastClass: 'notification-container',
+        });
+      }
+    });
   }
   
 
