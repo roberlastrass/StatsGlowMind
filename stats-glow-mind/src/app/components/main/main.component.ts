@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { FirestoreService } from '../../services/firestore.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +17,8 @@ export class MainComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private firestore: FirestoreService
+    private firestore: FirestoreService,
+    private translate: TranslateService
   ) { 
     this.userName = null;
     this.userUID = '';
@@ -24,7 +26,10 @@ export class MainComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.userName = this.userService.getUserName();
-    this.userUID = this.userService.getUserUID() || '';
+    if(this.userName == "Usuario Invitado"){
+      this.translate.get('MAIN.USER').subscribe((res: string) => {this.userName = res;});
+    }
+    this.userUID = this.userService.getUserUID() || ''; 
   }
 
   async checkUserRole(): Promise<void> {

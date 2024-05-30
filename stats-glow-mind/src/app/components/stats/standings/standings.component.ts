@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Team } from '../../../models/team.model';
 import { StatsService } from '../../../services/stats.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'stats-standings',
@@ -13,18 +14,32 @@ export class StandingsComponent implements OnInit {
   eastStandings: Team[] = [];
   westStandings: Team[] = [];
 
-  displayedColumnsSort: string[] = ['Nº', 'LOGO', 'EQUIPO', 'W', 'L', 'W%', 'LOCAL', 'VISITANTE'];
-  displayedColumns: string[] = ['Nº', 'LOGO', 'EQUIPO', 'W', 'L', 'W%', 'LOCAL', 'VISITANTE', '10 ÚLTIMOS', 'RACHA'];
+  displayedColumnsSort: string[] = [];
+  displayedColumns: string[] = [];
   smallScreen: boolean = false;
 
   constructor(
     private statsService: StatsService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
   ) { 
   }
 
   ngOnInit(): void {
     this.getStandingsConference();
+
+    this.translate.get(['ANALYSIS.TEAM', 'STANDINGS.HOME', 'STANDINGS.AWAY', 'STANDINGS.LAST_TEN', 'STANDINGS.STREAK'])
+    .subscribe(translations => {
+      this.displayedColumnsSort = [
+        'Nº', 'LOGO', translations['ANALYSIS.TEAM'], 'W', 'L', 'W%', translations['STANDINGS.HOME'], 
+        translations['STANDINGS.AWAY']
+      ];
+      this.displayedColumns = [
+        'Nº', 'LOGO', translations['ANALYSIS.TEAM'], 'W', 'L', 'W%', translations['STANDINGS.HOME'], 
+        translations['STANDINGS.AWAY'], translations['STANDINGS.LAST_TEN'], translations['STANDINGS.STREAK']
+      ];
+  
+    });
   }
 
   getStandingsConference(): void {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StatsService } from '../../../services/stats.service';
 import { FirestoreService } from '../../../services/firestore.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'stats-playoffs',
@@ -10,15 +11,7 @@ import { FirestoreService } from '../../../services/firestore.service';
 export class PlayoffsComponent {
 
   playoffs: any;
-  rounds: any[] = [
-    { name: 'Round 1', roundNumber: 1, conference: 'West' },
-    { name: 'Round 2', roundNumber: 2, conference: 'West' },
-    { name: 'Round 3', roundNumber: 3, conference: 'West' },
-    { name: 'FINAL NBA', roundNumber: 4, conference: 'NBA Finals' },
-    { name: 'Round 3', roundNumber: 3, conference: 'East' },
-    { name: 'Round 2', roundNumber: 2, conference: 'East' },
-    { name: 'Round 1', roundNumber: 1, conference: 'East' }
-  ];
+  rounds: any[] = [];
   teamsNicknames: any [] = [];
   nicknamesWest: any [] = this.filteredSeries(1, "West");
   nicknamesEast: any [] = this.filteredSeries(1, "East");
@@ -47,11 +40,25 @@ export class PlayoffsComponent {
 
   constructor(
     private statsService: StatsService,
-    private firestore: FirestoreService
+    private firestore: FirestoreService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
     this.getPlayoffsData('2023');
+
+    this.translate.get(['PLAYOFFS.ROUND1', 'PLAYOFFS.ROUND2', 'PLAYOFFS.ROUND3', 'PLAYOFFS.FINAL'])
+    .subscribe(translations => {
+      this.rounds = [
+        { name: translations['PLAYOFFS.ROUND1'], roundNumber: 1, conference: 'West' },
+        { name: translations['PLAYOFFS.ROUND2'], roundNumber: 2, conference: 'West' },
+        { name: translations['PLAYOFFS.ROUND3'], roundNumber: 3, conference: 'West' },
+        { name: translations['PLAYOFFS.FINAL'], roundNumber: 4, conference: 'NBA Finals' },
+        { name: translations['PLAYOFFS.ROUND3'], roundNumber: 3, conference: 'East' },
+        { name: translations['PLAYOFFS.ROUND2'], roundNumber: 2, conference: 'East' },
+        { name: translations['PLAYOFFS.ROUND1'], roundNumber: 1, conference: 'East' }
+      ];
+    });
   }
 
   // Método que realiza una llamada a la API para mostrar los datos de los playoffs de la NBA

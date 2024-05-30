@@ -1,10 +1,10 @@
 <div class="wrapper">
     <div class="box-form">
         <img class="register_icon" src="../assets/images/icons/register.png" alt="Login">
-        <h1>Registro de usuario</h1>
+        <h1>{{ 'REGISTER.TITLE' | translate }}</h1>
         <form class="form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <mat-label class="form-label">Nombre de Usuario: </mat-label><br>
+                <mat-label class="form-label">{{ 'REGISTER.USERNAME_LABEL' | translate }}: </mat-label><br>
                 <mat-form-field>
                     <input matInput class="form-control text-center" formControlName="username">
                 </mat-form-field>
@@ -12,11 +12,11 @@
             <div class="mb-3">
                 <mat-label class="form-label">Email: </mat-label><br>
                 <mat-form-field>
-                    <input type="email" matInput class="form-control text-center" formControlName="email" placeholder="Ex. StatsGlowMind@example.com">
+                    <input type="email" matInput class="form-control text-center" formControlName="email" placeholder="{{ 'LOGIN.EMAIL_PLACEHOLDER' | translate }}">
                 </mat-form-field>
             </div>
             <div class="mb-3">
-                <mat-label class="form-label">Contraseña: </mat-label><br>
+                <mat-label class="form-label">{{ 'REGISTER.PASSWORD_LABEL' | translate }}: </mat-label><br>
                 <mat-form-field>
                     <input matInput [type]="hide ? 'password' : 'text'" class="form-control text-center" formControlName="password">
                     <button mat-icon-button matSuffix (click)="showPassword($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -25,7 +25,7 @@
                 </mat-form-field>
             </div>
             <div class="mb-3">
-                <mat-label class="form-label">Repetir Contraseña: </mat-label><br>
+                <mat-label class="form-label">{{ 'REGISTER.REPEAT_PASSWORD_LABEL' | translate }}: </mat-label><br>
                 <mat-form-field>
                     <input matInput [type]="hide ? 'password' : 'text'" class="form-control text-center" formControlName="repeatPassword">
                     <button mat-icon-button matSuffix (click)="showPassword($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -34,17 +34,17 @@
                 </mat-form-field>
             </div>
             <div class="mb-3">
-                <mat-label for="rol">Rol de Usuario:</mat-label>
+                <mat-label for="rol">{{ 'REGISTER.USER_ROLE_LABEL' | translate }}:</mat-label>
                 <mat-form-field class="select">
-                    <mat-select class="text-center" formControlName="rol" id="rol">
-                        <mat-option value="user">Usuario</mat-option>
-                        <mat-option value="admin" disabled="disabled">Administrador</mat-option>
+                    <mat-select class="text-center" formControlName="rol" id="rol" value="user">
+                        <mat-option value="user">{{ 'REGISTER.USER_ROLE_OPTION_USER' | translate }}</mat-option>
+                        <mat-option value="admin" disabled="disabled">{{ 'REGISTER.USER_ROLE_OPTION_ADMIN' | translate }}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
-            <button mat-raised-button color="primary" class="enviar" type="submit" value="Enviar">Enviar</button>
+            <button mat-raised-button color="primary" class="enviar" type="submit" value="Enviar">{{ 'REGISTER.SUBMIT_BUTTON' | translate }}</button>
         </form>
         <mat-divider></mat-divider><br><br>
-        <button class="google-btn" (click)="onClick()"><img class="google_icon" src="../assets/images/icons/google.png" alt="Login Google">Registrate con Google</button>
+        <button class="google-btn" (click)="onClick()"><img class="google_icon" src="../assets/images/icons/google.png" alt="Register Google">{{ 'REGISTER.GOOGLE_REGISTER_BUTTON' | translate }}</button>
     </div>
 </div>

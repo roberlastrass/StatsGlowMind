@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
+import { TranslateService } from '@ngx-translate/core';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +18,11 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private translate: TranslateService
   ) {
+    this.translate.setDefaultLang('es');
+    this.translate.use('es');
   }
 
   // Método para redirigir a '/register' y ocultar el botón

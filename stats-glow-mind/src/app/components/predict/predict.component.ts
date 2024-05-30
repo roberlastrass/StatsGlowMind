@@ -4,6 +4,7 @@ import { ExportCsvService } from '../../services/export-csv.service';
 import { PredictionService } from '../../services/prediction.service';
 import { Chart, ChartType  } from 'chart.js/auto';
 import { FormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Team {
   id: number;
@@ -30,57 +31,17 @@ export class PredictComponent implements OnInit {
   homeTeamControl = new FormControl('');
   visitorTeamControl = new FormControl('');
   teamControl = new FormControl('');
-  teamGroups: TeamGroup[] = [
-    {
-      name: 'Conferencia Este',
-      teams: [
-        { id: 1, name: 'Atlanta Hawks' },
-        { id: 2, name: 'Boston Celtics' },
-        { id: 4, name: 'Brooklyn Nets' },
-        { id: 5, name: 'Charlotte Hornets' },
-        { id: 6, name: 'Chicago Bulls' },
-        { id: 7, name: 'Cleveland Cavaliers' },
-        { id: 10, name: 'Detroit Pistons' },
-        { id: 15, name: 'Indiana Pacers' },
-        { id: 20, name: 'Miami Heat' },
-        { id: 21, name: 'Milwaukee Bucks' },
-        { id: 24, name: 'New York Knicks' },
-        { id: 26, name: 'Orlando Magic' },
-        { id: 27, name: 'Philadelphia 76ers' },
-        { id: 38, name: 'Toronto Raptors' },
-        { id: 41, name: 'Washington Wizards' },
-      ],
-    },
-    {
-      name: 'Conferencia Oeste',
-      teams: [
-        { id: 8, name: 'Dallas Mavericks' },
-        { id: 9, name: 'Denver Nuggets' },
-        { id: 11, name: 'Golden State Warriors' },
-        { id: 14, name: 'Houston Rockets' },
-        { id: 16, name: 'Los Angeles Clippers' },
-        { id: 17, name: 'Los Angeles Lakers' },
-        { id: 19, name: 'Memphis Grizzlies' },
-        { id: 22, name: 'Minnesota Timberwolves' },
-        { id: 23, name: 'New Orleans Pelicans' },
-        { id: 25, name: 'Oklahoma City Thunder' },
-        { id: 28, name: 'Phoenix Suns' },
-        { id: 29, name: 'Portland Trail Blazers' },
-        { id: 30, name: 'Sacramento Kings' },
-        { id: 31, name: 'San Antonio Spurs' },
-        { id: 40, name: 'Utah Jazz' },
-      ],
-    },
-  ];
+  teamGroups: TeamGroup[] = [];
 
   logoDefault: string = "https://upload.wikimedia.org/wikipedia/commons/e/e5/NBA_script.svg";
   logo: string = this.logoDefault;
-  teamName: string = "Equipo Ganador";
+  teamName: string = '';
 
   constructor( 
     private firestore: FirestoreService,
     private predictionService: PredictionService,
-    private csvExport: ExportCsvService
+    private csvExport: ExportCsvService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -88,6 +49,52 @@ export class PredictComponent implements OnInit {
     //this.exportTeamsStatsToCsv();
     //this.makePrediction();
     this.createCharts();
+
+    this.translate.get(['PREDICT.EAST', 'PREDICT.WEST', 'PREDICT.WINNER']).subscribe(translations => {
+      this.teamName = translations['PREDICT.WINNER'];
+      this.teamGroups = [
+        {
+          name: translations['PREDICT.EAST'],
+          teams: [
+            { id: 1, name: 'Atlanta Hawks' },
+            { id: 2, name: 'Boston Celtics' },
+            { id: 4, name: 'Brooklyn Nets' },
+            { id: 5, name: 'Charlotte Hornets' },
+            { id: 6, name: 'Chicago Bulls' },
+            { id: 7, name: 'Cleveland Cavaliers' },
+            { id: 10, name: 'Detroit Pistons' },
+            { id: 15, name: 'Indiana Pacers' },
+            { id: 20, name: 'Miami Heat' },
+            { id: 21, name: 'Milwaukee Bucks' },
+            { id: 24, name: 'New York Knicks' },
+            { id: 26, name: 'Orlando Magic' },
+            { id: 27, name: 'Philadelphia 76ers' },
+            { id: 38, name: 'Toronto Raptors' },
+            { id: 41, name: 'Washington Wizards' },
+          ],
+        },
+        {
+          name: translations['PREDICT.WEST'],
+          teams: [
+            { id: 8, name: 'Dallas Mavericks' },
+            { id: 9, name: 'Denver Nuggets' },
+            { id: 11, name: 'Golden State Warriors' },
+            { id: 14, name: 'Houston Rockets' },
+            { id: 16, name: 'Los Angeles Clippers' },
+            { id: 17, name: 'Los Angeles Lakers' },
+            { id: 19, name: 'Memphis Grizzlies' },
+            { id: 22, name: 'Minnesota Timberwolves' },
+            { id: 23, name: 'New Orleans Pelicans' },
+            { id: 25, name: 'Oklahoma City Thunder' },
+            { id: 28, name: 'Phoenix Suns' },
+            { id: 29, name: 'Portland Trail Blazers' },
+            { id: 30, name: 'Sacramento Kings' },
+            { id: 31, name: 'San Antonio Spurs' },
+            { id: 40, name: 'Utah Jazz' },
+          ],
+        },
+      ];
+    });
   }
 
   // Método que muestra el logo y nombre del equipo ganador
@@ -269,40 +276,43 @@ export class PredictComponent implements OnInit {
 
   // Método que se encarga de crear una gráfica con las probabilidades de victoria de cada equipo
   createCharts(){
-    if (this.predictionChart) {
-      this.predictionChart.destroy();
-    }
-    const dataPredict = {
-      labels: [
-        'Equipo Local',
-        'Equipo Visitante'
-      ],
-      datasets: [{
-          label: 'Probabilidad',
-          data: [this.probHomeWin, this.probVisitorWin],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)'
-          ],
-          hoverOffset: 4
-        }],
-    };
-    this.predictionChart = new Chart("chartPrediction", {
-      type: 'doughnut' as ChartType,
-      data: dataPredict,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        aspectRatio: 1,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Probabilidad de Victoria',
-            position: 'bottom'
+    this.translate.get(['PREDICT.HOME_TEAM', 'PREDICT.VISITOR_TEAM', 'PREDICT.PROBABILITY', 'PREDICT.PROBABILITY_TITLE'])
+    .subscribe(translations => {
+      if (this.predictionChart) {
+        this.predictionChart.destroy();
+      }
+      const dataPredict = {
+        labels: [
+          translations['PREDICT.HOME_TEAM'],
+          translations['PREDICT.VISITOR_TEAM']
+        ],
+        datasets: [{
+            label: translations['PREDICT.PROBABILITY'],
+            data: [this.probHomeWin, this.probVisitorWin],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)'
+            ],
+            hoverOffset: 4
+          }],
+      };
+      this.predictionChart = new Chart("chartPrediction", {
+        type: 'doughnut' as ChartType,
+        data: dataPredict,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          aspectRatio: 1,
+          plugins: {
+            title: {
+              display: true,
+              text: translations['PREDICT.PROBABILITY_TITLE'],
+              position: 'bottom'
+            }
           }
         }
-      }
-    })
+      })
+    });
   }
 
 }

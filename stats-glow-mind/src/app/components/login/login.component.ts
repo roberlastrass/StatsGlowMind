@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private toastr: ToastrService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translate: TranslateService
   ) {
     this.formLogin = new FormGroup({
       email: new FormControl(),
@@ -32,8 +34,10 @@ export class LoginComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const message = params['message'];
       if (!message) {
-        this.toastr.error('Es necesario iniciar sesión para acceder a esta página.', 'Error:', {
-          toastClass: 'notification-container',
+        this.translate.get('LOGIN.ERRORS.REQUIRED_LOGIN').subscribe((res: string) => {
+          this.toastr.error(res, 'Error:', {
+            toastClass: 'notification-container',
+          });
         });
       }
     });
@@ -49,8 +53,10 @@ export class LoginComponent implements OnInit {
     })
     .catch(error => {
       console.log(error),
-      this.toastr.error('Alguno de los datos es incorrecto.', 'Usuario incorrecto:', {
-        toastClass: 'notification-container',
+      this.translate.get(['LOGIN.ERRORS.INVALID_CREDENTIALS', 'LOGIN.ERRORS.USER_NOT_FOUND']).subscribe(translations => {
+        this.toastr.error(translations['LOGIN.ERRORS.INVALID_CREDENTIALS'], translations['LOGIN.ERRORS.USER_NOT_FOUND'], {
+          toastClass: 'notification-container',
+        });
       });
     });
   }
@@ -64,17 +70,21 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/main']);
       } else {
         console.log('Usuario no existe en la base de datos. Cerrando sesión.');
-        this.toastr.error('Usuario no existe en la base de datos.', 'Usuario incorrecto:', {
-          toastClass: 'notification-container',
+        this.translate.get(['LOGIN.ERRORS.USER_NOT_FOUND', 'LOGIN.ERRORS.INVALID_CREDENTIALS']).subscribe(translations => {
+          this.toastr.error(translations['LOGIN.ERRORS.USER_NOT_FOUND'], translations['LOGIN.ERRORS.INVALID_CREDENTIALS'], {
+            toastClass: 'notification-container',
+          });
         });
         this.userService.logout();
         this.router.navigate(['/login']);
       }
     })
     .catch(error => {
-      console.log(error),
-      this.toastr.error('Alguno de los datos es incorrecto.', 'Usuario incorrecto:', {
-        toastClass: 'notification-container',
+      console.log(error);
+      this.translate.get(['LOGIN.ERRORS.INVALID_CREDENTIALS', 'LOGIN.ERRORS.USER_NOT_FOUND']).subscribe(translations => {
+        this.toastr.error(translations['LOGIN.ERRORS.INVALID_CREDENTIALS'], translations['LOGIN.ERRORS.USER_NOT_FOUND'], {
+          toastClass: 'notification-container',
+        });
       });
     });
   }

@@ -3,6 +3,7 @@ import { StatsService } from '../../../services/stats.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface PlayerData {
   RANK: number;
@@ -39,24 +40,29 @@ export class LeadersComponent implements OnInit {
   smallScreen: boolean = false;
   mediumScreen: boolean = false;
   category: string = "PTS";
-  title: any[] = [
-    { name: 'Líderes en Puntos por Partido', category: 'PTS' },
-    { name: 'Líderes en Rebotes por Partido', category: 'REB' },
-    { name: 'Líderes en Asistencias por Partido', category: 'AST' },
-    { name: 'Líderes en Robos por Partido', category: 'STL' },
-    { name: 'Líderes en Tapones por Partido', category: 'BLK' },
-    { name: 'Líderes en Eficiencia', category: 'EFF' }
-  ];
+  title: any[] = [];
 
   constructor(
     private statsService: StatsService,
-    private router: Router
+    private router: Router,
+    private translate: TranslateService
   ) {
     this.checkScreenSize();
   }
 
   ngOnInit(): void {
     this.getLeadersNBA();
+
+    this.translate.get(['LEADERS.POINTS', 'LEADERS.REBOUNDS', 'LEADERS.ASSISTS', 'LEADERS.STEALS', 'LEADERS.BLOCKS', 'LEADERS.EFFICIENCY']).subscribe(translations => {
+      this.title = [
+        { name: translations['LEADERS.POINTS'], category: 'PTS' },
+        { name: translations['LEADERS.REBOUNDS'], category: 'REB' },
+        { name: translations['LEADERS.ASSISTS'], category: 'AST' },
+        { name: translations['LEADERS.STEALS'], category: 'STL' },
+        { name: translations['LEADERS.BLOCKS'], category: 'BLK' },
+        { name: translations['LEADERS.EFFICIENCY'], category: 'EFF' }
+      ];
+    });
   }
 
   // Método que realiza una llamada a la API para mostrar los datos de los líderes de la NBA

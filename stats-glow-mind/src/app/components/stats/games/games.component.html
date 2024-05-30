@@ -1,13 +1,13 @@
 <div class="games">
     <div class="date-time-info">
         <mat-form-field>
-            <mat-label>Selecciona Fecha</mat-label>
+            <mat-label>{{ 'GAMES.SELECT_DATE_LABEL' | translate }}</mat-label>
             <input matInput [matDatepicker]="picker" [formControl]="date" (dateChange)="changeDate($event)">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <p>Zona Horaria (UTC)</p>
+        <p>{{ 'GAMES.TIME_ZONE_LABEL' | translate }}</p>
     </div>
     <ng-container *ngIf="games && games.length > 0; else noGames">
         <div class="games-container">
@@ -23,15 +23,15 @@
                     <div class="score">{{ game.scores.home.points }}</div> 
                 </mat-card-header>
                 <mat-card-content class="card-content">
-                    <p> <strong> Localización: </strong> {{ game.arena.name }}, {{ game.arena.city }}, {{ game.arena.state }}</p>
-                    <p> <strong> Estado: </strong> {{ game.status.long }}</p>
+                    <p> <strong> {{ 'GAMES.LOCATION' | translate }} </strong> {{ game.arena.name }}, {{ game.arena.city }}, {{ game.arena.state }}</p>
+                    <p> <strong> {{ 'GAMES.STATUS' | translate }} </strong> {{ game.status.long }}</p>
                 </mat-card-content>
             </mat-card>
         </div>
     </ng-container>
     <ng-template #noGames >
         <div class="no-games">
-            <h2>NO SE ENCONTRARON PARTIDOS</h2>
+            <h2>{{ 'GAMES.NO_GAMES_FOUND' | translate }}</h2>
         </div>
     </ng-template>
 </div>

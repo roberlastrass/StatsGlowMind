@@ -1,21 +1,21 @@
 <div class="leaders">
   <div class="leaders-table">
     <div class="mb-3">
-      <mat-label><strong>Selecciona la Categoria:</strong></mat-label>
+      <mat-label><strong>{{ 'LEADERS.SELECT_CATEGORY' | translate }}</strong></mat-label>
       <mat-form-field class="select">
-        <mat-select class="text-center" (selectionChange)="filteredCategory($event.value)">
-            <mat-option value="PTS">Puntos</mat-option>
-            <mat-option value="REB">Rebotes</mat-option>
-            <mat-option value="AST">Asistencias</mat-option>
-            <mat-option value="STL">Robos</mat-option>
-            <mat-option value="BLK">Tapones</mat-option>
-            <mat-option value="EFF">Eficiencia</mat-option>
+        <mat-select class="text-center" value="PTS" (selectionChange)="filteredCategory($event.value)">
+            <mat-option value="PTS">{{ 'LEADERS.PTS' | translate }}</mat-option>
+            <mat-option value="REB">{{ 'LEADERS.REB' | translate }}</mat-option>
+            <mat-option value="AST">{{ 'LEADERS.AST' | translate }}</mat-option>
+            <mat-option value="STL">{{ 'LEADERS.STL' | translate }}</mat-option>
+            <mat-option value="BLK">{{ 'LEADERS.BLK' | translate }}</mat-option>
+            <mat-option value="EFF">{{ 'LEADERS.EFF' | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="title">
       <h2>{{ getTitle(category) }}</h2>
-      <button mat-icon-button color="accent" (click)="routeGlossary()" matTooltip="Glosario">
+      <button mat-icon-button color="accent" (click)="routeGlossary()" matTooltip="{{ 'FOOTER.GLOSSARY' | translate }}">
         <mat-icon>info</mat-icon>
       </button>
     </div>
@@ -25,11 +25,11 @@
         <td mat-cell *matCellDef="let player of players"> {{ player[1]}} </td>
       </ng-container>
       <ng-container matColumnDef="PLAYER">
-        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> JUGADOR </th>
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> {{ 'ANALYSIS.PLAYER' | translate }} </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[2]}} </td>
       </ng-container>
       <ng-container matColumnDef="TEAM">
-        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> EQUIPO </th>
+        <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> {{ 'ANALYSIS.TEAM' | translate }} </th>
         <td mat-cell *matCellDef="let player of players"> {{ player[4]}} </td>
       </ng-container>
       <ng-container matColumnDef="GP">

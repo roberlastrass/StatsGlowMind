@@ -54,7 +54,7 @@ h3 {
     justify-content: space-between;
     position: relative;
 }
-.title-stats h2 {
+.title-stats h2, h3 {
     flex: 1;
     text-align: center;
 }
@@ -95,10 +95,8 @@ th, td {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
     padding: 2%;
     margin-top: 5%;
-    overflow: hidden;
 }
 .chart-content {
     width: 100%;

@@ -1,8 +1,8 @@
 <div class="playoffs">    
     <div class="playoffs-container" >
         <div class="coference">
-            <h2>Conferencia Oeste</h2>
-            <h2>Conferencia Este</h2>
+            <h2>{{ 'PREDICT.WEST' | translate }}</h2>
+            <h2>{{ 'PREDICT.EAST' | translate }}</h2>
         </div>
         <div class="rounds-container" *ngFor="let round of rounds">
             <p class="number-round">{{ round.name }}</p>

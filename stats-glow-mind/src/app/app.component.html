@@ -3,21 +3,21 @@
   <div class="col-md-6 d-none d-md-block">
     <div class="menu">
       <button class="button_menu" [matMenuTriggerFor]="nba">NBA</button>
-      <button class="button_menu" [matMenuTriggerFor]="equipos">EQUIPOS</button>
-      <button class="button_menu" routerLink="/analysis">ANÁLISIS</button>
-      <button class="button_menu" routerLink="/predict">PREDICCIONES</button>
+      <button class="button_menu" [matMenuTriggerFor]="equipos">{{ 'MAIN.TEAMS' | translate }}</button>
+      <button class="button_menu" routerLink="/analysis">{{ 'MAIN.ANALYSIS' | translate }}</button>
+      <button class="button_menu" routerLink="/predict">{{ 'MAIN.PREDICTIONS' | translate }}</button>
     </div>
   </div>
   <div class="buttons">
     <div class="button_login"#tooltip="matTooltip"
-          matTooltip="Iniciar Sesión"
+          matTooltip="{{ 'APP.LOGIN' | translate }}"
           [matTooltipPosition]="'below'"
           matTooltipHideDelay="100"
           aria-label="Button that displays a tooltip that hides when scrolled out of the container">
       <img class="login_icon" src="../assets/images/icons/login.png" alt="Login" (click)="redirectToLogin('Iniciar sesión')">
     </div>
     <div class="button_logout" #tooltip="matTooltip"
-          matTooltip="Cerrar Sesión"
+          matTooltip="{{ 'APP.LOGOUT' | translate }}"
           [matTooltipPosition]="'below'"
           matTooltipHideDelay="100"
           aria-label="Button that displays a tooltip that hides when scrolled out of the container">
@@ -30,27 +30,27 @@
 
 <!-- Menú NBA -->
 <mat-menu #nba="matMenu" color="accent">
-  <button mat-menu-item routerLink="/stats/standings">Clasificación</button>
+  <button mat-menu-item routerLink="/stats/standings">{{ 'APP.STANDINGS' | translate }}</button>
   <button mat-menu-item routerLink="/stats/playoffs">Playoffs</button>
-  <button mat-menu-item routerLink="/stats/games">Partidos</button>
-  <button mat-menu-item routerLink="/stats/leaders">Líderes</button>
+  <button mat-menu-item routerLink="/stats/games">{{ 'APP.GAMES' | translate }}</button>
+  <button mat-menu-item routerLink="/stats/leaders">{{ 'APP.LEADERS' | translate }}</button>
 </mat-menu>
 
 <!-- Menú Equipos -->
 <mat-menu #equipos="matMenu" color="accent">
-  <button mat-menu-item routerLink="/teams">Todos los Equipos</button>
-  <button mat-menu-item [matMenuTriggerFor]="east">Conferencia Este</button>
-  <button mat-menu-item [matMenuTriggerFor]="west">Conferencia Oeste</button>
+  <button mat-menu-item routerLink="/teams">{{ 'APP.ALL_TEAMS' | translate }}</button>
+  <button mat-menu-item [matMenuTriggerFor]="east">{{ 'PREDICT.EAST' | translate }}</button>
+  <button mat-menu-item [matMenuTriggerFor]="west">{{ 'PREDICT.WEST' | translate }}</button>
 </mat-menu>
 <mat-menu #east="matMenu" color="accent">
-  <button mat-menu-item [matMenuTriggerFor]="atlantic">Atlántico</button>
+  <button mat-menu-item [matMenuTriggerFor]="atlantic">{{ 'TEAMS.ATLANTIC' | translate }}</button>
   <button mat-menu-item [matMenuTriggerFor]="central">Central</button>
-  <button mat-menu-item [matMenuTriggerFor]="southeast">Sureste</button>
+  <button mat-menu-item [matMenuTriggerFor]="southeast">{{ 'TEAMS.SOUTHEAST' | translate }}</button>
 </mat-menu>
 <mat-menu #west="matMenu" color="accent">
-  <button mat-menu-item [matMenuTriggerFor]="northwest">Noroeste</button>
-  <button mat-menu-item [matMenuTriggerFor]="pacific">Pacífico</button>
-  <button mat-menu-item [matMenuTriggerFor]="southwest">Suroeste</button>
+  <button mat-menu-item [matMenuTriggerFor]="northwest">{{ 'TEAMS.NORTHWEST' | translate }}</button>
+  <button mat-menu-item [matMenuTriggerFor]="pacific">{{ 'TEAMS.PACIFIC' | translate }}</button>
+  <button mat-menu-item [matMenuTriggerFor]="southwest">{{ 'TEAMS.SOUTHWEST' | translate }}</button>
 </mat-menu>
 <mat-menu #atlantic="matMenu" color="accent">
   <button mat-menu-item routerLink="/teams/Celtics">Boston Celtics</button>

@@ -1,12 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
-import { MatDialog, MatDialogRef, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MAT_DIALOG_DATA, } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
 import { FirestoreService } from '../../services/firestore.service';
-import { UserService } from '../../services/user.service';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -77,8 +72,6 @@ export class AdminComponent implements OnInit {
 @Component({
   selector: 'dialog-delete-user',
   templateUrl: 'dialog-delete-user.html',
-  standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
 })
 export class DialogDeleteUser {
   constructor(public dialogRef: MatDialogRef<DialogDeleteUser>,
@@ -91,9 +84,6 @@ export class DialogDeleteUser {
 @Component({
   selector: 'dialog-update-user',
   templateUrl: 'dialog-update-user.html',
-  standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, 
-            MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule],
 })
 export class DialogUpdateUser {
   constructor(

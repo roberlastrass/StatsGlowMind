@@ -3,6 +3,7 @@ import { StatsService } from '../../../services/stats.service';
 import { FirestoreService } from '../../../services/firestore.service';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerData } from '../../../models/player-data.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-team-players',
@@ -11,9 +12,9 @@ import { PlayerData } from '../../../models/player-data.model';
 })
 export class TeamPlayersComponent implements OnInit {
 
-  displayedColumnsSort: string[] =  ['NOMBRE', 'POSICION', 'EDAD', 'ALTURA', 'PESO'];
-  displayedColumnsMedium: string[] =  ['NOMBRE', 'DORSAL', 'POSICION', 'EDAD', 'ALTURA', 'PESO', 'PAÍS'];
-  displayedColumnsLarge: string[] = ['NOMBRE', 'DORSAL', 'POSICION', 'NACIMIENTO', 'EDAD', 'ALTURA', 'PESO', 'DEBUT', 'AÑOS PRO', 'UNIVERSIDAD', 'PAÍS'];
+  displayedColumnsSort: string[] =  [];
+  displayedColumnsMedium: string[] =  [];
+  displayedColumnsLarge: string[] = [];
   smallScreen: boolean = false;
   mediumScreen: boolean = false;
 
@@ -27,13 +28,27 @@ export class TeamPlayersComponent implements OnInit {
   constructor( 
     private statsService: StatsService,
     private firestore: FirestoreService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translate: TranslateService
   ) {
     this.checkScreenSize();
   }
 
   ngOnInit() {
     this.getTeamNickname();
+    
+    this.translate.get(['TEAMS.INFO_PLAYERS.NAME', 'TEAMS.INFO_PLAYERS.POSITION', 'TEAMS.INFO_PLAYERS.AGE',
+    'TEAMS.INFO_PLAYERS.HEIGHT', 'TEAMS.INFO_PLAYERS.WEIGHT', 'TEAMS.INFO_PLAYERS.NUMBER', 'TEAMS.INFO_PLAYERS.YEARS_PRO',
+    'TEAMS.INFO_PLAYERS.BIRTHDATE','TEAMS.INFO_PLAYERS.COLLEGE', 'TEAMS.INFO_PLAYERS.COUNTRY'
+    ]).subscribe(translations => {
+      this.displayedColumnsSort =  [translations['TEAMS.INFO_PLAYERS.NAME'], translations['TEAMS.INFO_PLAYERS.NUMBER'], translations['TEAMS.INFO_PLAYERS.AGE'], 
+      translations['TEAMS.INFO_PLAYERS.HEIGHT'], translations['TEAMS.INFO_PLAYERS.WEIGHT']];
+      this.displayedColumnsMedium =  [translations['TEAMS.INFO_PLAYERS.NAME'], translations['TEAMS.INFO_PLAYERS.NUMBER'], translations['TEAMS.INFO_PLAYERS.POSITION'],
+      translations['TEAMS.INFO_PLAYERS.AGE'], translations['TEAMS.INFO_PLAYERS.HEIGHT'], translations['TEAMS.INFO_PLAYERS.WEIGHT'], translations['TEAMS.INFO_PLAYERS.COUNTRY']];
+      this.displayedColumnsLarge = [translations['TEAMS.INFO_PLAYERS.NAME'], translations['TEAMS.INFO_PLAYERS.NUMBER'], translations['TEAMS.INFO_PLAYERS.POSITION'],
+      translations['TEAMS.INFO_PLAYERS.BIRTHDATE'], translations['TEAMS.INFO_PLAYERS.AGE'], translations['TEAMS.INFO_PLAYERS.HEIGHT'], translations['TEAMS.INFO_PLAYERS.WEIGHT'],
+      'DEBUT', translations['TEAMS.INFO_PLAYERS.YEARS_PRO'], translations['TEAMS.INFO_PLAYERS.COLLEGE'], translations['TEAMS.INFO_PLAYERS.COUNTRY']];
+    });
   }
 
   // Método que recoge el parametro de route cuyo valor es el nickname del Equipo

@@ -25,29 +25,29 @@
                             <br>
                         </mat-card>
                     </mat-tab>
-                    <mat-tab label="EQUIPOS"> 
+                    <mat-tab label="{{ 'MAIN.TEAMS' | translate }}"> 
                         <mat-card class="card-option card-teams" routerLink="/teams">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/basketball-court.png" alt="Data Basketball">
                             <mat-card-header>
-                                <mat-card-title>EQUIPOS</mat-card-title>
+                                <mat-card-title>{{ 'MAIN.TEAMS' | translate }}</mat-card-title>
                             </mat-card-header>
                             <br>
                         </mat-card>
                     </mat-tab>
-                    <mat-tab label="ANÁLISIS"> 
+                    <mat-tab label="{{ 'MAIN.ANALYSIS' | translate }}"> 
                         <mat-card class="card-option card-analysis" routerLink="/analysis">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/charts.png" alt="Stats">
                             <mat-card-header>
-                                <mat-card-title>ANÁLISIS</mat-card-title>
+                                <mat-card-title >{{ 'MAIN.ANALYSIS' | translate }}</mat-card-title>
                             </mat-card-header>
                             <br>
                         </mat-card>
                     </mat-tab>
-                    <mat-tab label="PREDICCIONES"> 
+                    <mat-tab label="{{ 'MAIN.PREDICTIONS' | translate }}"> 
                         <mat-card class="card-option card-predict" routerLink="/predict">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/market-analysis.png" alt="Predicts">
                             <mat-card-header>
-                                <mat-card-title>PREDICCIONES</mat-card-title>
+                                <mat-card-title>{{ 'MAIN.PREDICTIONS' | translate }}</mat-card-title>
                             </mat-card-header>
                             <br>
                         </mat-card>
@@ -69,11 +69,11 @@
             </div>
             <div class="options-cards">
                 <mat-tab-group>
-                    <mat-tab label="CLASIFICACIÓN"> 
+                    <mat-tab label="{{ 'MAIN.STANDINGS' | translate }}"> 
                         <mat-card class="card-option nba-cards" routerLink="/stats/standings">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/podium2.png" alt="Basketball">
                             <mat-card-header>
-                                <mat-card-title>CLASIFICACIÓN</mat-card-title>
+                                <mat-card-title>{{ 'MAIN.STANDINGS' | translate }}</mat-card-title>
                             </mat-card-header>
                             <br>
                         </mat-card>
@@ -87,20 +87,20 @@
                             <br>
                         </mat-card>
                     </mat-tab>
-                    <mat-tab label="PARTIDOS"> 
+                    <mat-tab label="{{ 'MAIN.GAMES' | translate }}"> 
                         <mat-card class="card-option nba-cards" routerLink="/stats/games">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/game2.png" alt="Basketball">
                             <mat-card-header>
-                                <mat-card-title>PARTIDOS</mat-card-title>
+                                <mat-card-title>{{ 'MAIN.GAMES' | translate }}</mat-card-title>
                             </mat-card-header>
                             <br>
                         </mat-card>
                     </mat-tab>
-                    <mat-tab label="LÍDERES"> 
+                    <mat-tab label="{{ 'MAIN.LEADERS' | translate }}"> 
                         <mat-card class="card-option nba-cards" routerLink="/stats/leaders">
                             <img mat-card-image class="option-icon" src="../assets/images/icons/star2.png" alt="Basketball">
                             <mat-card-header>
-                                <mat-card-title>LÍDERES</mat-card-title>
+                                <mat-card-title>{{ 'MAIN.LEADERS' | translate }}</mat-card-title>
                             </mat-card-header>
                             <br>
                         </mat-card>
@@ -116,42 +116,34 @@
                     <mat-card-title>NBA</mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="card-content">
-                    <p>
-                        Clasificación en cada conferencia, Playoffs, Partidos y Resultados y Líderes de la liga.
-                    </p>
+                    <p>{{ 'MAIN.NBA_DESCRIPTION' | translate }}</p>
                 </mat-card-content>
             </mat-card>
             <mat-card class="card" routerLink="/teams">
                 <img mat-card-image class="basket_icon" src="../assets/images/icons/basketball-court.png" alt="Data Basketball">
                 <mat-card-header>
-                    <mat-card-title>EQUIPOS</mat-card-title>
+                    <mat-card-title>{{ 'MAIN.TEAMS' | translate }}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="card-content">
-                    <p>
-                        Estadísticas de los equipos de la NBA y los jugadores de cada uno de los equipos.
-                    </p>
+                    <p>{{ 'MAIN.TEAMS_DESCRIPTION' | translate }}</p>
                 </mat-card-content>
             </mat-card>
             <mat-card class="card" routerLink="/analysis">
                 <img mat-card-image class="basket_icon" src="../assets/images/icons/charts.png" alt="Stats">
                 <mat-card-header>
-                    <mat-card-title>ANÁLISIS</mat-card-title>
+                    <mat-card-title>{{ 'MAIN.ANALYSIS' | translate }}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="card-content">
-                    <p>
-                        Análisis de las estadísticas de cada jugadore para calcular su rendimiento en distintos campos.
-                    </p>
+                    <p>{{ 'MAIN.ANALYSIS_DESCRIPTION' | translate }}</p>
                 </mat-card-content>
             </mat-card>
             <mat-card class="card" routerLink="/predict">
                 <img mat-card-image class="basket_icon" src="../assets/images/icons/market-analysis.png" alt="Predicts">
                 <mat-card-header>
-                    <mat-card-title>PREDICCIONES</mat-card-title>
+                    <mat-card-title>{{ 'MAIN.PREDICTIONS' | translate }}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="card-content">
-                    <p>
-                        Predicciones de los próximos partidos en base a las estadísticas de cada equipo en la temporada.
-                    </p>
+                    <p>{{ 'MAIN.PREDICTIONS_DESCRIPTION' | translate }}</p>
                 </mat-card-content>
             </mat-card>
         </div>
