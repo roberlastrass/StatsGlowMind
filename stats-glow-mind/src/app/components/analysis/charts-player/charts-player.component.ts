@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../services/firestore.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StatsService } from '../../../services/stats.service';
 import { Chart, ChartOptions, ChartType, ChartDataset  } from 'chart.js/auto';
 
@@ -53,7 +53,8 @@ export class ChartsPlayerComponent implements OnInit {
   constructor( 
     private statsService: StatsService,
     private firestore: FirestoreService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -256,35 +257,35 @@ export class ChartsPlayerComponent implements OnInit {
       labels: idGames,
       datasets: [
         {
-          label: 'Puntos',
+          label: 'PTS',
           data: points,
           fill: false,
           borderColor: 'rgb(54, 162, 235)',
           tension: 0.1
         },
         {
-          label: 'Asistencias',
+          label: 'AST',
           data: assists,
           fill: false,
           borderColor: 'rgba(255, 99, 132)',
           tension: 0.1
         },
         {
-          label: 'Rebotes',
+          label: 'REB',
           data: totReb,
           fill: false,
           borderColor: 'rgba(255, 205, 86)',
           tension: 0.1
         },
         {
-          label: 'Robos',
+          label: 'STL',
           data: steals,
           fill: false,
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1
         },
         {
-          label: 'Tapones',
+          label: 'BLK',
           data: blocks,
           fill: false,
           borderColor: 'rgb(153, 102, 255)',
@@ -304,7 +305,7 @@ export class ChartsPlayerComponent implements OnInit {
       plugins: {
         title: {
           display: true,
-          text: 'Partidos',
+          text: 'GP',
           position: 'bottom'
         }
       }
@@ -320,21 +321,21 @@ export class ChartsPlayerComponent implements OnInit {
       labels: idGames,
       datasets: [
         {
-          label: 'Rebotes Totales',
+          label: 'REB',
           data: totReb,
           fill: false,
           borderColor: 'rgba(75, 192, 192)',
           tension: 0.1
         },
         {
-          label: 'Rebotes Ofensivos',
+          label: 'OREB',
           data: offReb,
           fill: false,
           borderColor: 'rgba(255, 99, 132)',
           tension: 0.1
         },
         {
-          label: 'Rebotes Defensivos',
+          label: 'DREB',
           data: defReb,
           fill: false,
           borderColor: 'rgba(255, 205, 86)',
@@ -354,7 +355,7 @@ export class ChartsPlayerComponent implements OnInit {
       plugins: {
         title: {
           display: true,
-          text: 'Partidos',
+          text: 'GP',
           position: 'bottom'
         }
       }
@@ -368,12 +369,12 @@ export class ChartsPlayerComponent implements OnInit {
     // Field Goals
     const dataFieldGoals = {
       labels: [
-        'Tiros de 2 Puntos',
-        'Triples',
-        'Tiros Libres'
+        '2P',
+        'TP',
+        'FT'
       ],
       datasets: [{
-          label: 'Puntos',
+          label: 'PTS',
           data: [t2p, tTriple, tLibres],
           backgroundColor: [
             'rgb(255, 99, 132)',
@@ -393,7 +394,7 @@ export class ChartsPlayerComponent implements OnInit {
         plugins: {
           title: {
             display: true,
-            text: 'Puntos de Media',
+            text: 'AVG PTS',
             position: 'bottom'
           }
         }
@@ -403,11 +404,11 @@ export class ChartsPlayerComponent implements OnInit {
     // 2p Shots
     const data2pShots = {
       labels: [
-        'Tiros de 2 Puntos Fallados',
-        'Tiros de 2 Puntos Anotados'
+        '2PF',
+        '2PM'
       ],
       datasets: [{
-          label: 'Tiros de 2 Puntos',
+          label: '2P',
           data: [fga-fgm, fgm],
           backgroundColor: [
             'rgb(255, 153, 173)',
@@ -426,7 +427,7 @@ export class ChartsPlayerComponent implements OnInit {
         plugins: {
           title: {
             display: true,
-            text: 'Tiros de 2 Puntos',
+            text: '2P',
             position: 'bottom'
           }
         }
@@ -436,11 +437,11 @@ export class ChartsPlayerComponent implements OnInit {
     // Triples Shots
     const dataTripleShots = {
       labels: [
-        'Triples Fallados',
-        'Triples Anotados'
+        'TPF',
+        'TPM'
       ],
       datasets: [{
-          label: 'Triples',
+          label: 'TP',
           data: [tpa-tpm, tpm],
           backgroundColor: [
             'rgb(122, 194, 255)',
@@ -459,7 +460,7 @@ export class ChartsPlayerComponent implements OnInit {
         plugins: {
           title: {
             display: true,
-            text: 'Triples',
+            text: 'TP',
             position: 'bottom'
           }
         }
@@ -469,11 +470,11 @@ export class ChartsPlayerComponent implements OnInit {
     // Free Shots
     const dataFreeShots = {
       labels: [
-        'Tiros Libres Fallados',
-        'Tiros Libres Anotados'
+        'FTF',
+        'FTM'
       ],
       datasets: [{
-          label: 'Tiros Libres',
+          label: 'FT',
           data: [fta-tLibres, tLibres],
           backgroundColor: [
             'rgb(255, 220, 133)',
@@ -492,7 +493,7 @@ export class ChartsPlayerComponent implements OnInit {
         plugins: {
           title: {
             display: true,
-            text: 'Tiros Libres',
+            text: 'FT',
             position: 'bottom'
           }
         }
@@ -527,7 +528,7 @@ export class ChartsPlayerComponent implements OnInit {
       plugins: {
         title: {
           display: true,
-          text: 'Partidos',
+          text: 'GP',
           position: 'bottom'
         }
       }
@@ -551,6 +552,11 @@ export class ChartsPlayerComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenSize();
+  }
+
+  // Método que te mueve a la página Glossary
+  routeGlossary() {
+    this.router.navigate(['/about/glossary']);
   }
 
 }

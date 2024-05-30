@@ -9,11 +9,14 @@
       </div>
     </div>
     <div class="btn-players">
-      <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', teamNickname, 'players']">JUGADORES</button>
+      <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', teamNickname, 'players']">{{ 'TEAMS.PLAYERS' | translate }}</button>
     </div>
     <div class="all-stats">
       <div class="name-stats">
-        <h2>Estadísticas Totales</h2>
+        <h2>{{ 'TEAMS.STATS.TOTAL_STATS' | translate }}</h2>
+        <button mat-icon-button color="accent" (click)="routeGlossary()" matTooltip="{{ 'FOOTER.GLOSSARY' | translate }}">
+          <mat-icon>info</mat-icon>
+        </button>
       </div>
       <table class="table">
         <thead>
@@ -96,7 +99,7 @@
     </div>
     <div class="home-visitors-stats">
       <div class="name-stats">
-        <h2>Estadísticas en Casa</h2>
+        <h2>{{ 'TEAMS.STATS.HOME_STATS' | translate }}</h2>
       </div>
       <table class="table">
         <thead>
@@ -177,7 +180,7 @@
         </tbody>
       </table>
       <div class="name-second-stats">
-        <h2>Estadísticas en Visitante</h2>
+        <h2>{{ 'TEAMS.STATS.VISITOR_STATS' | translate }}</h2>
       </div>
       <table class="table">
         <thead>
@@ -260,7 +263,7 @@
     </div>
     <div class="win-loss-stats">
       <div class="name-stats">
-        <h2>Estadísticas en Partidos Ganados</h2>
+        <h2>{{ 'TEAMS.STATS.WIN_STATS' | translate }}</h2>
       </div>
       <table class="table">
         <thead>
@@ -341,7 +344,7 @@
         </tbody>
       </table>
       <div class="name-second-stats">
-        <h2>Estadísticas en Partidos Perdidos</h2>
+        <h2>{{ 'TEAMS.STATS.LOSS_STATS' | translate }}</h2>
       </div>
       <table class="table">
         <thead>

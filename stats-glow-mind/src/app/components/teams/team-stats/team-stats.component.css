@@ -43,6 +43,19 @@ h1 {
 }
 .name-stats{
     margin: 2%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.name-stats h2 {
+    flex: 1;
+    text-align: center;
+}
+.name-stats button {
+    position: absolute;
+    right: 0;
 }
 .name-second-stats {
     margin-top: 5%;

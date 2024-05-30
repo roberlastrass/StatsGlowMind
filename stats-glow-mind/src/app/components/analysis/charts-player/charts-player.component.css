@@ -47,6 +47,21 @@ h2 {
 h3 {
     color: #FE5B3B;
 }
+.title-stats{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.title-stats h2, h3 {
+    flex: 1;
+    text-align: center;
+}
+.title-stats button {
+    position: absolute;
+    right: 0;
+}
 
 /* Estilos tabla */
 table {
@@ -80,10 +95,8 @@ th, td {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
     padding: 2%;
     margin-top: 5%;
-    overflow: hidden;
 }
 .chart-content {
     width: 100%;

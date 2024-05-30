@@ -1,8 +1,8 @@
-<h2 mat-dialog-title>Eliminar a {{ data.userName }}</h2>
+<h2 mat-dialog-title>{{ 'ADMIN.DELETE_USER' | translate }} {{ data.userName }}</h2>
 <mat-dialog-content>
-  ¿Seguro que quieres eliminar al usuario?
+  {{ 'ADMIN.DELETE_CONFIRMATION' | translate }}
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button color="primary" mat-dialog-close cdkFocusInitial>Cancelar</button>
-  <button mat-button color="accent" [mat-dialog-close]="'confirm'">Confirmar</button>
+  <button mat-button color="primary" mat-dialog-close cdkFocusInitial>{{ 'ADMIN.CANCEL' | translate }}</button>
+  <button mat-button color="accent" [mat-dialog-close]="'confirm'">{{ 'ADMIN.CONFIRM' | translate }}</button>
 </mat-dialog-actions>

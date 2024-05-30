@@ -1,1 +1,32 @@
-<p>about works!</p>
+<div class="wrapper">
+    <div class="about">
+        <div class="title">
+            <h1>{{ 'ABOUT.TITLE' | translate }}</h1>
+        </div>
+        <div class="info">
+            <p [innerHTML]="'ABOUT.DESCRIPTION' | translate">
+            </p>
+        </div>
+        <div class="title">
+            <h3>{{ 'ABOUT.DEVELOPMENT_TITLE' | translate }}</h3>
+        </div>
+        <div class="info">
+            <p [innerHTML]="'ABOUT.DEVELOPMENT_DESCRIPTION' | translate">
+            </p>
+        </div>
+        <div class="title">
+            <h3>{{ 'ABOUT.DESIGN_TITLE' | translate }}</h3>
+        </div>
+        <div class="info">
+            <p [innerHTML]="'ABOUT.DESIGN_DESCRIPTION' | translate">
+            </p>
+        </div>
+        <div class="title">
+            <h3>{{ 'ABOUT.SOCIAL_TITLE' | translate }}</h3>
+        </div>
+        <div class="info">
+            <p [innerHTML]="'ABOUT.SOCIAL_DESCRIPTION' | translate">
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="analysis">
         <div class="title">
-            <h2>Análisis de Jugadores</h2>
+            <h1>{{ 'ANALYSIS.TITLE' | translate }}</h1>
         </div>
         <div class="featured-players">
             <mat-card class="card">
@@ -12,7 +12,7 @@
                 </mat-card-header>
                 <mat-card-content><br></mat-card-content>
                 <mat-card-actions>
-                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + nikolaJocic[0]]">ANÁLISIS</button>
+                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + nikolaJocic[0]]">{{ 'ANALYSIS.BUTTON' | translate }}</button>
                 </mat-card-actions>
             </mat-card>
             <mat-card class="card">
@@ -23,7 +23,7 @@
                 </mat-card-header>
                 <mat-card-content><br></mat-card-content>
                 <mat-card-actions>
-                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + shai[0]]">ANÁLISIS</button>
+                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + shai[0]]">{{ 'ANALYSIS.BUTTON' | translate }}</button>
                 </mat-card-actions>
             </mat-card>
             <mat-card class="card">
@@ -34,7 +34,7 @@
                 </mat-card-header>
                 <mat-card-content><br></mat-card-content>
                 <mat-card-actions>
-                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + lukaDoncic[0]]">ANÁLISIS</button>
+                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + lukaDoncic[0]]">{{ 'ANALYSIS.BUTTON' | translate }}</button>
                 </mat-card-actions>
             </mat-card>
             <mat-card class="card">
@@ -45,14 +45,14 @@
                 </mat-card-header>
                 <mat-card-content><br></mat-card-content>
                 <mat-card-actions>
-                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + giannis[0]]">ANÁLISIS</button>
+                    <button mat-flat-button color="accent" [routerLink]="['/analysis/', 'player:' + giannis[0]]">{{ 'ANALYSIS.BUTTON' | translate }}</button>
                 </mat-card-actions>
             </mat-card>
         </div>
         <div class="analysis-container">
             <mat-form-field class="filter">
-                <mat-label>Buscador: </mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Doncic" #input>
+                <mat-label>{{ 'ANALYSIS.SEARCH' | translate }} </mat-label>
+                <input matInput (keyup)="applyFilter($event)" [placeholder]="'ANALYSIS.PLACEHOLDER' | translate" #input>
             </mat-form-field>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                 <ng-container matColumnDef="ID">
@@ -60,7 +60,7 @@
                     <td mat-cell *matCellDef="let player">{{ player.id }}</td>
                 </ng-container>
                 <ng-container matColumnDef="PLAYER">
-                    <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> Jugador </th>
+                    <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> {{ 'ANALYSIS.PLAYER' | translate }} </th>
                     <td mat-cell *matCellDef="let player">{{ player.firstname }} {{ player.lastname }}</td>
                 </ng-container>
                 <ng-container matColumnDef="NO">
@@ -72,11 +72,11 @@
                     <td mat-cell *matCellDef="let player">{{ player.pos }}</td>
                 </ng-container>
                 <ng-container matColumnDef="EDAD">
-                    <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> EDAD </th>
+                    <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> {{ 'ANALYSIS.AGE' | translate }} </th>
                     <td mat-cell *matCellDef="let player">{{ playerAge(player.birthdate) }}</td>
                 </ng-container>
                 <ng-container matColumnDef="TEAM">
-                    <th mat-header-cell *matHeaderCellDef [style.background-color]="color"> EQUIPO </th>
+                    <th mat-header-cell *matHeaderCellDef [style.background-color]="color">{{ 'ANALYSIS.TEAM' | translate }}</th>
                     <td mat-cell *matCellDef="let player">{{ getCodeTeam(player.idTeam) }}</td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

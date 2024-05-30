@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
-import { MatDialog, MatDialogRef, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MAT_DIALOG_DATA, } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
 import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
@@ -36,15 +35,33 @@ export class AdminComponent implements OnInit {
     await this.firestore.deleteUserFirestore(userUID);
   }
 
+  // Método que elimina un usuario de la Firestore
+  async onClickUpdate(userUID: string, email: string, displayName: string) {
+    await this.firestore.updateUserFirestore(userUID, email, displayName);
+  }
+
   // Método que abre un dialogo qpara confirmar la eliminación de un usuario
-  openDialog(userName: string, userUID: string): void {
+  openDialogDelete(userName: string, userUID: string): void {
     const dialogRef = this.dialog.open(DialogDeleteUser, {
-      data: { userName } // Pasa al dialogo el nombre del usuario
+      data: { userName }
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('El diálogo se cerró');
       if (result === 'confirm') {
         this.onClickDelete(userUID);
+      }
+    });
+  }
+
+  // Método que abre un dialogo qpara confirmar la modificación de un usuario
+  openDialogUpdate(user: User): void {
+    const dialogRef = this.dialog.open(DialogUpdateUser, {
+      data: { ...user }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El diálogo se cerró');
+      if (result.action === 'confirm' && result.data) {
+        this.onClickUpdate(user.uid, result.data.email, result.data.displayName);
       }
     });
   }
@@ -55,8 +72,6 @@ export class AdminComponent implements OnInit {
 @Component({
   selector: 'dialog-delete-user',
   templateUrl: 'dialog-delete-user.html',
-  standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
 })
 export class DialogDeleteUser {
   constructor(public dialogRef: MatDialogRef<DialogDeleteUser>,
@@ -65,3 +80,18 @@ export class DialogDeleteUser {
 
 }
 
+// Dialog Update User
+@Component({
+  selector: 'dialog-update-user',
+  templateUrl: 'dialog-update-user.html',
+})
+export class DialogUpdateUser {
+  constructor(
+    public dialogRef: MatDialogRef<DialogUpdateUser>,
+    @Inject(MAT_DIALOG_DATA) public data: User
+  ) {}
+
+  onSave(): void {
+    this.dialogRef.close({ action: 'confirm', data: this.data });
+  }
+}

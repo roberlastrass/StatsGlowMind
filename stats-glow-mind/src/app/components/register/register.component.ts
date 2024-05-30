@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../../models/user.model';
 import { FirestoreService } from '../../services/firestore.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private toastr: ToastrService,
-    private firestore: FirestoreService
+    private firestore: FirestoreService,
+    private translate: TranslateService
   ) {
     this.formRegister = new FormGroup({
       username: new FormControl(),
@@ -41,8 +43,10 @@ export class RegisterComponent implements OnInit {
     const repeatPassword = this.formRegister.value.repeatPassword;
 
     if (password != repeatPassword) {
-      this.toastr.error('Las contraseñas ingresadas deben ser las mismas.', 'Error:', {
-        toastClass: 'notification-container',
+      this.translate.get(['REGISTER.ERRORS.PASSWORDS']).subscribe(translations => {
+        this.toastr.error(translations['REGISTER.ERRORS.PASSWORDS'], 'Error:', {
+          toastClass: 'notification-container',
+        });
       });
       this.router.navigate(['/register']);
       return;
@@ -53,14 +57,18 @@ export class RegisterComponent implements OnInit {
         this.addDataUser(response);
 
         console.log(response);
-        this.toastr.success('Usuario registrado exitosamente.', 'Éxito:', {
-          toastClass: 'notification-container',
+        this.translate.get(['REGISTER.ERRORS.TRUE', 'REGISTER.ERRORS.CORRECT']).subscribe(translations => {
+          this.toastr.error(translations['REGISTER.ERRORS.TRUE'], translations['REGISTER.ERRORS.CORRECT'], {
+            toastClass: 'notification-container',
+          });
         });
         this.router.navigate(['/main']);
       })
       .catch(error => {
-        this.toastr.success('Alguno de los datos no cumple las condiciones de registro.', 'Error:', {
-          toastClass: 'notification-container',
+        this.translate.get(['REGISTER.ERRORS.INVALID_CREDENTIALS']).subscribe(translations => {
+          this.toastr.error(translations['REGISTER.ERRORS.INVALID_CREDENTIALS'], "Error:", {
+            toastClass: 'notification-container',
+          });
         });
         console.log(error)
       });

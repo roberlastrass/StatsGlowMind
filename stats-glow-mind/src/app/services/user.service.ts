@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, signInWithPopup, GoogleAuthProvider, UserCredential } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, signInWithPopup, GoogleAuthProvider, UserCredential, updateEmail } from '@angular/fire/auth';
 import { FirestoreService } from './firestore.service';
 
 @Injectable({
@@ -65,22 +65,10 @@ export class UserService {
     return await signOut(this.auth);
   }
 
-  /*
-  // Método verificar un email
-  checkEmail() {
-    const userCurrent = this.auth.currentUser;
-    if (userCurrent) {
-      return sendEmailVerification(userCurrent);
-    } else {
-      return Promise.reject(new Error('Usuario no autenticado.'));
-    }
-  }
-  */
-
   // Método obtener nombre del usuario
   getUserName(): string | null {
     const userName = this.auth.currentUser;
-    return userName ? (userName.displayName || "Usuario Invitado") : "Usuario Invitado";
+    return userName ? (userName.displayName  || "Usuario Invitado") : "Usuario Invitado";
   }
 
   // Método obtener uid del usuario

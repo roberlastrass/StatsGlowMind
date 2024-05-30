@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StatsService } from '../../services/stats.service';
 import { Teams } from '../../models/teams.model';
 import { FirestoreService } from '../../services/firestore.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-teams',
@@ -13,25 +14,31 @@ export class TeamsComponent implements OnInit {
   teamId: number = 1;
   allTeams: any[] = [];
   divisions = ['Atlántico', 'Central', 'Sudeste', 'Noroeste', 'Pacífico', 'Sudoeste'];
-  eastDivisions: any[] = [
-    { name: 'Atlántico', conferencia: "Este", division: "Atlantic", conference: 'East' },
-    { name: 'Central', conferencia: "Este", division: "Central", conference: 'East' },
-    { name: 'Sudeste', conferencia: "Este", division: "Southeast", conference: 'East' }
- ];
-  westDivisions: any[] = [
-    { name: 'Noroeste', conferencia: "Oeste", division: "Northwest", conference: 'West' },
-    { name: 'Pacífico', conferencia: "Oeste", division: "Pacific", conference: 'West' },
-    { name: 'Sudoeste', conferencia: "Oeste", division: "Southwest", conference: 'West' }
-  ];
+  eastDivisions: any[] = [];
+  westDivisions: any[] = [];
 
   constructor( 
     private statsService: StatsService,
-    private firestore: FirestoreService
+    private firestore: FirestoreService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
     //this.getAllDivisionTeams();
     this.getTeamsFromFirestore();
+
+    this.translate.get(['TEAMS.ATLANTIC', 'TEAMS.SOUTHEAST', 'TEAMS.NORTHWEST', 'TEAMS.PACIFIC', 'TEAMS.SOUTHWEST']).subscribe(translations => {
+      this.eastDivisions = [
+        { name: translations['TEAMS.ATLANTIC'], conferencia: "Este", division: "Atlantic", conference: 'East' },
+        { name: 'Central', conferencia: "Este", division: "Central", conference: 'East' },
+        { name: translations['TEAMS.SOUTHEAST'], conferencia: "Este", division: "Southeast", conference: 'East' }
+     ];
+      this.westDivisions = [
+        { name: translations['TEAMS.NORTHWEST'], conferencia: "Oeste", division: "Northwest", conference: 'West' },
+        { name: translations['TEAMS.PACIFIC'], conferencia: "Oeste", division: "Pacific", conference: 'West' },
+        { name: translations['TEAMS.SOUTHWEST'], conferencia: "Oeste", division: "Southwest", conference: 'West' }
+      ];
+    });
   }
 
   // Método que recoge los datos de los equipos de cada division de la API y lo almacena en la Firestore

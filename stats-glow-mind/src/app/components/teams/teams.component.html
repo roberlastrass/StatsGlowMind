@@ -2,10 +2,10 @@
     <div class="teams">
         <div class="conference-container">
             <div class="conference">
-                <h1>Conferencia Este</h1>
+                <h1>{{ 'PREDICT.EAST' | translate }}</h1>
             </div>
             <div class="division-container" *ngFor="let division of eastDivisions">
-                <h2>{{ division.division }}</h2>
+                <h2>{{ division.name }}</h2>
                 <div class="teams-container" *ngFor="let team of filteredDivisions(division.division)">
                     <mat-card class="card">
                         <mat-card-header class="card-header">
@@ -13,8 +13,8 @@
                             <mat-card-title><strong>{{ team.code }}</strong> {{team.name}}</mat-card-title>
                         </mat-card-header>
                         <mat-card-actions>
-                            <button mat-flat-button color="primary" [routerLink]="['/teams', team.nickname]" (click)="sendIdTeam(team.id)">ESTADÍSTICAS</button>
-                            <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', team.nickname, 'players']">JUGADORES</button>
+                            <button mat-flat-button color="primary" [routerLink]="['/teams', team.nickname]" (click)="sendIdTeam(team.id)">{{ 'TEAMS.STATISTICS' | translate }}</button>
+                            <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', team.nickname, 'players']">{{ 'TEAMS.PLAYERS' | translate }}</button>
                         </mat-card-actions>
                     </mat-card>
                 </div>
@@ -22,10 +22,10 @@
         </div>
         <div class="conference-container">
             <div class="conference">
-                <h1>Conferencia Oeste</h1>
+                <h1>{{ 'PREDICT.WEST' | translate }}</h1>
             </div>
             <div class="division-container" *ngFor="let division of westDivisions">
-                <h2>{{ division.division }}</h2>
+                <h2>{{ division.name }}</h2>
                 <div class="teams-container" *ngFor="let team of filteredDivisions(division.division)">
                     <mat-card class="card">
                         <mat-card-header class="card-header">
@@ -33,8 +33,8 @@
                             <mat-card-title><strong>{{ team.code }}</strong> {{team.name}}</mat-card-title>
                         </mat-card-header>
                         <mat-card-actions>
-                            <button mat-flat-button color="primary" [routerLink]="['/teams', team.nickname]">ESTADÍSTICAS</button>
-                            <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', team.nickname, 'players']">JUGADORES</button>
+                            <button mat-flat-button color="primary" [routerLink]="['/teams', team.nickname]">{{ 'TEAMS.STATISTICS' | translate }}</button>
+                            <button mat-flat-button color="accent" class="btn btn-outline-danger" [routerLink]="['/teams', team.nickname, 'players']">{{ 'TEAMS.PLAYERS' | translate }}</button>
                         </mat-card-actions>
                     </mat-card>
                 </div>

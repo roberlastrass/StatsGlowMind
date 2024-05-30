@@ -5,40 +5,51 @@
   <hr>
   <div class="container-info">
     <div class="container">
-      <h4>DESARROLLO</h4>
+      <h4>{{ 'FOOTER.DEVELOPMENT' | translate }}</h4>
       <ul>
-        <li><a href="https://angular.io/docs">Angular</a></li>
-        <li><a href="https://firebase.google.com/docs">Firebase</a></li>
-        <li><a href="https://rapidapi.com/api-sports/api/api-nba">RapidAPI</a></li>
+        <li><a href="https://angular.io/docs" target="_blank">Angular</a></li>
+        <li><a href="https://firebase.google.com/docs" target="_blank">Firebase</a></li>
+        <li><a href="https://rapidapi.com/api-sports/api/api-nba" target="_blank">RapidAPI</a></li>
       </ul>
     </div>
     <div class="container">
-      <h4>DISEÑO</h4>
+      <h4>{{ 'FOOTER.DESIGN' | translate }}</h4>
       <ul>
-        <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
-        <li><a href="https://material.angular.io/">Angular Material</a></li>
-        <li><a href="https://www.flaticon.es/">Flaticon</a></li>
+        <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+        <li><a href="https://material.angular.io/" target="_blank">Angular Material</a></li>
+        <li><a href="https://www.flaticon.es/" target="_blank">Flaticon</a></li>
       </ul>
     </div>
     <div class="container">
-      <h4>ACERCA DE</h4>
+      <h4>{{ 'FOOTER.ABOUT' | translate }}</h4>
       <ul>
-        <li><a href="#">StatsGlowMind</a></li>
-        <li><a href="https://www.ubu.es/">Universidad de Burgos</a></li>
-        <li><a href="mailto:rls1004@alu.ubu.es">Contacto</a></li>
+        <li><a href="#about" routerLink="/about">StatsGlowMind</a></li>
+        <li><a href="#glossary" routerLink="/about/glossary">{{ 'FOOTER.GLOSSARY' | translate }}</a></li>
+        <li><a href="mailto:rls1004@alu.ubu.es">{{ 'FOOTER.CONTACT' | translate }}</a></li>
       </ul>
     </div>
     <div class="container">
-      <h4>REDES</h4>
+      <h4>{{ 'FOOTER.SOCIAL' | translate }}</h4>
       <ul>
-        <li><a href="https://github.com/roberlastrass/StatsGlowMind">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/roberto-lastras-santos-082563216/">LinkedIn</a></li>
-        <li><a href="#">X</a></li>
+        <li><a href="https://github.com/roberlastrass/StatsGlowMind" target="_blank"><img class="icon" src="../assets/images/icons/github.png" alt="GitHub"></a></li>
+        <li><a href="https://www.linkedin.com/in/roberto-lastras-santos-082563216/" target="_blank"><img class="icon" src="../assets/images/icons/linkedin.png" alt="GitHub"></a></li>
+        <li><a href="mailto:rls1004@alu.ubu.es"><img class="icon" src="../assets/images/icons/outlook.png" alt="GitHub"></a></li>
       </ul>
     </div>
   </div>
   <hr>
   <div class="container-licence">
-    <span>© 2024 StatsGlowMind. Todos los derechos reservados.</span>
+    <div class="licence">
+      <span>© 2024 StatsGlowMind. {{ 'FOOTER.RIGTHS' | translate }}</span>
+    </div>
+    <div class="select-language">
+      <mat-form-field class="select" color="accent">
+        <mat-label><strong>{{ 'FOOTER.LANGUAGE' | translate }}</strong></mat-label>
+        <mat-select class="text-center" value="es" (selectionChange)="switchLanguage($event.value)" >
+            <mat-option value="es">{{ 'FOOTER.SPANISH' | translate }} (<strong>ES</strong>)</mat-option>
+            <mat-option value="en">{{ 'FOOTER.ENGLISH' | translate }} (<strong>EN</strong> )</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 </footer>

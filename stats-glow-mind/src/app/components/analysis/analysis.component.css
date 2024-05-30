@@ -89,7 +89,7 @@ th{
     .card {
         width: 65%;
     }
-    h2{
+    h1{
         font-size: 18px;
     }
     th, td, mat-paginator, .filter, mat-label{

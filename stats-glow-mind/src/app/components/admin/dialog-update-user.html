@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{ 'ADMIN.MODIFY_USER' | translate }} {{ data.displayName }}</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'ADMIN.NAME' | translate }}</mat-label>
+    <input matInput placeholder="{{ 'ADMIN.NAME' | translate }}" [(ngModel)]="data.displayName">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" [(ngModel)]="data.email">
+  </mat-form-field>
+  <p>{{ 'ADMIN.MODIFY_CONFIRMATION' | translate }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="primary" mat-dialog-close cdkFocusInitial>{{ 'ADMIN.CANCEL' | translate }}</button>
+  <button mat-button color="accent" (click)="onSave()">{{ 'ADMIN.CONFIRM' | translate }}</button>
+</mat-dialog-actions>

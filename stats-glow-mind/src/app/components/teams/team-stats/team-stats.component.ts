@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { StatsService } from '../../../services/stats.service';
 import { FirestoreService } from '../../../services/firestore.service';
 import { GameStats } from '../../../models/game-stats.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-stats',
@@ -39,7 +39,8 @@ export class TeamStatsComponent implements OnInit {
   constructor( 
     private statsService: StatsService,
     private firestore: FirestoreService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.checkScreenSize();
   }
@@ -286,6 +287,11 @@ export class TeamStatsComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkScreenSize();
+  }
+
+  // Método que te mueve a la página Glossary
+  routeGlossary() {
+    this.router.navigate(['/about/glossary']);
   }
 
 }

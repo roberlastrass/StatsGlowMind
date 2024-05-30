@@ -5,8 +5,11 @@
       <h1>{{ playerInfo.firstName }} {{ playerInfo.lastName }}</h1>
     </div>
     <div class="table-stats">
-      <div>
-        <h2>Estadísticas Totales</h2>
+      <div class="title-stats">
+        <h2>{{ 'ANALYSIS.STATS' | translate }}</h2>
+        <button mat-icon-button color="accent" aria-label="Glosario" (click)="routeGlossary()" matTooltip="{{ 'FOOTER.GLOSSARY' | translate }}">
+          <mat-icon>info</mat-icon>
+        </button>
       </div>
       <table class="table">
         <thead>
@@ -87,22 +90,27 @@
     </div>
     <div class="charts-stats">
       <div>
-        <h2>Gráficas Temporada 23/24</h2>
+        <h2>{{ 'ANALYSIS.SEASON_2324' | translate }}</h2>
       </div>
       <div class="chart-container">
-        <h3>Gráfica de estadísticas por partido</h3>
+        <h3>{{ 'ANALYSIS.CHART_GAME_STATS' | translate }}</h3>
         <div class="chart-content">
           <canvas id="chartAllStats">{{ allStatsChart }}</canvas>
         </div>
       </div>
       <div class="chart-container">
-        <h3>Gráfica de rebotes por partido</h3>
+        <h3>{{ 'ANALYSIS.CHART_REBOUNDS' | translate }}</h3>
         <div class="chart-content">
           <canvas id="chartReb">{{ rebChart }}</canvas>
         </div>
       </div>
       <div class="chart-container" id="fieldGoals">
-        <h3>Gráfica de tiros de campo</h3>
+        <div class="title-stats">
+          <h3>{{ 'ANALYSIS.CHART_FIELD_GOALS' | translate }}</h3>
+          <button mat-icon-button color="accent" aria-label="Glosario" (click)="routeGlossary()" matTooltip="{{ 'FOOTER.GLOSSARY' | translate }}">
+            <mat-icon>info</mat-icon>
+          </button>
+        </div>
         <div class="chart-content">
           <canvas id="chartFieldGoals">{{ fieldGoalsChart }}</canvas>
         </div>
@@ -119,7 +127,7 @@
         </div>
       </div>
       <div class="chart-container">
-        <h3>Gráfica de +/- por partido</h3>
+        <h3>{{ 'ANALYSIS.CHART_PLUS_MINUS' | translate }}</h3>
         <div class="chart-content">
           <canvas id="chartPlusMinus">{{ plusMinusChart }}</canvas>
         </div>

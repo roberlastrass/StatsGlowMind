@@ -1,0 +1,55 @@
+/* Estilos Glossary */
+.glossary {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5%;
+    background-color: #f5f5f5;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-family: 'Zen Dots', sans-serif;
+    color: #002649;
+    margin-bottom: 2.5%;
+    margin-top: 5%;
+}
+.table-container {
+    align-items: center;
+    padding: 2.5%;
+}
+
+/* Estilos tabla */
+th {
+    color: white;
+    background-color: #002649;
+}
+td {
+    text-align: left;
+    justify-content: center;
+}
+.term {
+    width: 20%;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Media query para pantallas medianas */
+@media only screen and (max-width: 1000px) {
+    table {
+        font-size: 12px;
+    }
+}
+  
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 22px;
+    }
+    table {
+        font-size: 10px;
+    }
+}

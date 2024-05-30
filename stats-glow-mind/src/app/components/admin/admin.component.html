@@ -9,11 +9,11 @@
                 </mat-card-header>
                 <mat-card-content class="card-content">
                     <p><strong>Email: </strong> {{user.email}}</p>
-                    <p><strong>Rol: </strong> {{user.rol}}</p>
+                    <p><strong>{{ 'ADMIN.ROLE' | translate }}: </strong> {{user.rol}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-flat-button color="primary">MODIFICAR</button>
-                    <button mat-flat-button color="accent" class="btn btn-outline-danger" (click)="user.displayName && openDialog(user.displayName, user.uid)">ELIMINAR</button>
+                    <button mat-flat-button color="primary" (click)="openDialogUpdate(user)">{{ 'ADMIN.EDIT' | translate }}</button>
+                    <button mat-flat-button color="accent" (click)="user.displayName && openDialogDelete(user.displayName, user.uid)">{{ 'ADMIN.DELETE' | translate }}</button>
                 </mat-card-actions>
             </mat-card>
         </div>
