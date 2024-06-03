@@ -114,7 +114,11 @@
         "NBA_DESCRIPTION": "Clasificación en cada conferencia, Playoffs, Partidos y Resultados, y Líderes de la liga.",
         "TEAMS_DESCRIPTION": "Estadísticas de los equipos de la NBA y los jugadores de cada uno de los equipos.",
         "ANALYSIS_DESCRIPTION": "Análisis de las estadísticas de cada jugador para calcular su rendimiento en distintos campos.",
-        "PREDICTIONS_DESCRIPTION": "Predicciones de los próximos partidos en base a las estadísticas de cada equipo en la temporada."
+        "PREDICTIONS_DESCRIPTION": "Predicciones de los próximos partidos en base a las estadísticas de cada equipo en la temporada.",
+        "ERRORS": {
+            "NO_ADMIN": "Usuario sin permisos de administrador.",
+            "NO_ID": "Usuario no registrado."
+        }
     },
     "PREDICT": {
         "EAST": "Conferencia Este",
@@ -125,7 +129,11 @@
         "BUTTON": "Predecir Partido",
         "PROBABILITY_TITLE": "Probabilidad de Victoria",
         "WINNER": "Equipo Ganador",
-        "PROBABILITY": "Probabilidad"
+        "PROBABILITY": "Probabilidad",
+        "ERRORS": {
+            "NO_TEAMS": "Se debe seleccionar tanto el equipo local como el visitante.",
+            "NO_PREDICT": "Error al obtener la predicción."
+        }
     },
     "REGISTER": {
         "TITLE": "Registro de usuario",

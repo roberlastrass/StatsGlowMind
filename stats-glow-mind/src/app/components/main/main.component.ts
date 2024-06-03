@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { FirestoreService } from '../../services/firestore.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-main',
@@ -18,6 +19,7 @@ export class MainComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private firestore: FirestoreService,
+    private toastr: ToastrService,
     private translate: TranslateService
   ) { 
     this.userName = null;
@@ -33,25 +35,25 @@ export class MainComponent implements OnInit {
   }
 
   async checkUserRole(): Promise<void> {
-    // Llamar al método que obtiene el ID del documento
     const documentId = await this.firestore.getDocumentId(this.userUID);
 
     if (documentId) {
-      // Llamar al método que devuelve el campo 'rol' a partir del ID del documento
       const userRole = await this.firestore.getUserRoleById(documentId);
-
       if (userRole === 'admin') {
-        // El usuario tiene el rol de admin, puedes permitir el acceso a /admin
-        console.log('Usuario con rol de admin');
-        // Redirigir al componente /admin
         this.router.navigate(['/admin']);
       } else {
-        // El usuario no tiene el rol de admin, puedes manejarlo según tus necesidades
-        console.log('Usuario sin permisos de administrador');
+        this.translate.get(['MAIN.ERRORS.NO_ADMIN']).subscribe(translations => {
+          this.toastr.error(translations['MAIN.ERRORS.NO_ADMIN'], 'Error', {
+            toastClass: 'notification-container',
+          });
+        });
       }
     } else {
-      // Manejar el caso en que no se pueda obtener el ID del documento
-      console.log('No se pudo obtener el ID del documento');
+      this.translate.get(['MAIN.ERRORS.NO_ID']).subscribe(translations => {
+        this.toastr.error(translations['MAIN.ERRORS.NO_ID'], 'Error', {
+          toastClass: 'notification-container',
+        });
+      });
     }
   }
 
