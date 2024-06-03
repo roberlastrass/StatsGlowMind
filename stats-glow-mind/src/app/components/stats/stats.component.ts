@@ -7,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsComponent implements OnInit {
 
-  activeComponent: string = 'standings';
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  showComponent(component: string) {
-    this.activeComponent = component;
   }
 
 }

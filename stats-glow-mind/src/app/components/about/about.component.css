@@ -36,3 +36,23 @@ a:hover {
 a:active {
     color: #ff2a00c3;
 }
+
+/* Media query para pantallas medianas */
+@media only screen and (max-width: 1000px) {
+    p {
+        font-size: 12px;
+    }
+}
+  
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 18px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 10px;
+    }
+}

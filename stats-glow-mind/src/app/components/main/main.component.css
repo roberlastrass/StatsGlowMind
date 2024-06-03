@@ -72,24 +72,24 @@
     margin: 2%;
     background-size: cover;
     background-position: center;
+    border-radius: 10px;
 }
-/*.card-option mat-card-title {
-    color: white;
-}*/
 .card-nba {
-    background-image: url('../../../assets/images/wallpaper/fondo-nba.jpg');
+    background-image: url('../../../assets/images/wallpaper/nba-fondos.jpg');
+    /*background-color: #FFCD56;*/
 }
-.card-teams {
-    background-image: url('../../../assets/images/wallpaper/fondo-teams.jpg');
+/*.card-teams {
+    background-color: #4BC0C0;
 }
 .card-analysis {
-    background-image: url('../../../assets/images/wallpaper/fondo-analysis.jpg');
+   background-color: #FF6384;
 }
 .card-predict {
-    background-image: url('../../../assets/images/wallpaper/fondo-predicts.jpg');
-}
+   background-color: #36A2EB;
+}*/
 .nba-cards {
-    background-image: url('../../../assets/images/wallpaper/nba-fondos.jpg');
+    background-image: url('../../../assets/images/wallpaper/fondo-teams.jpg');
+    /*background-color: #FE5B3B;*/
 }
 .option-icon {
     padding: 5%;
@@ -166,10 +166,13 @@ button {
         width: 70%;
     }
     .logo {
-        width: 80%;
+        width: 70%;
     }
     .options-cards{
         width: 100%;
+    }
+    .option-icon {
+        width: 35%;
     }
 }
 /* Media query para pantallas 600px */
@@ -186,5 +189,11 @@ button {
     }
     .user-btn {
         font-size: 8px;
+    }
+    .option-icon {
+        width: 40%;
+    }
+    .card-option {
+        border-radius: 15px;
     }
 }

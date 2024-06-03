@@ -54,6 +54,12 @@ th{
     h2{
         font-size: 14px;
     }
+    .title h2 {
+        text-align: left;
+    }
+    .title button {
+        width: 12%;
+    }
     th, td, mat-paginator, .select, mat-label{
         font-size: 10px;
     }

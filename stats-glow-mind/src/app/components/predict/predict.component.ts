@@ -5,6 +5,7 @@ import { PredictionService } from '../../services/prediction.service';
 import { Chart, ChartType  } from 'chart.js/auto';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 interface Team {
   id: number;
@@ -41,6 +42,7 @@ export class PredictComponent implements OnInit {
     private firestore: FirestoreService,
     private predictionService: PredictionService,
     private csvExport: ExportCsvService,
+    private toastr: ToastrService,
     private translate: TranslateService
   ) { }
 
@@ -147,7 +149,7 @@ export class PredictComponent implements OnInit {
     const homeTeamId = this.homeTeamControl.value;
     const visitorTeamId = this.visitorTeamControl.value;
 
-    if (homeTeamId !== null && visitorTeamId !== null) {
+    if (homeTeamId !== "" && visitorTeamId !== "") {
       const homeTeamIdNumber = Number(homeTeamId);
       const visitorTeamIdNumber = Number(visitorTeamId);
 
@@ -162,11 +164,20 @@ export class PredictComponent implements OnInit {
             this.showLogoWinner();
           },
           error => {
+            this.translate.get(['PREDICT.ERRORS.NO_PREDICT']).subscribe(translations => {
+              this.toastr.error(translations['PREDICT.ERRORS.NO_PREDICT'], 'Error', {
+                toastClass: 'notification-container',
+              });
+            });
             console.log('Error fetching prediction:', error);
           }
         );
     } else {
-      console.error('Both home and visitor team must be selected');
+      this.translate.get(['PREDICT.ERRORS.NO_TEAMS']).subscribe(translations => {
+        this.toastr.error(translations['PREDICT.ERRORS.NO_TEAMS'], 'Error', {
+          toastClass: 'notification-container',
+        });
+      });
     }
   }
 

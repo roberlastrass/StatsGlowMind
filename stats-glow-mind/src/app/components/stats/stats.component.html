@@ -1,24 +1,21 @@
 <div class="wrapper">
     <div class="stats-container">
-        <button (click)="showComponent('standings')" routerLink="/stats/standings" routerLinkActive="active">
+        <button routerLink="standings" routerLinkActive="active">
             <img class="stats_icon" src="../assets/images/icons/podium.png" alt="Clasificación">
             {{ 'MAIN.STANDINGS' | translate }}
         </button>
-        <button (click)="showComponent('playoffs')" routerLink="/stats/playoffs" routerLinkActive="active">
+        <button routerLink="playoffs" routerLinkActive="active">
             <img class="stats_icon" src="../assets/images/icons/play.png" alt="Playoffs">
             PLAYOFFS
         </button>
-        <button (click)="showComponent('games')" routerLink="/stats/games" routerLinkActive="active" i18n>
+        <button routerLink="games" routerLinkActive="active">
             <img class="stats_icon" src="../assets/images/icons/game.png" alt="Partidos">
             {{ 'MAIN.GAMES' | translate }}
         </button>
-        <button (click)="showComponent('leaders')" routerLink="/stats/leaders" routerLinkActive="active">
+        <button routerLink="leaders" routerLinkActive="active">
             <img class="stats_icon" src="../assets/images/icons/star.png" alt="Lideres">
             {{ 'MAIN.LEADERS' | translate }}
         </button>
     </div>
 </div>
-<stats-standings *ngIf="activeComponent === 'standings'"></stats-standings>
-<stats-playoffs *ngIf="activeComponent === 'playoffs'"></stats-playoffs>
-<stats-games *ngIf="activeComponent === 'games'"></stats-games>
-<stats-leaders *ngIf="activeComponent === 'leaders'"></stats-leaders>
+<router-outlet></router-outlet>

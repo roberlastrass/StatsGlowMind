@@ -114,7 +114,11 @@
         "NBA_DESCRIPTION": "Standings in each conference, Playoffs, Games and Results, and League Leaders.",
         "TEAMS_DESCRIPTION": "Statistics of NBA teams and the players of each team.",
         "ANALYSIS_DESCRIPTION": "Analysis of each player's statistics to calculate their performance in different areas.",
-        "PREDICTIONS_DESCRIPTION": "Predictions of upcoming games based on each team's statistics for the season."
+        "PREDICTIONS_DESCRIPTION": "Predictions of upcoming games based on each team's statistics for the season.",
+        "ERRORS": {
+            "NO_ADMIN": "User without administrator permissions.",
+            "NO_ID": "Unregistered user."
+        }
     },
     "PREDICT": {
         "EAST": "Eastern Conference",
@@ -125,7 +129,11 @@
         "BUTTON": "Predict Game",
         "PROBABILITY_TITLE": "Win Probability",
         "WINNER": "Winner Team",
-        "PROBABILITY": "Probability"
+        "PROBABILITY": "Probability",
+        "ERRORS": {
+            "NO_TEAMS": "Both home and visitor team must be selected.",
+            "NO_PREDICT": "Error fetching prediction."
+        }
     },
     "REGISTER": {
         "TITLE": "User Register",

@@ -1,9 +1,11 @@
 /* Estilos generales */
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #002649;
 }
-body { 
-    margin: 0; 
+body {
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
 .wrapper {
@@ -14,15 +16,6 @@ body {
     background-color: #f5f5f5;
     padding-bottom: 10%;
 }
-/*
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8%;
-    background-color: #002649;
-    color: white;
-}*/
 
 /* Estilos Formulario */
 .box-form {
@@ -32,8 +25,8 @@ body {
     padding: 1.5%;
     text-align: center;
     border: 1px solid #ccc;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .form {
     margin-top: 15%;
@@ -70,8 +63,8 @@ body {
     padding: 1%;
     background-color: #002649;
     color: white;
-    border-radius: 10px; /* Borde redondeado */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
 
