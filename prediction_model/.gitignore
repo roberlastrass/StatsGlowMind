@@ -1,0 +1,5 @@
+# Credenciales Firebase
+/credentials
+
+# Python
+*.ipynb_checkpoints
