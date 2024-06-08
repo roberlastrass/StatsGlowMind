@@ -57,8 +57,8 @@ export class RegisterComponent implements OnInit {
         this.addDataUser(response);
 
         console.log(response);
-        this.translate.get(['REGISTER.ERRORS.TRUE', 'REGISTER.ERRORS.CORRECT']).subscribe(translations => {
-          this.toastr.error(translations['REGISTER.ERRORS.TRUE'], translations['REGISTER.ERRORS.CORRECT'], {
+        this.translate.get(['REGISTER.ERRORS.TRUE', 'REGISTER.ERRORS.SUCCESS']).subscribe(translations => {
+          this.toastr.error(translations['REGISTER.ERRORS.TRUE'], translations['REGISTER.ERRORS.SUCCESS'], {
             toastClass: 'notification-container',
           });
         });

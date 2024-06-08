@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
     })
     .catch(error => {
       console.log(error),
-      this.translate.get(['LOGIN.ERRORS.INVALID_CREDENTIALS', 'LOGIN.ERRORS.USER_NOT_FOUND']).subscribe(translations => {
-        this.toastr.error(translations['LOGIN.ERRORS.INVALID_CREDENTIALS'], translations['LOGIN.ERRORS.USER_NOT_FOUND'], {
+      this.translate.get(['LOGIN.ERRORS.USER_NOT_FOUND']).subscribe(translations => {
+        this.toastr.error(translations['LOGIN.ERRORS.USER_NOT_FOUND'], 'Error:', {
           toastClass: 'notification-container',
         });
       });
@@ -70,8 +70,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/main']);
       } else {
         console.log('Usuario no existe en la base de datos. Cerrando sesión.');
-        this.translate.get(['LOGIN.ERRORS.USER_NOT_FOUND', 'LOGIN.ERRORS.INVALID_CREDENTIALS']).subscribe(translations => {
-          this.toastr.error(translations['LOGIN.ERRORS.USER_NOT_FOUND'], translations['LOGIN.ERRORS.INVALID_CREDENTIALS'], {
+        this.translate.get(['LOGIN.ERRORS.USER_NOT_FOUND']).subscribe(translations => {
+          this.toastr.error(translations['LOGIN.ERRORS.USER_NOT_FOUND'], 'Error:', {
             toastClass: 'notification-container',
           });
         });
@@ -81,8 +81,8 @@ export class LoginComponent implements OnInit {
     })
     .catch(error => {
       console.log(error);
-      this.translate.get(['LOGIN.ERRORS.INVALID_CREDENTIALS', 'LOGIN.ERRORS.USER_NOT_FOUND']).subscribe(translations => {
-        this.toastr.error(translations['LOGIN.ERRORS.INVALID_CREDENTIALS'], translations['LOGIN.ERRORS.USER_NOT_FOUND'], {
+      this.translate.get(['LOGIN.ERRORS.INVALID_CREDENTIALS']).subscribe(translations => {
+        this.toastr.error(translations['LOGIN.ERRORS.INVALID_CREDENTIALS'], 'Errror:', {
           toastClass: 'notification-container',
         });
       });

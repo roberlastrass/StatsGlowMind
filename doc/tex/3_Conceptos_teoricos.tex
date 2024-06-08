@@ -1,0 +1,186 @@
+\capitulo{3}{Conceptos teóricos}
+
+\section{NBA}
+La NBA (National Basketball League) \cite{nba} es una liga de baloncesto, considerada la mejor del mundo. Esta competición ha vivido una amplia evolución a lo largo de 75 años, quedando en la actualidad una liga compuesta por 30 franquicias, situadas en Estados Unidos y Canadá.
+
+El origen de la NBA sucedió en 1946, donde en una reunión impulsada por los propietarios de pabellones que buscaban una liga que se disputara en las noches que tenían cerrados sus recintos, se instauraron las bases de la competición y las ciudades de la misma.
+
+Esta competición funciona de forma que primero se disputa la temporada regular, donde se clasifican los mejores equipos de cada conferencia y después avanzan a los playoffs, una serie de eliminatorias donde se decide el campeón de la liga.
+
+\subsection{Temporada Regular}
+Durante siete meses, las 30 franquicias se enfrentan en una larga temporada regular. En ella se determinan los equipos que compiten en los Playoffs y los que participan en el play-in, así como el orden de elección para gran parte del Draft del próximo año, decidido en última instancia por la Lotería del Draft.
+
+Cada franquicia disputa un total de 82 partidos en la temporada regular de la NBA y dentro de estos 82 encuentros, los equipos se enfrentan 4 veces con los equipos de su misma división, 3 o 4 veces con el resto de equipos de su conferencia y 2 veces con los equipos de la otra conferencia.
+
+\subsection{Play-in}
+Antes de comenzar los Playoffs, se compiten los Play-in, donde cada conferencia organiza dos series a un partido que enfrentan al 7º con el 8º clasificado y al 9º con el 10º. El ganador de la primera serie consigue la séptima plaza de los Playoffs, mientras que el perdedor pasa a ser el equipo local ante el vencedor del partido entre el 9° y 10°; ese segundo choque entre perdedor del primer encuentro y ganador del segundo sale el último puesto a los Playoffs.
+
+
+\subsection{Playoffs}
+Una vez se han decidido las ocho mejores franquicias de cada conferencia, estas deben superar cuatro series al mejor de 7 partidos para proclamarse campeonas:
+\begin{itemize}
+\tightlist
+    \item
+         Primera ronda.
+    \item 
+         Semifinales de Conferencia.
+    \item 
+         Finales de Conferencia.
+    \item 
+         Finales de la NBA.
+\end{itemize}
+En las tres primeras series, los ocho clasificados de cada conferencia compiten por ser el mejor del Este y el Oeste. En las Finales, los ganadores de cada conferencia luchan por el título.
+
+Los enfrentamientos se establecen por orden clasificatorio:
+
+\begin{tabular}{|c|}
+\hline
+1º vs 8º | 4º vs 5º | 3º vs 6º | 2º vs 7º \\
+\hline
+\end{tabular}
+        
+\subsection{Conferencias y Divisiones}
+La NBA se divide en dos conferencias de 15 franquicias, Este y Oeste, que a su vez se fraccionan en seis diferentes divisiones de 5 equipos cada una.
+
+Se pueden observar en las siguientes tablas de cada conferencia, las distintas divisiones con sus respectivos equipos:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|}
+        \hline
+        \rowcolor[rgb]{0.81,0.81,0.77}
+        \textbf{División Atlántico} & \textbf{División Central} & \textbf{División Sureste} \\
+        \hline
+        Boston Celtics & Chicago Bulls & Atlanta Hawks \\
+        Brooklyn Nets & Cleveland Cavaliers & Charlotte Hornets \\
+        New York Knicks & Detroit Pistons & Miami Heat \\
+        Philadelphia 76ers & Indiana Pacers & Orlando Magic \\
+        Toronto Raptors & Milwaukee Bucks & Washington Wizards \\
+        \hline
+    \end{tabular}
+    \caption{Equipos de la Conferencia Este.}
+    \label{tabla:conferencia-este}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|}
+        \hline
+        \rowcolor[rgb]{0.81,0.81,0.77}
+        \textbf{División Noroeste} & \textbf{División Pacífico} & \textbf{División Suroeste} \\
+        \hline
+        Denver Nuggets & Golden State Warriors & Dallas Mavericks \\
+        Minnesota Timberwolves & Los Angeles Clippers & Houston Rockets \\
+        Oklahoma City Thunder & Los Angeles Lakers & Memphis Grizzlies \\
+        Portland Trail Blazers & Phoenix Suns & New Orleans Pelicans \\
+        Utah Jazz & Sacramento Kings & San Antonio Spurs \\
+        \hline
+    \end{tabular}
+    \caption{Equipos de la Conferencia Oeste.}
+    \label{tabla:conferencia-oeste}
+\end{table}
+
+\hfill
+
+\section{API}
+
+Una API \cite{api} (Application Programming Interfaces, Interfaz de Programación de Aplicaciones), es un conjunto de reglas, protocolos y herramientas que permiten la comunicación entre diferentes sistemas de software. Actúa como un intermediario que permite que las aplicaciones se comuniquen entre sí y compartan datos y funcionalidades de manera eficiente y segura.
+
+Las APIs son esenciales para la integración de sistemas y la colaboración entre aplicaciones. Permiten que los desarrolladores accedan a recursos y servicios de una aplicación de software de forma controlada y estructurada, sin necesidad de conocer los detalles de implementación subyacentes.
+
+Existen diferentes tipos de APIs:
+\begin{itemize}
+\tightlist
+    \item
+         \textbf{API abiertas:} son interfaces de programación de aplicaciones de código abierto a las que se puede acceder con el protocolo HTTP.
+    \item 
+         \textbf{API de socios:} conectan a socios comerciales estratégicos.
+    \item 
+         \textbf{API internas:} permanecen ocultas de los usuarios externos.
+    \item 
+         \textbf{API compuestas:} combinan múltiples API de datos o servicios.
+\end{itemize}
+
+Se han desarrollado protocolos API que facilitan el intercambio estandarizado de información, como son: \textbf{SOAP} (Protocolo simple de acceso a objetos), \textbf{XML-RPC} (llamada a procedimiento remoto XML), \textbf{JSON-RPC} o \textbf{REST} (Transferencia de estado representacional).
+
+\hfill
+
+\section{Protocolo HTTP}
+
+El protocolo HTTP \cite{http} (Hypertext Transfer Protocol) es el protocolo fundamental de comunicación en la World Wide Web. Su principal objetivo es permitir la transferencia de información, como texto, gráficos, sonido, vídeo y otros archivos multimedia, entre un cliente (por lo general, un navegador web) y un servidor.
+
+HTTP opera bajo un modelo de solicitud-respuesta, donde los clientes web envían solicitudes HTTP a los servidores web para recuperar recursos específicos. Cada solicitud incluye un método:
+\begin{itemize}
+\tightlist
+    \item
+        \textbf{GET:} solicita la recuperación de un recurso específico.
+    \item 
+        \textbf{POST:} envía datos al servidor para su procesamiento.
+    \item 
+        \textbf{PUT:} actualiza un recurso existente en el servidor o crea uno si no existe.
+    \item 
+        \textbf{DELETE:} elimina el recurso especificado en el servidor.
+    \item 
+        \textbf{HEAD:} similar a GET, pero solicita solo los encabezados del recurso sin su cuerpo.
+\end{itemize}
+
+Los servidores web responden a estas solicitudes con respuestas HTTP que contienen el recurso solicitado.
+
+\hfill
+
+\section{Random Forest}
+Random Forest (Bosque Aleatorio) \cite{random_forest} es un algoritmo de Machine Learning desarrollado por Leo Breiman y Adele Cutler, que combina múltiples árboles de decisión para generar un resultado único. Este método es popular debido a su flexibilidad y facilidad de uso, y es aplicable tanto en problemas de clasificación como de regresión.
+
+Un árbol de decisión toma decisiones basadas en una serie de preguntas secuenciales, donde cada respuesta guía hacia la siguiente pregunta o decisión final. Sin embargo, los árboles de decisión individuales pueden ser propensos a sesgos y sobreajustes. Para mitigar estos problemas, el bosque aleatorio utiliza múltiples árboles no correlacionados.
+
+El aprendizaje por conjunto combina varios clasificadores para mejorar la precisión de las predicciones. Un método común es la agregación bootstrap, donde se toman múltiples muestras con reemplazo del conjunto de datos de entrenamiento y se entrenan modelos de forma independiente. La combinación de las predicciones de estos modelos, mediante promedio (regresión) o voto mayoritario (clasificación), reduce la varianza y mejora la precisión.
+
+El algoritmo random forest extiende el método de agregación bootstrap añadiendo aleatoriedad en la selección de características para cada árbol, lo que reduce la correlación entre los árboles y mejora la precisión. Utiliza tres hiperparámetros principales: el tamaño de nodo, el número de árboles y el número de características muestreadas. Para la validación, se utiliza la muestra OOB (Out-Of-Bag), que no se incluye en el entrenamiento de cada árbol.
+
+\imagen{memoria/random_forest}{Algoritmo Random Forest}{1}
+
+\hfill
+
+Ventajas:
+\begin{itemize}
+\tightlist
+    \item
+        \textbf{Reducción del riesgo de sobreajuste:} La combinación de múltiples árboles no correlacionados promedia sus resultados, disminuyendo la varianza y el error de predicción.
+    \item 
+        \textbf{Flexibilidad:} Puede manejar tareas de regresión y clasificación con alta precisión y es útil para estimar valores faltantes en los datos.
+    \item 
+        \textbf{Evaluación de la importancia de características:} Facilita la identificación de la importancia de las variables en el modelo mediante métricas como la importancia de Gini y la disminución media de la exactitud (MDA).
+\end{itemize}
+
+Desventajas:
+\begin{itemize}
+\tightlist
+    \item
+        \textbf{Procesamiento lento:} Manejar grandes conjuntos de datos puede ser lento debido al procesamiento individual de cada árbol.
+    \item 
+        \textbf{Requerimientos de recursos:} Necesita más recursos para almacenar y procesar grandes volúmenes de datos.
+    \item 
+        \textbf{Complejidad:} Las predicciones de un bosque aleatorio son más difíciles de interpretar en comparación con un único árbol de decisión.
+\end{itemize}
+
+
+\section{NoSQL}
+
+NoSQL \cite{nosql} (Not Only SQL), es un enfoque de diseño de base de datos que permite almacenar y consultar datos sin seguir el modelo relacional tradicional utilizado en las bases de datos SQL.
+
+Proporciona otras opciones para organizar datos de muchas maneras utilizando cualquiera de estos modelos de datos primarios: 
+\begin{itemize}
+\tightlist
+    \item
+        Almacén de pares clave-valor.
+    \item 
+        Almacén de documentos.
+    \item 
+        Almacén distribuido en columnas
+    \item 
+        Almacén de grafos
+    \item 
+        Almacén en memoria
+\end{itemize}
+
+Cada tipo de base de datos NoSQL presenta cualidades para casos de uso específicos. Sin embargo, todas comparten las siguientes ventajas: Rentabilidad, Flexibilidad, Réplica y Velocidad.
