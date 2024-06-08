@@ -1,0 +1,156 @@
+\capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
+
+Este apartado recoge los aspectos más interesantes del desarrollo del proyecto, incluyendo desde el inicio del proyecto, metodologías usadas y formación, hasta el desarrollo de software, diseño de la aplicación y resolución de problemas.
+
+
+\subsection{Inicio de proyecto}
+El inicio de mi proyecto se centró en una combinación de mis intereses personales y profesionales. Elegí desarrollar una aplicación web sobre estadísticas de la NBA porque siento una gran pasión por el baloncesto y, en particular, por la NBA. Este interés personal se complementó perfectamente con mi deseo de profundizar en el desarrollo web, utilizando Angular, un framework que considero líder en la creación de aplicaciones web dinámicas y robustas.
+
+En el proceso de investigación sobre cómo desarrollar el proyecto, descubrí Firebase, una plataforma de desarrollo de aplicaciones web que me proporcionó una serie de servicios útiles como base de datos, almacenamiento en la nube, autentificación de usuarios, funciones en la nube y despliegue de la aplicación. Este descubrimiento fue crucial, ya que Firebase ofrecía todo lo necesario para gestionar los usuarios y los datos estadísticos de la NBA de manera eficiente y segura.
+
+Además, este proyecto me ofrecía la oportunidad de trabajar con APIs externas, análisis de datos y Machine Learning, áreas que me interesan profundamente. También me ha permitido mejorar tanto mis habilidades de diseño web como de resolución de problemas.
+
+
+\subsection{Formación}
+Como la mayoría de las herramientas empleadas para desarrollar el proyecto no se han visto en la carrera, he estado investigando bastante acerca de estas tecnologías por lo que me dediqué a realizar varios cursos formativos y ver video tutoriales, que me han servido para comprender mejor estas herramientas.
+
+\subsubsection{Angular}
+Angular es un framework que conocía, pero que no he llegado ha utilizar en un proyecto personal, por lo que decidí utilizarlo en este proyecto y profundizar en su aprendizaje. Para ello, realicé varios cursos que me permitieron adquirir una comprensión más sólida y avanzada de esta herramienta. Entre los cursos más destacados se encuentran:
+\begin{itemize}
+\tightlist
+    \item
+         \textbf{Tour of Heroes application and tutorial \cite{tutorial-angular}:} Este tutorial oficial de Angular proporciona una introducción práctica y detallada al framework. A través de este curso, aprendí los conceptos fundamentales de Angular, incluyendo la creación de componentes, servicios y el enrutamiento básico.
+    \item 
+        \textbf{Fundamentos de Angular (OpenWebinars) \cite{openwebinars}:} Con este curso comprendí mejor los conceptos fundamentales de Angular y me profuncicé en los fundamentos clave de Angular.
+    \item 
+        \textbf{Consumir APIs externas en Angular (OpenWebinars):} Este curso me enseñó a integrar APIs externas dentro de una aplicación Angular. Aprendí a realizar peticiones HTTP utilizando el módulo HttpClient de Angular, manejar respuestas y errores, y estructurar servicios.
+    \item 
+        \textbf{Diseño web con Material Design para Angular (OpenWebinars):} En este curso, adquirí conocimientos sobre cómo utilizar Angular Material para crear interfaces de usuario modernas y atractivas. Aprendí a implementar componentes de Angular Material, como botones, formularios, tablas y diálogos, ...
+    \item 
+        \textbf{Personalización de temas en Angular Material (OpenWebinars):} Este curso complementó mis conocimientos sobre Angular Material, enseñándome a personalizar y tematizar los componentes. Aprendí a crear y aplicar temas personalizados, gestionar paletas de colores y utilizar las herramientas de Angular Material.
+\end{itemize}
+
+\subsubsection{Firebase}
+Firebase fue otra tecnología clave en el desarrollo de este proyecto. Para familiarizarme con esta plataforma, también realicé varios cursos y tutoriales:
+\begin{itemize}
+\tightlist
+    \item 
+        \textbf{Crear y Configurar un Proyecto en Angular y Firebase \cite{tutorial-firebase}:} Con este video tutorial aprendí como integrar Firebase y Angular, y como crear y configurar una aplicación web que pueda utilizar todas las funcionalidades de Firebase.
+    \item 
+        \textbf{Crear un Login con Firebase en Angular \cite{tutorial-firebase-2}:} Este video tutorial explica como implementar la funcionalidad de autenticidad de Firebase, en un proyecto Angular. Para realizar el registro, login y logout de usuarios en la aplicación.
+    \item 
+        \textbf{Deploy Angular a Firebase Hosting \cite{tutorial-firebase-3}:} En este video tutorial comprendí cómo hacer el despliegue de la aplicación de Angular en Firebase paso a paso, utilizando Firebase Hosting.
+    \item
+         \textbf{Curso de Firebase y Angular (OpenWebinars):} Este curso mejoró mis conocimientos y me enseñó a configurar y utilizar los servicios de Firebase, como la base de datos, almacenamiento en la nube y cloud functions.
+\end{itemize}
+
+
+\subsection{Desarrollo}
+En esta sección se describen los aspectos más relevantes del desarrollo del proyecto, que han sido clave para desarrollar la aplicación web.
+
+\subsubsection{Integración de APIs externas}
+Una de las claves del desarrollo fue la integración de APIs externas para obtener datos actualizados sobre la NBA. Esta integración permitió a la aplicación proporcionar información en tiempo real sobre clasificaciones, partidos, y estadísticas de jugadores y equipos.
+
+Para seleccionar la API a utilizar, se eligió la API-NBA \cite{api-nba}, una API gratuita que encontré en la plataforma de RapidAPI, debido a su extensa base de datos y capacidad para proporcionar datos en tiempo real.
+También se uso la API oficial de la NBA para recoger información que no tenía la anterior API, los datos de los playoffs y las estadísticas de los líderes de la temporada de la NBA. A continuación, se muestran las URLs que se han utilizado para realizar peticiones a las APIs:
+
+\imagen{memoria/url-api}{URL de las APIs.}{1}
+
+Después de seleccionar las APIs, se desarrolló el servicio StatsService en Angular para manejar las peticiones HTTP a la API, asegurando que los datos se reciban y procesen de manera eficiente y segura.
+
+Finalmente, los datos recibidos de la API, se almacenaron en Firestore, la base de datos NoSQL de Firebase, lo que facilitó su gestión y acceso rápido desde la aplicación.
+
+\subsubsection{Implementación de Chart.js}
+Otro aspecto relevante en el desarrollo del proyecto fue la implementación de Chart.js para la visualización de datos y poder analizarlos mediante gráficos. Chart.js es una librería de JavaScript que permite crear gráficos interactivos y dinámicos, facilitando la representación visual de estadísticas y datos complejos de una manera atractiva para los usuarios.
+
+Se utilizaron diversos tipos de gráficos para representar diferentes conjuntos de datos:
+\begin{itemize}
+\tightlist
+    \item 
+        \textbf{Gráficos de Líneas:} Para representar la evolución del rendimiento de un jugador a lo largo de la temporada.
+    \item 
+        \textbf{Gráficos de Pastel:} Para visualizar distribuciones porcentuales, como los tiros de campo o probabilidad de victoria entre dos equipos.
+    \item 
+        \textbf{Gráficos de Barras:} Para mostrar la comparativa de la diferencia de puntos cuando un jugador está en la cancha.
+\end{itemize}
+
+
+\subsubsection{Desarrollo del Modelo Random Forest}
+Uno de los aspectos más importantes del proyecto fue la implementación de un modelo de Machine Learning, específicamente el algoritmo Random Forest, para predecir los resultados de los partidos de la NBA. Este modelo se diseñó para analizar una amplia variedad de datos estadísticos y generar predicciones sobre los posibles ganadores de futuros enfrentamientos.
+
+El desarrollo del modelo incluyó varios pasos críticos:
+\begin{itemize}
+\tightlist
+    \item 
+        \textbf{Recopilación de datos:} Se utilizó la API-NBA para recoger datos históricos de la temporada y en tiempo real sobre los partidos de la NBA. Estos datos que están almacenados en Firebase Firestore, se recopilaron en el proyecto Angular y se exportaron en un archivo csv utilizando la librería Papa Parse \cite{papaparse} para su posterior uso.
+    \item 
+        \textbf{Entrenamiento del Modelo:} Se entrenó el modelo Random Forest utilizando el anterior archivo csv, para ello se creo un Jupyter Notebook en el cual descargo el archivo csv de Firebase Storage, cargo el csv en un DataFrame y finalmente entreno el modelo con los datos recopilados y lo almaceno en Firebase Storage.
+        \imagen{memoria/model_prediction}{Entrenamiento del Modelo.}{0.8}
+    \item 
+        \textbf{Pruebas:} Se realizaron pruebas exhaustivas para evaluar la precisión del modelo y se hicieron ajustes adicionales para optimizar su capacidad.
+    \item 
+        \textbf{Implementación en la Aplicación:} El modelo se integró en la aplicación web utilizando Firebase Cloud Functions, lo que permitió crear la función \textit{predict} para realizar predicciones en tiempo real y proporcionar recomendaciones a los usuarios sobre los equipos con mayor probabilidad de ganar. Este paso fue el más complicado ya que hubo problemas de dependencias de Python.
+    \item 
+        \textbf{Petición post a la función \textit{predict}:} Una vez desplegada la función \textit{predict} en Cloud Functions se realizaron pruebas de peticiones post utilizando la herramienta Postman, una vez comprobado que todo funciona correctamente se generó el servicio PredictionService en Angular para realizar la petición post a la función.
+        \imagen{memoria/peticion_post}{Servicio PredictionService.}{1}
+    \item 
+        \textbf{Mostrar predicción:} Para mostrar las probabilidades de victoria de un partido, se ha implementado Chart.js en el componente PredictComponent de Angular; en él se seleccionan los equipos mediante un select de Angular Material, se pulsa en el botón \textit{Predecir Partido} y tras varios segundos de procesamiento, muestra los resultados de la predicción en un gráfico de pastel.
+\end{itemize}
+
+\subsection{Diseño}
+El diseño del proyecto ha sido uno de los aspectos fundamentales para asegurar una interfaz de usuario atractiva y funcional. Para lograr esto, se han utilizado varias herramientas y tecnologías de diseño web como Bootstrap y Angular Material.
+
+Bootstrap lo he utilizado para gestionar los estilos y asegurar la responsividad de la aplicación. Y he implementado Angular Material para insertar componentes preconstruidos, como botones, formularios, tablas, diálogos, \ldots; así como personalizar un tema para ajustar la apariencia de la aplicación a la paleta de colores usada, la cual se compone de los siguientes colores: Azul marino (\texttt{\#}002649), naranja (\texttt{\#}FE5B3B) y blanco (\texttt{\#}FFFFFF).
+
+Aparte de estas dos bibliotecas, también se ha utilizado la herramienta Flaticon para mejorar la interfaz de la aplicación con iconos y la herramienta Freepik para mostrar imágenes de fondo en los componentes cards de la página principal de la aplicación. A continuación, se presentan los autores de los siguientes iconos e imágenes utilizados:
+\begin{itemize}
+\tightlist
+    \item 
+        \textbf{Icono Login y Analysis:} Autor berkahicon \cite{berkahicon}.
+    \item 
+        \textbf{Icono Games y Playoffs:} Autor Kreev Studio \cite{kreev-studio}.
+    \item 
+        \textbf{Icono Outlook, Standings y GitHub:} Autor Pixel perfect \cite{pixel-perfect}.
+    \item
+        \textbf{Icono Leaders y Google:} Autor Freepik \cite{autor-freepik}.
+    \item 
+        \textbf{Icono Teams:} Autor kmg design \cite{kmg-design}.
+    \item 
+        \textbf{Icono Predict:} Autor bsd \cite{bsd}.
+    \item 
+        \textbf{Icono Logout:} Autor Icon Hubs \cite{icon-hubs}.
+    \item
+        \textbf{Icono NBA:} Autor Fliqqer \cite{fliqqer}.
+    \item 
+        \textbf{Icono LinkedIn:} Autor Google \cite{autor-google}.
+    \item 
+        \textbf{Imagen Cards Main:} Diseñado por Freepik \cite{freepik-main}.
+    \item 
+        \textbf{Imagen Cards NBA:} Diseñado por Freepik \cite{freepik-nba}.
+\end{itemize}
+
+\subsection{Resolución de problemas}
+Durante el desarrollo del proyecto, se presentaron varios desafíos técnicos que fueron solucionados cuidadosamente. A continuación, se detallan algunos de los problemas más significativos.
+
+\subsubsection{Problema con las peticiones a la API}
+Inicialmente, el proyecto enfrentó problemas debido a la gran cantidad de peticiones realizadas a la API de la NBA, ya que al ser una API gratuita solo permitía 10 peticiones por minuto y 100 al día. Para evitar esto, había que seleccionar un servicio de pago que te ofrecía muchas más peticiones diarias. 
+
+Para resolver este problema evitando costos, se tuvo que reducir las peticiones minimizando las peticiones innecesarias y agrupando múltiples peticiones en una sola cuando era posible. También se programaron actualizaciones periódicas para refrescar los datos en intervalos definidos en lugar de realizar peticiones continuas, lo que ayudó a gestionar mejor los límites de la API.
+
+\subsubsection{Problema con Firebase Cloud Functions}
+Integrar funciones escritas en Python dentro de un proyecto Angular desarrollado con TypeScript presentó varios problemas de dependencias y compatibilidad.
+Las soluciones implementadas fueron:
+\begin{itemize}
+\tightlist
+    \item 
+        \textbf{Configuración de Entorno:} Se configuró un entorno adecuado para ejecutar funciones Python dentro del ecosistema de Firebase, utilizando herramientas como virtualenv para manejar dependencias.
+    \item 
+        \textbf{Despliegue en Firebase Cloud Functions:} Las funciones Python se desplegaron independientemente de la aplicación Angular, utilizando Firebase Cloud Functions para ejecutar código Python en la nube.
+    \item 
+        \textbf{Configuración de Firebase Cloud Functions:} Al inicializar Firebase Cloud Functions, te permite elegir entre varios lenguajes de programación para implementar en tus funciones (JavaScript, TypeScript o Python), por lo que seleccioné la opción de Python para evitar más errores de compatibilidad.
+\end{itemize}
+
+\subsubsection{Problema con Internacionalización i18n}
+Al intentar implementar la internacionalización del proyecto usando i18n y locales, se descubrió que cambiar dinámicamente el idioma no era posible con esta configuración. Esto es un problema para el usuario porque limita la flexibilidad y la experiencia del mismo.
+
+Se encontró una solución, que fue el uso de la biblioteca ngx-translate, que ofrece una solución más flexible para la internacionalización en aplicaciones Angular ya que permite cambiar el idioma de manera dinámica, lo que mejoró significativamente la usabilidad de la aplicación.

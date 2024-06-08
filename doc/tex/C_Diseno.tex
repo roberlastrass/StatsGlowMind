@@ -1,0 +1,154 @@
+\apendice{Especificación de diseño}
+
+\section{Introducción}
+En este apartado se van a definir las distintas estructuras de diseño que se han empleado en el proyecto.
+
+\hfill
+
+\section{Diseño de datos}
+En la base de datos se pueden observar las siguientes colecciones:
+\begin{itemize}
+\tightlist
+    \item \textbf{Users:} Esta colección contiene los datos de los usuarios registrados en la aplicación, tan solo los datos: id, nombre, email y rol del usuario.
+    \item \textbf{Games:} En esta colección se almacenan las estadísticas de cada partido jugado de la temporada 23/24 de la NBA, incluyendo la id del partido y la id de los equipos que se enfrentaron.
+    \item \textbf{Teams:} Guarda información genérica y estadísticas media de la temporada de cada uno de los equipos de la NBA.
+    \item \textbf{Players:} Esta colección guarda los datos personales y las estadísticas de cada partido jugado en la temporada, de cada jugador de la NBA.
+\end{itemize}
+Ya que es una base de datos NoSQL, estas colecciones no están relacionadas unas con otras.
+
+\clearpage
+
+\section{Diseño procedimental}
+
+\hfill
+
+\subsection{Registro y Login}
+
+\hfill
+
+Diagrama de secuencia que muestra los pasos que realiza el programa cuando un usuario se registra en la aplicación.
+\imagen{anexos/diagrams/secuencia_register_login}{Diagrama de secuencia - Registro y Login}{1}
+
+\clearpage
+
+\subsection{Mostrar información en tiempo real}
+
+\hfill
+
+Este diagrama de secuencia visualiza el funcionamiento de la aplicación al mostrar información de la NBA en tiempo real.
+\imagen{anexos/diagrams/secuencia_nba}{Diagrama de secuencia - Mostrar información en tiempo real}{1}
+
+\clearpage
+
+\subsection{Mostrar información en tiempo real}
+
+\hfill
+
+Diagrama de secuencia que indica los pasos del funcionamiento de la aplicación al mostrar equipos, junto con sus estadísticas y jugadores. Incluyendo además el funcionamiento del programa al acceder por primera vez en estas páginas.
+\imagen{anexos/diagrams/secuencia_equipos}{Diagrama de secuencia - Mostrar equipos}{1}
+
+\clearpage
+
+\subsection{Análisis de jugadores}
+
+\hfill
+
+En este diagrama de secuencia se pueden observar los pasos que realiza la aplicación al analizar jugadores.
+\imagen{anexos/diagrams/secuencia_analisis}{Diagrama de secuencia - Análisis de jugadores}{1}
+
+\vfill
+
+\subsection{Predicción de partidos}
+
+\hfill
+
+Este primer diagrama de secuencia indica el proceso que realiza la aplicación para recoger datos de la base de datos, exportarlos a CSV y almacenarlos en Cloud Storage de Firebase.
+\imagen{anexos/diagrams/secuencia_export_csv}{Diagrama de secuencia - Exportar CSV}{1}
+
+\hfill
+
+En este segundo diagrama de secuencia se observa los pasos que realiza la aplicación al realizar la funcionalidad de predicción de partidos.
+\imagen{anexos/diagrams/secuencia_predicciones}{Diagrama de secuencia - Predicción de partidos}{1}
+
+\clearpage
+
+\section{Diseño arquitectónico}
+
+Ya que en mi proyecto he utilizado Angular como framework, sigo un diseño arquitectónico basado en componentes junto con el enfoque MVVM (Model-View-ViewModel) que proporciona una estructura clara y modular para desarrollar aplicaciones web.
+
+La arquitectura de Angular \cite{patron} se basa en componentes organizados en módulos. Los bloques de construcción básicos son los componentes, servicios y módulos, que están organizados en conjuntos funcionales llamados NgModules.
+
+Los conceptos clave de esta arquitectura son:
+\begin{itemize}
+\tightlist
+    \item \textbf{Módulos, Componentes y Servicios:} Son los bloques de construcción fundamentales de una aplicación Angular.
+    \item \textbf{Routing:} Permite la navegación entre diferentes componentes y vistas en la aplicación.
+    \item \textbf{Directivas y Pipes:} Proporcionan funcionalidades adicionales para manipular la UI y los datos.
+    \item \textbf{Inyección de Dependencias (DI):} Facilita la modularidad y la reutilización del código al permitir la inyección de servicios y dependencias.
+\end{itemize}
+
+\hfill
+
+\subsection{Model-View-ViewModel (MVVM)}
+
+El patrón MVVM (Modelo-Vista-Modelo de Vista) \cite{mvvm} es una arquitectura de diseño que se utiliza comúnmente en aplicaciones de interfaz de usuario. Los aspectos más importantes son:
+
+Componentes del patrón MVVM:
+\begin{itemize}
+\tightlist
+    \item \textbf{Modelo:} Representa los datos y la lógica de la aplicación.
+    \item \textbf{Vista:} Define la estructura, el diseño y la apariencia de la interfaz de usuario.
+    \item \textbf{Modelo de Vista:} Actúa como intermediario entre la vista y el modelo, proporcionando datos y lógica de presentación.
+\end{itemize}
+
+\imagen{anexos/patron_mvvm}{Patrón MVVM}{1}
+
+Como se puede observar en la imagen del patrón, las interacciones entre componentes son que la vista conoce al modelo de vista y el modelo de vista conoce al modelo. Y el modelo no conoce al modelo de vista y viceversa, lo que permite que el modelo evolucione independientemente de la vista.
+
+\hfill
+
+Ventajas del patrón MVVM:
+\begin{itemize}
+\tightlist
+    \item \textbf{Adaptabilidad del Modelo:} El modelo de vista sirve como adaptador para el modelo, facilitando cambios en la interfaz de usuario sin modificar el modelo subyacente.
+    \item \textbf{Pruebas Unitarias:} Se pueden crear pruebas unitarias para el modelo de vista y el modelo sin depender de la vista.
+    \item \textbf{Flexibilidad en el Rediseño:} La interfaz de usuario se puede rediseñar sin afectar al modelo de vista y al modelo.
+\end{itemize}
+
+\clearpage
+
+\section{Diseño de interfaces}
+
+En los primeros pasos del proyecto, se realizó un simple prototipo del diseño de las interfaces de la aplicación web. Utilizando la herramienta Figma se pudo representar fácilmente el prediseño de la aplicación.
+
+
+\imagen{anexos/interfaces/prototipo_main}{Prototipo del main.}{0.6}
+\imagen{anexos/interfaces/prototipo_login}{Prototipo del login.}{0.6}
+\imagen{anexos/interfaces/prototipo_stats}{Prototipo de stats.}{0.5}
+\imagen{anexos/interfaces/prototipo_teams}{Prototipo de teams.}{0.5}
+\imagen{anexos/interfaces/prototipo_analysis}{Prototipo de analysis.}{0.5}
+\imagen{anexos/interfaces/prototipo_predict}{Prototipo de predict.}{0.6}
+
+\hfill
+
+Haciendo uso de la herramienta Canva, realice un prototipo del logotipo de la aplicación, el cual se veía así:
+\imagen{anexos/interfaces/prototipo_logo}{Prototipo del Logotipo.}{0.4}
+
+\vfill
+
+Este prototipo del diseño de las interfaces de la aplicación y el logotipo, fue evolucionando a medida que iba desarrollando el proyecto, cambiando los colores y la estructura, viéndose mucho más moderno e intuitivo.
+
+Para el logotipo me ayudé de la herramienta Microsoft Copilot, que tras una descripción detallada de lo que estaba buscando para el logotipo, me mostró varios logos de los cuales me quedé con uno que posteriormente modifiqué para personalizarlo a mi gusto. Actualmente el logotipo de la aplicación es este:
+
+\imagen{anexos/interfaces/logo}{Logotipo de la Aplicación.}{0.8}
+
+\hfill
+
+El diseño de las interfaces de la aplicación fue mejorando con las implementaciones de Bootstrap, Angular Material y Chart.js. El resultado final de las interfaces es el siguiente:
+
+\imagen{anexos/interfaces/login}{Interfaz Login.}{0.9}
+\imagen{anexos/interfaces/main}{Interfaz Main.}{0.85}
+\imagen{anexos/interfaces/stats}{Interfaz Stats.}{1}
+\imagen{anexos/interfaces/teams}{Interfaz Teams.}{1}
+\imagen{anexos/interfaces/analysis}{Interfaz Analysis.}{0.85}
+\imagen{anexos/interfaces/predict}{Interfaz Predict.}{1}

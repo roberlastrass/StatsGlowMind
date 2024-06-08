@@ -1,0 +1,578 @@
+\apendice{Plan de Proyecto Software}
+
+\section{Introducción}
+En este apéndice de los anexos, plan de proyecto software, se ha realizado la planificación del proyecto, haciendo por una parte la planificación temporal y por otra el estudio de viabilidad económica y legal.
+
+El objetivo de este anexo es ofrecer una visión general detallada de la gestión de nuestro proyecto software, de esta manera, este documento brinda como se ha planificado, ejecutado y controlado el proyecto desde el principio hasta el final.
+
+\section{Planificación temporal}
+Para la planificación del proyecto, se decidió utilizar una metodología ágil, por ello, tanto mi tutor como yo, hemos adoptado la metodología SCRUM para la gestión del proyecto, dividiendo el trabajo en sprints. 
+
+Cada sprint tiene una duración de aproximadamente 2 semanas, lo que nos permite mantener un enfoque centrado en resultados y una capacidad de respuesta rápida a los cambios. Al finalizar el sprint, se ha realizado una tutoría para ver los avances en las tareas marcadas y proponer nuevas tareas para el siguiente sprint.
+
+Para realizar scrum se ha utilizado Trello \cite{trello}, un software gratuito de gestión de tareas diseñado para facilitar la colaboración y el seguimiento de tareas de manera visual y colectiva.
+
+En cuanto a la estimación de tiempo que se va a necesitar cada tarea he decidido usar esta tabla de relación entre las story point (puntos de historia) y tiempo en horas:
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|}
+        \hline
+        \rowcolor[rgb]{0.81,0.81,0.77}
+        \textbf{Story Point} & \textbf{Estimación (horas)} \\
+        \hline
+        1 & 1 \\
+        2 & 2 \\
+        3 & 3.5 \\
+        4 & 5 \\
+        5 & 6.5 \\
+        6 & 8 \\
+        \hline
+    \end{tabular}
+    \caption{Estimaciones de tiempo para cada Story Point.}
+    \label{tabla:estimaciones}
+\end{table}
+
+A continuación, se muestra cada sprint realizado a lo largo del proyecto, junto con una descripción sobre las tareas realizadas en el sprint, un gráfico de burndown para visualizar el progreso en la finalización de las tareas planificadas y una tabla que enumera todas las tareas planificadas con su estimación de story points.
+
+\hfill
+
+\subsection{Sprint 1 (24/01/2024 - 05/02/2024)}
+En el primer sprint se han realizado los primeros pasos para realizar el TFG, entre ellos era decidir que metodología a utilizar e instalar y configurar el softaware que se ha usado en el proyecto, tanto en la gestión del proyecto: Trello, Zotero y GitHub; como en el desarrollo del proyecto: Angular y Firebase.
+
+Además de comenzar la documentación y los estudios relacionado con el proyecto para así tener varias ideas y conclusiones antes de empezar a desarrollar la aplicación.
+
+El gráfico de burndown del script y la tabla con las tareas y sus story points, se muestran a continuación:
+
+\hfill
+
+\imagen{anexos/burndown/burndown_sprint1}{Gráfico Burndown Sprint 1}{1}
+
+\hfill
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Leer el Reglamento del TFG & \cellcolor[HTML]{79E277}Investigación & 1\\
+    \hline
+        Crear un tablero en Trello & \cellcolor[HTML]{A50000}\textcolor{white}{Gestión} & 1\\ 
+    \hline 
+        Crear cuenta en Zotero & \cellcolor[HTML]{A50000}\textcolor{white}{Gestión} & 1\\ 
+    \hline    
+        Ver un tutorial de Zotero & \cellcolor[HTML]{79E277}Investigación & 2\\ 
+    \hline  
+        Crear un repositorio en GitHub & \cellcolor[HTML]{A50000}\textcolor{white}{Gestión} & 1\\ 
+    \hline  
+        Crear y configurar proyecto en Angular y Firebase & \begin{tabular}[c]{@{}c@{}c@{}}\cellcolor[HTML]{79E277}Investigación\\ \cellcolor[HTML]{A50000}\textcolor{white}{Gestión}\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 4\\ 
+    \hline
+        Estudios relacionados con el TFG & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{79E277}Investigación\\ \cellcolor[HTML]{FC7E20}{Documentación}\end{tabular} & 3\\ 
+    \hline
+        Comenzar la documentación & \cellcolor[HTML]{FC7E20}{Documentación} & 2\\ 
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 1}
+    \label{tab:sprint1}
+\end{table}
+
+\clearpage
+
+\subsection{Sprint 2 (06/02/2024 - 20/02/2024)}
+En este sprint se han realizado las tareas relacionadas con los roles de usuario y la autenticación para los usuarios, para ello se ha implementado la herramienta de Firebase, Authentication, la cual ofrece un sistema de autenticación de usuarios seguro y fácil de usar.
+
+Para implementar Authentication de Firebase en el proyecto, se ha creado el servicio Auth que permite registrar e iniciar sesión mediante correo electrónico o directamente mediante Google a un usuario. A parte se han creado los componentes necesarios para que un usuario pueda realizar el login, pueda registrarse y pueda acceder al main de la aplicación.
+
+También se han realizado tareas de diseño como la realización del logotipo de la aplicación y la instalación de Bootstrap en el proyecto.
+
+\hfill
+
+\imagen{anexos/burndown/burndown_sprint2}{Gráfico Burndown Sprint 2}{1}
+
+\clearpage
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Agregar Autentificación en Firebase & \cellcolor[HTML]{A50000}\textcolor{white}{Gestión} & 2\\
+    \hline
+        Crear Servicio Auth (Authentication) & \cellcolor[HTML]{C382DF}Programación & 4\\ 
+    \hline 
+        Modificar AppComponent & \cellcolor[HTML]{C382DF}Programación & 2\\ 
+    \hline    
+        Crear Componente Register & \cellcolor[HTML]{C382DF}Programación & 4\\ 
+    \hline  
+        Crear Componente Login & \cellcolor[HTML]{C382DF}Programación & 3\\ 
+    \hline  
+        Crear Componente Main & \cellcolor[HTML]{C382DF}Programación & 2\\ 
+    \hline
+        Realizar diseño logotipo & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 4\\ 
+    \hline
+        Instalar Bootstrap y Añadir CSS & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 4\\ 
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 2}
+    \label{tab:sprint2}
+\end{table}
+
+\hfill
+
+\subsection{Sprint 3 (21/02/2024 - 07/03/2024)}
+El tercer sprint comienza las tareas que tienen que ver con las llamadas a las APIs de la NBA para mostrar información en la aplicación y también se realiza modificaciones y mejoras en cuanto a los roles de usuario y autenticación del sprint anterior.
+
+Para conectar con las APIs, se ha creado un servicio llamado StatsService en el que se realizan las peticiones a las APIs, además se han creado los componentes Standings y Leaders con los que llaman al servicio Stats para recoger la información de las APIs y mostrarla.
+
+En cuanto a las tareas de mejora de la autenticación de usuarios, se ha añadido a los usuarios un rol (usuario o administrador), se almacenan en Firestore (una base de datos NoSQL que proporciona Firebase) los usuarios que se han registrado y se comprueba si el usuario al hacer login, está registrado en Firestore.
+
+\clearpage
+
+\imagen{anexos/burndown/burndown_sprint3}{Gráfico Burndown Sprint 3}{1}
+
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Añadir Rol de usuario en Register & \cellcolor[HTML]{C382DF}Programación & 2\\
+    \hline
+        Almacenar Usuarios en Firestore & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{79E277}Investigación\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline
+        Gestión de usuarios & \cellcolor[HTML]{C382DF}Programación & 4\\ 
+    \hline 
+        Investigar sobre peticiones a la API & \cellcolor[HTML]{79E277}Investigación & 3\\ 
+    \hline    
+        Conectar con la API y hacer routing & \cellcolor[HTML]{C382DF}Programación & 6\\ 
+    \hline  
+        Crear Componente Standings & \cellcolor[HTML]{C382DF}Programación & 3\\ 
+    \hline  
+        Crear Componente Leaders & \cellcolor[HTML]{C382DF}Programación & 2\\ 
+    \hline  
+        Comprobar si un usuario esta registrado en Firestore & \cellcolor[HTML]{C382DF}Programación & 2\\ 
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 3}
+    \label{tab:sprint3}
+\end{table}
+
+\hfill
+
+\subsection{Sprint 4 (08/03/2024 - 21/03/2024)}
+En este sprint 4 se instala e implementa Angular Material y se integran los componentes deseados en cada uno de los componentes del proyecto y se modifican todos los estilos para tener un diseño atractivo y responsive.
+
+\hfill
+
+\imagen{anexos/burndown/burndown_sprint4}{Gráfico Burndown Sprint 4}{1}
+
+\hfill
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Investigación Angular Material & \cellcolor[HTML]{79E277}Investigación & 3\\
+    \hline
+       Implementar Angular Material y personalizar Thema & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 4\\
+    \hline
+        Integrar Material en MainComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\ 
+    \hline 
+        Integrar Material en LeadersComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\ 
+    \hline    
+       Integrar Material en LoginComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\ 
+    \hline  
+        Integrar Material en AppComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\
+    \hline  
+        Integrar Material en AdminComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline  
+       Diseño Responsive & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 4\\ 
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 4}
+    \label{tab:sprint4}
+\end{table}
+
+\clearpage
+
+\subsection{Sprint 5 (22/03/2024 - 04/04/2024)}
+En este sprint se ha dedicado en realizar apartados de la documentación de la memoria del proyecto y en conectar con las APIs para mostrar la información de los Partidos y de los Playoffs. Para ello se han creado esos componentes y se les ha agregado Angular Material y un estilo responsive.
+
+\imagen{anexos/burndown/burndown_sprint5}{Gráfico Burndown Sprint 5}{0.9}
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Documentación general de memoria &  \cellcolor[HTML]{FC7E20}{Documentación} & 3\\
+    \hline
+        Introducción del proyecto & \cellcolor[HTML]{FC7E20}{Documentación} & 2\\
+    \hline
+        Objetivos del proyecto & \cellcolor[HTML]{FC7E20}{Documentación} & 2\\
+    \hline
+        Estudios relacionados del proyecto & \cellcolor[HTML]{FC7E20}{Documentación} & 2\\
+    \hline  
+        Crear Componente Games & \cellcolor[HTML]{C382DF}Programación & 3\\ 
+    \hline  
+        Recoger datos del partido según la fecha & \cellcolor[HTML]{C382DF}Programación & 2\\
+    \hline  
+        Material y Responsive en GamesComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline  
+        Crear Componente Playoffs & \cellcolor[HTML]{C382DF}Programación & 3\\ 
+    \hline  
+        Material y Responsive en PlayoffsComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline  
+        Añadir sistema de filtrado en LeadersComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 5}
+    \label{tab:sprint5}
+\end{table}
+
+\clearpage
+
+\subsection{Sprint 6 (05/04/2024 - 18/04/2024)}
+
+\hfill
+
+En el sprint 6, se han creado en la base de datos de Firestore las colecciones: Teams, Games y Players. 
+
+En las cuales lo que he hecho ha sido primero realizar las peticiones adecuadas en la API, obtener los datos que nos devuelve la API y almacenarlos en la base de datos. Una vez estén todos los datos almacenados, se han realizado consultas para mostrar la información deseada en tablas u otros componentes, en la aplicación.
+
+También se ha dedicado gran parte del sprint a la realización de la documentación de la memoria (Conceptos teóricos y Técnicas y Herramientas) y la documentación del anexo Plan de Proyecto Software (Introducción y Planificación temporal).
+
+\hfill
+
+\imagen{anexos/burndown/burndown_sprint6}{Gráfico Burndown Sprint 6}{1}
+
+\clearpage
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Creación de colecciones Firestore &  \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{A50000}\textcolor{white}{Gestión}\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 1\\
+    \hline
+        Almacenar en Firestore los equipos & \cellcolor[HTML]{C382DF}Programación & 4\\
+    \hline
+        Material y Responsive en TeamsComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 4\\
+    \hline
+        Almacenar en Firestore las estadísticas de los equipos & \cellcolor[HTML]{C382DF}Programación & 6\\
+    \hline  
+        Estilos y Responsive en TeamStatsComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\ 
+    \hline  
+        Almacenar en Firestore los jugadores & \cellcolor[HTML]{C382DF}Programación & 3\\
+    \hline  
+        Estilos y Responsive en TeamPlayersComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\
+    \hline  
+        Documentación Memoria & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\ 
+    \hline  
+        Documentación Anexos & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\
+    \hline  
+        Creación de un Footer & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 6}
+    \label{tab:sprint6}
+\end{table}
+
+\hfill
+
+
+\subsection{Sprint 7 (19/04/2024 - 06/05/2024)}
+En este sprint se ha enfocado principalmente en el análisis de los jugadores, de manera que se han creado el componente AnalysisComponent, donde se muestra una tabla con todos los jugadores de la NBA, junto con un buscador para que sea más sencillo filtrar los jugadores y además unas Cards con los jugadores más relevantes de la temporada; y el componente ChartsPlayerComponent donde se muestra las estadísticas media de la temporada del jugador y un conjunto de gráficos que muestran y analizan las estadísticas del jugador durante la liga. Para mostrar los gráficos se ha implementado la librería Chart.js que nos permite insertar gráficos de varios tipos de manera fácil y visual.
+
+A parte del análisis de los jugadores, también se ha realizado un nuevo diseño del main para que se visualizara más estético e intuitivo para el usuario. Además de avanzar con la documentación de la memoria y de los anexos del proyecto.
+
+\hfill
+
+\imagen{anexos/burndown/burndown_sprint7}{Gráfico Burndown Sprint 7}{1}
+
+\hfill
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Creación del componente Analysis &  \cellcolor[HTML]{C382DF}Programación & 6\\
+    \hline
+        Estilos y Responsive en AnalysisComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\
+    \hline
+        Creación del componente ChartsPlayer &  \cellcolor[HTML]{C382DF}Programación & 5\\
+    \hline
+        Almacenar en Firestore las estadísticas de cada partido & \cellcolor[HTML]{C382DF}Programación & 5\\
+    \hline  
+        Calcular estadísticas medias del jugador & \cellcolor[HTML]{C382DF}Programación & 3\\
+    \hline  
+        Implementar Chart.js & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\\ \cellcolor[HTML]{79E277}Investigación\end{tabular} & 3\\ 
+    \hline  
+        Estilos y Responsive en ChartsPlayerComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación \end{tabular} & 2\\
+    \hline  
+        Rediseñar MainComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 6\\
+    \hline  
+        Documentación Memoria & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\ 
+    \hline  
+        Documentación Anexos & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 7}
+    \label{tab:sprint7}
+\end{table}
+
+\clearpage
+
+\subsection{Sprint 8 (07/05/2024 - 22/05/2024)}
+El sprint 8 ha sido uno de los más complicados ya que se ha realizado una investigación exhaustiva sobre como implementar modelos de machine learning en mi proyecto, después de investigar durante bastante tiempo, decidí que la mejor opción era utilizar la funcionalidad Cloud Functions de Firebase, que permite subir funciones en la nube sin necesidad de crear un servidor backend en mi proyecto.
+
+Una vez realizada la investigación, me dedique a entrenar mediante los datos del histórico de las estadísticas de cada partido de la temporada de la NBA, un modelo utilizando el algoritmo Random Forest. Después cree la función que realiza la predicción de los partidos utilizando este modelo y mostré la predicción en mi componente mediante un gráfico de Chart.js.
+
+\hfill
+
+\imagen{anexos/burndown/burndown_sprint8}{Gráfico Burndown Sprint 8}{1}
+
+\hfill
+
+\begin{table}[!ht]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} & \textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Investigación sobre modelos de ML &  \cellcolor[HTML]{79E277}Investigación & 6\\
+    \hline
+        Generar tabla de datos para el modelo & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{A50000}\textcolor{white}{Gestión}\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline
+        Entrenar modelo Random Forest &  \cellcolor[HTML]{C382DF}Programación & 4\\
+    \hline
+        Implementar Firebase Cloud Functions & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{A50000}\textcolor{white}{Gestión}\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\
+    \hline  
+        Crear la función de predecir en Python & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{79E277}Investigación\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 6\\
+    \hline  
+        Crear servicio PredictionService & \cellcolor[HTML]{C382DF}Programación & 2\\ 
+    \hline  
+        Crear componente PredictComponent & \cellcolor[HTML]{C382DF}Programación & 3\\
+    \hline  
+        Mostrar predicción con Chart.js & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline  
+        Estilos y responsive en PredictComponent & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 4\\
+    \hline  
+        Documentación Memoria & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\ 
+    \hline  
+        Documentación Anexos & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 8}
+    \label{tab:sprint8}
+\end{table}
+
+\hfill
+
+\subsection{Sprint 9 (23/05/2024 - 07/06/2024)}
+
+Este último sprint, se dedicó principalmente a internacionalizar el proyecto, pudiendo así cambiar de idioma de español a inglés y viceversa. También se implementaron algunas mejoras en la aplicación, como la creación de componentes nuevos para proporcionar más información acerca de la aplicación a los usuarios.
+
+En el último tramo del sprint tan solo se terminó de documentar la memoria y los anexos del proyecto, esto llevo bastante tiempo ya que es mucha información que documentar.
+
+\imagen{anexos/burndown/burndown_sprint9}{Gráfico Burndown Sprint 9}{1}
+
+\begin{table}[!ht!]
+    \centering
+    \resizebox{15cm}{!} {
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor[rgb]{0.81,0.81,0.77}
+    \textbf{Tareas} &\textbf{Etiquetas} & \textbf{Story points} \\ 
+    \hline
+        Crear componente AboutComponent &  \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline
+        Crear componente GlossaryComponent &  \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 3\\
+    \hline
+        Mejorar el Footer &  \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 1\\
+    \hline
+        Añadir select para cambiar el idioma & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{6BBAFF}Diseño\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 2\\
+    \hline  
+        Modificar usuarios siendo admin & \cellcolor[HTML]{C382DF}Programación & 2\\ 
+    \hline  
+        Investigación sobre internacionalización & \cellcolor[HTML]{79E277}Investigación & 6\\
+    \hline  
+        Internacionalizar el proyecto & \begin{tabular}[c]{@{}c@{}}\cellcolor[HTML]{A50000}\textcolor{white}{Gestión}\\ \cellcolor[HTML]{C382DF}Programación\end{tabular} & 6\\
+    \hline  
+        Documentación Memoria & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\ 
+    \hline  
+        Documentación Anexos I & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\
+    \hline  
+        Documentación Anexos II & \cellcolor[HTML]{FC7E20}{Documentación} & 6\\
+    \hline  
+        Documentación GitHub & \cellcolor[HTML]{FC7E20}{Documentación} & 4\\
+    \hline
+    \end{tabular}}
+    \caption{Tareas Sprint 9}
+    \label{tab:sprint9}
+\end{table}
+
+\clearpage
+
+\section{Estudio de viabilidad}
+En esta sección se realiza un estudio exhaustivo de viabilidad económica y legal para garantizar la viabilidad y sustentabilidad del proyecto a largo plazo.
+
+\hfill
+
+\subsection{Viabilidad económica}
+
+A continuación, se detallan los costes y beneficios asociados con la aplicación en caso de que se lanzara al mercado.
+
+\subsubsection{Costes}
+
+\hfill
+
+\textbf{Coste de empleados}
+
+La aplicación ha sido desarrollada por un único empleado y se calcula que se han realizado unas 360 horas de trabajo repartidas durante 4 meses y medio (18 semanas). Esto supone una carga de trabajo de unas 20 horas semanales. El salario del alumno se estima que va a ser de unos 15\text{€}/hora, el cálculo del salario bruto laboral mensual sería el siguiente:
+
+$$ 20\frac{horas}{semana}\times15\frac{\text{€}}{hora}\times4\frac{semanas}{mes}=1200\text{€}\hspace{0.5em}al\hspace{0.5em}mes  $$
+
+Para calcular el salario real que recibirá el empleado se debe calcular los impuestos que paga la empresa por el empleado. Esto se puede consultar en la página oficial de la seguridad social \cite{ss}.
+
+\hfill
+
+Los impuestos son:
+\begin{itemize}
+\tightlist
+    \item 23.60\% de contingencias.
+    \item 5.50\% de desempleo.
+    \item 0.20\% de FOGASA.
+    \item 0.60\% de formación profesional.
+\end{itemize}
+
+\imagen{anexos/impuestos}{Régimen general de la Seguridad Social}{1}
+
+Por lo tanto, teniendo en cuenta estos impuestos, calculamos que la empresa tiene que pagar por el empleado:
+
+$$ \frac{1200\frac{\text{€}}{mes}}{1-(0.236+0.055+0.002+0.006)}=1711,84\text{€}\hspace{0.5em}al\hspace{0.5em}mes $$
+
+Por otra parte, también se cuenta con un profesor tutelando al alumno, con amplios conocimientos en el tema, lo que supone un salario de unos 40€/hora. El tutor trabaja unas 2 horas por cada dos semanas, es decir, 1 hora a la semana. Por lo tanto:
+
+$$ 1\frac{hora}{semana}\times40\frac{\text{€}}{hora}\times4\frac{semanas}{mes}=160\text{€}\hspace{0.5em}al\hspace{0.5em}mes $$
+
+Este cálculo corresponde con el salario bruto del profesor, al cual hay que sumar los impuestos:
+
+$$ \frac{160\frac{\text{€}}{mes}}{1-(0.236+0.055+0.002+0.006)}=228,25\text{€}\hspace{0.5em}al\hspace{0.5em}mes $$
+
+Finalmente obtenemos que la empresa deberá pagar al mes 1940.10\text{€}. Y como el proyecto ha durado cuatro meses y medio, el coste total será de 8730,45\text{€}.
+
+\hfill
+
+\textbf{Coste de Hardware}
+
+Los recursos hardware utilizados para el desarrollo del proyecto, ha sido únicamente un ordenador portátil cuyo coste fue de 950\text{€}. Sin embargo, después de todo el uso recibido durante los 4 años de la carrera, se puede decir que el portátil ya ha sido amortizado en su totalidad, por lo tanto, los costes de recursos hardware han sido de un total de 0\text{€}.
+
+\hfill
+
+\textbf{Coste de Software}
+
+Para el proyecto todas las herramientas software utilizadas han sido gratuitas excepto sistema operativo (Windows 10 Pro) del ordenador portátil, el cual ya está amortizado. Por lo que el coste de software real ha sido de 0\text{€}.
+
+Pero para un mejor rendimiento de la aplicación, lo ideal sería cambiar el plan gratuito de la API utilizada por otro plan de pago que permite realizar muchísimas más peticiones por \$25,00 al mes, que serían 23\text{€} al mes. Y también modificar el plan de facturación de Firebase, para poder realizar muchas más operaciones de lectura y escritura  en la base de datos, añadir más GB almacenados en el servicio hosting o incrementar las invocaciones a la función de Cloud Functions; esto supondría un gasto de unos \$1000,00 al mes que son 919,81\text{€} al mes. Por lo que el costo de software ideal sería de 942,81\text{€} al mes.
+
+Ya que es preferible añadir estos costes de software para mejorar la aplicación, se va a calcular el coste total del proyecto a partir del tercer mes (este incluido), que es cuando se comienza a utilizar ambos softwares constantemente. Ambos softwares tienen una amortización de 4 años, y como empezamos a contar a partir del tercer mes, que serían 2 meses y medio, costaría un total de 2357,03\text{€}.
+
+$$ \frac{2357,03\text{€}}{4\hspace{0.5em}años}=589,26\text{€}\hspace{0.5em}al\hspace{0.5em}año $$
+
+Como este plan de software dura 2 meses y medio, se divide 589,26\text{€} entre 4,8, por lo que el coste total del software sería de 122,76\text{€}.
+
+\hfill
+
+\textbf{Coste Total}
+
+Al calcular los costes totales del proyecto, también hay que tener en cuenta los costes indirectos, como es la tarifa de internet, de la luz, de la infraestructura, \ldots. Este valor se establece como el 15\% de los gastos totales. De esta forma obtenemos un gasto total del proyecto de:
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|}
+        \hline
+        \rowcolor[rgb]{0.81,0.81,0.77}
+        \textbf{Costes} & \textbf{Total \text{€}} \\
+        \hline
+        Coste de empleados & 8730,45 \text{€} \\
+        Coste de hardware & 0 \text{€} \\
+        Coste de software & 122,76 \text{€} \\
+        Coste indirecto & 1327,98 \text{€} \\
+        \hline
+        \textbf{Total} & 10181,19 \text{€} \\
+        \hline
+    \end{tabular}
+    \caption{Costes totales.}
+    \label{tabla:costes}
+\end{table}
+
+\subsubsection{Beneficios}
+Esta aplicación se ha desarrollado con carácter educativo, por lo que no se obtiene ningún beneficio del uso de la aplicación.
+
+\clearpage
+
+\subsection{Viabilidad legal}
+
+En este apartado se va a realizar el estudio de las licencias que tienen las librerías y herramientas utilizadas para desarrollar el proyecto, como la licencia del mismo. En este proyecto se ha utilizado las siguientes herramientas y librerías:
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|>{\centering\arraybackslash}m{7cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{3cm}|}
+        \hline
+        \rowcolor[rgb]{0.81,0.81,0.77}
+        \textbf{Herramienta/Librería} & \textbf{Versión} & \textbf{Licencia}\\
+        \hline
+        Angular & 17.2.3 & MIT \\
+        AngularCLI & 17.0.1 & MIT \\
+        TypeScript & 5.4.3 & Apache 2 \\
+        npm & 10.1.0 & Artistic 2 \\
+        Firebase & 10.9.0 & Apache 2 \\
+        rxjs & 7.8.0 & Apache 2 \\
+        Bootstrap & 5.3.2 & MIT \\
+        \text{@}angular/material & 17.3.1 & MIT \\
+        Chart.js & 4.4.2 & MIT \\
+        ngx-toastr & 18.0.0 & MIT \\
+        PapaParse & 5.4.1 & MIT \\
+        \text{@}ngx-translate/core & 15.0.0 & MIT \\
+        firebase-admin & 6.5.0 & Apache 2 \\
+        firebase-functions & 0.4.1 & Apache 2 \\
+        google-cloud-storage & 2.16.0 & Apache 2 \\
+        scikit-learn & 1.4.2 & BSD \\
+        pandas & 2.2.2 & BSD \\
+        Flask & 3.0.3 & BSD \\
+        flask cors & 4.0.1 & MIT \\
+        \hline
+    \end{tabular}
+    \caption{Licencias y Versiones.}
+    \label{tabla:licencias}
+\end{table}
+
+Todas las herramientas y librerías utilizadas en el desarrollo del proyecto tienen licencias de software libre, por lo cual, no existe ninguna clase de restricción o limitación por la que se deba aplicar una licencia más restrictiva a este proyecto.
+
+Por esta razón, se ha decidido aplicar la licencia MIT en el proyecto, de tal manera que se permite su uso de forma libre siempre y cuando se proporcione atribución al autor original y se incluya un aviso de derechos de autor en todas las copias del software.

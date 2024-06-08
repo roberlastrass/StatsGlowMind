@@ -1,0 +1,511 @@
+\apendice{Especificación de Requisitos}
+
+\section{Introducción}
+
+En este apéndice, se mostrarán y desarrollarán los objetivos y requisitos que debe cumplir la aplicación según han sido establecidos al comienzo del proyecto y los que se han ido añadiendo durante el proyecto.
+
+
+\section{Objetivos generales}
+Al comienzo del proyecto se establecieron los siguientes objetivos generales:
+\begin{itemize}
+\tightlist
+    \item 
+        Desarrollar una la aplicación web utilizando Angular como framework y Firebase como plataforma de alojamiento para la base de datos, autenticación de usuarios y servicio de hosting.
+    \item
+        Implementar la integración con una API con información de la NBA para recopilar datos en tiempo real. 
+    \item 
+        Gestionar la base de datos NoSQL (Firestore) para almacenar y gestionar los datos de la aplicación web.
+    \item 
+        Implementar un sistema de autenticación de usuarios.
+    \item 
+        Proporcionar información y estadísticas detalladas sobre la actual temporada de la NBA. 
+    \item 
+        Realizar análisis de rendimiento de jugadores mediante estadísticas y gráficas de datos.
+    \item 
+        Generar predicciones de resultados de partidos a partir de estadísticas y resultados de cada partido.
+\end{itemize}
+
+
+\section{Catálogo de requisitos}
+En esta sección se exponen los requisitos funcionales y no funcionales del proyecto.
+
+\subsection{Requisitos funcionales}
+\begin{itemize}
+\tightlist
+    \item \textbf{RF1 - Login de usuarios:} La aplicación debe ser capaz de permitir a un usuario autenticarse y poder acceder a ciertas funcionalidades de la aplicación.
+    \item \textbf{RF2 - Registro de usuarios:} La aplicación debe ser capaz de permitir a un usuario registrarse y almacenar sus datos en la base de datos.
+    \item \textbf{RF3 - Logout de usuarios:} La aplicación debe permitir cerrar sesión a un usuario.
+    \item \textbf{RF4 - Gestión de usuarios:} Un usuario con rol de administrador, debe poder gestionar el resto de usuarios, así como eliminar y modificar sus cuentas.
+    \item \textbf{RF5 - Menú de la aplicación:} La aplicación debe contener un menú en el que puedas navegar por las distintas funcionalidades que tiene la aplicación.
+    \item \textbf{RF6 - Main de la aplicación:} La aplicación debe de tener una página principal (main) en la que se muestren las funcionalidades de la aplicación de manera visual e intuitiva.
+    \item \textbf{RF7 - Footer de la aplicación:} La aplicación debe contener un footer en el que se muestre más información sobre la aplicación.
+        \begin{itemize}
+        \tightlist
+            \item \textbf{RF7.1 - Desarrollo de la aplicación:} En el footer debe contener información sobre herramientas y técnicas que se han utilizado para desarrollar la aplicación.
+            \item \textbf{RF7.2 - Diseño de la aplicación:} En el footer debe contener información sobre herramientas y técnicas que se han utilizado para diseñar la aplicación.
+            \item \textbf{RF7.3 - Acerca de la aplicación:} En el footer debe contener información sobre la aplicación.
+            \item \textbf{RF7.4 - Redes sociales:} En el footer debe contener información sobre las redes sociales de la aplicación.
+        \end{itemize}
+    
+    \item \textbf{RF8 - Mostrar información en tiempo real:} La aplicación debe mostrar información y estadísticas detalladas sobre la actual temporada de la NBA, en tiempo real.
+        \begin{itemize}
+        \tightlist
+            \item \textbf{RF8.1 - Mostrar clasificación:} La aplicación debe poder mostrar la clasificación de la NBA junto con sus estadísticas.
+            \item \textbf{RF8.2 - Mostrar playoffs:} La aplicación debe poder mostrar la eliminatoria de los playoffs de la NBA.
+            \item \textbf{RF8.3 - Mostrar partidos:} La aplicación debe poder mostrar los partidos que se van a disputar y los que se han disputado, con sus resultados.
+            \item \textbf{RF8.4 - Mostrar líderes:} La aplicación debe poder mostrar una tabla con los líderes de la NBA junto con sus estadísticas, y poder clasificar la lista según la categoría de líderes deseada.
+        \end{itemize}
+    \item \textbf{RF9 - Visualización de equipos:} La aplicación debe ser capaz de mostrar todos los equipos de todas las divisiones de cada conferencia de la NBA.
+        \begin{itemize}
+        \tightlist
+            \item \textbf{RF9.1 - Estadísticas del equipo:} La aplicación debe poder mostrar mediante tablas, todas las estadísticas disponibles del equipo seleccionado.
+            \item \textbf{RF9.2 - Jugadores del equipo:} La aplicación debe poder mostrar mediante una tabla, todos los jugadores junto con su información, del equipo seleccionado.
+        \end{itemize}
+    \item \textbf{RF10 - Análisis de jugadores:}
+        \begin{itemize}
+        \tightlist
+            \item \textbf{RF10.1 - Mostrar jugadores:} La aplicación debe poder mostrar mediante una tabla todos los jugadores de la NBA y mediante cards los jugadores más destacados de la temporada.
+            \item \textbf{RF10.2 - Gráficas y estadísticas del jugador:} La aplicación debe poder mostrar mediante una tabla las estadísticas medias de la temporada y analizar estas estadísticas mediante gráficas.
+        \end{itemize}
+    \item \textbf{RF11 - Predicción de partidos:} La aplicación debe ser capaz de proporcionar una predicción válida de un partido entre dos equipos seleccionados por el usuario.
+    \item \textbf{RF12 - Cambio de idioma:} La aplicación debe poder modificar la configuración del idioma, de español a inglés y viceversa, si el usuario lo desea.
+\end{itemize}
+
+\subsubsection{Requisitos no funcionales}
+\begin{itemize}
+\tightlist
+    \item \textbf{RNF1 - Usabilidad:} La aplicación debe tener una interfaz visual e intuitiva
+    \item \textbf{RNF2 - Responsividad:} La aplicación debe ser capaz de adaptarse a los distintos tamaños de pantalla.
+    \item \textbf{RNF3 - Internacionalización:} La aplicación debe poder configurar el idioma establecido.
+    \item \textbf{RNF4 - Escalabilidad:} La aplicación debe estar preparada para desarrollar nuevas funcionalidades sin aumentar la carga de trabajo.
+    \item \textbf{RNF5 - Mantenibilidad:} La aplicación debe permitir realizar mantenimientos y actualizaciones de forma eficaz. 
+    \item \textbf{RNF6 - Seguridad:} La aplicación debe de proteger la integridad y confidencialidad de los datos de los usuarios y ocultar las claves y credenciales de acceso.
+    \item \textbf{RNF7 - Disponibilidad:} La aplicación debe estar disponible para los usuarios todo el tiempo posible.
+    
+\end{itemize}
+
+
+
+\begin{table}[p]
+\section{Especificación de requisitos}
+
+\hfill
+
+\subsection{Casos de uso}
+
+\hfill
+
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth}}
+		\toprule
+		\textbf{CU-1}    & \textbf{Login de usuarios}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF1 \\
+		\textbf{Descripción}          & Permite a un usuario iniciar sesión y poder acceder a todas las funcionalidades de la aplicación y en caso de ser un usuario con rol de Administrador, también tiene acceso a la gestión de usuarios. \\
+		\textbf{Precondición}         & Tener cuenta de Google si el usuario desea iniciar sesión mediante Google.\\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la página "\textit{Iniciar Sesión}".
+			\item Opción 1: El usuario rellena el formulario introduciendo su correo electrónico y contraseña.
+			Pulsa el botón de "\textit{Enviar}".
+			\item Opción 2: El usuario pulsa el botón "\textit{Login With Google}".
+			Selecciona su cuenta de Google.
+		\end{enumerate}\\
+		\textbf{Postcondición}        & El registro del usuario deber estar almacenado en la base de datos.		\\
+		\textbf{Excepciones}          & 
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario no exista en la base de datos (\textit{mensaje}).
+			\item La contraseña no sea válida (\textit{mensaje}).
+			\item El correo electrónico no sea válido (\textit{mensaje}).		
+            \end{enumerate}\\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-1 Login de usuarios.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-2}    & \textbf{Registro de usuarios}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF2 \\
+		\textbf{Descripción}          & Permite a un usuario crearse una cuenta mediante Correo electrónico/contraseña o mediante la cuenta de Google. \\
+		\textbf{Precondición}         & Tener cuenta de Google si el usuario desea registrarse mediante Google. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a la página "\textit{Iniciar Sesión}".
+			\item El usuario selecciona a la opción "\textit{Registrarse}".
+			\item Opción 1: El usuario rellena el formulario introduciendo su nombre de usuario, correo electrónico y contraseña, repite la contraseña y selecciona el rol de usuario.
+			Pulsa el botón de "\textit{Enviar}".
+			\item Opción 2: El usuario pulsa el botón "\textit{Register With Google}".
+			Selecciona su cuenta de Google.
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  El registro del usuario tiene que estar autenticado en Firebase. \\
+		\textbf{Excepciones}          & 
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario ya exista en la base de datos (\textit{mensaje}).
+                \item Las contraseñas no coincidan (\textit{mensaje}).
+			\item La contraseña no sea válida (\textit{mensaje}).
+			\item El correo electrónico no sea válido (\textit{mensaje}).
+            \end{enumerate}\\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-2 Registro de usuarios.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-3}    & \textbf{Logout de usuarios}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF3 \\
+		\textbf{Descripción}          & Permite a un usuario cerrar sesión de la cuenta que tenga activa. \\
+		\textbf{Precondición}         & Estar con la sesión iniciada. \\
+		\textbf{Acciones}             & El usuario pulsa el botón "\textit{Cerrar Sesión}". \\
+		\textbf{Postcondición}        & -	\\
+		\textbf{Excepciones}          & -	\\
+		\textbf{Importancia}          & Baja \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-3 Logout de usuarios.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-4}    & \textbf{Gestión de usuarios}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF4 \\
+		\textbf{Descripción}          & Permite a un usuario con rol de administrador, modificar datos de las cuentas de usuario y eliminar usuarios. \\
+		\textbf{Precondición}         & El usuario debe estar registrado y tener permisos de administrador.\\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario administrador accede a la página pulsando su "\textit{Nombre de Usuario}".
+			\item Si el usuario administrador desea modificar los datos de un usuario, selecciona a la opción "\textit{Modificar}", cambia los datos deseados y pulsa en "\textit{Confirmar}".
+			\item Si el usuario administrador desea eliminar a un usuario, selecciona la opción "\textit{Eliminar}" (aparecerá una ventana emergente para confirmar la operación) y pulsa en "\textit{Confirmar}".
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  El usuario administrador, no puede modificar o eliminar la cuenta de otro usuario administrador. \\
+		\textbf{Importancia}          & Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-4 Gestión de usuarios.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-5}    & \textbf{Menú de la aplicación}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF5 \\
+		\textbf{Descripción}          & Permite al usuario navegar por las distintas funcionalidades que tiene la aplicación. \\
+		\textbf{Precondición}         & Para poder navegar por todas las funcionalidades es necesario visualizar la aplicación desde una pantalla mediana/grande. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario puede acceder al main pulsando "\textit{StatsGlowMind}".
+			\item El usuario puede acceder a las funcionalidades que contine el apartado NBA pulsando "\textit{NBA}".
+            \item El usuario puede acceder a las funcionalidades que contine el apartado Equipos pulsando "\textit{Equipos}".
+            \item El usuario puede acceder a las funcionalidades que contine el apartado Análisis pulsando "\textit{Análisis}".
+            \item El usuario puede acceder a las funcionalidades que contine el apartado Predicción "\textit{Predicción}".
+            \item El usuario puede acceder al inicio de sesión pulsando "\textit{Iniciar Sesión}".
+            \item El usuario puede cerrar sesión pulsando "\textit{Cerrar Sesión}".
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  Visualizar la aplicación en versión móvil, en este caso solo hay acceso al main, inicio de sesión y cerrar sesión. \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-5 Menú de la aplicación.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-6}    & \textbf{Main de la aplicación}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF6 \\
+		\textbf{Descripción}          & Permite al usuario acceder a todas las funcionalidades que tiene la aplicación de manera visual e intuitivo. \\
+		\textbf{Precondición}         & El usuario debe estar registrado para acceder a todas las funcionalidades. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario puede acceder a las funcionalidades del apartado NBA pulsando "\textit{NBA}".
+            \item El usuario puede acceder a las funcionalidades del apartado Equipos pulsando "\textit{Equipos}".
+            \item El usuario puede acceder a las funcionalidades del apartado Análisis pulsando "\textit{Análisis}".
+            \item El usuario puede acceder a las funcionalidades del apartado Predicción "\textit{Predicción}".
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  Un usuario invitado no puede acceder a todas las funcionalidades. \\
+		\textbf{Importancia}          & Media \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-6 Main de la aplicación.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-7}    & \textbf{Footer de la aplicación}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF7, RF7.1, RF7.2, RF7.3, RF7.4 \\
+		\textbf{Descripción}          & Permite al usuario acceder a información acerca de la aplicación. \\
+		\textbf{Precondición}         & - \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario puede acceder a la información del desarrollo de la aplicación.
+            \item El usuario puede acceder a la información del diseño de la aplicación.
+            \item El usuario puede acceder a la información acerca de la aplicación.
+            \item El usuario puede acceder a las redes sociales de la aplicación.
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  - \\
+		\textbf{Importancia}          & Baja \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-7 Footer de la aplicación.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-8}    & \textbf{Mostrar información en tiempo real}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF8, RF8.1, RF8.2, RF8.3, RF8.4 \\
+		\textbf{Descripción}          & Permite al usuario visualizar información y estadísticas detalladas sobre la actual temporada de la NBA, en tiempo real. \\
+		\textbf{Precondición}         & Tener acceso a la API. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+            \item El usuario accede a la página "\textit{NBA}".
+			\item El usuario puede visualizar la información y estadísticas de la clasificación pulsando en "\textit{Clasificación}".
+            \item El usuario puede visualizar la información de los playoffs pulsando en "\textit{Playoffs}".
+            \item El usuario puede visualizar la información de los partidos de la temporada pulsando en "\textit{Partidos}".
+            \item El usuario puede visualizar la información y estadísticas de los lideres de la liga pulsando en "\textit{Líderes}".
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  Se hayan consumido todas las peticiones a la API. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-8 Mostrar información en tiempo real.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-9}    & \textbf{Mostrar partidos}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF8.3 \\
+		\textbf{Descripción}          & Permite al usuario visualizar los partidos que se van a disputar y los que se han disputado, junto con sus resultados. \\
+		\textbf{Precondición}         & Tener acceso a la API. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a los partidos pulsando en "\textit{Partidos}".
+                \item El usuario visualiza los partidos jugados o por jugar de la fecha actual.
+                \item El usuario puede visualizar partidos jugados o por jugar de la fecha deseada, seleccionado la fecha en el calendario.
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  Se hayan consumido todas las peticiones a la API. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-9 Mostrar partidos.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-10}    & \textbf{Mostrar líderes}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF8.4 \\
+		\textbf{Descripción}          & Permite al usuario visualizar los líderes de la NBA junto con sus estadísticas. \\
+		\textbf{Precondición}         & Tener acceso a la API. \\
+		\textbf{Acciones}             &
+		\begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario accede a los líderes pulsando en "\textit{Líderes}".
+            \item El usuario visualiza los líderes en puntos por partido de la NBA.
+            \item El usuario puede visualizar líderes de otra categoría seleccionando la categoría deseada.
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  Se hayan consumido todas las peticiones a la API. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-10 Mostrar líderes.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-11}    & \textbf{Visualización de equipos}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF9 \\
+		\textbf{Descripción}          & Permite al usuario visualizar todos los equipos de la NBA \\
+		\textbf{Precondición}         & El usuario debe estar registrado. \\
+		\textbf{Acciones}             & El usuario accede a la página "\textit{Equipos}". \\
+		\textbf{Postcondición}        &  Tener acceso a la base de datos. \\
+		\textbf{Excepciones}          &  No cargue la base de datos. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-11 Visualización de equipos.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-12}    & \textbf{Estadísticas de equipos}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF9.1 \\
+		\textbf{Descripción}          & Permite al usuario visualizar mediante tablas, todas las estadísticas disponibles del equipo seleccionado. \\
+		\textbf{Precondición}         & El usuario debe estar registrado. \\
+		\textbf{Acciones}             & El usuario selecciona "\textit{Estadísticas}" del equipo deseado. \\
+		\textbf{Postcondición}        &  Tener acceso a la base de datos. \\
+		\textbf{Excepciones}          &  No cargue la base de datos. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-12 Estadísticas de equipos.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-13}    & \textbf{Jugadores del equipo}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF9.2 \\
+		\textbf{Descripción}          & Permite al usuario visualizar mediante una tabla, información general sobre todos los jugadores del equipo seleccionado. \\
+		\textbf{Precondición}         & El usuario debe estar registrado. \\
+		\textbf{Acciones}             & El usuario selecciona "\textit{Jugadores}" del equipo deseado. \\
+		\textbf{Postcondición}        &  Tener acceso a la base de datos. \\
+		\textbf{Excepciones}          &  No cargue la base de datos. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-13 Jugadores del equipo.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-14}    & \textbf{Mostrar jugadores}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF10, R10.1 \\
+		\textbf{Descripción}          & Permite al usuario visualizar mediante una tabla, todos los jugadores de la NBA y mediante cards los jugadores más destacados de la temporada. \\
+		\textbf{Precondición}         & El usuario debe estar registrado. \\
+		\textbf{Acciones}             & El usuario accede a la página "\textit{Análisis}". \\
+		\textbf{Postcondición}        &  Tener acceso a la base de datos. \\
+		\textbf{Excepciones}          &  No cargue la base de datos. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-14 Mostrar jugadores.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-15}    & \textbf{Gráficos y estadísticas del jugador}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF10, R10.2 \\
+		\textbf{Descripción}          & Permite al usuario visualizar mediante una tabla, las estadísticas medias de la temporada actual y analizar mediante gráficas de varios tipos las estadísticas del jugador. \\
+		\textbf{Precondición}         &  El usuario debe estar registrado. \\
+		\textbf{Acciones}             &  El usuario selecciona el jugador deseado. \\
+		\textbf{Postcondición}        &  
+            \begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item Tener acceso a la base de datos.
+                \item El jugador seleccionado debe haber jugado al menos un partido de la temporada.
+		\end{enumerate}\\
+		\textbf{Excepciones}          &  No cargue la base de datos. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-15 Gráficos y estadísticas del jugador.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-16}    & \textbf{Predicción de partidos}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF11 \\
+		\textbf{Descripción}          & Permite al usuario seleccionar dos equipos para enfrentarse en un futuro partido y recibir una predicción de dicho partido. \\
+		\textbf{Precondición}         &  El usuario debe estar registrado.\\
+		\textbf{Acciones}             &  
+            \begin{enumerate}
+			\def\labelenumi{\arabic{enumi}.}
+			\tightlist
+			\item El usuario pulsa en "\textit{Predicciones}".
+                \item El usuario selecciona los equipos deseados para el partido.
+                \item El usuario pulsa el botón "\textit{Predecir Partido}".
+		\end{enumerate}\\
+		\textbf{Postcondición}        &  Se deben seleccionar los dos equipos. \\
+		\textbf{Excepciones}          &  No cargue la función de Cloud Functions. \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-16 Predicción de partidos.}
+\end{table}
+
+\begin{table}[p]
+	\centering
+	\begin{tabularx}{\linewidth}{ p{0.21\columnwidth} p{0.71\columnwidth} }
+		\toprule
+		\textbf{CU-17}    & \textbf{Cambio de idioma}\\
+		\toprule
+		\textbf{Requisitos asociados} & RF12 \\
+		\textbf{Descripción}          & Permite al usuario cambiar el idioma a español o inglés.\\
+		\textbf{Precondición}         &  - \\
+		\textbf{Acciones}             &  El usuario selecciona el idioma deseado desde un selector (ubicado en el pie de página). \\
+		\textbf{Postcondición}        &  - \\
+		\textbf{Excepciones}          &  - \\
+		\textbf{Importancia}          &  Alta \\
+		\bottomrule
+	\end{tabularx}
+	\caption{CU-17 Cambio de idioma.}
+\end{table}
+
+\clearpage
+
+\subsection{Diagrama de casos de uso}
+
+\imagen{anexos/diagrams/diagrama_casos_uso}{Diagrama de Casos de Uso}{1}

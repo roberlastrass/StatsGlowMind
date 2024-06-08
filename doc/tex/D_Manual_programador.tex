@@ -1,0 +1,148 @@
+\apendice{Documentación técnica de programación}
+
+\section{Introducción}
+
+En este anexo se presenta la documentación técnica de programación del proyecto. Se detallará la estructura de directorios, el manual del programador y los requisitos necesarios para poder ejecutar el proyecto.
+
+\section{Estructura de directorios}
+
+Dentro del repositorio StatsGlowMind de GitHub \cite{github} se pueden observar 3 directorios principales:
+
+\begin{itemize}
+\tightlist
+    \item
+        \textbf{doc:} Directorio donde se encuentra toda la documentación de la memoria y los anexos del proyecto, junto con sus imágenes y bibliografías.
+    \item 
+        \textbf{predition\_model:} Directorio que contiene el código del desarrollo del modelo Random Forest para la predicción de partidos.
+    \item
+        \textbf{stats-glow-mind:} Directorio principal donde se halla toda la lógica, el desarrollo y la interfaz del proyecto.
+\end{itemize}
+
+A continuación, se va a describir más detalladamente el directorio principal del proyecto \textbf{stats-glow-mind}:
+\begin{itemize}
+\tightlist
+    \item
+        \textbf{functions:} Este directorio contiene la función desarrollada en Python \textit{predict} que realiza las predicciones de los partidos de la NBA.
+    \item 
+        \textbf{src:} Este directorio contiene el código fuente de la aplicación. Todo el desarrollo principal se lleva a cabo aquí.
+    \item
+        \textbf{src/app:} Contiene el núcleo de la aplicación, incluyendo componentes, servicios, módulos, el enrutamiento de la aplicación y modelos.
+    \item
+        \textbf{src/app/components:} Contiene todos los componentes reutilizables de la aplicación, cada componente tiene su lógica e interfaz.
+    \item
+        \textbf{src/app/material:} Contiene un módulo que importa todos los componentes de angular material usados en el proyecto.
+    \item
+        \textbf{src/app/models:} Contiene distintos modelos de datos utilizados en la aplicación.
+    \item
+        \textbf{src/app/services:} Contiene todos los servicios que encapsulan la lógica de la aplicación, como las interacciones con las APIs, la base de datos, autenticación de usuarios, \ldots
+    \item
+        \textbf{src/assets:} Contiene los recursos estáticos de la aplicación como imágenes, temas personalizados e internacionalización del proyecto.
+    \item
+        \textbf{src/assets/i18n:} Contiene los archivos de traducción de la aplicación, en español y en inglés.
+    \item
+        \textbf{src/assets/images:} Contiene todas las imágenes, íconos, logos y fondos de pantalla usados en la aplicación.
+    \item
+        \textbf{src/assets/theme:} Contiene un tema de angular material personalizado con la paleta de colores de la aplicación.
+    \item
+        \textbf{src/environments:} Contiene archivos de configuración de entorno para diferentes entornos (producción y desarrollo).
+\end{itemize}
+
+\hfill
+
+\section{Manual del programador}
+
+Este manual proporciona información detallada para los desarrolladores que deseen contribuir al proyecto, como el proceso de instalación, configuración, ejecución y despliegue.
+
+\subsection{Instalación de herramientas}
+
+Antes de empezar a montar el proyecto en local, es imprescindible contar con 3 herramientas que son necesarias instalar.
+
+\subsubsection{Visual Studio Code}
+Visual Studio Code (VS Code) es un editor de código fuente, es el que yo he utilizado para desarrollar el proyecto y el que recomiendo usar.
+
+Para instalar Visual Studio Code:
+\begin{enumerate}
+    \item Descarga Visual Studio Code desde su sitio web oficial: \url{https://code.visualstudio.com/}.
+    \item Ejecuta el instalador y sigue las instrucciones en pantalla para completar la instalación.
+    \item Una vez instalado, puedes abrir VS Code desde el menú de inicio o desde una terminal escribiendo \textit{code .} en el directorio que se desea editar.
+\end{enumerate}
+
+\subsubsection{Node.js y npm}
+Node.js es un entorno de ejecución para JavaScript en el lado del servidor, y npm es el gestor de paquetes de Node.js. Aunque no se usa directamente en este proyecto, npm es necesario para gestionar las dependencias de Angular.
+
+Para instalar Node.js y npm:
+\begin{enumerate}
+    \item Descarga el instalador de Node.js desde su sitio web oficial: \url{https://nodejs.org/en/download/package-manager}.
+    \item Ejecuta el instalador y sigue las instrucciones. Este instalador también instalará npm.
+    \item Abre una terminal y ejecuta los siguientes comandos para verificar la instalación:
+\end{enumerate}
+$$ \textit{node -v} $$
+$$ \textit{npm -v} $$
+
+\subsubsection{Python}
+Python es necesario en este proyecto para crear o modificar funciones de Cloud Functions (el backend del proyecto).
+
+Para instalar Python:
+\begin{enumerate}
+    \item Descarga el instalador de Python desde su sitio web oficial: \url{https://www.python.org/downloads/}.
+    \item Ejecuta el instalador y sigue las instrucciones de la instalación.
+    \item Para verificar la instalación, abre una terminal y ejecuta el comando:
+\end{enumerate}
+$$ \textit{python --version} $$
+
+
+\subsection{Clonar repositorio GitHub}
+
+El primer paso para poder montar el proyecto en local, es clonar el repositorio del proyecto subido a GitHub. Para ello abre la terminal del ordenador, navega al directorio donde se quiere clonar el repositorio y ejecuta los siguientes comandos:
+
+$$ \textit{git clone https://github.com/roberlastrass/StatsGlowMind.git} $$
+$$ \textit{cd StatsGlowMind} $$
+
+\subsection{Instalar las dependencias de Angular}
+
+Dentro del directorio del proyecto, navega al directorio principal \textbf{stats-glow-mind} e instala las dependencias de angular utilizando npm, instalado anteriormente. Los comandos necesarios son los siguientes:
+
+$$ \textit{cd stats-glow-mind} $$
+$$ \textit{npm install} $$
+
+Asegúrate de tener la última versión de Angular CLI ejecutando: \textit{npm install -g @angular/cli}
+
+\subsection{Instalar las dependencias de Python}
+
+También es necesario instalar las dependencias de Python, para ello, dentro del directorio principal del proyecto \textbf{stats-glow-mind}, navega al directorio donde se encuentran las funciones backend del proyecto \textbf{functions} e instala las dependencias que se encuentra en \textit{requirements.txt}, asegúrate de estar en un entorno virtual:
+
+$$ \textit{cd functions} $$
+$$ \textit{python -m venv env} $$
+$$ \textit{.\text{\textbackslash}env\text{\textbackslash}Scripts\text{\textbackslash}activate} $$
+$$ \textit{pip install -r requirements.txt} $$
+
+\subsection{Inicializar Firebase}
+
+Para inicializar firebase en un proyecto existente, lo primero es instalar Firebase CLI (si aún no está instalado) con este comando:
+$$ \textit{npm install -g firebase-tools} $$
+
+Después inicializar Firebase en el proyecto, iniciando sesión antes, los comandos utilizados para realizar esto son los siguientes, desde el directorio principal del proyecto \textbf{stats-glow-mind}:
+$$ \textit{firebase login} $$
+$$ \textit{firebase init} $$
+
+Con esto, seleccionas tu proyecto Firebase y lo configuras a tu manera, agregando la configuración en los diferentes entornos de \textit{environments} y añadiendo tus claves y credenciales de Firebase.
+
+\subsection{Despliegue de funciones en la nube}
+
+Cuando se ha creado una función nueva o se ha modificado una existente, el comando para poder subir estos cambios a Cloud Functions es:
+$$ \textit{firebase deploy --only functions} $$
+
+\subsection{Ejecución del proyecto en local}
+
+Una vez realizado este proceso, el proyecto se puede ejecutar en local para observar los cambios realizados y comprobar su funcionamiento, con uno de estos dos comandos, desde el directorio principal del proyecto \textbf{stats-glow-mind}:
+$$ \textit{ng serve} $$ $$ \textit{npm run start} $$
+
+Con esto, el proyecto se compilará y lo ejecutará localmente en la ruta: \url{http://localhost:4200/}
+
+\subsection{Despliegue de la aplicación}
+
+Finalmente, cuando se ha terminado de configurar y probar el funcionamiento de la aplicación localmente, se puede desplegar la aplicación utilizando Firebase Hosting escribiendo el siguiente comando desde el directorio principal del proyecto \textbf{stats-glow-mind}:
+$$ \textit{firebase deploy --only hosting} $$
+
+Esto desplegará la aplicación en Firebase Hosting y te proporcionará una URL donde puedes acceder a tu aplicación en la web. En este caso la URL de la aplicación es: 
+\url{https://statsglowmindtfg.web.app/}

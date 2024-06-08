@@ -1,0 +1,244 @@
+\capitulo{4}{Técnicas y herramientas}
+
+
+\section{Angular}
+Angular \cite{angular} es un potente framework de JavaScript ideal para construir aplicaciones frontend modernas de nivel medio o alto. Especializado en aplicaciones de una sola página (SPA) y aplicaciones web progresivas (PWA), ofrece una sólida base para desarrollar aplicaciones escalables y optimizadas, fomentando las mejores prácticas y un estilo de codificación modular y coherente.
+
+El desarrollo en Angular se realiza utilizando TypeScript, un superset de JavaScript que ofrece ventajas adicionales como tipado estático y decoradores, aunque es posible desarrollar con JavaScript siguiendo las guías y recomendaciones de la comunidad.
+
+He usado este framework en este proyecto por todas las características que nos ofrece y porque considero que es uno de los mejores frameworks para el desarrollo de aplicaciones web. Para generar mi proyecto Angular se ha necesitado Angular CLI.
+
+
+\subsection{Angular CLI}
+Angular CLI \cite{cli} es una herramienta fundamental dentro del ecosistema de Angular. Es una interfaz de línea de comandos (Command Line Interface, CLI) proporcionada por el equipo de Angular para facilitar el desarrollo de aplicaciones con este framework.
+
+Esta herramienta facilita el proceso de inicio de cualquier aplicación Angular al generar rápidamente la estructura básica de archivos y carpetas necesarios, junto con numerosas herramientas configuradas. Durante el desarrollo, Angular CLI ayuda en la creación de componentes y ofrece asistencia en diversas tareas. También es útil en etapas de producción y pruebas, facilitando la preparación de archivos para el servidor.
+
+Para instalar Angular CLI, se requiere tener NodeJS en el sistema operativo. Angular CLI se instala a través de npm, el gestor de paquetes de NodeJS.
+
+
+\section{Firebase}
+Firebase \cite{firebase} es una plataforma en la nube (de Google), que está diseñada para facilitar el proceso de creación, desarrollo y gestión de aplicaciones web y móviles.
+
+Una de las principales ventajas de Firebase es su capacidad para trabajar con diferentes plataformas, incluyendo iOS, Android y web, lo que proporciona a los desarrolladores una mayor flexibilidad y eficiencia en el desarrollo de aplicaciones multiplataforma. Esto significa que los desarrolladores pueden utilizar las mismas herramientas y servicios para construir y gestionar aplicaciones para diferentes sistemas operativos, lo que reduce significativamente el tiempo y los recursos necesarios para el desarrollo.
+
+Firebase ofrece una amplia gama de herramientas y servicios, que simplifican y aceleran el proceso de desarrollo de aplicaciones, por esto lo he usado en mi aplicación. Entre estas herramientas, se han utilizado las siguientes:
+
+\subsection{Authentication}
+Firebase ofrece un sistema de autenticación de usuarios seguro y fácil de usar que permite a los desarrolladores gestionar la identidad de los usuarios de la aplicación. Los desarrolladores pueden permitir que los usuarios se autentiquen utilizando diferentes métodos, como correo electrónico y contraseña, redes sociales (como Google, Facebook y Twitter) o números de teléfono.
+
+\subsection{Firestore}
+Cloud Firestore \cite{firestore} es una base de datos NoSQL en la nube que destaca por su flexibilidad y escalabilidad. Permite almacenar y sincronizar datos de forma eficiente para aplicaciones en clientes, servidores y dispositivos móviles.
+
+\subsection{Hosting}
+Firebase ofrece un servicio de hosting que permite a los desarrolladores alojar sus aplicaciones web de forma rápida y sencilla. Firebase proporciona certificados de seguridad SSL y HTTP2 de forma automática y gratuita para cada dominio, lo que garantiza la seguridad de las aplicaciones alojadas en su plataforma.
+
+\subsection{Storage}
+Cloud Storage \cite{storage} para Firebase es un servicio de almacenamiento de objetos que utiliza la infraestructura rápida y segura de Google Cloud, ideal para desarrolladores de apps que necesitan almacenar y entregar contenido generado por usuarios, como fotos y videos. En mi caso, almaceno mis archivos csv y mi modelo random forest.
+
+\subsection{Cloud Functions}
+Google Cloud Functions \cite{cloud_functions} es la solución de Google para el procesamiento sin servidores, ideal para crear aplicaciones controladas por eventos. Desarrollado conjuntamente por los equipos de Google Cloud Platform (GCP) y Firebase, permite a los desarrolladores conectar lógicas de diferentes servicios de GCP mediante la detección y respuesta a eventos.
+
+Para desarrolladores de Firebase, Cloud Functions para Firebase ofrece una forma de extender e integrar el comportamiento del producto con código del servidor, proporcionando ejecución rápida y confiable en un entorno completamente administrado, sin necesidad de gestionar servidores o infraestructura.
+
+Esta funcionalidad de firebase la he implementado en mi proyecto con un uso de backend, en el que realizo en lenguaje Python, las predicciones de partidos.
+
+\clearpage
+
+\section{TypeScript}
+TypeScript \cite{typescript} es un lenguaje que compila a JavaScript, ampliando sus capacidades y herramientas, lo que lo convierte en un "superset" de JavaScript. Diseñado para el desarrollo de aplicaciones robustas, destaca por detectar tempranamente problemas comunes durante el desarrollo de sitios web.
+
+Una de sus características más destacadas es la incorporación de tipos de datos estáticos, lo que permite una tipificación opcional pero recomendada, a diferencia de JavaScript, que carece de tipado estático. Esto convierte a TypeScript en un lenguaje fuertemente tipado, similar a lenguajes empresariales como Java o C\#.
+
+Además de la tipificación estática, TypeScript ofrece otras utilidades como genéricos y decoradores, presentes en lenguajes de programación avanzados. En conjunto, estas características convierten a TypeScript en una herramienta sólida que mejora la experiencia de los desarrolladores en su trabajo diario, dotando a JavaScript de características que lo acercan a lenguajes más avanzados.
+
+\hfill
+
+\section{HTML y CSS}
+HTML y CSS son complementarios, ya que uno define el contenido y el otro la presentación. En la actualidad, el uso conjunto de ambos es fundamental para crear páginas web visualmente atractivas y funcionales.
+
+\subsection{HTML}
+HTML \cite{html} (Hypertext Markup Language), es el lenguaje fundamental utilizado para crear páginas web. Se basa en etiquetas o marcas que definen el contenido de una página web, incluyendo elementos como encabezados, párrafos, enlaces, etc.
+
+\subsection{CSS}
+CSS \cite{css} (Cascading Style Sheets, Hojas de estilo en cascada), es un lenguaje esencial para el diseño web, utilizado para definir la apariencia y el estilo de los elementos en una página web. Junto con HTML, que define el contenido, CSS permite controlar la presentación visual, incluyendo aspectos como la disposición, forma, espaciado y color de los elementos.
+
+
+\section{Visual Studio Code}
+Visual Studio Code \cite{vscode} (VS Code) es un popular editor de código desarrollado por Microsoft, que se destaca por su versatilidad y potencia. Es de código abierto y está disponible para Windows, GNU/Linux y macOS. Este editor cuenta con una integración sólida con Git, soporte para depuración de código y una amplia variedad de extensiones que permiten escribir y ejecutar código en diversos lenguajes de programación.
+
+Considerado como el entorno de desarrollo más utilizado según una encuesta realizada por Stack Overflow en mayo de 2021, con un impresionante 71.06\% de adopción, VS Code ofrece una serie de características que lo hacen tan popular entre los desarrolladores.
+
+Entre las características destacadas de Visual Studio Code se encuentran:
+\begin{itemize}
+\tightlist
+    \item
+         \textbf{Multiplataforma:} Disponible en Windows, GNU/Linux y macOS, lo que lo hace accesible para una amplia gama de usuarios.
+    \item 
+        \textbf{IntelliSense:} Proporciona sugerencias de código inteligentes y completado automático, lo que agiliza la escritura del código.
+    \item 
+        \textbf{Depuración:} Permite detectar y corregir errores en el código de manera eficiente, lo que facilita el proceso de desarrollo.
+    \item 
+        \textbf{Control de versiones:} Compatible con Git, lo que facilita la gestión de cambios en el código y la colaboración en proyectos.
+    \item 
+        \textbf{Extensiones:} Ofrece una gran variedad de extensiones que permiten personalizar el editor y agregar funcionalidades adicionales, como soporte para diferentes lenguajes de programación, temas personalizados y conexiones con otros servicios.
+\end{itemize}
+
+He utilizado Visual Studio Code en mi proyecto debido a su eficiencia, amplia gama de extensiones y excelente integración con herramientas como Git, lo que ha mejorado mi productividad y facilitado el desarrollo.
+
+
+\section{Bootstrap}
+Bootstrap \cite{bootstrap} es una biblioteca de herramientas de código abierto diseñada para facilitar el desarrollo de sitios y aplicaciones web. Utilizando HTML y CSS como base, Bootstrap proporciona una amplia gama de elementos de diseño, como formularios, botones y menús, que se adaptan a diferentes dispositivos y tamaños de pantalla.
+
+Aunque se utiliza principalmente para el desarrollo web con HTML, CSS y JavaScript, Bootstrap a menudo se conoce como un "marco CSS", ya que su enfoque simplifica el diseño y la implementación. Esto hace que sea común encontrar código escrito en CSS al utilizar Bootstrap, además de una amplia biblioteca en este lenguaje.
+
+Gracias a su capacidad para simplificar y acelerar el desarrollo de sitios web responsivos, Bootstrap se ha convertido en una herramienta popular entre desarrolladores front-end y profesionales del diseño web. Por esto mismo decidí incorporar Bootstrap en mi proyecto.
+
+\hfill
+
+\section{Angular Material}
+Angular Material \cite{material} es un módulo de Angular que simplifica el desarrollo de aplicaciones web al ofrecer una amplia gama de componentes de interfaz de usuario predefinidos. Este módulo está diseñado para permitir la creación rápida y sencilla de aplicaciones visualmente atractivas. Se basa en Material Design, un estándar de diseño desarrollado por Google en 2014, que se centra en la creación de interfaces consistentes y atractivas.
+
+He integrado Angular Material en mi proyecto de Angular porque proporciona varias ventajas significativas como:
+\begin{itemize}
+    \item
+        Ofrece diseños predefinidos que pueden implementarse fácilmente, lo que ahorra tiempo en el proceso de diseño.
+    \item 
+        Al estar integrado de forma nativa con Angular, su uso es intuitivo y se adapta perfectamente a las funcionalidades del framework.
+    \item 
+        Angular Material incluye formularios con validación incorporada, lo que simplifica el desarrollo y garantiza la integridad de los datos.
+\end{itemize}
+
+\clearpage
+
+\section{Chart.js}
+Chart.js \cite{chartjs} es una biblioteca de código abierto en JavaScript que destaca por su facilidad de uso y es perfecta para representar datos en forma de gráficos, como barras, circulares o líneas. Es ideal para aquellos que tienen conocimientos básicos de JavaScript y HTML.
+
+Chart.js ofrece las siguientes ventajas:
+\begin{itemize}
+\tightlist
+    \item
+        Es de código abierto.
+    \item 
+        No necesita ninguna dependencia externa ni librería adicional, solo JavaScript y HTML.
+    \item 
+        Se puede integrar fácilmente con cualquier framework, como Angular, Vue o React.
+    \item 
+        Cuenta con una gran comunidad de usuarios, soporte y una documentación completa.
+    \item 
+        Su uso no requiere de conocimientos avanzados.
+\end{itemize}
+
+Decidí implementar Chart.js por todas sus ventajas y lo he utilizado para mostrar gráficamente los análisis de las estadísticas de los jugadores y las probabilidades que un equipo tiene de ganar contra otro equipo de la NBA.
+
+\hfill
+
+\section{GitHub}
+GitHub \cite{github} es una plataforma en la nube que alberga un sistema de control de versiones (VCS) llamado Git. Este sistema permite a los desarrolladores colaborar y realizar cambios en proyectos compartidos, mientras registran detalladamente su progreso.
+
+\subsection{Control de versiones}
+El control de versiones es una herramienta esencial que ayuda a rastrear y gestionar los cambios realizados en un archivo o conjunto de archivos. Es utilizado principalmente por ingenieros de software para controlar el código fuente, permitiéndoles analizar y revertir cambios sin consecuencias graves.
+
+\subsection{Git}
+Git es un sistema de control de versiones distribuido y de código abierto, ampliamente utilizado en todo el mundo. Permite a los miembros del equipo gestionar el código fuente y su historial de cambios de forma independiente, utilizando herramientas de línea de comandos. 
+Git ofrece la funcionalidad de ramas de características, que permiten a los desarrolladores trabajar en su propio repositorio local aislado del código antes de fusionar los cambios con la rama principal del proyecto.
+
+Antes de comenzar el proyecto, decidí utilizar GitHub como plataforma para registrar mis avances en un repositorio remoto.
+
+\hfill
+
+\section{Trello}
+Trello \cite{trello} es una herramienta de gestión de proyectos diseñada para facilitar la colaboración y el seguimiento de tareas de manera visual y colectiva. Esta plataforma está diseñada para simplificar la organización de información y tareas para equipos de trabajo.
+
+Su función principal es proporcionar una interfaz intuitiva que permite a los usuarios acceder y organizar la información relacionada con proyectos, planes de trabajo y metas. Algunas de sus características clave incluyen:
+\begin{itemize}
+\tightlist
+    \item
+        Organización visual de la información para una mejor comprensión.
+    \item 
+        Gestión de tareas, tanto pequeñas como grandes, de manera eficiente.
+    \item 
+        Herramientas creativas, como la lluvia de ideas, para fomentar la colaboración.
+    \item 
+        Ayuda en la definición y seguimiento de objetivos y planes de trabajo.
+    \item 
+        Seguimiento del progreso en la realización de un plan.
+    \item 
+        Acceso compartido a los planes de trabajo para diferentes usuarios.
+\end{itemize}
+
+He utilizado la herramienta Trello por todas sus características y su diseño visual e intuitivo, que me facilita la gestión del proyecto.
+
+\clearpage
+
+\section{Zotero}
+Zotero \cite{zotero} es un gestor de referencias bibliográficas multiplataforma, libre, abierto y gratuito desarrollado por el Corporation for Digital Scholarship y el Roy Rosenzweig Center for History and New Media. Su propósito es simplificar la recopilación y administración de recursos para investigaciones.
+
+Esta herramienta me ha ayudado para gestionar todas las referencias bibliográficas que he consultado durante la documentación del proyecto y la investigación de ciertos conceptos y dudas al desarrollar la aplicación web.
+
+\hfill
+
+\section{LaTeX}
+LaTeX \cite{latex} es una poderosa herramienta utilizada para crear documentos profesionales con una presentación impecable. A diferencia de los procesadores de texto tradicionales como Word o Libre Office, LaTeX funciona de manera única: utiliza comandos para formatear contenidos complejos, especialmente aquellos relacionados con las matemáticas, como fracciones, subíndices, matrices y derivadas.
+
+Este sistema, pronunciado como "lah-tech" o "lay-tech", permite una amplia gama de aplicaciones. Los documentos en LaTeX son archivos de texto sin formato que incluyen comandos LaTeX para expresar la estructura y el formato del documento.
+
+\subsection{Overleaf}
+Overleaf \cite{overleaf} es una herramienta online de publicación y redacción colaborativa en línea que hace que todo el proceso de redacción, edición y publicación de documentos científicos sea mucho más rápido y sencillo. Overleaf ofrece la comodidad de un editor LaTeX fácil de usar con colaboración en tiempo real y la salida completamente compilada que se produce automáticamente en segundo plano mientras escribe.
+
+Decidí utilizar LaTeX como editor de texto por la profesionalidad que aporta a la documentación del proyecto y Overleaf como herramienta de edición por su comodidad y facilidad de uso.
+
+\clearpage
+
+\section{RapidAPI}
+RapidAPI \cite{rapidapi} es una plataforma que facilita la conexión entre desarrolladores y proveedores de servicios web (APIs). Permite a los desarrolladores descubrir, utilizar y gestionar una amplia gama de APIs de forma centralizada.
+
+Los desarrolladores pueden encontrar y acceder a APIs de diferentes proveedores, lo que les permite integrar diversas funcionalidades y datos en sus aplicaciones de manera rápida y sencilla. RapidAPI ofrece una variedad de herramientas para simplificar el proceso de desarrollo, incluyendo documentación detallada, pruebas en línea, generación de código y análisis de uso. Además, proporciona características para administrar suscripciones, facturación y seguridad de las APIs utilizadas.
+
+Tras investigar durante bastante tiempo plataformas para acceder a APIs, llegué a la conclusión de que esta herramienta es la mejor, por su amplia variedad de APIs y por su forma rápida y sencilla de utilizarlas.
+
+\hfill
+
+\section{Microsoft Copilot}
+Microsoft Copilot \cite{copilot} es una innovadora herramienta de chat desarrollada por Microsoft que aprovecha la inteligencia artificial para sostener conversaciones. Este asistente virtual está siempre conectado a internet, lo que le permite proporcionar información actualizada y referencias web relevantes en respuesta a consultas.
+
+Una de las características más destacadas de Microsoft Copilot es su integración con DALL-E3, una IA generativa capaz de crear imágenes a partir de texto. Además, al igual que Gemini de Google, Copilot se integra en varias herramientas de Microsoft 365, como Outlook, Excel, Word y PowerPoint, lo que permite aprovechar la IA en diversas tareas y aplicaciones de productividad.
+
+Gracias a esta herramienta pude hacer realidad el logotipo que tenia en mente para la aplicación StatsGlowMind, por su capacidad de creación de imágenes a partir de un texto.
+
+
+\section{Canva}
+Canva \cite{canva} es una plataforma de diseño gráfico y composición de imágenes que se lanzó en 2012. Ofrece herramientas en línea para crear diseños personalizados, tanto para uso personal como profesional. Utiliza un modelo freemium, lo que significa que puedes acceder de forma gratuita a sus servicios básicos, pero también ofrece opciones avanzadas mediante suscripción.
+
+Puedes crear una variedad de diseños, incluyendo logos, posters, tarjetas de visita, flyers, portadas, invitaciones, folletos, calendarios, encabezados para correos electrónicos y publicaciones para redes sociales, entre otros.
+
+En esta plataforma he realizado el diseño del nombre de la aplicación StatsGlowMind.
+
+\section{Flaticon}
+Flaticon \cite{flaticon} es una destacada fuente de iconos en Internet, conocida por su calidad y variedad. Su modelo de negocio freemium ofrece una licencia gratuita que permite usar una gran cantidad de iconos en proyectos, siempre y cuando se atribuya al autor en el proyecto final. Esta opción resulta atractiva para los creadores de sitios web, ya que proporciona acceso a una amplia gama de iconos sin coste alguno.
+
+Para los iconos de la aplicación he utilizado esta herramienta que cuenta con una gran variedad de iconos.
+
+\section{Freepik}
+Freepik \cite{freepik} es un buscador que ofrece más de 10 millones de recursos gráficos de alta calidad, incluyendo fotos, vectores, ilustraciones y archivos PSD. Esta plataforma te permite encontrar fácilmente contenido gráfico para tus proyectos creativos, tanto personales como profesionales. Además, Freepik facilita la edición de estas creaciones, ya que muchos elementos están disponibles en formatos compatibles con Adobe Illustrator, lo que permite a los diseñadores personalizarlos según la imagen de marca de su empresa.
+
+Para las imágenes que componen el main de la aplicación utilicé este buscador.
+
+
+\section{Draw.io}
+
+Draw.io \cite{drawio} es un software gratuito para la creación y edición de diagramas, disponible tanto offline como online a través de un navegador web. Ofrece integración con diversas plataformas y programas.
+
+He usado esta herramienta para generar todos los diagramas de la documentación de los anexos.
+
+\section{Figma}
+
+Figma \cite{figma} es una herramienta de diseño de interfaces dirigida a diseñadores web, UX y UI, ideal para crear sitios web y aplicaciones. Destaca por ser una alternativa completa y accesible a programas como Sketch, con funciones avanzadas y multiplataforma.
+
+Esta herramienta me ayudó a generar el prototipo de la interfaz de la aplicación.
+
+\section{Postman}
+
+Postman \cite{postman} es una herramienta de colaboración y desarrollo diseñada para que los desarrolladores interactúen y prueben servicios web y aplicaciones. Ofrece una interfaz gráfica intuitiva que facilita el envío de solicitudes a servidores web y la recepción de las respuestas correspondientes.
+
+Con esta herramienta pude realizar las pruebas de petición POST a mi función \textit{predict} de Cloud Functions y comprobar su correcto funcionamiento.
