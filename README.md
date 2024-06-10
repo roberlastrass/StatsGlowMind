@@ -62,6 +62,12 @@ Para el diseño de la aplicación web se ha utilizado:
 * **Chart.js**: Librería de JavaScript que sirve para representar datos en forma de gráficos de barras, circulares o líneas.
 * **Flaticon**: Fuente de iconos en Internet, donde se han obtenido los iconos de la aplicación.
 
+## Funcionamiento de la aplicación:
+
+A continuación, se muestra un vídeo explicativo sobre el funcionamiento de la aplicación [StatsGlowMind](https://statsglowmindtfg.web.app/):
+
+[![Vídeo StatsGlowMind](https://i9.ytimg.com/vi_webp/altIjLMnB2c/mq1.webp?sqp=CIiJnLMG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYACsAWKAgwIABABGFYgXyhlMA8=&rs=AOn4CLBqPBRflVMvevHJ0MC6rwFc7-67_A)](https://www.youtube.com/watch?v=altIjLMnB2c)
+
 ## Contacto:
 
 Puedes contactar conmigo para cualquier consulta acerca de la aplicación StatsGlowMind a través de correo electrónico: ```rls1004@alu.ubu.es```
